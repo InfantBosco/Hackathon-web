@@ -11,6 +11,7 @@ export interface ParticipantInput {
   yearOfStudy: string;
   linkedinUrl?: string;
   foodPreference: FoodPreference;
+  isCaptain?: boolean;
 }
 
 export interface CreateTeamInput {
@@ -24,12 +25,14 @@ export interface AddMemberInput extends ParticipantInput {
 }
 
 export interface RegistrationSummary {
+  id?: string;
   registrationId: string;
   status: string;
   team: {
     id: string;
     name: string;
     status: string;
+    participants?: ParticipantInput[];
   };
   participantCount: number;
   feeSummary: {
@@ -39,6 +42,7 @@ export interface RegistrationSummary {
   };
   submittedAt: string;
   confirmedAt?: string | null;
+  payments?: any[];
 }
 
 export const registrationService = {
@@ -64,6 +68,11 @@ export const registrationService = {
     const response = await api.get(`/registrations/${registrationId}`, {
       params: { requesterUserId },
     });
+    return response.data.data;
+  },
+
+  async getUserRegistration(userId: string): Promise<RegistrationSummary | null> {
+    const response = await api.get(`/registrations/user/${userId}`);
     return response.data.data;
   },
 

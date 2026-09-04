@@ -25,6 +25,18 @@ export async function registrationsRoutes(fastify: FastifyInstance) {
     return reply.status(201).send(formatSuccessResponse(registration));
   });
 
+  // GET /api/v1/registrations/user/:userId - Get registration summary by captain user ID
+  fastify.get('/user/:userId', {
+    schema: {
+      tags: ['Registrations'],
+      summary: 'Get active team registration summary for captain user ID',
+    },
+  }, async (request, reply) => {
+    const { userId } = request.params as { userId: string };
+    const summary = await registrationService.getRegistrationByUserId(userId);
+    return reply.send(formatSuccessResponse(summary));
+  });
+
   // GET /api/v1/registrations/:id - Get registration summary
   fastify.get('/:id', {
     schema: {

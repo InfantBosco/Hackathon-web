@@ -185,4 +185,26 @@ export class PaymentService {
 
     return { payment: result, isConfirmed: true };
   }
+
+  /**
+   * Get Payment details & status by Payment ID
+   */
+  public async getPaymentStatus(paymentId: string) {
+    const payment = await this.prisma.payment.findUnique({
+      where: { id: paymentId },
+      include: {
+        registration: {
+          include: {
+            team: true,
+          },
+        },
+      },
+    });
+
+    if (!payment) {
+      throw new NotFoundError(`Payment record not found with ID ${paymentId}`);
+    }
+
+    return payment;
+  }
 }

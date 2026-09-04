@@ -48,6 +48,18 @@ export async function paymentsRoutes(fastify: FastifyInstance) {
     return reply.send(formatSuccessResponse(result));
   });
 
+  // GET /api/v1/payments/:id/status - Get payment status
+  fastify.get('/:id/status', {
+    schema: {
+      tags: ['Payments'],
+      summary: 'Get payment status by payment ID',
+    },
+  }, async (request, reply) => {
+    const { id } = request.params as { id: string };
+    const payment = await paymentService.getPaymentStatus(id);
+    return reply.send(formatSuccessResponse(payment));
+  });
+
   // POST /api/v1/payments/webhook/karunya - Karunya payment webhook callback
   fastify.post('/webhook/karunya', {
     schema: {

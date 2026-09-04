@@ -37,11 +37,20 @@ export const RegistrationWizardPage: React.FC = () => {
 
   const [stepErrors, setStepErrors] = useState<Record<string, string>>({});
 
+  const {
+    fetchUserRegistration,
+  } = useRegistrationStore();
+
   useEffect(() => {
     if (user) {
       initCaptainFromUser(user);
+      fetchUserRegistration(user.id).then((existingReg) => {
+        if (existingReg) {
+          navigate('/registration/status', { replace: true });
+        }
+      });
     }
-  }, [user, initCaptainFromUser]);
+  }, [user, initCaptainFromUser, fetchUserRegistration, navigate]);
 
   // Email format regex & phone validation helper
   const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());

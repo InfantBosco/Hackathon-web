@@ -90,7 +90,7 @@ export class RegistrationService {
   }
 
   /**
-   * Get registration summary for team captain
+   * Get registration summary for team captain by registration ID
    */
   public async getRegistrationSummary(registrationId: string, requesterUserId: string) {
     const registration = await this.prisma.registration.findUnique({
@@ -117,12 +117,14 @@ export class RegistrationService {
     const totalFee = ValidationService.calculateRegistrationFee(participantCount);
 
     return {
+      id: registration.id,
       registrationId: registration.registrationId,
       status: registration.status,
       team: {
         id: registration.team.id,
         name: registration.team.teamName,
         status: registration.team.status,
+        participants: registration.team.participants,
       },
       participantCount,
       feeSummary: {
@@ -134,5 +136,23 @@ export class RegistrationService {
       confirmedAt: registration.confirmedAt,
       payments: registration.payments,
     };
+  }
+
+  /**
+   * Get active team registration summary for a user (captain)
+   */
+  public async getRegistrationByUserId(userId: string) {
+    const team = await this.prisma.team.findUnique({
+      where: { captainUserId: userId },
+      include: {
+        registration: true,
+      },
+    });
+
+    if (!team || !team.registration) {
+      return null;
+    }
+
+    return this.getRegistrationSummary(team.registration.registrationId, userId);
   }
 }

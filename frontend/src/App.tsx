@@ -8,6 +8,9 @@ import { ForgotPasswordPage } from './pages/ForgotPasswordPage';
 import { ResetPasswordPage } from './pages/ResetPasswordPage';
 import { SessionExpiredPage } from './pages/SessionExpiredPage';
 import { RegistrationWizardPage } from './pages/RegistrationWizardPage';
+import { RegistrationStatusPage } from './pages/RegistrationStatusPage';
+import { PaymentPage } from './pages/PaymentPage';
+import { RegistrationConfirmedPage } from './pages/RegistrationConfirmedPage';
 import { ComponentShowcase } from './pages/ComponentShowcase';
 import { LoadingScreen } from './components/loading/LoadingScreen';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
@@ -46,12 +49,36 @@ export function App() {
           <Route path="/session-expired" element={<SessionExpiredPage />} />
           <Route path="/showcase" element={<ComponentShowcase />} />
 
-          {/* Protected Registration Wizard Entry Point */}
+          {/* Protected Registration & Payment Routes */}
           <Route
             path="/register"
             element={
               <ProtectedRoute>
                 <RegistrationWizardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/registration/status"
+            element={
+              <ProtectedRoute>
+                <RegistrationStatusPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/payment/:registrationId"
+            element={
+              <ProtectedRoute>
+                <PaymentPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/registration/confirmed"
+            element={
+              <ProtectedRoute>
+                <RegistrationConfirmedPage />
               </ProtectedRoute>
             }
           />

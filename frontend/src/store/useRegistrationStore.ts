@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { registrationService, ParticipantInput, RegistrationSummary } from '../services/registrationService';
+import { paymentService, PaymentRecord } from '../services/paymentService';
 
 export interface FormErrors {
   [key: string]: string;
@@ -17,6 +18,8 @@ export interface RegistrationWizardState {
   error: string | null;
   submittedRegistration: RegistrationSummary | null;
   submittedTeamId: string | null;
+  activeRegistration: RegistrationSummary | null;
+  activePayment: PaymentRecord | null;
 
   // Actions
   setStep: (step: number) => void;
@@ -28,6 +31,10 @@ export interface RegistrationWizardState {
   initCaptainFromUser: (user: { name?: string; email: string }) => void;
   resetForm: () => void;
   submitFullRegistration: (userId: string) => Promise<RegistrationSummary>;
+  fetchUserRegistration: (userId: string) => Promise<RegistrationSummary | null>;
+  initiatePaymentForActiveRegistration: (userId: string) => Promise<PaymentRecord>;
+  verifyPaymentForActiveRegistration: (paymentId: string, transactionId: string) => Promise<void>;
+  refreshRegistrationSummary: (registrationId: string, userId: string) => Promise<RegistrationSummary>;
 }
 
 const defaultParticipant = (initialName = '', initialEmail = ''): ParticipantInput => ({
@@ -53,6 +60,8 @@ export const useRegistrationStore = create<RegistrationWizardState>((set, get) =
   error: null,
   submittedRegistration: null,
   submittedTeamId: null,
+  activeRegistration: null,
+  activePayment: null,
 
   setStep: (step) => set({ currentStep: step, error: null }),
 
@@ -100,6 +109,8 @@ export const useRegistrationStore = create<RegistrationWizardState>((set, get) =
       error: null,
       submittedRegistration: null,
       submittedTeamId: null,
+      activeRegistration: null,
+      activePayment: null,
     }),
 
   submitFullRegistration: async (userId: string) => {
@@ -143,6 +154,7 @@ export const useRegistrationStore = create<RegistrationWizardState>((set, get) =
         isSubmitting: false,
         submittedTeamId: teamId,
         submittedRegistration: summary,
+        activeRegistration: summary,
         currentStep: 7, // Transition to Payment Boundary Handoff view
       });
 
@@ -151,6 +163,58 @@ export const useRegistrationStore = create<RegistrationWizardState>((set, get) =
       const msg = err.message || 'Registration failed. Please check member details and try again.';
       set({ isSubmitting: false, error: msg });
       throw new Error(msg);
+    }
+  },
+
+  fetchUserRegistration: async (userId: string) => {
+    try {
+      const summary = await registrationService.getUserRegistration(userId);
+      set({ activeRegistration: summary });
+      return summary;
+    } catch {
+      set({ activeRegistration: null });
+      return null;
+    }
+  },
+
+  refreshRegistrationSummary: async (registrationId: string, userId: string) => {
+    const summary = await registrationService.getRegistrationSummary(registrationId, userId);
+    set({ activeRegistration: summary, submittedRegistration: summary });
+    return summary;
+  },
+
+  initiatePaymentForActiveRegistration: async (userId: string) => {
+    const { activeRegistration, submittedRegistration } = get();
+    const reg = activeRegistration || submittedRegistration;
+    if (!reg) throw new Error('No active registration found');
+
+    set({ isSubmitting: true, error: null });
+    try {
+      const payment = await paymentService.initiatePayment({
+        registrationId: reg.registrationId,
+        requesterUserId: userId,
+        provider: 'KARUNYA',
+      });
+      set({ activePayment: payment, isSubmitting: false });
+      return payment;
+    } catch (err: any) {
+      set({ isSubmitting: false, error: err.message || 'Failed to initiate payment.' });
+      throw err;
+    }
+  },
+
+  verifyPaymentForActiveRegistration: async (paymentId: string, transactionId: string) => {
+    set({ isSubmitting: true, error: null });
+    try {
+      const result = await paymentService.verifyPayment({
+        paymentId,
+        transactionId,
+        providerReference: `KARUNYA-${Date.now()}`,
+      });
+      set({ activePayment: result.payment, isSubmitting: false });
+    } catch (err: any) {
+      set({ isSubmitting: false, error: err.message || 'Payment verification failed.' });
+      throw err;
     }
   },
 }));
