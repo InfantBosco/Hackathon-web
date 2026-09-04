@@ -15,12 +15,16 @@ import {
   AnnouncementTemplateData,
 } from './templates/index.js';
 
+import { SmtpProvider } from './smtp.provider.js';
+
 export class EmailService {
   private provider: EmailProvider;
 
   constructor(customProvider?: EmailProvider) {
     if (customProvider) {
       this.provider = customProvider;
+    } else if (settings.SMTP_USER && settings.SMTP_PASS) {
+      this.provider = new SmtpProvider();
     } else if (
       settings.NODE_ENV !== 'test' &&
       settings.RESEND_API_KEY &&
@@ -45,6 +49,12 @@ export class EmailService {
     const templateData: VerificationTemplateData = { name, verificationUrl };
     const { subject, html, text } = buildVerificationTemplate(templateData);
 
+    console.log(`\n==================================================`);
+    console.log(`✉️  [LOCAL DEV EMAIL VERIFICATION DISPATCH]`);
+    console.log(`To: ${recipientEmail}`);
+    console.log(`Verification Link: ${verificationUrl}`);
+    console.log(`==================================================\n`);
+
     return this.provider.sendEmail({
       to: recipientEmail,
       subject,
@@ -60,6 +70,12 @@ export class EmailService {
     const resetUrl = `${settings.APP_URL}/reset-password?token=${token}`;
     const templateData: PasswordResetTemplateData = { name, resetUrl };
     const { subject, html, text } = buildPasswordResetTemplate(templateData);
+
+    console.log(`\n==================================================`);
+    console.log(`✉️  [LOCAL DEV PASSWORD RESET DISPATCH]`);
+    console.log(`To: ${recipientEmail}`);
+    console.log(`Reset Link: ${resetUrl}`);
+    console.log(`==================================================\n`);
 
     return this.provider.sendEmail({
       to: recipientEmail,

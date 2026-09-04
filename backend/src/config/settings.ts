@@ -36,7 +36,14 @@ const envSchema = z.object({
 
   // Service Integration Placeholders (Optional/Pending for initial skeleton)
   RESEND_API_KEY: z.string().optional().default(''),
-  EMAIL_FROM: z.string().default('HackNEX Team <noreply@hacknex.in>'),
+  EMAIL_FROM: z.string().default('NEXUS Club <boscoinfant18@gmail.com>'),
+
+  // SMTP Configuration (Configurable for temporary Gmail or official college email like nexuskarunya@karunya.edu.in)
+  SMTP_HOST: z.string().optional().default(''),
+  SMTP_PORT: z.coerce.number().optional().default(587),
+  SMTP_SECURE: z.coerce.boolean().optional().default(false),
+  SMTP_USER: z.string().optional().default(''),
+  SMTP_PASS: z.string().optional().default(''),
 
   CLOUDINARY_CLOUD_NAME: z.string().optional().default(''),
   CLOUDINARY_API_KEY: z.string().optional().default(''),
@@ -62,6 +69,10 @@ function parseConfig(): Environment {
 }
 
 export const settings = parseConfig();
+
+if (!settings.SMTP_USER && (settings.EMAIL_FROM.includes('@gmail.com') || settings.EMAIL_FROM.includes('@yahoo.com') || settings.EMAIL_FROM.includes('@outlook.com') || settings.EMAIL_FROM.includes('@hotmail.com'))) {
+  settings.EMAIL_FROM = 'HackNEX Team <onboarding@resend.dev>';
+}
 
 if (!process.env.DATABASE_URL && settings.DATABASE_URL) {
   process.env.DATABASE_URL = settings.DATABASE_URL;

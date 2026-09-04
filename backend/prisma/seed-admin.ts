@@ -95,6 +95,7 @@ export async function seedAdmins(prisma: PrismaClient, csvPath?: string): Promis
   for (const record of records) {
     const emailSlug = record.name.toLowerCase().replace(/[^a-z0-9]/g, '');
     const email = `${emailSlug}@hacknex.in`;
+    const passwordHash = await hashPassword(record.password);
 
     await prisma.$transaction(async (tx) => {
       // 1. Check existing User
@@ -103,18 +104,6 @@ export async function seedAdmins(prisma: PrismaClient, csvPath?: string): Promis
           OR: [{ email }, { name: { equals: record.name, mode: 'insensitive' } }],
         },
       });
-
-      const existingAccount = user
-        ? await tx.account.findFirst({
-            where: { userId: user.id },
-          })
-        : null;
-
-      // Only hash password if account does not exist yet
-      let passwordHash: string | undefined;
-      if (!existingAccount) {
-        passwordHash = await hashPassword(record.password);
-      }
 
       if (!user) {
         user = await tx.user.create({
@@ -134,14 +123,25 @@ export async function seedAdmins(prisma: PrismaClient, csvPath?: string): Promis
         });
       }
 
-      // 2. Create Account if missing
+      // 2. Create or Update Account password from admin-data.csv
+      const existingAccount = await tx.account.findFirst({
+        where: { userId: user.id },
+      });
+
       if (!existingAccount) {
         await tx.account.create({
           data: {
             userId: user.id,
             accountId: user.id,
             providerId: 'credential',
-            password: passwordHash!,
+            password: passwordHash,
+          },
+        });
+      } else {
+        await tx.account.update({
+          where: { id: existingAccount.id },
+          data: {
+            password: passwordHash,
           },
         });
       }

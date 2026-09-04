@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AuthLayout } from '../components/auth/AuthLayout';
 import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
@@ -13,17 +13,21 @@ export const LoginPage: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [touched, setTouched] = useState({ email: false, password: false });
 
-  const { login, isLoading } = useAuthStore();
+  const { login, isLoading, initializeAuth } = useAuthStore();
 
-  const isEmailInvalid = touched.email && (!email || !email.includes('@'));
+  useEffect(() => {
+    initializeAuth();
+  }, [initializeAuth]);
+
+  const isEmailInvalid = touched.email && (!email.trim() || (!email.includes('@') && email.trim().length < 3));
   const isPasswordInvalid = touched.password && !password;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({ email: true, password: true });
 
-    if (!email || !password || !email.includes('@')) {
-      setError('Please provide a valid email and password.');
+    if (!email.trim() || !password) {
+      setError('Please enter your registered email address and password.');
       return;
     }
 
@@ -31,24 +35,24 @@ export const LoginPage: React.FC = () => {
     trackEvent('login_started');
 
     try {
-      await login({ email, password });
+      await login({ email: email.trim(), password });
       trackEvent('login_success');
 
-      // Check redirect param
+      // Upon successful login, direct user immediately to the Registration Wizard Page (/register)
       const urlParams = new URLSearchParams(window.location.search);
       const redirect = urlParams.get('redirect') || '/register';
       window.location.href = redirect;
     } catch (err: unknown) {
       trackEvent('login_failed');
-      const msg = err instanceof Error ? err.message : 'Invalid credentials. Please try again.';
+      const msg = err instanceof Error ? err.message : 'Invalid credentials. Please check your email and password.';
       setError(msg);
     }
   };
 
   return (
     <AuthLayout
-      title="Welcome Back"
-      subtitle="Login to your HackNEX 2026 account to continue."
+      title="Login to HackNEX"
+      subtitle="Enter your registered email and password to access the team registration wizard."
     >
       <form onSubmit={handleSubmit} className="space-y-4" noValidate>
         {error && (
@@ -59,14 +63,14 @@ export const LoginPage: React.FC = () => {
         )}
 
         <Input
-          label="Email Address or Name"
-          type="text"
+          label="Registered Email Address"
+          type="email"
           placeholder="captain@karunya.edu"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
           leftIcon={<Mail className="w-4 h-4" />}
-          error={isEmailInvalid ? 'Please enter a valid email or username' : undefined}
+          error={isEmailInvalid ? 'Please enter a valid email address' : undefined}
           autoComplete="email"
           required
         />
@@ -94,18 +98,12 @@ export const LoginPage: React.FC = () => {
           required
         />
 
-        <div className="flex items-center justify-between text-xs pt-1">
+        <div className="flex items-center justify-end text-xs pt-1">
           <a
             href="/forgot-password"
             className="text-[var(--color-accent-cyan)] hover:underline font-mono"
           >
             Forgot password?
-          </a>
-          <a
-            href="/verify-email"
-            className="text-[var(--color-text-secondary)] hover:text-white font-mono"
-          >
-            Resend Verification Email
           </a>
         </div>
 

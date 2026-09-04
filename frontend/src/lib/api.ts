@@ -1,6 +1,19 @@
 import axios from 'axios';
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1';
+function getApiBaseUrl(): string {
+  let url = import.meta.env.VITE_API_URL || 'http://localhost:4000/api/v1';
+  url = url.trim().replace(/\/+$/, '');
+  if (!url.endsWith('/api/v1')) {
+    if (url.endsWith('/api')) {
+      url = `${url}/v1`;
+    } else {
+      url = `${url}/api/v1`;
+    }
+  }
+  return url;
+}
+
+export const API_BASE_URL = getApiBaseUrl();
 
 export const api = axios.create({
   baseURL: API_BASE_URL,
@@ -21,11 +34,33 @@ api.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
-// Response Interceptor: Handle API errors cleanly
+// Response Interceptor: Parse backend API errors accurately
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    const message = error.response?.data?.error?.message || error.message || 'An unexpected API error occurred';
+    let message: string | undefined;
+
+    if (error.response?.data) {
+      const data = error.response.data;
+      if (typeof data.error === 'object' && data.error !== null && 'message' in data.error) {
+        message = data.error.message;
+      } else if (typeof data.message === 'string') {
+        message = data.message;
+      } else if (typeof data.error === 'string') {
+        message = data.error;
+      }
+    }
+
+    if (!message) {
+      if (error.code === 'ECONNABORTED') {
+        message = 'Request timed out. Please try again.';
+      } else if (error.message === 'Network Error' || !error.response) {
+        message = 'Unable to connect to the backend server. Please verify that the backend API is running on http://localhost:4000.';
+      } else {
+        message = error.message || 'An unexpected API error occurred';
+      }
+    }
+
     return Promise.reject(new Error(message));
   }
 );

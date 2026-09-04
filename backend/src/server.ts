@@ -1,3 +1,11 @@
+import dns from 'dns';
+
+try {
+  dns.setDefaultResultOrder('ipv4first');
+} catch {
+  // Ignore if unsupported
+}
+
 import { buildApp } from './app.js';
 import { settings } from './config/settings.js';
 

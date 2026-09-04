@@ -5,14 +5,10 @@ import { Spinner } from '../ui/Spinner';
 
 interface ProtectedRouteProps {
   children: React.ReactElement;
-  requireVerification?: boolean;
 }
 
-export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
-  children,
-  requireVerification = true,
-}) => {
-  const { isAuthenticated, isVerified, isLoading, initializeAuth } = useAuthStore();
+export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+  const { isAuthenticated, isLoading, initializeAuth } = useAuthStore();
   const location = useLocation();
 
   useEffect(() => {
@@ -31,11 +27,6 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
   if (!isAuthenticated) {
     const redirectUrl = encodeURIComponent(location.pathname + location.search);
     window.location.href = `/login?redirect=${redirectUrl}`;
-    return null;
-  }
-
-  if (requireVerification && !isVerified) {
-    window.location.href = '/verify-email';
     return null;
   }
 

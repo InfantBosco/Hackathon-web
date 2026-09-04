@@ -14,6 +14,8 @@ export const VerifyEmailPage: React.FC = () => {
   const [isResending, setIsResending] = useState(false);
   const [resendSuccess, setResendSuccess] = useState<string | null>(null);
 
+  const hasAttemptedRef = React.useRef(false);
+
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
@@ -24,7 +26,8 @@ export const VerifyEmailPage: React.FC = () => {
       setEmailForResend(emailParam);
     }
 
-    if (token) {
+    if (token && !hasAttemptedRef.current) {
+      hasAttemptedRef.current = true;
       setStatus('verifying');
       trackEvent('verification_started');
       authService
@@ -38,7 +41,7 @@ export const VerifyEmailPage: React.FC = () => {
           setErrorMessage(err.message || 'Verification link is invalid or has expired.');
           trackEvent('verification_failed');
         });
-    } else if (isSentNotice) {
+    } else if (isSentNotice && !token) {
       setStatus('sent_notice');
     }
   }, []);

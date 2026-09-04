@@ -10,7 +10,7 @@ export const siteConfig = {
   teamSize: 4,
   registrationFee: 600, // ₹600 per team
   prizePool: '₹1.5L+',
-  registerRoute: '/auth',
+  registerRoute: '/register',
   googleMapsUrl: 'https://maps.google.com/?q=Karunya+Institute+of+Technology+and+Sciences+Coimbatore',
   socials: {
     linkedin: 'https://www.linkedin.com/company/nexus-club-kits/',

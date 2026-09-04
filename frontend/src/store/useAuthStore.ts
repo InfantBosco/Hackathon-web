@@ -19,7 +19,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   token: localStorage.getItem('hacknex_token'),
   isAuthenticated: !!localStorage.getItem('hacknex_token'),
   isVerified: false,
-  isLoading: true,
+  isLoading: false,
 
   setUser: (user, token) => {
     if (token) {

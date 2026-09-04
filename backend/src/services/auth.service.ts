@@ -45,21 +45,33 @@ export class AuthService {
       throw new ValidationError('Password and confirm password do not match');
     }
 
-    // Check Duplicate Email (409 Conflict with EMAIL_ALREADY_EXISTS error code)
+    // Check Duplicate Email
     const existingUser = await this.prisma.user.findUnique({
       where: { email },
     });
 
     if (existingUser) {
-      throw new ConflictError('An account with this email already exists.');
+      if (existingUser.emailVerified) {
+        throw new ConflictError('An account with this email already exists and is verified. Please log in.');
+      }
+
+      // Clean up previous unverified account to allow fresh signup dispatch
+      await this.prisma.$transaction(async (tx) => {
+        await tx.verification.deleteMany({
+          where: { identifier: `email_verification:${existingUser.id}` },
+        });
+        await tx.user.delete({
+          where: { id: existingUser.id },
+        });
+      });
     }
 
     // Hash Password with Argon2id
     const passwordHash = await hashPassword(input.password);
 
     // Create User & Account atomically
-    const user = await this.prisma.$transaction(async (tx) => {
-      const createdUser = await tx.user.create({
+    const { createdUser, rawToken } = await this.prisma.$transaction(async (tx) => {
+      const user = await tx.user.create({
         data: {
           name,
           email,
@@ -69,8 +81,8 @@ export class AuthService {
 
       await tx.account.create({
         data: {
-          userId: createdUser.id,
-          accountId: createdUser.id,
+          userId: user.id,
+          accountId: user.id,
           providerId: 'credential',
           password: passwordHash,
         },
@@ -83,23 +95,23 @@ export class AuthService {
 
       await tx.verification.create({
         data: {
-          identifier: `email_verification:${createdUser.id}`,
+          identifier: `email_verification:${user.id}`,
           value: tokenValueHash,
           expiresAt,
         },
       });
 
-      // Send Verification Email
-      await this.emailService.sendVerificationEmail(email, name, rawToken);
-
-      return createdUser;
+      return { createdUser: user, rawToken };
     });
 
+    // Send Verification Email outside of database transaction
+    await this.emailService.sendVerificationEmail(email, name, rawToken);
+
     return {
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      emailVerified: user.emailVerified,
+      id: createdUser.id,
+      name: createdUser.name,
+      email: createdUser.email,
+      emailVerified: createdUser.emailVerified,
     };
   }
 
@@ -222,11 +234,6 @@ export class AuthService {
     const isPasswordValid = await verifyPassword(user.accounts[0].password, input.password);
     if (!isPasswordValid) {
       throw new AuthenticationError('Invalid email or password');
-    }
-
-    // Mandatory Email Verification Check
-    if (!user.emailVerified) {
-      throw new AuthenticationError('Please verify your email address before logging in.');
     }
 
     // Check Role (ADMIN if in Admin table and active, else USER)

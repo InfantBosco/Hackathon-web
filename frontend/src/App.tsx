@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { SignupPage } from './pages/SignupPage';
@@ -12,7 +12,6 @@ import { RegistrationStatusPage } from './pages/RegistrationStatusPage';
 import { PaymentPage } from './pages/PaymentPage';
 import { RegistrationConfirmedPage } from './pages/RegistrationConfirmedPage';
 import { ComponentShowcase } from './pages/ComponentShowcase';
-import { LoadingScreen } from './components/loading/LoadingScreen';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { initSentry } from './lib/sentry';
@@ -29,27 +28,13 @@ import { AdminAuditLogsPage } from './pages/admin/AdminAuditLogsPage';
 import { AdminProfilePage } from './pages/admin/AdminProfilePage';
 
 export function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
   useEffect(() => {
     initSentry();
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 4500);
-
-    return () => clearTimeout(timer);
   }, []);
 
   return (
     <ErrorBoundary>
       <BrowserRouter>
-        {isLoading && (
-          <LoadingScreen
-            videoSrc="/assets/loadingscreen.mp4"
-            isLoading={isLoading}
-            onComplete={() => setIsLoading(false)}
-          />
-        )}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
@@ -170,6 +155,8 @@ export function App() {
               </AdminProtectedRoute>
             }
           />
+          {/* Wildcard Fallback Route */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
     </ErrorBoundary>
