@@ -27,6 +27,8 @@ import { AdminExportsPage } from './pages/admin/AdminExportsPage';
 import { AdminAuditLogsPage } from './pages/admin/AdminAuditLogsPage';
 import { AdminProfilePage } from './pages/admin/AdminProfilePage';
 
+import { NeuralNoise } from './components/ui/neural-noise';
+
 export function App() {
   useEffect(() => {
     initSentry();
@@ -34,6 +36,7 @@ export function App() {
 
   return (
     <ErrorBoundary>
+      <NeuralNoise color={[0.95, 0.15, 0.25]} opacity={0.65} />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />

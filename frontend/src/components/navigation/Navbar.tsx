@@ -115,8 +115,20 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Desktop Register CTA */}
-        <div className="hidden lg:flex items-center gap-4">
+        {/* Desktop CTAs: Login, Sign Up, Register Now */}
+        <div className="hidden lg:flex items-center gap-3">
+          <a
+            href="/login"
+            className="px-3 py-1.5 rounded-[var(--radius-sm)] text-xs font-mono font-semibold text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+          >
+            LOGIN
+          </a>
+          <a
+            href="/signup"
+            className="px-3 rounded-[var(--radius-sm)] border border-[var(--color-accent-cyan)] text-[var(--color-accent-cyan)] hover:bg-[rgba(255,30,66,0.15)] text-xs font-mono font-semibold py-1.5 transition-colors"
+          >
+            SIGN UP
+          </a>
           <Button variant="primary" size="sm" onClick={handleRegisterClick} leftIcon={<Rocket className="w-4 h-4" />}>
             REGISTER NOW
           </Button>
@@ -155,9 +167,25 @@ export const Navbar: React.FC = () => {
                   {link.name}
                 </a>
               ))}
-              <Button variant="primary" size="md" onClick={handleRegisterClick} className="w-full mt-2" leftIcon={<Rocket className="w-4 h-4" />}>
-                REGISTER NOW
-              </Button>
+              <div className="flex flex-col gap-2 mt-2 pt-2 border-t border-[var(--color-border-subtle)]">
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href="/login"
+                    className="text-center py-2 rounded-[var(--radius-sm)] border border-[var(--color-border)] text-xs font-mono font-semibold text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,255,255,0.05)] transition-colors"
+                  >
+                    LOGIN
+                  </a>
+                  <a
+                    href="/signup"
+                    className="text-center py-2 rounded-[var(--radius-sm)] border border-[var(--color-accent-cyan)] text-[var(--color-accent-cyan)] text-xs font-mono font-semibold hover:bg-[rgba(255,30,66,0.15)] transition-colors"
+                  >
+                    SIGN UP
+                  </a>
+                </div>
+                <Button variant="primary" size="md" onClick={handleRegisterClick} className="w-full mt-1" leftIcon={<Rocket className="w-4 h-4" />}>
+                  REGISTER NOW
+                </Button>
+              </div>
             </nav>
           </motion.div>
         )}

@@ -25,7 +25,7 @@ export const api = axios.create({
 // Request Interceptor: Attach JWT Bearer token if present in localStorage
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('hacknex_token');
+    const token = sessionStorage.getItem('hacknex_token');
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }

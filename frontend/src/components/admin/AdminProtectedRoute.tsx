@@ -12,7 +12,7 @@ export const AdminProtectedRoute: React.FC<AdminProtectedRouteProps> = ({ childr
   const location = useLocation();
 
   useEffect(() => {
-    if (!isAuthenticated && localStorage.getItem('hacknex_token')) {
+    if (!isAuthenticated && sessionStorage.getItem('hacknex_token')) {
       initializeAuth();
     }
   }, [isAuthenticated, initializeAuth]);

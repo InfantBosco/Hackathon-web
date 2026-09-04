@@ -16,16 +16,16 @@ interface AuthState {
 
 export const useAuthStore = create<AuthState>((set, get) => ({
   user: null,
-  token: localStorage.getItem('hacknex_token'),
-  isAuthenticated: !!localStorage.getItem('hacknex_token'),
+  token: sessionStorage.getItem('hacknex_token'),
+  isAuthenticated: !!sessionStorage.getItem('hacknex_token'),
   isVerified: false,
   isLoading: false,
 
   setUser: (user, token) => {
     if (token) {
-      localStorage.setItem('hacknex_token', token);
+      sessionStorage.setItem('hacknex_token', token);
     } else if (token === null) {
-      localStorage.removeItem('hacknex_token');
+      sessionStorage.removeItem('hacknex_token');
     }
 
     set({
@@ -41,8 +41,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
     set({ isLoading: true });
     try {
       const data = await authService.login(credentials);
-      // data contains { token, user: { id, name, email, emailVerified, role } }
-      localStorage.setItem('hacknex_token', data.token);
+      sessionStorage.setItem('hacknex_token', data.token);
       set({
         user: data.user,
         token: data.token,
@@ -70,6 +69,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   logout: async () => {
     set({ isLoading: true });
     await authService.logout();
+    sessionStorage.removeItem('hacknex_token');
     localStorage.removeItem('hacknex_token');
     set({
       user: null,
@@ -81,7 +81,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
   },
 
   initializeAuth: async () => {
-    const token = localStorage.getItem('hacknex_token');
+    const token = sessionStorage.getItem('hacknex_token');
     if (!token) {
       set({ isLoading: false, isAuthenticated: false, user: null, isVerified: false });
       return;
@@ -97,7 +97,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({
         isLoading: false,
       });
     } catch {
-      // Token invalid or expired
+      sessionStorage.removeItem('hacknex_token');
       localStorage.removeItem('hacknex_token');
       set({
         user: null,
