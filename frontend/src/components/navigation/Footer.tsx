@@ -1,7 +1,7 @@
 import React from 'react';
 import { Logo } from '../branding/Logo';
 import { siteConfig } from '../../data/siteConfig';
-import { Linkedin, Instagram, ExternalLink } from 'lucide-react';
+import { Linkedin, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -52,17 +52,6 @@ export const Footer: React.FC = () => {
               </a>
 
               <a
-                href={siteConfig.socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-accent-pink)] transition-colors"
-              >
-                <Instagram className="w-4 h-4" />
-                <span>NEXUS Instagram</span>
-                <ExternalLink className="w-3 h-3 opacity-50" />
-              </a>
-
-              <a
                 href={siteConfig.socials.university}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -77,11 +66,6 @@ export const Footer: React.FC = () => {
 
         <div className="pt-8 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-text-muted)] gap-4">
           <p>© 2026 HackNEX • NEXUS Club, Karunya Institute of Technology and Sciences. All rights reserved.</p>
-          <div className="flex items-center gap-4 font-mono">
-            <span>₹600 / TEAM</span>
-            <span>•</span>
-            <span>4 MEMBERS / TEAM</span>
-          </div>
         </div>
       </div>
     </footer>

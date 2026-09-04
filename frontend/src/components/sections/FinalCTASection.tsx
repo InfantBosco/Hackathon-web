@@ -1,10 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket } from 'lucide-react';
-import { Button } from '../ui/Button';
 import { GridBackground } from '../backgrounds/GridBackground';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
+import { Button } from '../ui/Button';
 
 export const FinalCTASection: React.FC = () => {
   const handleRegisterClick = () => {
@@ -54,7 +53,6 @@ export const FinalCTASection: React.FC = () => {
             variant="primary"
             size="lg"
             onClick={handleRegisterClick}
-            leftIcon={<Rocket className="w-5 h-5" />}
             className="min-w-[240px]"
           >
             REGISTER NOW

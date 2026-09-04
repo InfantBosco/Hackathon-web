@@ -13,7 +13,7 @@ export const siteConfig = {
   registerRoute: '/register',
   googleMapsUrl: 'https://maps.google.com/?q=Karunya+Institute+of+Technology+and+Sciences+Coimbatore',
   socials: {
-    linkedin: 'https://www.linkedin.com/company/nexus-club-kits/',
+    linkedin: 'https://www.linkedin.com/company/nexus-gc/',
     instagram: 'https://www.instagram.com/nexus_kits/',
     university: 'https://www.karunya.edu/',
   },

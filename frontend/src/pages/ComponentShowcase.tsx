@@ -24,7 +24,7 @@ import { Skeleton } from '../components/ui/Skeleton';
 import { BackToTop } from '../components/ui/BackToTop';
 import { GridBackground } from '../components/backgrounds/GridBackground';
 import { NeuralNoise } from '../components/backgrounds/NeuralNoise';
-import { Rocket, ShieldCheck, Zap, Code, Terminal, Sparkles } from 'lucide-react';
+import { ShieldCheck, Zap, Code, Terminal, Sparkles } from 'lucide-react';
 
 export const ComponentShowcase: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -118,7 +118,7 @@ export const ComponentShowcase: React.FC = () => {
         />
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
-          <Button variant="primary" leftIcon={<Rocket className="w-4 h-4" />}>
+          <Button variant="primary">
             REGISTER NOW
           </Button>
           <Button variant="secondary" leftIcon={<Terminal className="w-4 h-4" />}>

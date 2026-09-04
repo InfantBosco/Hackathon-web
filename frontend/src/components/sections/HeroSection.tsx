@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, ArrowDown, MapPin, Calendar } from 'lucide-react';
+import { ArrowDown, MapPin, Calendar } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { GridBackground } from '../backgrounds/GridBackground';
@@ -79,7 +79,6 @@ export const HeroSection: React.FC = () => {
             variant="primary"
             size="lg"
             onClick={handleRegisterClick}
-            leftIcon={<Rocket className="w-5 h-5" />}
             className="w-full sm:w-auto min-w-[220px]"
           >
             {heroData.primaryCtaText}

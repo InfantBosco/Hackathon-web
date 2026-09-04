@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Rocket } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Logo } from '../branding/Logo';
 import { Button } from '../ui/Button';
 import { cn } from '../../lib/utils';
@@ -129,7 +129,7 @@ export const Navbar: React.FC = () => {
           >
             SIGN UP
           </a>
-          <Button variant="primary" size="sm" onClick={handleRegisterClick} leftIcon={<Rocket className="w-4 h-4" />}>
+          <Button variant="primary" size="sm" onClick={handleRegisterClick}>
             REGISTER NOW
           </Button>
         </div>
@@ -182,7 +182,7 @@ export const Navbar: React.FC = () => {
                     SIGN UP
                   </a>
                 </div>
-                <Button variant="primary" size="md" onClick={handleRegisterClick} className="w-full mt-1" leftIcon={<Rocket className="w-4 h-4" />}>
+                <Button variant="primary" size="md" onClick={handleRegisterClick} className="w-full mt-1">
                   REGISTER NOW
                 </Button>
               </div>
