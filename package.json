@@ -27,5 +27,8 @@
     "concurrently": "^9.1.2",
     "prisma": "^6.4.1",
     "tsx": "^4.19.3"
+  },
+  "dependencies": {
+    "argon2": "^0.45.1"
   }
 }

@@ -62,3 +62,10 @@ function parseConfig(): Environment {
 }
 
 export const settings = parseConfig();
+
+if (!process.env.DATABASE_URL && settings.DATABASE_URL) {
+  process.env.DATABASE_URL = settings.DATABASE_URL;
+}
+if (!process.env.DIRECT_URL && settings.DIRECT_URL) {
+  process.env.DIRECT_URL = settings.DIRECT_URL;
+}

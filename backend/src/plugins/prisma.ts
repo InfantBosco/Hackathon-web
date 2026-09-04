@@ -12,12 +12,20 @@ export const prismaPlugin = fp(async (fastify) => {
     log: fastify.log.level === 'debug' ? ['query', 'info', 'warn', 'error'] : ['error'],
   });
 
-  await prisma.$connect();
+  try {
+    await prisma.$connect();
+    fastify.log.info('Prisma connected to database successfully');
+  } catch (err) {
+    fastify.log.warn({ err }, 'Prisma database connection deferred or unavailable in current environment');
+  }
 
   fastify.decorate('prisma', prisma);
 
   fastify.addHook('onClose', async (server) => {
-    server.log.info('Closing Prisma database connection client...');
-    await server.prisma.$disconnect();
+    try {
+      await server.prisma.$disconnect();
+    } catch {
+      // Ignore disconnect error if client was not connected
+    }
   });
 });

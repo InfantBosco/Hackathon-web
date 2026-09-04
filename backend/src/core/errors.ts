@@ -4,8 +4,11 @@ export enum ErrorCode {
   AUTHORIZATION_ERROR = 'AUTHORIZATION_ERROR',
   NOT_FOUND = 'NOT_FOUND',
   DUPLICATE_RESOURCE = 'DUPLICATE_RESOURCE',
+  INVALID_STATE_TRANSITION = 'INVALID_STATE_TRANSITION',
+  INVALID_PAYMENT_AMOUNT = 'INVALID_PAYMENT_AMOUNT',
   PAYMENT_ERROR = 'PAYMENT_ERROR',
   PAYMENT_VERIFICATION_ERROR = 'PAYMENT_VERIFICATION_ERROR',
+  REGISTRATION_CLOSED = 'REGISTRATION_CLOSED',
   RATE_LIMIT_ERROR = 'RATE_LIMIT_ERROR',
   INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR',
 }
@@ -52,6 +55,30 @@ export class NotFoundError extends AppError {
 export class ConflictError extends AppError {
   constructor(message: string = 'Resource conflict or duplicate entry') {
     super(message, 409, ErrorCode.DUPLICATE_RESOURCE);
+  }
+}
+
+export class InvalidStateError extends AppError {
+  constructor(message: string = 'Invalid state transition') {
+    super(message, 422, ErrorCode.INVALID_STATE_TRANSITION);
+  }
+}
+
+export class PaymentAmountError extends AppError {
+  constructor(message: string = 'Incorrect payment amount calculated') {
+    super(message, 400, ErrorCode.INVALID_PAYMENT_AMOUNT);
+  }
+}
+
+export class PaymentVerificationError extends AppError {
+  constructor(message: string = 'Payment verification failed') {
+    super(message, 400, ErrorCode.PAYMENT_VERIFICATION_ERROR);
+  }
+}
+
+export class RegistrationClosedError extends AppError {
+  constructor(message: string = 'Registration period is currently closed') {
+    super(message, 400, ErrorCode.REGISTRATION_CLOSED);
   }
 }
 
