@@ -16,11 +16,16 @@
     "build:backend": "npm run build --workspace=backend",
     "typecheck": "npm run typecheck --workspace=backend && npm run typecheck --workspace=frontend",
     "prisma:generate": "prisma generate",
+    "prisma:seed": "tsx prisma/seed.ts",
     "prisma:studio": "prisma studio",
     "test": "npm run test --workspace=backend && npm run test --workspace=frontend"
   },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  },
   "devDependencies": {
     "concurrently": "^9.1.2",
-    "prisma": "^6.4.1"
+    "prisma": "^6.4.1",
+    "tsx": "^4.19.3"
   }
 }

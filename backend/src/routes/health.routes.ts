@@ -46,10 +46,21 @@ export async function healthRoutes(fastify: FastifyInstance) {
       summary: 'Readiness check endpoint',
     },
   }, async (_request, reply) => {
+    let dbConnected = false;
+    if (fastify.prisma) {
+      try {
+        await fastify.prisma.$queryRaw`SELECT 1`;
+        dbConnected = true;
+      } catch (err) {
+        fastify.log.warn({ err }, 'Prisma readiness check query failed');
+        dbConnected = false;
+      }
+    }
+
     return reply.send(
       formatSuccessResponse({
         status: 'ready',
-        databaseConnected: false, // Database connection check will be enabled in Phase 2
+        databaseConnected: dbConnected,
         servicesReady: true,
         timestamp: new Date().toISOString(),
       })

@@ -1,6 +1,6 @@
 // HackNEX 2026 Database Schema
-// Database Design Baseline Specification v1.0
-// Source of truth: DB.pdf & TAD.pdf
+// Database Design Baseline Specification v1.0 & Phase 2 Database Architecture
+// Source of truth: DB.pdf & Phase 2 Prompt Specifications
 
 generator client {
   provider = "prisma-client-js"
@@ -136,10 +136,11 @@ model Verification {
 // ==========================================
 
 model Team {
-  id            String     @id @default(uuid())
-  teamName      String     @unique
-  captainUserId String     @unique
-  status        TeamStatus @default(DRAFT)
+  id                 String     @id @default(uuid())
+  teamName           String     @unique
+  normalizedTeamName String     @unique
+  captainUserId      String     @unique
+  status             TeamStatus @default(DRAFT)
 
   captain      User          @relation("CaptainTeams", fields: [captainUserId], references: [id])
   participants Participant[]
@@ -200,7 +201,7 @@ model Registration {
 model Payment {
   id                String        @id @default(uuid())
   registrationId    String
-  amount            Int
+  amount            Int           // Stored in INR: 1 participant = ₹600, 4 participants = ₹2,400
   currency          String        @default("INR")
   provider          String
   transactionId     String?       @unique
