@@ -1,14 +1,13 @@
 import { buildApp } from './app.js';
-
-const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 4000;
-const HOST = process.env.HOST || '0.0.0.0';
+import { settings } from './config/settings.js';
 
 const app = buildApp();
 
 async function start() {
   try {
-    await app.listen({ port: PORT, host: HOST });
-    app.log.info(`HackNEX Backend API running on http://${HOST}:${PORT}`);
+    await app.listen({ port: settings.PORT, host: settings.HOST });
+    app.log.info(`🚀 HackNEX Backend API running on http://${settings.HOST}:${settings.PORT}`);
+    app.log.info(`📚 Interactive OpenAPI docs available at http://${settings.HOST}:${settings.PORT}/docs`);
   } catch (err) {
     app.log.error(err);
     process.exit(1);

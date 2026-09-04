@@ -1,37 +1,28 @@
 import Fastify from 'fastify';
-import cors from '@fastify/cors';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import { loggerOptions } from './core/logger.js';
+import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
+import { corsPlugin } from './plugins/cors.js';
+import { rateLimitPlugin } from './plugins/rateLimit.js';
+import { swaggerPlugin } from './plugins/swagger.js';
+import { registerApiRoutes } from './routes/index.js';
 
 export function buildApp() {
   const app = Fastify({
-    logger: true,
+    logger: loggerOptions,
+    trustProxy: true,
   });
 
-  // Register CORS
-  app.register(cors, {
-    origin: true,
-    credentials: true,
-  });
+  // Set central error and not-found handlers
+  app.setErrorHandler(errorHandler);
+  app.setNotFoundHandler(notFoundHandler);
 
-  // Health check endpoint
-  app.get('/health', async () => {
-    return {
-      status: 'ok',
-      service: 'HackNEX API Backend',
-      timestamp: new Date().toISOString(),
-      version: '1.0.0',
-    };
-  });
+  // Register plugins
+  app.register(corsPlugin);
+  app.register(rateLimitPlugin);
+  app.register(swaggerPlugin);
 
-  // API Base Route
-  app.get('/api', async () => {
-    return {
-      message: 'HackNEX 2026 API Server Initialized',
-      status: 'READY_FOR_IMPLEMENTATION',
-    };
-  });
+  // Register API Routes
+  app.register(registerApiRoutes);
 
   return app;
 }
