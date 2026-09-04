@@ -26,15 +26,15 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const variantStyles = {
     primary:
-      'bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-blue)] text-slate-950 font-bold shadow-[var(--shadow-glow-cyan)] hover:opacity-90 active:scale-95',
+      'bg-gradient-to-r from-[#FF1E42] via-[#E11D48] to-[#9F1239] text-white font-bold shadow-[0_0_25px_rgba(255,30,66,0.45)] hover:brightness-110 active:scale-95 uppercase tracking-wider',
     secondary:
-      'bg-[var(--color-surface-elevated)] text-white border border-[var(--color-border)] hover:border-[var(--color-accent-cyan)] hover:text-[var(--color-accent-cyan)] active:scale-95',
+      'glass-panel text-white border border-[rgba(255,30,66,0.3)] hover:border-[#FF1E42] hover:shadow-[0_0_20px_rgba(255,30,66,0.3)] active:scale-95 uppercase tracking-wider',
     ghost:
-      'bg-transparent text-[var(--color-text-secondary)] hover:text-white hover:bg-[var(--color-surface)] active:scale-95',
+      'bg-transparent text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,30,66,0.1)] active:scale-95 uppercase tracking-wider',
     outline:
-      'bg-transparent text-white border border-[var(--color-border)] hover:border-[var(--color-accent-purple)] hover:shadow-[var(--shadow-glow-purple)] active:scale-95',
+      'bg-transparent text-white border border-[var(--color-border)] hover:border-[var(--color-accent-cyan)] hover:shadow-[var(--shadow-glow-cyan)] active:scale-95 uppercase tracking-wider',
     danger:
-      'bg-red-600 text-white font-bold hover:bg-red-500 active:scale-95',
+      'bg-red-700 text-white font-bold hover:bg-red-600 active:scale-95 uppercase tracking-wider',
   };
 
   const sizeStyles = {

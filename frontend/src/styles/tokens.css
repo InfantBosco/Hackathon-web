@@ -1,29 +1,30 @@
 /* ==========================================
- * HACKNEX 2026 DESIGN TOKENS - RED THEME SPECIFICATION
+ * HACKNEX 2026 DESIGN TOKENS - ROYAL RED CYBER LUXURY
  * ========================================== */
 
 @layer base {
   :root {
-    /* Color System - Dark Red Cyber Palette */
-    --color-bg-primary: #0a0406;
-    --color-bg-secondary: #120609;
-    --color-surface: #1a080d;
-    --color-surface-elevated: #240c13;
-    --color-surface-glass: rgba(26, 8, 13, 0.55);
+    /* Color System - Royal Red Deep Velvet Palette */
+    --color-bg-primary: #080204;
+    --color-bg-secondary: #100407;
+    --color-surface: rgba(22, 6, 11, 0.65);
+    --color-surface-elevated: rgba(32, 9, 16, 0.8);
+    --color-surface-glass: rgba(20, 5, 10, 0.45);
 
-    --color-border: #3d121c;
-    --color-border-subtle: #290b13;
-    --color-border-glow: rgba(255, 30, 66, 0.4);
+    --color-border: rgba(255, 30, 66, 0.25);
+    --color-border-subtle: rgba(255, 30, 66, 0.12);
+    --color-border-glow: rgba(255, 30, 66, 0.5);
 
-    --color-text-primary: #f8fafc;
+    --color-text-primary: #ffffff;
     --color-text-secondary: #cbd5e1;
     --color-text-muted: #94a3b8;
 
-    /* Accents - Red Cyber Theme */
-    --color-accent-cyan: #ff1e42;
-    --color-accent-purple: #e11d48;
-    --color-accent-pink: #f43f5e;
-    --color-accent-blue: #dc2626;
+    /* Accents - Royal Red & Gold */
+    --color-accent-cyan: #ff1e42;   /* Royal Crimson Red */
+    --color-accent-purple: #e11d48; /* Ruby Red */
+    --color-accent-pink: #f43f5e;   /* Rose Red */
+    --color-accent-blue: #dc2626;   /* Deep Red */
+    --color-accent-gold: #fbbf24;   /* Royal Gold Highlight */
 
     /* Status Colors */
     --color-success: #10b981;
@@ -32,30 +33,30 @@
     --color-info: #f43f5e;
 
     /* Glows & Shadows */
-    --shadow-glow-cyan: 0 0 25px rgba(255, 30, 66, 0.35);
-    --shadow-glow-purple: 0 0 25px rgba(225, 29, 72, 0.35);
-    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    --shadow-glow-cyan: 0 0 35px rgba(255, 30, 66, 0.45);
+    --shadow-glow-purple: 0 0 35px rgba(225, 29, 72, 0.45);
+    --shadow-glass: 0 12px 40px 0 rgba(0, 0, 0, 0.65);
 
     /* Radius Scale */
     --radius-xs: 4px;
     --radius-sm: 6px;
-    --radius-md: 10px;
-    --radius-lg: 16px;
-    --radius-xl: 24px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
     --radius-full: 9999px;
 
-    /* Spacing Scale (4px base) */
-    --spacing-xs: 0.25rem; /* 4px */
-    --spacing-sm: 0.5rem;  /* 8px */
-    --spacing-md: 1rem;    /* 16px */
-    --spacing-lg: 1.5rem;  /* 24px */
-    --spacing-xl: 2rem;    /* 32px */
-    --spacing-2xl: 3rem;   /* 48px */
-    --spacing-3xl: 4rem;   /* 64px */
+    /* Spacing Scale */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+    --spacing-3xl: 4rem;
 
     /* Animation Transitions */
-    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 150ms cubic-bezier(0.32, 0.72, 0, 1);
+    --transition-normal: 250ms cubic-bezier(0.32, 0.72, 0, 1);
+    --transition-slow: 450ms cubic-bezier(0.32, 0.72, 0, 1);
   }
 }

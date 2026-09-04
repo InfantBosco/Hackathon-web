@@ -18,10 +18,10 @@ export const Section: React.FC<SectionProps> = ({
   ...props
 }) => {
   const variantStyles = {
-    primary: 'bg-[var(--color-bg-primary)]',
-    secondary: 'bg-[var(--color-bg-secondary)] border-y border-[var(--color-border-subtle)]',
+    primary: 'bg-transparent',
+    secondary: 'bg-[rgba(18,5,9,0.35)] border-y border-[var(--color-border-subtle)]',
     glass: 'bg-[var(--color-surface-glass)] backdrop-blur-xl border-y border-[var(--color-border-subtle)]',
-    gradient: 'bg-gradient-to-b from-[var(--color-bg-primary)] via-[var(--color-bg-secondary)] to-[var(--color-bg-primary)]',
+    gradient: 'bg-gradient-to-b from-transparent via-[rgba(18,5,9,0.4)] to-transparent',
   };
 
   return (

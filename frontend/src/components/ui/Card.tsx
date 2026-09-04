@@ -16,11 +16,11 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const variantStyles = {
     default:
-      'bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6',
+      'glass-panel rounded-[var(--radius-lg)] p-6 border border-[var(--color-border)]',
     hoverGlow:
-      'bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent-cyan)] transition-all duration-300 hover:shadow-[var(--shadow-glow-cyan)] rounded-[var(--radius-lg)] p-6',
+      'glass-panel border border-[var(--color-border)] hover:border-[var(--color-accent-cyan)] transition-all duration-300 hover:shadow-[var(--shadow-glow-cyan)] rounded-[var(--radius-lg)] p-6',
     interactive:
-      'bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-accent-purple)] transition-all duration-300 hover:shadow-[var(--shadow-glow-purple)] cursor-pointer rounded-[var(--radius-lg)] p-6',
+      'glass-panel border border-[var(--color-border)] hover:border-[var(--color-accent-gold)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)] cursor-pointer rounded-[var(--radius-lg)] p-6',
   };
 
   return (

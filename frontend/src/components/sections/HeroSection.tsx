@@ -34,7 +34,7 @@ export const HeroSection: React.FC = () => {
         >
           <Badge variant="cyan">{heroData.badge}</Badge>
           <h1 className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black tracking-tight text-white uppercase select-none">
-            HACK<span className="text-[var(--color-accent-cyan)] drop-shadow-[0_0_35px_rgba(0,240,255,0.6)]">NEX</span>
+            HACK<span className="text-[var(--color-accent-cyan)] drop-shadow-[0_0_45px_rgba(255,30,66,0.85)]">NEX</span>
           </h1>
           <p className="text-base sm:text-xl font-heading text-[var(--color-text-secondary)] max-w-2xl font-medium tracking-wide">
             {heroData.taglinePlaceholder}

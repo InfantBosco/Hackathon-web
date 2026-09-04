@@ -25,7 +25,7 @@ export const Logo: React.FC<LogoProps> = ({
           {/* HackNEX Futuristic Hexagon Icon */}
           <svg className="w-8 h-8 text-[var(--color-accent-cyan)] shrink-0" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 2L29.8564 10V26L16 34L2.14359 26V10L16 2Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" />
-            <path d="M11 11L21 21M21 11L11 21" stroke="#9d4edd" strokeWidth="2.5" strokeLinecap="round" />
+            <path d="M11 11L21 21M21 11L11 21" stroke="#ff1e42" strokeWidth="2.5" strokeLinecap="round" />
           </svg>
           <span className="text-white">
             HACK<span className="text-[var(--color-accent-cyan)]">NEX</span>
