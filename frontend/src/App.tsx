@@ -16,6 +16,17 @@ import { LoadingScreen } from './components/loading/LoadingScreen';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { initSentry } from './lib/sentry';
+import { AdminProtectedRoute } from './components/admin/AdminProtectedRoute';
+import { AdminLoginPage } from './pages/admin/AdminLoginPage';
+import { AdminDashboardOverviewPage } from './pages/admin/AdminDashboardOverviewPage';
+import { AdminRegistrationsPage } from './pages/admin/AdminRegistrationsPage';
+import { AdminRegistrationDetailsPage } from './pages/admin/AdminRegistrationDetailsPage';
+import { AdminParticipantsPage } from './pages/admin/AdminParticipantsPage';
+import { AdminPaymentsPage } from './pages/admin/AdminPaymentsPage';
+import { AdminAnalyticsPage } from './pages/admin/AdminAnalyticsPage';
+import { AdminExportsPage } from './pages/admin/AdminExportsPage';
+import { AdminAuditLogsPage } from './pages/admin/AdminAuditLogsPage';
+import { AdminProfilePage } from './pages/admin/AdminProfilePage';
 
 export function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -80,6 +91,83 @@ export function App() {
               <ProtectedRoute>
                 <RegistrationConfirmedPage />
               </ProtectedRoute>
+            }
+          />
+
+          {/* Admin Authentication Entry */}
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+
+          {/* Protected Admin Routes */}
+          <Route
+            path="/admin"
+            element={
+              <AdminProtectedRoute>
+                <AdminDashboardOverviewPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/registrations"
+            element={
+              <AdminProtectedRoute>
+                <AdminRegistrationsPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/registrations/:registrationId"
+            element={
+              <AdminProtectedRoute>
+                <AdminRegistrationDetailsPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/participants"
+            element={
+              <AdminProtectedRoute>
+                <AdminParticipantsPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/payments"
+            element={
+              <AdminProtectedRoute>
+                <AdminPaymentsPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/analytics"
+            element={
+              <AdminProtectedRoute>
+                <AdminAnalyticsPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/exports"
+            element={
+              <AdminProtectedRoute>
+                <AdminExportsPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/audit-logs"
+            element={
+              <AdminProtectedRoute>
+                <AdminAuditLogsPage />
+              </AdminProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/profile"
+            element={
+              <AdminProtectedRoute>
+                <AdminProfilePage />
+              </AdminProtectedRoute>
             }
           />
         </Routes>

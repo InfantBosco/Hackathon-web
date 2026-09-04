@@ -336,9 +336,9 @@ export class AdminService {
   }
 
   /**
-   * List Registrations (Paginated, Filtered)
+   * List Registrations (Paginated, Filtered, Searched)
    */
-  public async listRegistrations(params: ListRegistrationsParams) {
+  public async listRegistrations(params: ListRegistrationsParams & { search?: string }) {
     const page = Math.max(1, params.page || 1);
     const limit = Math.min(100, Math.max(1, params.limit || 10));
     const skip = (page - 1) * limit;
@@ -346,6 +346,16 @@ export class AdminService {
     const whereClause: any = {};
     if (params.status) {
       whereClause.status = params.status;
+    }
+
+    if (params.search && params.search.trim()) {
+      const query = params.search.trim();
+      whereClause.OR = [
+        { registrationId: { contains: query, mode: 'insensitive' } },
+        { team: { teamName: { contains: query, mode: 'insensitive' } } },
+        { team: { captain: { name: { contains: query, mode: 'insensitive' } } } },
+        { team: { captain: { email: { contains: query, mode: 'insensitive' } } } },
+      ];
     }
 
     const [total, registrations] = await Promise.all([
@@ -430,6 +440,9 @@ export class AdminService {
                 phone: true,
                 college: true,
                 department: true,
+                yearOfStudy: true,
+                linkedinUrl: true,
+                foodPreference: true,
                 isCaptain: true,
               },
             },
@@ -458,9 +471,9 @@ export class AdminService {
   }
 
   /**
-   * List Payments (Paginated, Filtered)
+   * List Payments (Paginated, Filtered, Searched)
    */
-  public async listPayments(params: ListPaymentsParams) {
+  public async listPayments(params: ListPaymentsParams & { search?: string }) {
     const page = Math.max(1, params.page || 1);
     const limit = Math.min(100, Math.max(1, params.limit || 10));
     const skip = (page - 1) * limit;
@@ -468,6 +481,16 @@ export class AdminService {
     const whereClause: any = {};
     if (params.status) {
       whereClause.status = params.status;
+    }
+
+    if (params.search && params.search.trim()) {
+      const query = params.search.trim();
+      whereClause.OR = [
+        { transactionId: { contains: query, mode: 'insensitive' } },
+        { providerReference: { contains: query, mode: 'insensitive' } },
+        { registration: { registrationId: { contains: query, mode: 'insensitive' } } },
+        { registration: { team: { teamName: { contains: query, mode: 'insensitive' } } } },
+      ];
     }
 
     const [total, payments] = await Promise.all([
@@ -566,5 +589,164 @@ export class AdminService {
     }
 
     return { payment };
+  }
+
+  /**
+   * Get Analytics & Breakdown Metrics
+   */
+  public async getAnalytics() {
+    const [
+      collegesGroup,
+      deptsGroup,
+      foodGroup,
+      paymentGroup,
+      registrationGroup,
+    ] = await Promise.all([
+      this.prisma.participant.groupBy({
+        by: ['college'],
+        _count: { college: true },
+        orderBy: { _count: { college: 'desc' } },
+        take: 10,
+      }),
+      this.prisma.participant.groupBy({
+        by: ['department'],
+        _count: { department: true },
+        orderBy: { _count: { department: 'desc' } },
+        take: 10,
+      }),
+      this.prisma.participant.groupBy({
+        by: ['foodPreference'],
+        _count: { foodPreference: true },
+      }),
+      this.prisma.payment.groupBy({
+        by: ['status'],
+        _count: { status: true },
+      }),
+      this.prisma.registration.groupBy({
+        by: ['status'],
+        _count: { status: true },
+      }),
+    ]);
+
+    return {
+      topColleges: collegesGroup.map((c) => ({ college: c.college, count: c._count.college })),
+      topDepartments: deptsGroup.map((d) => ({ department: d.department, count: d._count.department })),
+      foodPreferenceDistribution: foodGroup.map((f) => ({ foodPreference: f.foodPreference, count: f._count.foodPreference })),
+      paymentStatusDistribution: paymentGroup.map((p) => ({ status: p.status, count: p._count.status })),
+      registrationStatusDistribution: registrationGroup.map((r) => ({ status: r.status, count: r._count.status })),
+    };
+  }
+
+  /**
+   * Export Registrations as CSV String
+   */
+  public async exportRegistrationsCsv(): Promise<string> {
+    const registrations = await this.prisma.registration.findMany({
+      include: {
+        team: {
+          include: {
+            participants: true,
+          },
+        },
+        payments: true,
+      },
+      orderBy: { createdAt: 'desc' },
+    });
+
+    const headers = [
+      'Registration ID',
+      'Team Name',
+      'Registration Status',
+      'Submitted At',
+      'Confirmed At',
+      'Captain Name',
+      'Captain Email',
+      'Captain Phone',
+      'Captain College',
+      'Member 2 Name',
+      'Member 2 Email',
+      'Member 3 Name',
+      'Member 3 Email',
+      'Member 4 Name',
+      'Member 4 Email',
+      'Payment Status',
+      'Transaction ID',
+      'Amount INR',
+    ];
+
+    const rows = registrations.map((r) => {
+      const captain = r.team.participants.find((p) => p.isCaptain) || r.team.participants[0];
+      const members = r.team.participants.filter((p) => !p.isCaptain);
+      const latestPayment = r.payments[0];
+
+      return [
+        `"${r.registrationId}"`,
+        `"${r.team.teamName.replace(/"/g, '""')}"`,
+        `"${r.status}"`,
+        `"${r.submittedAt ? r.submittedAt.toISOString() : ''}"`,
+        `"${r.confirmedAt ? r.confirmedAt.toISOString() : ''}"`,
+        `"${captain ? captain.name.replace(/"/g, '""') : ''}"`,
+        `"${captain ? captain.email : ''}"`,
+        `"${captain ? captain.phone : ''}"`,
+        `"${captain ? captain.college.replace(/"/g, '""') : ''}"`,
+        `"${members[0] ? members[0].name.replace(/"/g, '""') : ''}"`,
+        `"${members[0] ? members[0].email : ''}"`,
+        `"${members[1] ? members[1].name.replace(/"/g, '""') : ''}"`,
+        `"${members[1] ? members[1].email : ''}"`,
+        `"${members[2] ? members[2].name.replace(/"/g, '""') : ''}"`,
+        `"${members[2] ? members[2].email : ''}"`,
+        `"${latestPayment ? latestPayment.status : 'N/A'}"`,
+        `"${latestPayment && latestPayment.transactionId ? latestPayment.transactionId : 'N/A'}"`,
+        `"${latestPayment ? latestPayment.amount : 2400}"`,
+      ].join(',');
+    });
+
+    return [headers.join(','), ...rows].join('\n');
+  }
+
+  /**
+   * List Audit Logs (Paginated)
+   */
+  public async listAuditLogs(params: PaginationParams) {
+    const page = Math.max(1, params.page || 1);
+    const limit = Math.min(100, Math.max(1, params.limit || 10));
+    const skip = (page - 1) * limit;
+
+    const [total, logs] = await Promise.all([
+      this.prisma.auditLog.count(),
+      this.prisma.auditLog.findMany({
+        skip,
+        take: limit,
+        orderBy: { createdAt: 'desc' },
+        include: {
+          admin: {
+            include: {
+              user: {
+                select: { name: true, email: true },
+              },
+            },
+          },
+        },
+      }),
+    ]);
+
+    return {
+      data: logs.map((l) => ({
+        id: l.id,
+        action: l.action,
+        entityType: l.entityType,
+        entityId: l.entityId,
+        metadata: l.metadata,
+        adminName: l.admin.user.name,
+        adminEmail: l.admin.user.email,
+        createdAt: l.createdAt,
+      })),
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
   }
 }

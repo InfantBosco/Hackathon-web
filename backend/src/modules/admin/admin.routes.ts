@@ -23,10 +23,12 @@ const listParticipantsQuerySchema = paginationSchema.extend({
 });
 
 const listRegistrationsQuerySchema = paginationSchema.extend({
+  search: z.string().optional(),
   status: z.nativeEnum(RegistrationStatus).optional(),
 });
 
 const listPaymentsQuerySchema = paginationSchema.extend({
+  search: z.string().optional(),
   status: z.nativeEnum(PaymentStatus).optional(),
 });
 
@@ -50,6 +52,52 @@ export async function adminRoutes(fastify: FastifyInstance) {
     },
   }, async (_request, reply) => {
     const result = await adminService.getDashboardMetrics();
+    return reply.send(formatSuccessResponse(result));
+  });
+
+  // GET /api/v1/admin/analytics - Admin Analytics Breakdown
+  fastify.get('/analytics', {
+    schema: {
+      tags: ['Admin'],
+      summary: 'Get analytics breakdown (colleges, departments, food, payments) (Requires ADMIN role)',
+      security: [{ bearerAuth: [] }],
+    },
+  }, async (_request, reply) => {
+    const result = await adminService.getAnalytics();
+    return reply.send(formatSuccessResponse(result));
+  });
+
+  // GET /api/v1/admin/exports/registrations - Export Registrations CSV
+  fastify.get('/exports/registrations', {
+    schema: {
+      tags: ['Admin'],
+      summary: 'Export registrations data as CSV file (Requires ADMIN role)',
+      security: [{ bearerAuth: [] }],
+    },
+  }, async (_request, reply) => {
+    const csvContent = await adminService.exportRegistrationsCsv();
+    reply.header('Content-Type', 'text/csv');
+    reply.header('Content-Disposition', 'attachment; filename="hacknex_registrations.csv"');
+    return reply.send(csvContent);
+  });
+
+  // GET /api/v1/admin/audit-logs - List Audit Logs
+  fastify.get('/audit-logs', {
+    schema: {
+      tags: ['Admin'],
+      summary: 'List administrative audit log activity (Requires ADMIN role)',
+      security: [{ bearerAuth: [] }],
+      querystring: {
+        type: 'object',
+        properties: {
+          page: { type: 'integer', default: 1 },
+          limit: { type: 'integer', default: 10 },
+        },
+      },
+    },
+  }, async (request, reply) => {
+    const query = paginationSchema.parse(request.query);
+    const result = await adminService.listAuditLogs(query);
     return reply.send(formatSuccessResponse(result));
   });
 
@@ -140,17 +188,18 @@ export async function adminRoutes(fastify: FastifyInstance) {
     return reply.send(formatSuccessResponse(result));
   });
 
-  // GET /api/v1/admin/registrations - List Registrations (Paginated, Filterable)
+  // GET /api/v1/admin/registrations - List Registrations (Paginated, Filterable, Searchable)
   fastify.get('/registrations', {
     schema: {
       tags: ['Admin'],
-      summary: 'List registrations with status filtering (Requires ADMIN role)',
+      summary: 'List registrations with status filtering and search (Requires ADMIN role)',
       security: [{ bearerAuth: [] }],
       querystring: {
         type: 'object',
         properties: {
           page: { type: 'integer', default: 1 },
           limit: { type: 'integer', default: 10 },
+          search: { type: 'string' },
           status: { type: 'string', enum: Object.values(RegistrationStatus) },
         },
       },
@@ -181,7 +230,7 @@ export async function adminRoutes(fastify: FastifyInstance) {
     return reply.send(formatSuccessResponse(result));
   });
 
-  // GET /api/v1/admin/payments - List Payments (Paginated, Filterable)
+  // GET /api/v1/admin/payments - List Payments (Paginated, Filterable, Searchable)
   fastify.get('/payments', {
     schema: {
       tags: ['Admin'],
@@ -192,6 +241,7 @@ export async function adminRoutes(fastify: FastifyInstance) {
         properties: {
           page: { type: 'integer', default: 1 },
           limit: { type: 'integer', default: 10 },
+          search: { type: 'string' },
           status: { type: 'string', enum: Object.values(PaymentStatus) },
         },
       },
