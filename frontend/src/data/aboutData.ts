@@ -13,8 +13,8 @@ export const aboutData = {
   ],
   stats: [
     { id: '1', end: 1500, suffix: '+', label: 'Participants' },
-    { id: '2', end: 375, suffix: '+', label: 'Teams' },
-    { id: '3', prefix: '₹', end: 600, label: 'Registration / Team' },
+    { id: '2', end: 400, suffix: '+', label: 'Teams' },
+    { id: '3', prefix: '₹', end: 600, label: 'Registration / Person' },
     { id: '4', end: 3, label: 'Days Sprint' },
   ],
 };

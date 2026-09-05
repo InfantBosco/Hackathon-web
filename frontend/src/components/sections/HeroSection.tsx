@@ -57,7 +57,7 @@ export const HeroSection: React.FC = () => {
           className="flex flex-col items-center gap-4 mb-6"
         >
           <Badge variant="cyan" className="flex items-center gap-2 px-3 py-1">
-            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block invert brightness-200" />
+            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block" />
             <span>{heroData.badge}</span>
           </Badge>
 

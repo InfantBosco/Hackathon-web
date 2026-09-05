@@ -1,16 +1,29 @@
 import React from 'react';
-import { Logo } from '../branding/Logo';
 import { siteConfig } from '../../data/siteConfig';
 import { Linkedin, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[var(--color-bg-secondary)] border-t border-[var(--color-border)] pt-16 pb-12 text-sm text-[var(--color-text-secondary)]">
+    <footer className="bg-black/90 border-t border-white/10 pt-16 pb-12 text-sm text-[var(--color-text-secondary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-          {/* Brand Col */}
+          {/* Brand Col without symbol near HACKNEX and using original logomain_svg.png */}
           <div className="md:col-span-2 space-y-4">
-            <Logo variant="combined" size="md" />
+            <div className="flex items-center gap-3 font-heading font-black tracking-wider select-none text-xl">
+              <span className="text-white">
+                HACK<span className="text-slate-300">NEX</span>
+              </span>
+              <span className="text-zinc-600 font-normal text-sm hidden sm:inline">|</span>
+              <div className="flex items-center gap-2 text-xs tracking-widest text-slate-300 uppercase">
+                <img
+                  src="/logomain_svg.png"
+                  alt="NEXUS Logo"
+                  className="h-5 w-auto shrink-0 object-contain"
+                />
+                <span>NEXUS CLUB</span>
+              </div>
+            </div>
+
             <p className="text-xs leading-relaxed max-w-sm text-[var(--color-text-muted)]">
               HackNEX 2026 is a 3-day national offline hackathon organized by{' '}
               <span className="inline-flex items-center gap-1 font-semibold text-white">
@@ -19,7 +32,7 @@ export const Footer: React.FC = () => {
               </span>{' '}
               Club at Karunya Institute of Technology and Sciences, Coimbatore.
             </p>
-            <div className="text-xs font-mono text-[var(--color-accent-cyan)]">
+            <div className="text-xs font-mono text-slate-300 tracking-wider">
               OCTOBER 7–9, 2026 • COIMBATORE
             </div>
           </div>
@@ -30,12 +43,12 @@ export const Footer: React.FC = () => {
               Quick Links
             </h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#home" className="hover:text-[var(--color-accent-cyan)] transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-[var(--color-accent-cyan)] transition-colors">About HackNEX</a></li>
-              <li><a href="#domains" className="hover:text-[var(--color-accent-cyan)] transition-colors">Domain Tracks</a></li>
-              <li><a href="#schedule" className="hover:text-[var(--color-accent-cyan)] transition-colors">Event Schedule</a></li>
-              <li><a href="#prizes" className="hover:text-[var(--color-accent-cyan)] transition-colors">Prizes & Awards</a></li>
-              <li><a href="#faq" className="hover:text-[var(--color-accent-cyan)] transition-colors">Frequently Asked Questions</a></li>
+              <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About HackNEX</a></li>
+              <li><a href="#domains" className="hover:text-white transition-colors">Domain Tracks</a></li>
+              <li><a href="#schedule" className="hover:text-white transition-colors">Event Schedule</a></li>
+              <li><a href="#prizes" className="hover:text-white transition-colors">Prizes & Awards</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">Frequently Asked Questions</a></li>
             </ul>
           </div>
 
@@ -49,11 +62,11 @@ export const Footer: React.FC = () => {
                 href={siteConfig.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-accent-cyan)] transition-colors"
+                className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-white transition-colors"
               >
-                <Linkedin className="w-4 h-4" />
+                <Linkedin className="w-4 h-4 text-white" />
                 <span className="inline-flex items-center gap-1">
-                  <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+                  <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
                   NEXUS LinkedIn
                 </span>
                 <ExternalLink className="w-3 h-3 opacity-50" />
@@ -72,11 +85,11 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-text-muted)] gap-4">
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-text-muted)] gap-4">
           <p className="flex items-center gap-1 flex-wrap">
             © 2026 HackNEX •{' '}
             <span className="inline-flex items-center gap-1 font-semibold text-white">
-              <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+              <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
               NEXUS
             </span>{' '}
             Club, Karunya Institute of Technology and Sciences. All rights reserved.

@@ -48,7 +48,7 @@ export const Logo: React.FC<LogoProps> = ({
           <img
             src="/logomain_svg.png"
             alt="NEXUS Logo"
-            className={cn('shrink-0 object-contain invert brightness-200', logoImageSize[size])}
+            className={cn('shrink-0 object-contain', logoImageSize[size])}
           />
           <span>NEXUS CLUB</span>
         </div>
