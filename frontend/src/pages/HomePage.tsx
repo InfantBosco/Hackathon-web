@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Navbar } from '../components/navigation/Navbar';
 import { HeroSection } from '../components/sections/HeroSection';
 import { AboutSection } from '../components/sections/AboutSection';
@@ -13,29 +13,10 @@ import { FAQSection } from '../components/sections/FAQSection';
 import { FinalCTASection } from '../components/sections/FinalCTASection';
 import { Footer } from '../components/navigation/Footer';
 import { BackToTop } from '../components/ui/BackToTop';
-import { LoadingScreen } from '../components/loading/LoadingScreen';
 
 export const HomePage: React.FC = () => {
-  const [showLoading, setShowLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowLoading(false);
-    }, 4500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
     <div className="w-full relative overflow-x-hidden">
-      {showLoading && (
-        <LoadingScreen
-          videoSrc="/assets/loadingscreen.mp4"
-          isLoading={showLoading}
-          onComplete={() => setShowLoading(false)}
-        />
-      )}
-
       <Navbar />
       <main>
         <HeroSection />
