@@ -32,7 +32,10 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 0.5 }}
           className="flex flex-col items-center gap-4 mb-6"
         >
-          <Badge variant="cyan">{heroData.badge}</Badge>
+          <Badge variant="cyan" className="flex items-center gap-2 px-3 py-1">
+            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block" />
+            <span>{heroData.badge}</span>
+          </Badge>
           <h1 className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black tracking-tight text-white uppercase select-none">
             HACK<span className="text-[var(--color-accent-cyan)] drop-shadow-[0_0_45px_rgba(255,30,66,0.85)]">NEX</span>
           </h1>

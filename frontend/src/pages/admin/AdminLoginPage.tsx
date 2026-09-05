@@ -52,8 +52,13 @@ export const AdminLoginPage: React.FC = () => {
           <h1 className="text-2xl font-heading font-bold text-white tracking-wider">
             HackNEX Admin Portal
           </h1>
-          <p className="text-xs font-mono text-slate-400">
-            Authorized NEXUS Club Personnel Authentication
+          <p className="text-xs font-mono text-slate-400 flex items-center justify-center gap-1">
+            <span>Authorized</span>
+            <span className="inline-flex items-center gap-1 font-semibold text-white">
+              <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
+              NEXUS
+            </span>
+            <span>Club Personnel Authentication</span>
           </p>
         </div>
 
@@ -110,8 +115,12 @@ export const AdminLoginPage: React.FC = () => {
           </div>
         </div>
 
-        <p className="text-center text-[10px] font-mono text-slate-500">
-          NEXUS Club, Karunya Institute of Technology and Sciences
+        <p className="text-center text-[10px] font-mono text-slate-500 flex items-center justify-center gap-1">
+          <span className="inline-flex items-center gap-1 font-semibold text-slate-300">
+            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+            NEXUS
+          </span>
+          <span>Club, Karunya Institute of Technology and Sciences</span>
         </p>
       </div>
     </div>

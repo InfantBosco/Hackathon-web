@@ -29,8 +29,13 @@ export const SponsorsSection: React.FC = () => {
         ))}
       </div>
 
-      <div className="text-center mt-8 text-xs font-mono text-[var(--color-text-muted)]">
-        Interested in sponsoring HackNEX 2026? Contact NEXUS Club organizers.
+      <div className="text-center mt-8 text-xs font-mono text-[var(--color-text-muted)] flex items-center justify-center gap-1">
+        <span>Interested in sponsoring HackNEX 2026? Contact</span>
+        <span className="inline-flex items-center gap-1 font-semibold text-white">
+          <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
+          NEXUS
+        </span>
+        <span>Club organizers.</span>
       </div>
     </Section>
   );

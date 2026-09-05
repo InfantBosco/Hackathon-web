@@ -82,8 +82,13 @@ export const ComponentShowcase: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-mono text-[var(--color-text-muted)]">Body Text (Inter)</span>
-                <p className="text-sm text-[var(--color-text-secondary)]">
-                  HackNEX is Karunya's flagship 3-day hackathon powered by NEXUS Club, expected to host 1,500+ participants.
+                <p className="text-sm text-[var(--color-text-secondary)] flex items-center gap-1 flex-wrap">
+                  <span>HackNEX is Karunya's flagship 3-day hackathon powered by</span>
+                  <span className="inline-flex items-center gap-1 font-semibold text-white">
+                    <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
+                    NEXUS
+                  </span>
+                  <span>Club, expected to host 1,500+ participants.</span>
                 </p>
               </div>
               <div>

@@ -170,7 +170,13 @@ export const RegistrationConfirmedPage: React.FC = () => {
 
         <div className="flex items-center justify-center gap-2 text-[11px] font-mono text-[var(--color-text-muted)] pt-4">
           <ShieldCheck className="w-4 h-4 text-emerald-400" />
-          <span>NEXUS Club, Karunya Institute of Technology and Sciences</span>
+          <span className="flex items-center gap-1">
+            <span className="inline-flex items-center gap-1 font-semibold text-white">
+              <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
+              NEXUS
+            </span>
+            <span>Club, Karunya Institute of Technology and Sciences</span>
+          </span>
         </div>
       </main>
     </div>

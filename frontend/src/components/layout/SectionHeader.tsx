@@ -1,11 +1,12 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 import { Badge } from '../ui/Badge';
+import { withNexusLogo } from '../branding/NexusText';
 
 interface SectionHeaderProps {
   badge?: string;
   title: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
   align?: 'left' | 'center' | 'right';
   className?: string;
 }
@@ -23,6 +24,8 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
     right: 'text-right items-end',
   };
 
+  const renderedSubtitle = typeof subtitle === 'string' ? withNexusLogo(subtitle) : subtitle;
+
   return (
     <div className={cn('flex flex-col mb-12 md:mb-16 max-w-3xl mx-auto', alignmentStyles[align], className)}>
       {badge && (
@@ -35,7 +38,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       </h2>
       {subtitle && (
         <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
-          {subtitle}
+          {renderedSubtitle}
         </p>
       )}
     </div>

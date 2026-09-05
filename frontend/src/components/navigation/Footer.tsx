@@ -12,7 +12,12 @@ export const Footer: React.FC = () => {
           <div className="md:col-span-2 space-y-4">
             <Logo variant="combined" size="md" />
             <p className="text-xs leading-relaxed max-w-sm text-[var(--color-text-muted)]">
-              HackNEX 2026 is a 3-day national offline hackathon organized by NEXUS Club at Karunya Institute of Technology and Sciences, Coimbatore.
+              HackNEX 2026 is a 3-day national offline hackathon organized by{' '}
+              <span className="inline-flex items-center gap-1 font-semibold text-white">
+                <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
+                NEXUS
+              </span>{' '}
+              Club at Karunya Institute of Technology and Sciences, Coimbatore.
             </p>
             <div className="text-xs font-mono text-[var(--color-accent-cyan)]">
               OCTOBER 7–9, 2026 • COIMBATORE
@@ -47,7 +52,10 @@ export const Footer: React.FC = () => {
                 className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-accent-cyan)] transition-colors"
               >
                 <Linkedin className="w-4 h-4" />
-                <span>NEXUS LinkedIn</span>
+                <span className="inline-flex items-center gap-1">
+                  <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+                  NEXUS LinkedIn
+                </span>
                 <ExternalLink className="w-3 h-3 opacity-50" />
               </a>
 
@@ -65,7 +73,14 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="pt-8 border-t border-[var(--color-border-subtle)] flex flex-col sm:flex-row items-center justify-between text-xs text-[var(--color-text-muted)] gap-4">
-          <p>© 2026 HackNEX • NEXUS Club, Karunya Institute of Technology and Sciences. All rights reserved.</p>
+          <p className="flex items-center gap-1 flex-wrap">
+            © 2026 HackNEX •{' '}
+            <span className="inline-flex items-center gap-1 font-semibold text-white">
+              <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+              NEXUS
+            </span>{' '}
+            Club, Karunya Institute of Technology and Sciences. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

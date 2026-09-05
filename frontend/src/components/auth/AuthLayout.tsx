@@ -38,8 +38,13 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
                 HACK<span className="text-[var(--color-accent-cyan)]">NEX</span> 2026
               </h1>
 
-              <p className="text-base text-[var(--color-text-secondary)] leading-relaxed max-w-md font-medium">
-                National Level Offline Hackathon organized by NEXUS Club, Karunya Institute of Technology and Sciences.
+              <p className="text-base text-[var(--color-text-secondary)] leading-relaxed max-w-md font-medium flex items-center gap-1.5 flex-wrap">
+                <span>National Level Offline Hackathon organized by</span>
+                <span className="inline-flex items-center gap-1 font-semibold text-white">
+                  <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block align-middle" />
+                  NEXUS
+                </span>
+                <span>Club, Karunya Institute of Technology and Sciences.</span>
               </p>
 
               <div className="space-y-3 pt-4 border-t border-[var(--color-border-subtle)] text-xs font-mono text-white">
@@ -54,8 +59,13 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
               </div>
             </div>
 
-            <div className="mt-12 text-xs font-mono text-[var(--color-text-muted)]">
-              © 2026 NEXUS Club • All Rights Reserved
+            <div className="mt-12 text-xs font-mono text-[var(--color-text-muted)] flex items-center gap-1">
+              <span>© 2026</span>
+              <span className="inline-flex items-center gap-1 font-semibold text-white">
+                <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+                NEXUS
+              </span>
+              <span>Club • All Rights Reserved</span>
             </div>
           </motion.div>
 

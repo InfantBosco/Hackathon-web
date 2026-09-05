@@ -122,7 +122,14 @@ export const PaymentBoundaryHandoff: React.FC<PaymentBoundaryHandoffProps> = ({
 
       <div className="flex items-center justify-center gap-2 text-[11px] font-mono text-[var(--color-text-muted)]">
         <ShieldCheck className="w-4 h-4 text-emerald-400" />
-        <span>Organized by NEXUS Club, KITS Coimbatore</span>
+        <span className="flex items-center gap-1">
+          <span>Organized by</span>
+          <span className="inline-flex items-center gap-1 font-semibold text-white">
+            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+            NEXUS
+          </span>
+          <span>Club, KITS Coimbatore</span>
+        </span>
       </div>
     </div>
   );

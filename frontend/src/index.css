@@ -80,6 +80,12 @@ code, pre, .font-mono {
   text-shadow: 0 0 25px rgba(255, 30, 66, 0.6), 0 0 45px rgba(225, 29, 72, 0.3);
 }
 
+@keyframes fall {
+  to {
+    background-position: 0 320px, 40px 360px;
+  }
+}
+
 /* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

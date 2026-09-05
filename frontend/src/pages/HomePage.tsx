@@ -8,6 +8,7 @@ import { ScheduleSection } from '../components/sections/ScheduleSection';
 import { PrizesSection } from '../components/sections/PrizesSection';
 import { SponsorsSection } from '../components/sections/SponsorsSection';
 import { VenueSection } from '../components/sections/VenueSection';
+import { ContactSection } from '../components/sections/ContactSection';
 import { FAQSection } from '../components/sections/FAQSection';
 import { FinalCTASection } from '../components/sections/FinalCTASection';
 import { Footer } from '../components/navigation/Footer';
@@ -44,6 +45,7 @@ export const HomePage: React.FC = () => {
         <PrizesSection />
         <SponsorsSection />
         <VenueSection />
+        <ContactSection />
         <FAQSection />
         <FinalCTASection />
       </main>

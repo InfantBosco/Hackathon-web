@@ -187,8 +187,13 @@ export const PaymentPage: React.FC = () => {
                   Karunya Payment Interface
                   <Sparkles className="w-3.5 h-3.5 text-[var(--color-accent-cyan)]" />
                 </h4>
-                <p className="text-[11px] text-[var(--color-text-secondary)]">
-                  Secure direct gateway integration for NEXUS Club, KITS
+                <p className="text-[11px] text-[var(--color-text-secondary)] flex items-center gap-1 flex-wrap">
+                  <span>Secure direct gateway integration for</span>
+                  <span className="inline-flex items-center gap-1 font-semibold text-white">
+                    <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+                    NEXUS
+                  </span>
+                  <span>Club, KITS</span>
                 </p>
               </div>
             </div>
