@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap');
 @import "tailwindcss";
 @import "./styles/tokens.css";
 
 :root {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   color-scheme: dark;
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
+  letter-spacing: -0.01em;
 }
 
 body {
@@ -18,20 +19,45 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
-/* Headings Font - Outfit & Cinzel Royal Accent */
+/* Headings Font - Outfit & Royal Cinzel Accent */
 h1, h2, h3, h4, h5, h6, .font-heading {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.02em;
 }
 
 .font-royal {
   font-family: 'Cinzel', serif;
+  letter-spacing: 0.05em;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
 }
 
 /* Technical / Code Font - JetBrains Mono */
 code, pre, .font-mono {
   font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.02em;
+}
+
+/* Royal Aesthetic Typography Utilities */
+.tracking-royal {
+  letter-spacing: 0.15em;
+}
+
+.text-royal-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-crimson-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #ff1e42 60%, #e11d48 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Custom Scrollbar */
@@ -42,7 +68,7 @@ code, pre, .font-mono {
   background: var(--color-bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 30, 66, 0.3);
+  background: rgba(255, 30, 66, 0.35);
   border-radius: var(--radius-full);
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -51,9 +77,9 @@ code, pre, .font-mono {
 
 /* Royal Glassmorphism Utility */
 .glass-panel {
-  background: rgba(20, 5, 10, 0.45);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(20, 5, 10, 0.55);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 30, 66, 0.22);
   box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.08);
 }
