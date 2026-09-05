@@ -38,7 +38,7 @@ export const CountdownTimer: React.FC = () => {
 
   if (isCompleted) {
     return (
-      <div className="glass-panel px-6 py-4 rounded-[var(--radius-lg)] text-center text-lg font-heading font-bold text-[var(--color-accent-cyan)] border border-[var(--color-accent-cyan)]">
+      <div className="glass-panel px-6 py-4 rounded-[var(--radius-lg)] text-center text-lg font-heading font-bold text-white border border-red-500/40 shadow-[0_0_25px_rgba(255,30,66,0.4)]">
         HACKNEX 2026 IS LIVE!
       </div>
     );
@@ -56,12 +56,12 @@ export const CountdownTimer: React.FC = () => {
       ].map((item) => (
         <div
           key={item.label}
-          className="glass-panel border border-[var(--color-border-subtle)] p-3 sm:p-4 rounded-[var(--radius-md)] flex flex-col items-center justify-center text-center shadow-lg hover:border-[var(--color-accent-cyan)] transition-colors"
+          className="glass-panel border border-red-500/30 p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/60 hover:shadow-[0_0_30px_rgba(255,30,66,0.45)] transition-all duration-300 select-none bg-zinc-950/85 backdrop-blur-md"
         >
-          <span className="text-2xl sm:text-4xl font-heading font-black tracking-tight text-white font-mono">
+          <span className="text-2xl sm:text-4xl font-heading font-black tracking-tight text-white font-mono drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">
             {item.value}
           </span>
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-[var(--color-text-muted)] mt-1">
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-300 mt-1">
             {item.label}
           </span>
         </div>

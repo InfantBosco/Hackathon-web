@@ -17,40 +17,31 @@ export const VenueSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {/* Karunya University Overview & Photo Card */}
-        <Card variant="default" className="flex flex-col justify-between p-6">
+        <Card variant="default" className="flex flex-col justify-between p-6 border-red-500/25 shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.4)] transition-all duration-300">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Building className="w-6 h-6 text-white" />
               <h3 className="text-xl font-heading font-bold text-white">{venueData.institution}</h3>
             </div>
 
-            {venueData.imageUrl ? (
+            {venueData.imageUrl && (
               <img
                 src={venueData.imageUrl}
-                alt="Karunya University Campus & Auditorium"
+                alt="Karunya University Campus"
                 className="w-full h-64 sm:h-72 rounded-[var(--radius-md)] object-cover border border-white/10 mb-4 shadow-xl"
               />
-            ) : (
-              <div className="w-full h-64 sm:h-72 rounded-[var(--radius-md)] bg-white/5 border border-white/10 flex flex-col items-center justify-center text-center p-6 mb-4 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-black via-transparent to-white/10 opacity-60" />
-                <Building className="w-12 h-12 text-white mb-2 relative z-10" />
-                <span className="text-xs font-mono text-slate-300 uppercase relative z-10 font-semibold">
-                  KARUNYA MAIN CAMPUS & AUDITORIUM
-                </span>
-                <span className="text-[10px] font-mono text-slate-400 mt-1 relative z-10">
-                  Coimbatore, Tamil Nadu 641114
-                </span>
-              </div>
             )}
 
-            <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-              {venueData.auditorium}
-            </p>
+            {venueData.auditorium && (
+              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                {venueData.auditorium}
+              </p>
+            )}
           </div>
         </Card>
 
         {/* Real Embedded Google Maps Location Card */}
-        <Card variant="hoverGlow" className="flex flex-col justify-between p-6">
+        <Card variant="hoverGlow" className="flex flex-col justify-between p-6 border-red-500/25 shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.4)] transition-all duration-300">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <MapPin className="w-6 h-6 text-white" />

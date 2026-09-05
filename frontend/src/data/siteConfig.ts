@@ -8,7 +8,9 @@ export const siteConfig = {
   mode: 'Offline',
   expectedParticipants: '1,500+',
   teamSize: 4,
-  registrationFee: 600, // ₹600 per team
+  registrationFee: 600, // ₹600 per person (₹2,400 per team of 4)
+  totalTeamFee: 2400,
+  registrationDeadline: 'October 1, 2026, 11:59 PM',
   prizePool: '₹1.5L+',
   registerRoute: '/register',
   googleMapsUrl: 'https://maps.google.com/?q=Karunya+Institute+of+Technology+and+Sciences+Coimbatore',

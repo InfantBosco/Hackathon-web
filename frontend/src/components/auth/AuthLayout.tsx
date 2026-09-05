@@ -29,19 +29,19 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
             <NeuralNoise opacity={0.25} />
 
             <div className="relative z-10 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[rgba(0,240,255,0.1)] border border-[rgba(0,240,255,0.3)] text-[var(--color-accent-cyan)] font-mono text-xs uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs uppercase tracking-wider">
                 <Shield className="w-3.5 h-3.5" />
                 <span>OFFICIAL ACCOUNT PORTAL</span>
               </div>
 
               <h1 className="text-5xl font-heading font-black text-white tracking-tight uppercase leading-tight">
-                HACK<span className="text-[var(--color-accent-cyan)]">NEX</span> 2026
+                HACK<span className="text-slate-300">NEX</span> 2026
               </h1>
 
               <p className="text-base text-[var(--color-text-secondary)] leading-relaxed max-w-md font-medium flex items-center gap-1.5 flex-wrap">
                 <span>National Level Offline Hackathon organized by</span>
                 <span className="inline-flex items-center gap-1 font-semibold text-white">
-                  <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block align-middle" />
+                  <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block align-middle invert brightness-200" />
                   NEXUS
                 </span>
                 <span>Club, Karunya Institute of Technology and Sciences.</span>
@@ -49,11 +49,11 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
 
               <div className="space-y-3 pt-4 border-t border-[var(--color-border-subtle)] text-xs font-mono text-white">
                 <div className="flex items-center gap-3">
-                  <Calendar className="w-4 h-4 text-[var(--color-accent-cyan)]" />
+                  <Calendar className="w-4 h-4 text-white" />
                   <span>{siteConfig.dates}</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin className="w-4 h-4 text-[var(--color-accent-purple)]" />
+                  <MapPin className="w-4 h-4 text-slate-300" />
                   <span>{siteConfig.location}</span>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
             <div className="mt-12 text-xs font-mono text-[var(--color-text-muted)] flex items-center gap-1">
               <span>© 2026</span>
               <span className="inline-flex items-center gap-1 font-semibold text-white">
-                <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle" />
+                <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3 w-auto shrink-0 inline-block align-middle invert brightness-200" />
                 NEXUS
               </span>
               <span>Club • All Rights Reserved</span>
@@ -89,7 +89,7 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
       </div>
 
       <div className="py-4 text-center text-[10px] font-mono text-[var(--color-text-muted)] border-t border-[var(--color-border-subtle)]">
-        HackNEX 2026 • 4 Members / Team • ₹600 Fee
+        HackNEX 2026 • 4 Members / Team • ₹600 Fee per person
       </div>
     </GridBackground>
   );

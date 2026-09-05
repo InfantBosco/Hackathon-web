@@ -29,7 +29,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-2',
     category: 'REGISTRATION',
     question: 'What is the deadline for registration?',
-    answer: 'Registration deadlines and round updates will be communicated through registered email and official social channels.',
+    answer: 'Registration deadline is October 1, 2026 at 11:59 PM. Round updates will be communicated through registered email and official social channels.',
   },
   {
     id: 'faq-3',
@@ -63,7 +63,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-7',
     category: 'PAYMENT',
     question: 'What is the registration fee for HackNEX?',
-    answer: 'The registration fee is ₹600 per team of 4 participants.',
+    answer: 'The registration fee is ₹600 per person (₹2,400 per team of 4 participants).',
   },
   {
     id: 'faq-8',
