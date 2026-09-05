@@ -8,9 +8,9 @@ export const ScheduleSection: React.FC = () => {
   return (
     <Section id="schedule" variant="primary">
       <SectionHeader
-        badge="EVENT SCHEDULE"
-        title="3-Day Radial Orbital Timeline"
-        subtitle="October 7–9, 2026 • Karunya Auditorium & Innovation Hub"
+        badge="TIMELINE"
+        title="EVENT SCHEDULE"
+        subtitle="October 7–9, 2026 • KITS, Coimbatore"
       />
 
       <div className="max-w-5xl mx-auto">

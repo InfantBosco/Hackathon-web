@@ -26,29 +26,37 @@ export default function RadialOrbitalTimeline({
 }: RadialOrbitalTimelineProps) {
   const [hoveredId, setHoveredId] = useState<number | null>(1);
   const [rotationAngle, setRotationAngle] = useState<number>(0);
-  const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const containerRef = useRef<HTMLDivElement>(null);
   const orbitRef = useRef<HTMLDivElement>(null);
 
+  // 1. Orbit Rotation Never Stops - Runs Continuously
   useEffect(() => {
-    let rotationTimer: NodeJS.Timeout;
-
-    if (autoRotate) {
-      rotationTimer = setInterval(() => {
-        setRotationAngle((prev) => (prev + 0.2) % 360);
-      }, 50);
-    }
+    const rotationTimer = setInterval(() => {
+      setRotationAngle((prev) => (prev + 0.2) % 360);
+    }, 50);
 
     return () => {
-      if (rotationTimer) {
-        clearInterval(rotationTimer);
+      clearInterval(rotationTimer);
+    };
+  }, []);
+
+  // 2. Click anywhere else on document closes the info card
+  useEffect(() => {
+    const handleDocumentClick = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setHoveredId(null);
       }
     };
-  }, [autoRotate]);
+
+    document.addEventListener("click", handleDocumentClick);
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, []);
 
   const calculateNodePosition = (index: number, total: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 175;
+    const radius = 215; // Scaled up radius for bigger component
     const radian = (angle * Math.PI) / 180;
 
     const x = radius * Math.cos(radian);
@@ -56,7 +64,7 @@ export default function RadialOrbitalTimeline({
 
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
     const opacity = Math.max(
-      0.7,
+      0.75,
       Math.min(1, 0.5 + 0.5 * ((1 + Math.sin(radian)) / 2))
     );
 
@@ -66,31 +74,31 @@ export default function RadialOrbitalTimeline({
   return (
     <div
       className={cn(
-        "w-full min-h-[580px] py-4 flex flex-col items-center justify-center bg-transparent relative select-none",
+        "w-full min-h-[660px] py-6 flex flex-col items-center justify-center bg-transparent relative select-none",
         className
       )}
       ref={containerRef}
     >
-      <div className="relative w-full max-w-4xl h-[500px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl h-[580px] flex items-center justify-center">
         <div
           className="absolute w-full h-full flex items-center justify-center transition-all duration-300"
           ref={orbitRef}
           style={{ perspective: "1000px" }}
         >
-          {/* NEXUS LOGO IN THE CENTER CORE */}
-          <div className="absolute w-22 h-22 rounded-full bg-zinc-950/90 border border-white/30 shadow-[0_0_25px_rgba(255,255,255,0.3)] flex flex-col items-center justify-center z-10 group overflow-hidden p-2 transition-transform duration-300 hover:scale-110">
-            <div className="absolute w-24 h-24 rounded-full border border-white/20 animate-ping opacity-50 pointer-events-none" />
+          {/* NEXUS LOGO IN THE CENTER CORE (Original logomain_svg.png) */}
+          <div className="absolute w-26 h-26 rounded-full bg-zinc-950/90 border border-white/30 shadow-[0_0_30px_rgba(255,30,66,0.35)] flex flex-col items-center justify-center z-10 group overflow-hidden p-2 transition-transform duration-300 hover:scale-110">
+            <div className="absolute w-28 h-28 rounded-full border border-red-500/30 animate-ping opacity-50 pointer-events-none" />
             <img
               src="/logomain_svg.png"
               alt="NEXUS Club Logo"
-              className="w-10 h-10 object-contain invert brightness-200 drop-shadow-[0_0_8px_rgba(255,255,255,0.7)]"
+              className="w-12 h-12 object-contain"
             />
-            <span className="text-[9px] font-mono font-bold text-white uppercase tracking-widest mt-0.5">NEXUS</span>
+            <span className="text-[9px] font-mono font-bold text-white uppercase tracking-widest mt-1">NEXUS</span>
           </div>
 
-          {/* Orbital Circle Ring */}
-          <div className="absolute w-[350px] h-[350px] rounded-full border border-white/20 pointer-events-none" />
-          <div className="absolute w-[358px] h-[358px] rounded-full border border-dashed border-white/10 pointer-events-none" />
+          {/* Scaled Orbital Circle Rings */}
+          <div className="absolute w-[430px] h-[430px] rounded-full border border-white/20 pointer-events-none" />
+          <div className="absolute w-[440px] h-[440px] rounded-full border border-dashed border-white/10 pointer-events-none" />
 
           {/* Timeline Nodes (1, 2, 3) */}
           {timelineData.map((item, index) => {
@@ -111,19 +119,19 @@ export default function RadialOrbitalTimeline({
                 style={nodeStyle}
                 onMouseEnter={() => {
                   setHoveredId(item.id);
-                  setAutoRotate(false);
                 }}
-                onMouseLeave={() => {
-                  setAutoRotate(true);
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setHoveredId(item.id);
                 }}
               >
                 {/* Node Orb Button (Displays 1, 2, 3) */}
                 <div
                   className={cn(
-                    "w-12 h-12 rounded-full flex items-center justify-center font-heading font-extrabold text-lg transition-all duration-300 border-2 shadow-md",
+                    "w-13 h-13 rounded-full flex items-center justify-center font-heading font-extrabold text-xl transition-all duration-300 border-2 shadow-md",
                     isHovered
-                      ? "bg-white text-black border-white scale-125 shadow-[0_0_20px_rgba(255,255,255,0.8)]"
-                      : "bg-zinc-950 text-white border-white/30 group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.4)]"
+                      ? "bg-white text-black border-white scale-125 shadow-[0_0_25px_rgba(255,255,255,0.9)]"
+                      : "bg-zinc-950 text-white border-white/30 group-hover:border-white group-hover:scale-110 group-hover:shadow-[0_0_18px_rgba(255,255,255,0.5)]"
                   )}
                 >
                   {nodeNumber}
@@ -132,7 +140,7 @@ export default function RadialOrbitalTimeline({
                 {/* Node Title Label Below Node */}
                 <div
                   className={cn(
-                    "absolute top-14 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-mono font-bold tracking-wider transition-all duration-300 px-2 py-0.5 rounded bg-zinc-950/90 border border-white/10",
+                    "absolute top-15 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-mono font-bold tracking-wider transition-all duration-300 px-2.5 py-0.5 rounded bg-zinc-950/90 border border-white/10",
                     isHovered
                       ? "text-white border-white/40 shadow-[0_0_10px_rgba(255,255,255,0.3)]"
                       : "text-white/80 group-hover:text-white"
@@ -141,12 +149,12 @@ export default function RadialOrbitalTimeline({
                   {item.title}
                 </div>
 
-                {/* Information Card Shown on Hover */}
+                {/* Information Card Shown on Hover / Selection */}
                 {isHovered && (
-                  <div className="absolute top-20 left-1/2 -translate-x-1/2 w-72 bg-zinc-950/95 backdrop-blur-md border border-white/30 shadow-[0_0_25px_rgba(0,0,0,0.9)] overflow-hidden z-50 rounded-xl p-4 transition-all duration-300 ease-out animate-in fade-in zoom-in-95">
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0.5 h-2 bg-white" />
+                  <div className="absolute top-22 left-1/2 -translate-x-1/2 w-80 bg-zinc-950/95 backdrop-blur-md border border-white/30 shadow-[0_0_30px_rgba(0,0,0,0.95)] overflow-hidden z-50 rounded-xl p-4.5 transition-all duration-300 ease-out animate-in fade-in zoom-in-95">
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0.5 h-2.5 bg-white" />
                     
-                    <h4 className="text-sm font-heading font-bold text-white border-b border-white/10 pb-2 mb-3 flex items-center justify-between">
+                    <h4 className="text-sm font-heading font-bold text-white border-b border-white/15 pb-2 mb-3 flex items-center justify-between">
                       <span>{item.title}</span>
                     </h4>
 
