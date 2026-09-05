@@ -8,23 +8,29 @@ export interface SplashScreenProps {
 
 export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
   const shouldReduceMotion = useReducedMotion();
-  const [isVisible, setIsVisible] = useState(true);
+  const [phase, setPhase] = useState<'show' | 'exit'>('show');
 
   useEffect(() => {
-    // 4.2s total duration for slower, elegant animation
-    const fadeTimer = setTimeout(() => {
-      setIsVisible(false);
-    }, 3400);
-
-    const completeTimer = setTimeout(() => {
+    if (shouldReduceMotion) {
       onComplete();
-    }, 4200);
+      return;
+    }
+
+    // Phase 1 (3.2s): Display full ShaderAnimation
+    const tExit = setTimeout(() => {
+      setPhase('exit');
+    }, 3200);
+
+    // Phase 2 (4.0s): Smooth unmount to reveal landing page
+    const tComplete = setTimeout(() => {
+      onComplete();
+    }, 4000);
 
     return () => {
-      clearTimeout(fadeTimer);
-      clearTimeout(completeTimer);
+      clearTimeout(tExit);
+      clearTimeout(tComplete);
     };
-  }, [onComplete]);
+  }, [onComplete, shouldReduceMotion]);
 
   if (shouldReduceMotion) {
     return null;
@@ -32,41 +38,51 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
 
   return (
     <AnimatePresence>
-      {isVisible && (
+      {phase !== 'exit' && (
         <motion.div
-          key="shader-splash"
+          key="splash-screen"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center overflow-hidden pointer-events-auto select-none bg-black"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center overflow-hidden pointer-events-auto select-none bg-black"
         >
-          {/* Three.js WebGL Shader Animation Canvas */}
-          <div className="absolute inset-0 z-0 opacity-80">
+          {/* Main Three.js WebGL Shader Animation Canvas */}
+          <div className="absolute inset-0 z-0 opacity-90">
             <ShaderAnimation />
           </div>
 
-          {/* Centered HackNEX '26 Typography Overlay */}
-          <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
-            <motion.h1
-              initial={{ opacity: 0, scale: 0.94 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl sm:text-8xl lg:text-9xl font-heading font-black tracking-tighter uppercase select-none text-white drop-shadow-[0_0_35px_rgba(255,255,255,0.4)]"
-            >
-              <span className="text-white">HACK</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 ml-0.5">
-                NEX
-              </span>
-            </motion.h1>
+          {/* Central Red Ambient Radial Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,30,66,0.25)_0%,rgba(255,255,255,0.05)_45%,transparent_70%)] blur-[90px] pointer-events-none z-0" />
 
+          {/* Clean Solid Branding Title: HackNEX '26 */}
+          <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
             <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.65)] uppercase -mt-2"
+              initial={{ opacity: 0, scale: 0.92, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
             >
-              '26
+              <h1 className="text-6xl sm:text-8xl lg:text-9xl font-heading font-black tracking-tight uppercase select-none relative">
+                <span className="text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.4)]">
+                  HACK
+                </span>
+                <span className="ml-1 text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500">
+                  NEX
+                </span>
+              </h1>
+            </motion.div>
+
+            {/* '26 Year Accent */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-[0.25em] pl-[0.25em] uppercase -mt-2"
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_30px_rgba(245,158,11,0.6)]">
+                '26
+              </span>
             </motion.div>
           </div>
         </motion.div>

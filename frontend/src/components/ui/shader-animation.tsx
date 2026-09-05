@@ -9,8 +9,12 @@ export function ShaderAnimation() {
     camera: THREE.Camera
     scene: THREE.Scene
     renderer: THREE.WebGLRenderer
-    uniforms: any
+    uniforms: {
+      time: { type: string; value: number }
+      resolution: { type: string; value: THREE.Vector2 }
+    }
     animationId: number
+    clock: THREE.Clock
   } | null>(null)
 
   useEffect(() => {
@@ -25,29 +29,30 @@ export function ShaderAnimation() {
       }
     `
 
-    // Fragment shader tuned strictly to Red (#ff1e42), White (#ffffff), Grey (#94a3b8), and Black (#000000)
+    // Ultra-optimized fragment shader tuned strictly to Red (#ff1e42), White (#ffffff), Grey (#94a3b8), and Deep Black (#000000)
     const fragmentShader = `
       #define TWO_PI 6.2831853072
       #define PI 3.14159265359
 
-      precision highp float;
+      precision mediump float;
       uniform vec2 resolution;
       uniform float time;
 
       void main(void) {
         vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
-        float t = time * 0.018; // Smooth, slower elegant motion
+        float t = time * 0.45; // Smooth time factor
         float lineWidth = 0.0022;
 
         float intensity = 0.0;
         for(int i = 0; i < 5; i++){
-          intensity += lineWidth * float(i * i) / abs(fract(t + float(i) * 0.012) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.22));
+          float fi = float(i);
+          intensity += lineWidth * (fi * fi) / abs(fract(t + fi * 0.012) * 5.0 - length(uv) + mod(uv.x + uv.y, 0.22));
         }
 
-        // Color theme: Red, White, Silver-Grey, Deep Black
-        vec3 redColor = vec3(1.0, 0.12, 0.26);   // #ff1e42 Electric Crimson
-        vec3 whiteColor = vec3(1.0, 1.0, 1.0);  // Pure White
-        vec3 greyColor = vec3(0.58, 0.64, 0.72); // #94a3b8 Slate Silver Grey
+        // Color theme: Red (#ff1e42), White (#ffffff), Slate Grey (#94a3b8), Deep Black
+        vec3 redColor = vec3(1.0, 0.12, 0.26);    // Crimson Red
+        vec3 whiteColor = vec3(1.0, 1.0, 1.0);   // Pure White
+        vec3 greyColor = vec3(0.58, 0.64, 0.72);  // Slate Grey
 
         vec3 color = redColor * intensity * 0.9 + whiteColor * pow(intensity, 1.6) * 0.4 + greyColor * intensity * 0.25;
         
@@ -76,35 +81,39 @@ export function ShaderAnimation() {
     const mesh = new THREE.Mesh(geometry, material)
     scene.add(mesh)
 
-    // Optimized WebGL Renderer for mobile & high performance
+    // Ultra-fast WebGL Renderer (disabled MSAA on background quad for 60fps zero-lag performance)
     const renderer = new THREE.WebGLRenderer({
-      antialias: true,
+      antialias: false,
+      alpha: false,
       powerPreference: "high-performance",
     })
     
-    // Cap pixel ratio at 1.5 for 60fps zero-lag performance on mobile devices
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5))
+    // Capped pixel ratio (max 1.5) to ensure zero lag across all mobile and high-DPI desktop screens
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5)
+    renderer.setPixelRatio(pixelRatio)
 
     container.appendChild(renderer.domElement)
 
-    // Handle window resize
+    // Clock for frame-rate independent smooth animation
+    const clock = new THREE.Clock()
+
+    // Handle window resize efficiently
     const onWindowResize = () => {
       if (!container || !renderer.domElement) return
       const width = container.clientWidth
       const height = container.clientHeight
-      renderer.setSize(width, height)
-      uniforms.resolution.value.x = renderer.domElement.width
-      uniforms.resolution.value.y = renderer.domElement.height
+      renderer.setSize(width, height, false)
+      uniforms.resolution.value.set(width * pixelRatio, height * pixelRatio)
     }
 
-    // Initial resize
     onWindowResize()
     window.addEventListener("resize", onWindowResize, false)
 
-    // Animation loop with slower, smoother step (+0.018 per frame)
+    // Animation loop using delta time for stutter-free 60fps performance
     const animate = () => {
       const animationId = requestAnimationFrame(animate)
-      uniforms.time.value += 0.018
+      const delta = clock.getDelta()
+      uniforms.time.value += delta * 1.5
       renderer.render(scene, camera)
 
       if (sceneRef.current) {
@@ -112,19 +121,17 @@ export function ShaderAnimation() {
       }
     }
 
-    // Store scene references for cleanup
     sceneRef.current = {
       camera,
       scene,
       renderer,
       uniforms,
       animationId: 0,
+      clock,
     }
 
-    // Start animation
     animate()
 
-    // Cleanup function
     return () => {
       window.removeEventListener("resize", onWindowResize)
 
@@ -145,7 +152,7 @@ export function ShaderAnimation() {
   return (
     <div
       ref={containerRef}
-      className="w-full h-screen"
+      className="w-full h-full absolute inset-0"
       style={{
         background: "#000",
         overflow: "hidden",
