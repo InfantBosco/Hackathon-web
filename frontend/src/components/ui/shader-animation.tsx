@@ -40,7 +40,7 @@ export function ShaderAnimation() {
 
       void main(void) {
         vec2 uv = (gl_FragCoord.xy * 2.0 - resolution.xy) / min(resolution.x, resolution.y);
-        float t = time * 0.45; // Smooth time factor
+        float t = time * 0.28; // Majestic, slow wave motion
         float lineWidth = 0.0022;
 
         float intensity = 0.0;
@@ -113,7 +113,7 @@ export function ShaderAnimation() {
     const animate = () => {
       const animationId = requestAnimationFrame(animate)
       const delta = clock.getDelta()
-      uniforms.time.value += delta * 1.5
+      uniforms.time.value += delta * 0.6
       renderer.render(scene, camera)
 
       if (sceneRef.current) {
