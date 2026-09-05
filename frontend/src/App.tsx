@@ -26,8 +26,7 @@ import { AdminAnalyticsPage } from './pages/admin/AdminAnalyticsPage';
 import { AdminExportsPage } from './pages/admin/AdminExportsPage';
 import { AdminAuditLogsPage } from './pages/admin/AdminAuditLogsPage';
 import { AdminProfilePage } from './pages/admin/AdminProfilePage';
-
-import { NeuralNoise } from './components/ui/neural-noise';
+import { AuroraWaveBackground } from './components/ui/AuroraWaveBackground';
 
 export function App() {
   useEffect(() => {
@@ -36,132 +35,133 @@ export function App() {
 
   return (
     <ErrorBoundary>
-      <NeuralNoise color={[0.95, 0.15, 0.25]} opacity={0.65} />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<SignupPage />} />
-          <Route path="/verify-email" element={<VerifyEmailPage />} />
-          <Route path="/forgot-password" element={<ForgotPasswordPage />} />
-          <Route path="/reset-password" element={<ResetPasswordPage />} />
-          <Route path="/session-expired" element={<SessionExpiredPage />} />
-          <Route path="/showcase" element={<ComponentShowcase />} />
+      <AuroraWaveBackground>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<SignupPage />} />
+            <Route path="/verify-email" element={<VerifyEmailPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/reset-password" element={<ResetPasswordPage />} />
+            <Route path="/session-expired" element={<SessionExpiredPage />} />
+            <Route path="/showcase" element={<ComponentShowcase />} />
 
-          {/* Protected Registration & Payment Routes */}
-          <Route
-            path="/register"
-            element={
-              <ProtectedRoute>
-                <RegistrationWizardPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/registration/status"
-            element={
-              <ProtectedRoute>
-                <RegistrationStatusPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/payment/:registrationId"
-            element={
-              <ProtectedRoute>
-                <PaymentPage />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/registration/confirmed"
-            element={
-              <ProtectedRoute>
-                <RegistrationConfirmedPage />
-              </ProtectedRoute>
-            }
-          />
+            {/* Protected Registration & Payment Routes */}
+            <Route
+              path="/register"
+              element={
+                <ProtectedRoute>
+                  <RegistrationWizardPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/registration/status"
+              element={
+                <ProtectedRoute>
+                  <RegistrationStatusPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/payment/:registrationId"
+              element={
+                <ProtectedRoute>
+                  <PaymentPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/registration/confirmed"
+              element={
+                <ProtectedRoute>
+                  <RegistrationConfirmedPage />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* Admin Authentication Entry */}
-          <Route path="/admin/login" element={<AdminLoginPage />} />
+            {/* Admin Authentication Entry */}
+            <Route path="/admin/login" element={<AdminLoginPage />} />
 
-          {/* Protected Admin Routes */}
-          <Route
-            path="/admin"
-            element={
-              <AdminProtectedRoute>
-                <AdminDashboardOverviewPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/registrations"
-            element={
-              <AdminProtectedRoute>
-                <AdminRegistrationsPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/registrations/:registrationId"
-            element={
-              <AdminProtectedRoute>
-                <AdminRegistrationDetailsPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/participants"
-            element={
-              <AdminProtectedRoute>
-                <AdminParticipantsPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/payments"
-            element={
-              <AdminProtectedRoute>
-                <AdminPaymentsPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/analytics"
-            element={
-              <AdminProtectedRoute>
-                <AdminAnalyticsPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/exports"
-            element={
-              <AdminProtectedRoute>
-                <AdminExportsPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/audit-logs"
-            element={
-              <AdminProtectedRoute>
-                <AdminAuditLogsPage />
-              </AdminProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/profile"
-            element={
-              <AdminProtectedRoute>
-                <AdminProfilePage />
-              </AdminProtectedRoute>
-            }
-          />
-          {/* Wildcard Fallback Route */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </BrowserRouter>
+            {/* Protected Admin Routes */}
+            <Route
+              path="/admin"
+              element={
+                <AdminProtectedRoute>
+                  <AdminDashboardOverviewPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/registrations"
+              element={
+                <AdminProtectedRoute>
+                  <AdminRegistrationsPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/registrations/:registrationId"
+              element={
+                <AdminProtectedRoute>
+                  <AdminRegistrationDetailsPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/participants"
+              element={
+                <AdminProtectedRoute>
+                  <AdminParticipantsPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/payments"
+              element={
+                <AdminProtectedRoute>
+                  <AdminPaymentsPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/analytics"
+              element={
+                <AdminProtectedRoute>
+                  <AdminAnalyticsPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/exports"
+              element={
+                <AdminProtectedRoute>
+                  <AdminExportsPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/audit-logs"
+              element={
+                <AdminProtectedRoute>
+                  <AdminAuditLogsPage />
+                </AdminProtectedRoute>
+              }
+            />
+            <Route
+              path="/admin/profile"
+              element={
+                <AdminProtectedRoute>
+                  <AdminProfilePage />
+                </AdminProtectedRoute>
+              }
+            />
+            {/* Wildcard Fallback Route */}
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </AuroraWaveBackground>
     </ErrorBoundary>
   );
 }

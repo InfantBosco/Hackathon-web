@@ -112,6 +112,42 @@ code, pre, .font-mono {
   }
 }
 
+/* Ethereal Aurora Keyframes */
+@keyframes aurora-slow {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(120px, 80px) scale(1.15);
+  }
+  100% {
+    transform: translate(-60px, 140px) scale(0.9);
+  }
+}
+
+@keyframes aurora-reverse {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-140px, -90px) scale(1.1);
+  }
+  100% {
+    transform: translate(80px, -120px) scale(0.95);
+  }
+}
+
+@keyframes aurora-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(60px, -60px) scale(1.2);
+  }
+}
+
 /* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
   *, ::before, ::after {

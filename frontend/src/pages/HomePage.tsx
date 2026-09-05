@@ -14,7 +14,6 @@ import { FinalCTASection } from '../components/sections/FinalCTASection';
 import { Footer } from '../components/navigation/Footer';
 import { BackToTop } from '../components/ui/BackToTop';
 import { LoadingScreen } from '../components/loading/LoadingScreen';
-import { Waves } from '../components/ui/wave-background';
 
 export const HomePage: React.FC = () => {
   const [showLoading, setShowLoading] = useState(true);
@@ -28,12 +27,7 @@ export const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] relative overflow-x-hidden">
-      {/* Full Website Interactive Wave Canvas Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-45">
-        <Waves strokeColor="rgba(255, 255, 255, 0.35)" pointerSize={0.5} />
-      </div>
-
+    <div className="w-full relative overflow-x-hidden">
       {showLoading && (
         <LoadingScreen
           videoSrc="/assets/loadingscreen.mp4"
@@ -42,25 +36,22 @@ export const HomePage: React.FC = () => {
         />
       )}
 
-      <div className="relative z-10">
-        <Navbar />
-        <main>
-          <HeroSection />
-          <AboutSection />
-          <DomainsSection />
-          <DetailsSection />
-          <ScheduleSection />
-          <PrizesSection />
-          <SponsorsSection />
-          <VenueSection />
-          <ContactSection />
-          <FAQSection />
-          <FinalCTASection />
-        </main>
-        <Footer />
-        <BackToTop />
-      </div>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <AboutSection />
+        <DomainsSection />
+        <DetailsSection />
+        <ScheduleSection />
+        <PrizesSection />
+        <SponsorsSection />
+        <VenueSection />
+        <ContactSection />
+        <FAQSection />
+        <FinalCTASection />
+      </main>
+      <Footer />
+      <BackToTop />
     </div>
   );
 };
-
