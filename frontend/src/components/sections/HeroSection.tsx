@@ -77,15 +77,15 @@ export const HeroSection: React.FC = () => {
             <span>{heroData.badge}</span>
           </Badge>
 
-          <h1 className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black tracking-tight uppercase select-none">
+          <h1 className="text-5xl sm:text-7xl lg:text-9xl font-royal font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none">
             <span className="text-white">HACK</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] ml-0.5">
               NEX
             </span>
           </h1>
 
-          <div className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none -mt-2 mb-2">
-            2026
+          <div className="text-4xl sm:text-6xl lg:text-7xl font-royal font-extrabold tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none -mt-2 mb-2">
+            '26
           </div>
 
           <p className="text-base sm:text-xl font-heading text-slate-300 max-w-2xl font-medium tracking-wide">

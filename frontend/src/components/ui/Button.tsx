@@ -5,19 +5,19 @@ import { cn } from "@/lib/utils"
 import { Spinner } from "./Spinner"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center font-heading tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-primary)] disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none",
+  "relative inline-flex items-center justify-center font-heading tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-primary)] disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none overflow-hidden group",
   {
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         primary:
-          "bg-gradient-to-r from-white via-slate-100 to-slate-300 text-black font-extrabold shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:brightness-110 active:scale-95 uppercase tracking-wider",
+          "bg-gradient-to-r from-white via-slate-100 to-slate-200 text-black font-royal font-black shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:shadow-[0_0_45px_rgba(255,30,66,0.75),0_0_25px_rgba(255,255,255,0.8)] hover:scale-[1.03] active:scale-95 uppercase tracking-[0.15em] border border-white/60 hover:border-red-500/80 transition-all duration-300",
         secondary:
-          "glass-panel text-white border border-white/20 hover:border-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] active:scale-95 uppercase tracking-wider",
+          "glass-panel text-white border border-white/20 hover:border-white hover:bg-white/10 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:scale-[1.02] active:scale-95 uppercase tracking-wider transition-all duration-300",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         danger:
-          "bg-zinc-800 text-white font-bold hover:bg-zinc-700 active:scale-95 uppercase tracking-wider border border-white/10",
+          "bg-zinc-800 text-white font-bold hover:bg-zinc-700 hover:border-red-500/50 active:scale-95 uppercase tracking-wider border border-white/10",
         outline:
           "bg-transparent text-white border border-white/20 hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] active:scale-95 uppercase tracking-wider",
         ghost:
@@ -69,14 +69,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || isLoading}
         {...props}
       >
+        {/* Animated Glossy Sheen Beam overlay on hover */}
+        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/60 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out pointer-events-none z-10" />
+
         {isLoading ? (
           <Spinner size={size === "lg" ? "md" : "sm"} />
         ) : (
-          <>
+          <span className="relative z-20 flex items-center justify-center gap-2">
             {leftIcon && <span className="shrink-0">{leftIcon}</span>}
             {children}
             {rightIcon && <span className="shrink-0">{rightIcon}</span>}
-          </>
+          </span>
         )}
       </button>
     )

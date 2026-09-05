@@ -40,7 +40,7 @@ export const FinalCTASection: React.FC = () => {
           transition={{ delay: 0.2 }}
           className="text-lg text-[var(--color-text-secondary)] mb-8 max-w-xl mx-auto leading-relaxed"
         >
-          <span>Assemble your team of 4 and register for HackNEX 2026.</span>
+          <span>Assemble your team of 4 and register for <strong className="font-royal font-bold text-white">HackNEX '26</strong>.</span>
           <br />
           <span className="inline-block mt-1">October 7–9, 2026 at Karunya University.</span>
         </motion.p>
