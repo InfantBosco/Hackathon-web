@@ -5,23 +5,23 @@ import { cn } from "@/lib/utils"
 import { Spinner } from "./Spinner"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center font-heading tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-cyan)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-primary)] disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none",
+  "inline-flex items-center justify-center font-heading tracking-wide transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg-primary)] disabled:pointer-events-none disabled:opacity-50 cursor-pointer select-none",
   {
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         primary:
-          "bg-gradient-to-r from-[#FF1E42] via-[#E11D48] to-[#9F1239] text-white font-bold shadow-[0_0_25px_rgba(255,30,66,0.45)] hover:brightness-110 active:scale-95 uppercase tracking-wider",
+          "bg-gradient-to-r from-white via-slate-100 to-slate-300 text-black font-extrabold shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:brightness-110 active:scale-95 uppercase tracking-wider",
         secondary:
-          "glass-panel text-white border border-[rgba(255,30,66,0.3)] hover:border-[#FF1E42] hover:shadow-[0_0_20px_rgba(255,30,66,0.3)] active:scale-95 uppercase tracking-wider",
+          "glass-panel text-white border border-white/20 hover:border-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] active:scale-95 uppercase tracking-wider",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         danger:
-          "bg-red-700 text-white font-bold hover:bg-red-600 active:scale-95 uppercase tracking-wider",
+          "bg-zinc-800 text-white font-bold hover:bg-zinc-700 active:scale-95 uppercase tracking-wider border border-white/10",
         outline:
-          "bg-transparent text-white border border-[var(--color-border)] hover:border-[var(--color-accent-cyan)] hover:shadow-[var(--shadow-glow-cyan)] active:scale-95 uppercase tracking-wider",
+          "bg-transparent text-white border border-white/20 hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] active:scale-95 uppercase tracking-wider",
         ghost:
-          "bg-transparent text-[var(--color-text-secondary)] hover:text-white hover:bg-[rgba(255,30,66,0.1)] active:scale-95 uppercase tracking-wider",
+          "bg-transparent text-[var(--color-text-secondary)] hover:text-white hover:bg-white/10 active:scale-95 uppercase tracking-wider",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

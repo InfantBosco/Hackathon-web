@@ -57,12 +57,12 @@ export const HeroSection: React.FC = () => {
           className="flex flex-col items-center gap-4 mb-6"
         >
           <Badge variant="cyan" className="flex items-center gap-2 px-3 py-1">
-            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block" />
+            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block invert brightness-200" />
             <span>{heroData.badge}</span>
           </Badge>
 
           <h1 className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black tracking-tight text-white uppercase select-none">
-            HACK<span className="text-[var(--color-accent-cyan)] drop-shadow-[0_0_45px_rgba(255,30,66,0.85)]">NEX</span>
+            HACK<span className="text-white drop-shadow-[0_0_45px_rgba(255,255,255,0.7)]">NEX</span>
           </h1>
 
           <p className="text-base sm:text-xl font-heading text-[var(--color-text-secondary)] max-w-2xl font-medium tracking-wide">
@@ -82,13 +82,13 @@ export const HeroSection: React.FC = () => {
             return (
               <div
                 key={item.label}
-                className="glass-panel rounded-2xl p-3.5 sm:p-4 border border-[rgba(255,30,66,0.3)] bg-[#0b0f19]/80 backdrop-blur-md shadow-xl flex items-center gap-3 transition-all duration-300 hover:border-[#00f0ff] hover:shadow-[0_0_20px_rgba(0,240,255,0.25)] hover:-translate-y-1 text-left select-none"
+                className="glass-panel rounded-2xl p-3.5 sm:p-4 border border-white/15 bg-zinc-950/80 backdrop-blur-md shadow-xl flex items-center gap-3 transition-all duration-300 hover:border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] hover:-translate-y-1 text-left select-none"
               >
-                <div className="w-10 h-10 rounded-xl bg-[rgba(0,240,255,0.1)] border border-[rgba(0,240,255,0.3)] flex items-center justify-center shrink-0 text-[#00f0ff] shadow-[0_0_10px_rgba(0,240,255,0.2)]">
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0 text-white shadow-[0_0_10px_rgba(255,255,255,0.2)]">
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#FF1E42] drop-shadow-[0_0_6px_rgba(255,30,66,0.4)]">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-300 drop-shadow-[0_0_6px_rgba(255,255,255,0.3)]">
                     {item.label}
                   </span>
                   <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">

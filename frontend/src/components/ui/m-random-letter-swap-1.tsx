@@ -81,8 +81,8 @@ export default function RandomLetterSwapNav({
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
         isScrolled
-          ? "bg-[#0b0f19]/90 border-b border-[rgba(255,30,66,0.3)] shadow-[0_4px_30px_rgba(0,0,0,0.6)] backdrop-blur-md py-3.5"
-          : "bg-[#0b0f19]/60 border-b border-white/5 py-4 backdrop-blur-sm",
+          ? "bg-black/90 border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.8)] backdrop-blur-md py-3.5"
+          : "bg-black/60 border-b border-white/5 py-4 backdrop-blur-sm",
         className
       )}
     >
@@ -101,7 +101,7 @@ export default function RandomLetterSwapNav({
                 className={cn(
                   "cursor-pointer font-medium text-sm transition-all duration-200 hover:bg-white/5 rounded-full px-3 py-1",
                   isActive
-                    ? "text-[#00f0ff] font-semibold bg-[rgba(0,240,255,0.1)] border border-[rgba(0,240,255,0.3)] shadow-[0_0_12px_rgba(0,240,255,0.2)]"
+                    ? "text-white font-semibold bg-white/15 border border-white/30 shadow-[0_0_12px_rgba(255,255,255,0.25)]"
                     : "text-[var(--color-text-secondary)] hover:text-white"
                 )}
               />

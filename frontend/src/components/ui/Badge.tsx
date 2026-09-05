@@ -7,13 +7,13 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-[rgba(255,30,66,0.12)] text-[var(--color-accent-cyan)] border border-[rgba(255,30,66,0.35)] shadow-[0_0_15px_rgba(255,30,66,0.2)]',
-        cyan: 'bg-[rgba(0,240,255,0.12)] text-[var(--color-accent-cyan)] border border-[rgba(0,240,255,0.35)] shadow-[0_0_15px_rgba(0,240,255,0.2)]',
-        purple: 'bg-[rgba(225,29,72,0.12)] text-[var(--color-accent-purple)] border border-[rgba(225,29,72,0.35)] shadow-[0_0_15px_rgba(225,29,72,0.2)]',
+        default: 'bg-white/10 text-white border border-white/25 shadow-[0_0_15px_rgba(255,255,255,0.15)]',
+        cyan: 'bg-white/15 text-white border border-white/30 shadow-[0_0_15px_rgba(255,255,255,0.2)]',
+        purple: 'bg-zinc-800/80 text-zinc-200 border border-zinc-700 shadow-[0_0_15px_rgba(255,255,255,0.1)]',
         success: 'bg-emerald-950/50 text-emerald-400 border border-emerald-800',
         warning: 'bg-amber-950/50 text-amber-400 border border-amber-800',
-        error: 'bg-red-950/50 text-red-400 border border-red-800',
-        destructive: 'bg-red-950/80 text-red-400 border border-red-800',
+        error: 'bg-zinc-900 text-zinc-300 border border-zinc-700',
+        destructive: 'bg-zinc-900 text-zinc-300 border border-zinc-700',
         secondary: 'bg-white/10 text-white/80 border border-white/20',
         outline: 'bg-transparent text-[var(--color-text-secondary)] border border-[var(--color-border)]',
       },
