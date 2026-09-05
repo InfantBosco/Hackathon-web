@@ -166,7 +166,7 @@ export const ComponentShowcase: React.FC = () => {
               <h3 className="text-xl font-heading font-bold text-white">1,500+ Expected Participants</h3>
             </div>
             <p className="text-sm text-[var(--color-text-secondary)]">
-              Join teams from across India competing in a 36-hour continuous offline innovation sprint at Karunya Institute of Technology and Sciences.
+              Join teams from across India competing in a 24-hour continuous offline innovation sprint at Karunya Institute of Technology and Sciences.
             </p>
           </BentoCard>
 

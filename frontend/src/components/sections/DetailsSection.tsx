@@ -43,7 +43,7 @@ export const DetailsSection: React.FC = () => {
             <div className="p-4 rounded-[var(--radius-md)] bg-[var(--color-surface-elevated)] border border-[var(--color-border-subtle)]">
               <span className="text-xs font-mono text-slate-300 block mb-1">CODE OF CONDUCT</span>
               <p className="font-semibold text-white mb-1">Original Work Only</p>
-              <p className="text-xs text-[var(--color-text-secondary)] font-mono">All code must be written during the 36-hour sprint.</p>
+              <p className="text-xs text-[var(--color-text-secondary)] font-mono">All code must be written during the 24-hour sprint.</p>
             </div>
 
             <div className="p-4 rounded-[var(--radius-md)] bg-[var(--color-surface-elevated)] border border-[var(--color-border-subtle)]">

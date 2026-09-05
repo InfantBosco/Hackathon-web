@@ -6,7 +6,7 @@ export const aboutData = {
   agenda:
     'Bring your team of 4 to solve real-world industry challenges across 6 frontier domain tracks, backed by mentorship, networking, and a ₹1.5L+ prize pool.',
   whyParticipate: [
-    'Collaborate in a 36-hour continuous offline sprint',
+    'Collaborate in a 24-hour continuous offline sprint',
     'Mentorship from top industry veterans & alumni',
     'Compete for ₹1.5L+ total cash prizes & awards',
     'Free accommodation & food options for all participants',

@@ -74,12 +74,12 @@ export default function RadialOrbitalTimeline({
   return (
     <div
       className={cn(
-        "w-full min-h-[660px] py-6 flex flex-col items-center justify-center bg-transparent relative select-none",
+        "w-full min-h-[700px] py-6 flex flex-col items-center justify-center bg-transparent relative select-none",
         className
       )}
       ref={containerRef}
     >
-      <div className="relative w-full max-w-5xl h-[580px] flex items-center justify-center">
+      <div className="relative w-full max-w-5xl h-[620px] flex items-center justify-center">
         <div
           className="absolute w-full h-full flex items-center justify-center transition-all duration-300"
           ref={orbitRef}
@@ -105,6 +105,7 @@ export default function RadialOrbitalTimeline({
             const position = calculateNodePosition(index, timelineData.length);
             const isHovered = hoveredId === item.id;
             const nodeNumber = index + 1;
+            const isLowerHalf = position.y > 0;
 
             const nodeStyle = {
               transform: `translate(${position.x}px, ${position.y}px)`,
@@ -137,10 +138,11 @@ export default function RadialOrbitalTimeline({
                   {nodeNumber}
                 </div>
 
-                {/* Node Title Label Below Node */}
+                {/* Node Title Label Below/Above Node */}
                 <div
                   className={cn(
-                    "absolute top-15 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-mono font-bold tracking-wider transition-all duration-300 px-2.5 py-0.5 rounded bg-zinc-950/90 border border-white/10",
+                    "absolute left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-mono font-bold tracking-wider transition-all duration-300 px-2.5 py-0.5 rounded bg-zinc-950/90 border border-white/10",
+                    isLowerHalf ? "top-15" : "top-15",
                     isHovered
                       ? "text-white border-white/40 shadow-[0_0_10px_rgba(255,255,255,0.3)]"
                       : "text-white/80 group-hover:text-white"
@@ -149,16 +151,26 @@ export default function RadialOrbitalTimeline({
                   {item.title}
                 </div>
 
-                {/* Information Card Shown on Hover / Selection */}
+                {/* Smart Positioning Information Card (Opens Upwards if in Lower Half of Orbit) */}
                 {isHovered && (
-                  <div className="absolute top-22 left-1/2 -translate-x-1/2 w-80 bg-zinc-950/95 backdrop-blur-md border border-white/30 shadow-[0_0_30px_rgba(0,0,0,0.95)] overflow-hidden z-50 rounded-xl p-4.5 transition-all duration-300 ease-out animate-in fade-in zoom-in-95">
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0.5 h-2.5 bg-white" />
+                  <div
+                    className={cn(
+                      "absolute left-1/2 -translate-x-1/2 w-80 bg-zinc-950/95 backdrop-blur-md border border-white/30 shadow-[0_0_30px_rgba(0,0,0,0.95)] z-50 rounded-xl p-4.5 transition-all duration-300 ease-out animate-in fade-in zoom-in-95",
+                      isLowerHalf ? "bottom-20" : "top-22"
+                    )}
+                  >
+                    <div
+                      className={cn(
+                        "absolute left-1/2 -translate-x-1/2 w-0.5 h-2.5 bg-white",
+                        isLowerHalf ? "-bottom-2" : "-top-2"
+                      )}
+                    />
                     
                     <h4 className="text-sm font-heading font-bold text-white border-b border-white/15 pb-2 mb-3 flex items-center justify-between">
                       <span>{item.title}</span>
                     </h4>
 
-                    <div className="space-y-2">
+                    <div className="space-y-2 max-h-60 overflow-y-auto pr-1">
                       {item.scheduleItems?.map((sItem, sIdx) => (
                         <div key={sIdx} className="text-xs font-medium text-white/90 flex items-start gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-white mt-1.5 shrink-0" />
