@@ -38,9 +38,11 @@ export const FinalCTASection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-lg text-[var(--color-text-secondary)] mb-8 max-w-xl mx-auto"
+          className="text-lg text-[var(--color-text-secondary)] mb-8 max-w-xl mx-auto leading-relaxed"
         >
-          Assemble your team of 4 and register for HackNEX 2026. October 7–9, 2026 at Karunya University.
+          <span>Assemble your team of 4 and register for HackNEX 2026.</span>
+          <br />
+          <span className="inline-block mt-1">October 7–9, 2026 at Karunya University.</span>
         </motion.p>
 
         <motion.div
