@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
 import { useRegistrationStore } from '../store/useRegistrationStore';
 import { AuthNavbar } from '../components/navigation/AuthNavbar';
+import { GridBackground } from '../components/backgrounds/GridBackground';
+import { NeuralNoise } from '../components/backgrounds/NeuralNoise';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import {
@@ -33,22 +35,24 @@ export const RegistrationConfirmedPage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+      <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+        <NeuralNoise opacity={0.25} />
         <AuthNavbar />
-        <div className="flex-1 flex items-center justify-center p-8">
+        <div className="flex-1 flex items-center justify-center p-8 relative z-10">
           <span className="text-xs font-mono text-[var(--color-text-secondary)]">Loading ticket...</span>
         </div>
-      </div>
+      </GridBackground>
     );
   }
 
   const registration = activeRegistration;
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+    <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+      <NeuralNoise opacity={0.25} />
       <AuthNavbar />
 
-      <main className="flex-1 max-w-3xl w-full mx-auto px-4 py-8 md:py-12 space-y-8 text-center">
+      <main className="flex-1 max-w-3xl w-full mx-auto px-4 py-8 md:py-12 space-y-8 text-center relative z-10">
         {/* Animated Celebration Icon */}
         <div className="relative inline-block my-4">
           <div className="absolute inset-0 rounded-full bg-[var(--color-accent-cyan)]/25 blur-2xl animate-pulse" />
@@ -71,7 +75,7 @@ export const RegistrationConfirmedPage: React.FC = () => {
 
         {/* Confirmed Pass Ticket Card */}
         {registration && (
-          <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-accent-cyan)]/40 rounded-[var(--radius-lg)] p-6 md:p-8 text-left space-y-6 shadow-2xl relative overflow-hidden">
+          <div className="bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/20 rounded-[var(--radius-lg)] p-6 md:p-8 text-left space-y-6 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 p-6 opacity-10 pointer-events-none">
               <Award className="w-32 h-32 text-[var(--color-accent-cyan)]" />
             </div>
@@ -179,6 +183,6 @@ export const RegistrationConfirmedPage: React.FC = () => {
           </span>
         </div>
       </main>
-    </div>
+    </GridBackground>
   );
 };

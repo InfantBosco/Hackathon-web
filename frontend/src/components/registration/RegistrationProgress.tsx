@@ -28,7 +28,7 @@ export const RegistrationProgress: React.FC<RegistrationProgressProps> = ({
         
         {/* Active Line Fill */}
         <div
-          className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-blue)] transition-all duration-300 -z-0"
+          className="absolute left-0 top-1/2 -translate-y-1/2 h-0.5 bg-white transition-all duration-300 -z-0 shadow-[0_0_10px_rgba(255,255,255,0.8)]"
           style={{ width: `${((Math.min(currentStep, 6) - 1) / (STEPS.length - 1)) * 100}%` }}
         />
 
@@ -45,10 +45,10 @@ export const RegistrationProgress: React.FC<RegistrationProgressProps> = ({
             >
               <div
                 className={cn(
-                  'w-9 h-9 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all border-2 bg-[var(--color-bg-primary)]',
-                  isCompleted && 'border-[var(--color-accent-cyan)] bg-[var(--color-accent-cyan)] text-black cursor-pointer hover:scale-105',
-                  isCurrent && 'border-[var(--color-accent-cyan)] text-[var(--color-accent-cyan)] shadow-[0_0_12px_rgba(0,240,255,0.4)]',
-                  !isCompleted && !isCurrent && 'border-[var(--color-border)] text-[var(--color-text-muted)]'
+                  'w-9 h-9 rounded-full flex items-center justify-center font-mono text-xs font-bold transition-all border-2 bg-neutral-950 backdrop-blur-md',
+                  isCompleted && 'border-white bg-white text-black cursor-pointer hover:scale-105 shadow-[0_0_12px_rgba(255,255,255,0.4)]',
+                  isCurrent && 'border-white bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.8)] ring-4 ring-white/30',
+                  !isCompleted && !isCurrent && 'border-neutral-700 text-neutral-300 bg-neutral-900'
                 )}
               >
                 {isCompleted ? <Check className="w-4 h-4 text-black stroke-[3]" /> : s.step}
@@ -56,7 +56,7 @@ export const RegistrationProgress: React.FC<RegistrationProgressProps> = ({
               <span
                 className={cn(
                   'mt-2 text-xs font-mono tracking-wider transition-colors hidden sm:block',
-                  isCurrent ? 'text-[var(--color-accent-cyan)] font-bold' : isCompleted ? 'text-white' : 'text-[var(--color-text-muted)]'
+                  isCurrent ? 'text-white font-extrabold drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]' : isCompleted ? 'text-neutral-200 font-semibold' : 'text-neutral-300 font-medium'
                 )}
               >
                 {s.label}
@@ -64,7 +64,7 @@ export const RegistrationProgress: React.FC<RegistrationProgressProps> = ({
               <span
                 className={cn(
                   'mt-1 text-[10px] font-mono tracking-tighter sm:hidden',
-                  isCurrent ? 'text-[var(--color-accent-cyan)] font-bold' : 'text-[var(--color-text-muted)]'
+                  isCurrent ? 'text-white font-extrabold' : 'text-neutral-300 font-medium'
                 )}
               >
                 {s.shortLabel}

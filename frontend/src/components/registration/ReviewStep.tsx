@@ -69,20 +69,20 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
       )}
 
       {/* Team Summary Card */}
-      <div className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-5 relative">
+      <div className="bg-[#121212]/95 border border-neutral-700/90 rounded-[var(--radius-md)] p-5 relative shadow-md">
         <div className="flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-accent-cyan)] font-bold">
+            <span className="text-[10px] font-mono uppercase tracking-widest text-white font-bold">
               Team Identifier
             </span>
             <h4 className="text-2xl font-heading font-bold text-white mt-0.5">{teamName}</h4>
-            <p className="text-xs text-[var(--color-text-secondary)] mt-1">4 Confirmed Participants</p>
+            <p className="text-xs text-neutral-200 mt-1 font-medium">4 Confirmed Participants</p>
           </div>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => onEditStep(1)}
-            className="text-xs font-mono text-[var(--color-accent-cyan)] hover:text-white flex items-center gap-1.5"
+            className="text-xs font-mono text-white hover:text-neutral-200 flex items-center gap-1.5 border border-neutral-700 bg-neutral-800/80"
           >
             <Edit3 className="w-3.5 h-3.5" /> Edit Name
           </Button>
@@ -94,36 +94,36 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
         {members.map((m, idx) => (
           <div
             key={idx}
-            className="bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-4 relative flex flex-col justify-between"
+            className="bg-[#121212]/95 border border-neutral-700/90 rounded-[var(--radius-md)] p-4 relative flex flex-col justify-between shadow-md"
           >
             <div>
-              <div className="flex items-center justify-between mb-3 border-b border-[var(--color-border)] pb-2">
+              <div className="flex items-center justify-between mb-3 border-b border-neutral-800 pb-2">
                 <div className="flex items-center gap-2">
-                  <User className="w-4 h-4 text-[var(--color-accent-cyan)]" />
+                  <User className="w-4 h-4 text-white" />
                   <span className="text-xs font-mono uppercase font-bold text-white">{m.title}</span>
                 </div>
                 <button
                   type="button"
                   onClick={() => onEditStep(m.step)}
-                  className="text-[11px] font-mono text-[var(--color-accent-cyan)] hover:underline flex items-center gap-1"
+                  className="text-[11px] font-mono text-white hover:underline flex items-center gap-1 font-semibold"
                 >
                   <Edit3 className="w-3 h-3" /> Edit
                 </button>
               </div>
 
               <div className="space-y-1.5 text-xs">
-                <p className="font-semibold text-white text-sm">{m.data.name}</p>
-                <p className="text-[var(--color-text-secondary)]">{m.data.email}</p>
-                <p className="text-[var(--color-text-muted)]">📞 {m.data.phone}</p>
-                <p className="text-[var(--color-text-muted)]">🎓 {m.data.college}</p>
-                <p className="text-[var(--color-text-muted)]">
+                <p className="font-bold text-white text-sm">{m.data.name}</p>
+                <p className="text-neutral-200 font-medium">{m.data.email}</p>
+                <p className="text-neutral-300">📞 {m.data.phone}</p>
+                <p className="text-neutral-300">🎓 {m.data.college}</p>
+                <p className="text-neutral-300">
                   📚 {m.data.department} ({m.data.yearOfStudy})
                 </p>
                 {m.data.linkedinUrl && (
-                  <p className="text-[var(--color-accent-cyan)] truncate">🔗 {m.data.linkedinUrl}</p>
+                  <p className="text-neutral-200 font-mono truncate">🔗 {m.data.linkedinUrl}</p>
                 )}
                 <div className="pt-2">
-                  <span className="inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-[rgba(0,240,255,0.08)] border border-[rgba(0,240,255,0.2)] text-[var(--color-accent-cyan)]">
+                  <span className="inline-block px-2.5 py-0.5 rounded text-[10px] font-mono uppercase tracking-wider bg-neutral-800 border border-neutral-600 text-white font-semibold">
                     Food: {m.data.foodPreference === 'VEGETARIAN' ? 'Vegetarian' : 'Non-Vegetarian'}
                   </span>
                 </div>
@@ -134,20 +134,20 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
       </div>
 
       {/* Registration Fee Summary Card */}
-      <div className="bg-gradient-to-r from-[rgba(0,240,255,0.05)] to-[rgba(59,130,246,0.05)] border border-[var(--color-accent-cyan)]/30 rounded-[var(--radius-md)] p-5">
+      <div className="bg-[#121212]/95 border border-neutral-700/90 rounded-[var(--radius-md)] p-5 shadow-md">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3">
-            <CreditCard className="w-6 h-6 text-[var(--color-accent-cyan)] shrink-0 mt-1" />
+            <CreditCard className="w-6 h-6 text-white shrink-0 mt-1" />
             <div>
               <h4 className="text-sm font-mono uppercase font-bold text-white">Registration Fee Summary</h4>
-              <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">
-                ₹150 per participant × 4 Team Members
+              <p className="text-xs text-neutral-200 mt-0.5 font-medium">
+                ₹600 per participant × 4 Team Members
               </p>
             </div>
           </div>
           <div className="text-left sm:text-right">
-            <span className="text-xs font-mono uppercase text-[var(--color-text-muted)] block">Total Payable</span>
-            <span className="text-2xl font-mono font-bold text-[var(--color-accent-cyan)]">₹600 INR</span>
+            <span className="text-xs font-mono uppercase text-neutral-300 block">Total Payable</span>
+            <span className="text-2xl font-mono font-bold text-white">₹2,400 INR</span>
           </div>
         </div>
       </div>

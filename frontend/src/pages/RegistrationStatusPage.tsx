@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
 import { useRegistrationStore } from '../store/useRegistrationStore';
 import { AuthNavbar } from '../components/navigation/AuthNavbar';
+import { GridBackground } from '../components/backgrounds/GridBackground';
+import { NeuralNoise } from '../components/backgrounds/NeuralNoise';
 import { StatusTimeline } from '../components/registration/StatusTimeline';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
@@ -48,23 +50,25 @@ export const RegistrationStatusPage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+      <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+        <NeuralNoise opacity={0.25} />
         <AuthNavbar />
-        <div className="flex-1 flex items-center justify-center p-8">
+        <div className="flex-1 flex items-center justify-center p-8 relative z-10">
           <div className="flex flex-col items-center gap-3">
             <RefreshCw className="w-8 h-8 text-[var(--color-accent-cyan)] animate-spin" />
             <p className="text-xs font-mono text-[var(--color-text-secondary)]">Loading registration status...</p>
           </div>
         </div>
-      </div>
+      </GridBackground>
     );
   }
 
   if (!activeRegistration) {
     return (
-      <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+      <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+        <NeuralNoise opacity={0.25} />
         <AuthNavbar />
-        <main className="flex-1 max-w-3xl w-full mx-auto px-4 py-16 text-center">
+        <main className="flex-1 max-w-3xl w-full mx-auto px-4 py-16 text-center relative z-10">
           <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-8 space-y-6">
             <AlertCircle className="w-12 h-12 text-amber-400 mx-auto" />
             <h2 className="text-2xl font-heading font-bold text-white">No Active Registration Found</h2>
@@ -79,7 +83,7 @@ export const RegistrationStatusPage: React.FC = () => {
             </Button>
           </div>
         </main>
-      </div>
+      </GridBackground>
     );
   }
 
@@ -87,10 +91,11 @@ export const RegistrationStatusPage: React.FC = () => {
   const isPending = activeRegistration.status === 'PAYMENT_PENDING' || activeRegistration.status === 'READY_FOR_PAYMENT';
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+    <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+      <NeuralNoise opacity={0.25} />
       <AuthNavbar />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12 space-y-8">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12 space-y-8 relative z-10">
         {/* Page Title Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-[var(--color-border)] pb-6">
           <div>
@@ -123,7 +128,7 @@ export const RegistrationStatusPage: React.FC = () => {
         <StatusTimeline registrationStatus={activeRegistration.status} />
 
         {/* Registration Overview Card */}
-        <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-8 space-y-6">
+        <div className="bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/20 rounded-[var(--radius-lg)] p-6 md:p-8 space-y-6 shadow-2xl">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[var(--color-border)] pb-4 gap-3">
             <div>
               <span className="text-[10px] font-mono uppercase tracking-widest text-[var(--color-text-muted)]">
@@ -270,6 +275,6 @@ export const RegistrationStatusPage: React.FC = () => {
           </div>
         </div>
       </main>
-    </div>
+    </GridBackground>
   );
 };

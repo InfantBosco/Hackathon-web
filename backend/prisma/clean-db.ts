@@ -42,6 +42,9 @@ async function cleanDatabase() {
   const deletedVerifications = await prisma.verification.deleteMany({});
   console.log(`Deleted ${deletedVerifications.count} verifications.`);
 
+  const deletedAuditLogs = await prisma.auditLog.deleteMany({});
+  console.log(`Deleted ${deletedAuditLogs.count} audit logs.`);
+
   // Delete all non-admin users (Cascade deletes non-admin Accounts)
   const deletedNonAdminUsers = await prisma.user.deleteMany({
     where: {

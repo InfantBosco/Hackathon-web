@@ -97,69 +97,72 @@ export async function seedAdmins(prisma: PrismaClient, csvPath?: string): Promis
     const email = `${emailSlug}@hacknex.in`;
     const passwordHash = await hashPassword(record.password);
 
-    await prisma.$transaction(async (tx) => {
-      // 1. Check existing User
-      let user = await tx.user.findFirst({
-        where: {
-          OR: [{ email }, { name: { equals: record.name, mode: 'insensitive' } }],
-        },
-      });
-
-      if (!user) {
-        user = await tx.user.create({
-          data: {
-            name: record.name,
-            email,
-            emailVerified: true,
+    await prisma.$transaction(
+      async (tx) => {
+        // 1. Check existing User
+        let user = await tx.user.findFirst({
+          where: {
+            OR: [{ email }, { name: { equals: record.name, mode: 'insensitive' } }],
           },
         });
-      } else if (!user.emailVerified || user.name !== record.name) {
-        user = await tx.user.update({
-          where: { id: user.id },
-          data: {
-            name: record.name,
-            emailVerified: true,
-          },
-        });
-      }
 
-      // 2. Create or Update Account password from admin-data.csv
-      const existingAccount = await tx.account.findFirst({
-        where: { userId: user.id },
-      });
+        if (!user) {
+          user = await tx.user.create({
+            data: {
+              name: record.name,
+              email,
+              emailVerified: true,
+            },
+          });
+        } else if (!user.emailVerified || user.name !== record.name) {
+          user = await tx.user.update({
+            where: { id: user.id },
+            data: {
+              name: record.name,
+              emailVerified: true,
+            },
+          });
+        }
 
-      if (!existingAccount) {
-        await tx.account.create({
-          data: {
-            userId: user.id,
-            accountId: user.id,
-            providerId: 'credential',
-            password: passwordHash,
-          },
+        // 2. Create or Update Account password from admin-data.csv
+        const existingAccount = await tx.account.findFirst({
+          where: { userId: user.id },
         });
-      } else {
-        await tx.account.update({
-          where: { id: existingAccount.id },
-          data: {
-            password: passwordHash,
-          },
-        });
-      }
 
-      // 3. Create or update Admin role if missing
-      const existingAdmin = await tx.admin.findUnique({
-        where: { userId: user.id },
-      });
+        if (!existingAccount) {
+          await tx.account.create({
+            data: {
+              userId: user.id,
+              accountId: user.id,
+              providerId: 'credential',
+              password: passwordHash,
+            },
+          });
+        } else {
+          await tx.account.update({
+            where: { id: existingAccount.id },
+            data: {
+              password: passwordHash,
+            },
+          });
+        }
 
-      if (!existingAdmin) {
-        await tx.admin.create({
-          data: {
-            userId: user.id,
-            isActive: true,
-          },
+        // 3. Create or update Admin role if missing
+        const existingAdmin = await tx.admin.findUnique({
+          where: { userId: user.id },
         });
-      }
-    });
+
+        if (!existingAdmin) {
+          await tx.admin.create({
+            data: {
+              userId: user.id,
+              isActive: true,
+            },
+          });
+        }
+      },
+      { timeout: 30000 }
+    );
 
     seededCount++;
   }

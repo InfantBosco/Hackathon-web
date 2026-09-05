@@ -4,6 +4,8 @@ import { useAuthStore } from '../store/useAuthStore';
 import { useRegistrationStore } from '../store/useRegistrationStore';
 import { ParticipantInput } from '../services/registrationService';
 import { AuthNavbar } from '../components/navigation/AuthNavbar';
+import { GridBackground } from '../components/backgrounds/GridBackground';
+import { NeuralNoise } from '../components/backgrounds/NeuralNoise';
 import { RegistrationProgress } from '../components/registration/RegistrationProgress';
 import { TeamInfoStep } from '../components/registration/TeamInfoStep';
 import { ParticipantForm, ParticipantFormErrors } from '../components/registration/ParticipantForm';
@@ -142,10 +144,11 @@ export const RegistrationWizardPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+    <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+      <NeuralNoise opacity={0.25} />
       <AuthNavbar />
 
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-8 md:py-12 relative z-10">
         {/* Step Indicator Header (Steps 1–6) */}
         {currentStep <= 6 && (
           <>
@@ -168,7 +171,7 @@ export const RegistrationWizardPage: React.FC = () => {
         )}
 
         {/* Step Content Area */}
-        <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-8 shadow-xl">
+        <div className="bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/20 rounded-[var(--radius-lg)] p-6 md:p-8 shadow-2xl">
           {currentStep === 1 && (
             <TeamInfoStep
               teamName={teamName}
@@ -264,6 +267,6 @@ export const RegistrationWizardPage: React.FC = () => {
           )}
         </div>
       </main>
-    </div>
+    </GridBackground>
   );
 };

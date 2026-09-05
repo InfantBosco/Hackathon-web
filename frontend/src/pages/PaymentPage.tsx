@@ -3,6 +3,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useAuthStore } from '../store/useAuthStore';
 import { useRegistrationStore } from '../store/useRegistrationStore';
 import { AuthNavbar } from '../components/navigation/AuthNavbar';
+import { GridBackground } from '../components/backgrounds/GridBackground';
+import { NeuralNoise } from '../components/backgrounds/NeuralNoise';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import {
@@ -73,27 +75,29 @@ export const PaymentPage: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+      <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+        <NeuralNoise opacity={0.25} />
         <AuthNavbar />
-        <div className="flex-1 flex items-center justify-center p-8">
+        <div className="flex-1 flex items-center justify-center p-8 relative z-10">
           <Loader2 className="w-8 h-8 text-[var(--color-accent-cyan)] animate-spin" />
         </div>
-      </div>
+      </GridBackground>
     );
   }
 
   if (!activeRegistration) {
     return (
-      <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+      <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+        <NeuralNoise opacity={0.25} />
         <AuthNavbar />
-        <main className="flex-1 max-w-lg w-full mx-auto px-4 py-16 text-center">
+        <main className="flex-1 max-w-lg w-full mx-auto px-4 py-16 text-center relative z-10">
           <AlertCircle className="w-12 h-12 text-amber-400 mx-auto mb-4" />
           <h2 className="text-xl font-heading font-bold text-white mb-2">Registration Not Found</h2>
           <Button onClick={() => navigate('/registration/status')} className="font-mono text-xs">
             Return to Status
           </Button>
         </main>
-      </div>
+      </GridBackground>
     );
   }
 
@@ -101,10 +105,11 @@ export const PaymentPage: React.FC = () => {
   const totalAmount = activeRegistration.feeSummary.totalAmount || 2400;
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-primary)] text-white flex flex-col">
+    <GridBackground className="min-h-screen flex flex-col justify-between relative overflow-hidden">
+      <NeuralNoise opacity={0.25} />
       <AuthNavbar />
 
-      <main className="flex-1 max-w-2xl w-full mx-auto px-4 py-8 md:py-12">
+      <main className="flex-1 max-w-2xl w-full mx-auto px-4 py-8 md:py-12 relative z-10">
         <Button
           variant="ghost"
           size="sm"
@@ -114,7 +119,7 @@ export const PaymentPage: React.FC = () => {
           <ArrowLeft className="w-4 h-4" /> Return to Status
         </Button>
 
-        <div className="bg-[var(--color-surface-elevated)] border border-[var(--color-border)] rounded-[var(--radius-lg)] p-6 md:p-8 space-y-6 shadow-2xl relative overflow-hidden">
+        <div className="bg-[#0a0a0a]/95 backdrop-blur-xl border border-white/20 rounded-[var(--radius-lg)] p-6 md:p-8 space-y-6 shadow-2xl relative overflow-hidden">
           {/* Subtle Ambient Cyber Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-accent-cyan)]/5 rounded-full blur-3xl pointer-events-none" />
 
@@ -253,6 +258,6 @@ export const PaymentPage: React.FC = () => {
           </div>
         </div>
       </main>
-    </div>
+    </GridBackground>
   );
 };

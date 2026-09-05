@@ -15,13 +15,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <div className="w-full flex flex-col gap-1.5">
         {label && (
-          <label className="text-xs font-mono uppercase tracking-wider text-[var(--color-text-secondary)] font-medium">
+          <label className="text-xs font-mono uppercase tracking-wider text-slate-100 font-semibold">
             {label}
           </label>
         )}
         <div className="relative flex items-center">
           {leftIcon && (
-            <span className="absolute left-3 text-muted pointer-events-none text-[var(--color-text-muted)]">
+            <span className="absolute left-3 pointer-events-none text-slate-300">
               {leftIcon}
             </span>
           )}
@@ -30,7 +30,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             ref={ref}
             disabled={disabled}
             className={cn(
-              "w-full h-11 px-4 bg-[var(--color-surface)] text-white placeholder-[var(--color-text-muted)] text-sm border border-[var(--color-border)] rounded-[var(--radius-md)] transition-all focus:outline-none focus:border-[var(--color-accent-cyan)] focus:ring-1 focus:ring-[var(--color-accent-cyan)] disabled:opacity-50 disabled:cursor-not-allowed",
+              "w-full h-11 px-4 bg-[#121212]/95 text-white placeholder-neutral-400 text-sm border border-neutral-700/90 rounded-[var(--radius-md)] transition-all focus:outline-none focus:border-white focus:ring-1 focus:ring-white disabled:opacity-50 disabled:cursor-not-allowed shadow-inner",
               leftIcon && "pl-10",
               rightIcon && "pr-10",
               error && "border-red-500 focus:border-red-500 focus:ring-red-500",
@@ -39,15 +39,15 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {rightIcon && (
-            <span className="absolute right-3 text-muted text-[var(--color-text-muted)] flex items-center justify-center z-10">
+            <span className="absolute right-3 text-slate-300 flex items-center justify-center z-10">
               {rightIcon}
             </span>
           )}
         </div>
         {description && !error && (
-          <p className="text-xs text-[var(--color-text-muted)]">{description}</p>
+          <p className="text-xs text-slate-300 font-medium">{description}</p>
         )}
-        {error && <p className="text-xs font-mono text-red-400">{error}</p>}
+        {error && <p className="text-xs font-mono text-red-400 font-medium">{error}</p>}
       </div>
     )
   }
