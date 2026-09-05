@@ -88,8 +88,9 @@ export function ShaderAnimation() {
       powerPreference: "high-performance",
     })
     
-    // Capped pixel ratio (max 1.5) to ensure zero lag across all mobile and high-DPI desktop screens
-    const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.5)
+    // Capped pixel ratio (1.0 for mobile <768px, 1.25 for desktop) for 60fps zero-lag performance
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
+    const pixelRatio = isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.25)
     renderer.setPixelRatio(pixelRatio)
 
     container.appendChild(renderer.domElement)

@@ -89,7 +89,7 @@ export const NeuralNoise: React.FC<NeuralNoiseProps> = ({
           vec2 sine_acc = vec2(0.0);
           vec2 res = vec2(0.0);
           float scale = 8.0;
-          for (int j = 0; j < 15; j++) {
+          for (int j = 0; j < 8; j++) {
             uv = rotate(uv, 1.0);
             sine_acc = rotate(sine_acc, 1.0);
             vec2 layer = uv * scale + float(j) + sine_acc - t;
@@ -146,7 +146,9 @@ export const NeuralNoise: React.FC<NeuralNoiseProps> = ({
 
     function resizeCanvas() {
       if (!canvasEl || !gl) return;
-      const devicePixelRatio = Math.min(window.devicePixelRatio, 2);
+      // Cap pixel ratio at 1.0 for mobile devices (<768px) and 1.25 for desktop for 60fps zero-lag execution
+      const isMobile = window.innerWidth < 768;
+      const devicePixelRatio = isMobile ? 1.0 : Math.min(window.devicePixelRatio || 1, 1.25);
       canvasEl.width = window.innerWidth * devicePixelRatio;
       canvasEl.height = window.innerHeight * devicePixelRatio;
       if (uniforms && uniforms.u_ratio) {

@@ -119,11 +119,11 @@ export const AdminDashboardOverviewPage: React.FC = () => {
           <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs flex items-center justify-between">
             <div>
               <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block">Total Participants</span>
-              <span className="text-2xl font-mono font-bold text-purple-600 mt-1 block">
+              <span className="text-2xl font-mono font-bold text-slate-900 mt-1 block">
                 {loading ? '...' : metrics?.totalParticipants || 0}
               </span>
             </div>
-            <div className="w-10 h-10 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center">
               <Users className="w-5 h-5" />
             </div>
           </div>

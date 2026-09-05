@@ -93,7 +93,7 @@ export const AdminLoginPage: React.FC = () => {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3.5 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 mt-2"
+              className="w-full py-3.5 bg-cyan-400 hover:bg-cyan-300 text-black font-mono text-xs font-extrabold uppercase tracking-wider transition-all flex items-center justify-center gap-2 mt-2"
             >
               {isLoading ? (
                 <>

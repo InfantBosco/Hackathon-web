@@ -145,7 +145,7 @@ export const HeroSection: React.FC = () => {
             variant="secondary"
             size="lg"
             onClick={handleExploreClick}
-            rightIcon={<ArrowDown className="w-4 h-4 animate-bounce" />}
+            rightIcon={<ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />}
             className="w-full sm:w-auto"
           >
             {heroData.secondaryCtaText}

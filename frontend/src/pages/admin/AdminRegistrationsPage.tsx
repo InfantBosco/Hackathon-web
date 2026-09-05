@@ -99,7 +99,7 @@ export const AdminRegistrationsPage: React.FC = () => {
       cell: (row) => (
         <button
           onClick={() => navigate(`/admin/registrations/${row.registrationId}`)}
-          className="px-2.5 py-1 bg-slate-100 hover:bg-cyan-50 text-slate-700 hover:text-cyan-700 font-mono text-[11px] rounded border border-slate-200 flex items-center gap-1 transition-colors"
+          className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 text-black font-mono text-[11px] font-extrabold rounded border border-slate-300 flex items-center gap-1 transition-colors"
         >
           <Eye className="w-3.5 h-3.5" /> Inspect
         </button>
