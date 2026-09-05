@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from '../components/navigation/Navbar';
 import { HeroSection } from '../components/sections/HeroSection';
 import { AboutSection } from '../components/sections/AboutSection';
@@ -15,11 +15,19 @@ import { FAQSection } from '../components/sections/FAQSection';
 import { FinalCTASection } from '../components/sections/FinalCTASection';
 import { Footer } from '../components/navigation/Footer';
 import { BackToTop } from '../components/ui/BackToTop';
+import { SplashScreen } from '../components/splash/SplashScreen';
 
 export const HomePage: React.FC = () => {
+  const [showSplash, setShowSplash] = useState<boolean>(true);
+
+  const handleSplashComplete = () => {
+    setShowSplash(false);
+  };
+
   return (
     <div className="w-full relative overflow-x-hidden">
-      <Navbar />
+      {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      {!showSplash && <Navbar />}
       <main>
         <HeroSection />
         <AboutSection />
