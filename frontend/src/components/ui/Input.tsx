@@ -39,7 +39,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {rightIcon && (
-            <span className="absolute right-3 text-muted pointer-events-none text-[var(--color-text-muted)]">
+            <span className="absolute right-3 text-muted text-[var(--color-text-muted)] flex items-center justify-center z-10">
               {rightIcon}
             </span>
           )}

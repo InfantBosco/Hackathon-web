@@ -3,7 +3,7 @@ import { AuthLayout } from '../components/auth/AuthLayout';
 import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
 import { authService } from '../services/authService';
-import { User, Mail, Lock, Eye, EyeOff, UserPlus, AlertCircle, Check } from 'lucide-react';
+import { User, Mail, Lock, Eye, EyeOff, UserPlus, AlertCircle } from 'lucide-react';
 import { trackEvent } from '../lib/analytics';
 
 export const SignupPage: React.FC = () => {
@@ -57,6 +57,10 @@ export const SignupPage: React.FC = () => {
     }
   };
 
+  const preventCopyPaste = (e: React.ClipboardEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <AuthLayout
       title="Create Account"
@@ -103,12 +107,15 @@ export const SignupPage: React.FC = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           onBlur={() => setTouched((prev) => ({ ...prev, password: true }))}
+          onCopy={preventCopyPaste}
+          onPaste={preventCopyPaste}
+          onCut={preventCopyPaste}
           leftIcon={<Lock className="w-4 h-4" />}
           rightIcon={
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="focus:outline-none hover:text-white transition-colors"
+              className="focus:outline-none hover:text-white transition-colors cursor-pointer"
               aria-label={showPassword ? 'Hide password' : 'Show password'}
             >
               {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
@@ -118,17 +125,6 @@ export const SignupPage: React.FC = () => {
           required
         />
 
-        {/* Live Password Requirement Checklist */}
-        <div className="p-3 rounded-[var(--radius-sm)] bg-[var(--color-surface-elevated)] border border-[var(--color-border-subtle)] text-xs space-y-1">
-          <span className="text-[var(--color-text-muted)] font-mono block mb-1">PASSWORD REQUIREMENTS:</span>
-          <div className="flex items-center gap-2">
-            <div className={`w-3.5 h-3.5 rounded-full flex items-center justify-center ${hasMinLength ? 'bg-emerald-500 text-black' : 'bg-slate-700 text-slate-400'}`}>
-              <Check className="w-2.5 h-2.5" />
-            </div>
-            <span className={hasMinLength ? 'text-white' : 'text-[var(--color-text-muted)]'}>Minimum 8 characters</span>
-          </div>
-        </div>
-
         <Input
           label="Confirm Password"
           type={showPassword ? 'text' : 'password'}
@@ -136,6 +132,9 @@ export const SignupPage: React.FC = () => {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           onBlur={() => setTouched((prev) => ({ ...prev, confirmPassword: true }))}
+          onCopy={preventCopyPaste}
+          onPaste={preventCopyPaste}
+          onCut={preventCopyPaste}
           leftIcon={<Lock className="w-4 h-4" />}
           error={touched.confirmPassword && confirmPassword && !isPasswordMatched ? 'Passwords do not match' : undefined}
           autoComplete="new-password"
