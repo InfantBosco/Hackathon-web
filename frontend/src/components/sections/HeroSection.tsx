@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, MapPin, Calendar, Users, Trophy, Clock } from 'lucide-react';
+import { ArrowDown, MapPin, Calendar, Trophy, Clock } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { GridBackground } from '../backgrounds/GridBackground';
@@ -22,9 +22,9 @@ const heroBadges = [
     icon: MapPin,
   },
   {
-    label: 'PARTICIPANTS',
-    value: '1500+',
-    icon: Users,
+    label: 'REGISTRATION DEADLINE',
+    value: 'Oct 1 11.59PM',
+    icon: Clock,
   },
   {
     label: 'PRIZE POOL',
@@ -34,6 +34,22 @@ const heroBadges = [
 ];
 
 export const HeroSection: React.FC = () => {
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleRegisterClick = () => {
     trackEvent('register_cta_click', { location: 'hero' });
     window.location.href = siteConfig.registerRoute;
@@ -68,6 +84,10 @@ export const HeroSection: React.FC = () => {
             </span>
           </h1>
 
+          <div className="text-4xl sm:text-6xl lg:text-7xl font-heading font-black tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none -mt-2 mb-2">
+            2026
+          </div>
+
           <p className="text-base sm:text-xl font-heading text-slate-300 max-w-2xl font-medium tracking-wide">
             {heroData.taglinePlaceholder}
           </p>
@@ -78,7 +98,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-3 my-8"
+          className="my-8"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto">
             {heroBadges.map((item) => {
@@ -103,33 +123,6 @@ export const HeroSection: React.FC = () => {
               );
             })}
           </div>
-
-          {/* Fifth Glass Box directly below the four boxes for Registration Deadline */}
-          <div className="max-w-md mx-auto">
-            <div className="glass-panel rounded-2xl p-3 sm:p-3.5 border border-red-500/40 bg-zinc-950/90 backdrop-blur-md shadow-[0_0_25px_rgba(255,30,66,0.35)] flex items-center justify-center gap-3 transition-all duration-300 hover:border-red-500 hover:shadow-[0_0_35px_rgba(255,30,66,0.55)] hover:-translate-y-0.5 select-none">
-              <div className="w-9 h-9 rounded-xl bg-red-500/15 border border-red-500/35 flex items-center justify-center shrink-0 text-red-400 shadow-[0_0_12px_rgba(255,30,66,0.35)]">
-                <Clock className="w-4 h-4 animate-pulse" />
-              </div>
-              <div className="flex flex-col text-left min-w-0">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-red-400 drop-shadow-[0_0_6px_rgba(255,30,66,0.4)]">
-                  REGISTRATION DEADLINE
-                </span>
-                <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">
-                  Register by Oct 1 11.59PM
-                </span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Live Event Countdown Timer */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-10"
-        >
-          <CountdownTimer />
         </motion.div>
 
         {/* Action CTAs */}
@@ -137,7 +130,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
         >
           <Button
             variant="primary"
@@ -157,6 +150,20 @@ export const HeroSection: React.FC = () => {
           >
             {heroData.secondaryCtaText}
           </Button>
+        </motion.div>
+
+        {/* Live Event Countdown Timer - Fades in on Scroll */}
+        <motion.div
+          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+          animate={{
+            opacity: isScrolled ? 1 : 0,
+            y: isScrolled ? 0 : 20,
+            scale: isScrolled ? 1 : 0.95,
+          }}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
+          className={`mb-4 ${isScrolled ? 'pointer-events-auto' : 'pointer-events-none'}`}
+        >
+          <CountdownTimer />
         </motion.div>
       </div>
     </GridBackground>
