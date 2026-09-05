@@ -61,11 +61,14 @@ export const HeroSection: React.FC = () => {
             <span>{heroData.badge}</span>
           </Badge>
 
-          <h1 className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black tracking-tight text-white uppercase select-none">
-            HACK<span className="text-white drop-shadow-[0_0_45px_rgba(255,255,255,0.7)]">NEX</span>
+          <h1 className="text-5xl sm:text-7xl lg:text-9xl font-heading font-black tracking-tight uppercase select-none">
+            <span className="text-white">HACK</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] ml-0.5">
+              NEX
+            </span>
           </h1>
 
-          <p className="text-base sm:text-xl font-heading text-[var(--color-text-secondary)] max-w-2xl font-medium tracking-wide">
+          <p className="text-base sm:text-xl font-heading text-slate-300 max-w-2xl font-medium tracking-wide">
             {heroData.taglinePlaceholder}
           </p>
         </motion.div>
@@ -88,7 +91,7 @@ export const HeroSection: React.FC = () => {
                   <Icon className="w-5 h-5" />
                 </div>
                 <div className="flex flex-col min-w-0">
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-300 drop-shadow-[0_0_6px_rgba(255,255,255,0.3)]">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
                     {item.label}
                   </span>
                   <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">

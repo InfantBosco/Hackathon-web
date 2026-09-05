@@ -28,7 +28,7 @@ export function RandomLetterSwap({
   return (
     <motion.span
       className={cn(
-        "inline-flex overflow-hidden relative cursor-pointer select-none py-1.5 px-2.5 rounded-md transition-colors",
+        "inline-flex overflow-hidden relative cursor-pointer select-none py-1 px-2 rounded-full transition-all duration-300",
         className
       )}
       onMouseEnter={() => setIsHovered(true)}
@@ -56,8 +56,8 @@ export function RandomLetterSwap({
               </motion.span>
               <motion.span
                 className={cn(
-                  "absolute top-0 left-0 inline-block font-semibold",
-                  isActive ? "text-[#00f0ff] drop-shadow-[0_0_8px_rgba(0,240,255,0.6)]" : "text-[#00f0ff]"
+                  "absolute top-0 left-0 inline-block font-semibold transition-colors duration-200",
+                  isActive ? "text-white" : "text-slate-200"
                 )}
                 initial={{ y: "100%" }}
                 animate={{ y: isAnimated ? "0%" : "100%" }}

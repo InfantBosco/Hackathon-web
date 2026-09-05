@@ -33,11 +33,11 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           {badge}
         </Badge>
       )}
-      <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-white mb-4">
+      <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 drop-shadow-sm mb-4">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed">
+        <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed font-medium">
           {renderedSubtitle}
         </p>
       )}

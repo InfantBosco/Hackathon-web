@@ -81,13 +81,13 @@ export default function RandomLetterSwapNav({
       className={cn(
         "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
         isScrolled
-          ? "bg-black/90 border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.8)] backdrop-blur-md py-3.5"
+          ? "bg-black/90 border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.85)] backdrop-blur-md py-3.5"
           : "bg-black/60 border-b border-white/5 py-4 backdrop-blur-sm",
         className
       )}
     >
       <div className="w-full max-w-7xl mx-auto px-4 flex items-center justify-center">
-        <nav className="flex items-center justify-center gap-2 sm:gap-6 md:gap-8 flex-wrap">
+        <nav className="flex items-center justify-center gap-1.5 sm:gap-4 md:gap-6 flex-wrap">
           {items.map((item) => {
             const isActive = activeSection === item.href.replace(/^#/, "");
             return (
@@ -99,10 +99,10 @@ export default function RandomLetterSwapNav({
                 transition={{ duration: 0.6, type: "spring", damping: 18, stiffness: 250 }}
                 onClick={(e) => handleLinkClick(e, item.href)}
                 className={cn(
-                  "cursor-pointer font-medium text-sm transition-all duration-200 hover:bg-white/5 rounded-full px-3 py-1",
+                  "cursor-pointer font-medium text-sm transition-all duration-300 rounded-full px-3 py-1 border select-none",
                   isActive
-                    ? "text-white font-semibold bg-white/15 border border-white/30 shadow-[0_0_12px_rgba(255,255,255,0.25)]"
-                    : "text-[var(--color-text-secondary)] hover:text-white"
+                    ? "bg-gradient-to-r from-zinc-800 via-zinc-900 to-black text-white font-semibold border-zinc-600 shadow-[0_0_15px_rgba(0,0,0,0.8)]"
+                    : "text-zinc-300 border-transparent hover:bg-gradient-to-r hover:from-zinc-800 hover:to-black hover:text-white hover:border-zinc-700 hover:shadow-md"
                 )}
               />
             );
