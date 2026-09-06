@@ -2,6 +2,7 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 import { Badge } from '../ui/Badge';
 import { withNexusLogo } from '../branding/NexusText';
+import { FadeIn } from '../ui/FadeIn';
 
 interface SectionHeaderProps {
   badge?: string;
@@ -29,17 +30,23 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   return (
     <div className={cn('flex flex-col mb-12 md:mb-16 max-w-3xl mx-auto', alignmentStyles[align], className)}>
       {badge && (
-        <Badge variant="cyan" className="mb-4">
-          {badge}
-        </Badge>
+        <FadeIn delay={0.0} direction="up" distance={16}>
+          <Badge variant="cyan" className="mb-4">
+            {badge}
+          </Badge>
+        </FadeIn>
       )}
-      <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 drop-shadow-sm mb-4">
-        {title}
-      </h2>
+      <FadeIn delay={0.1} direction="up" distance={20}>
+        <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 drop-shadow-sm mb-4">
+          {title}
+        </h2>
+      </FadeIn>
       {subtitle && (
-        <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed font-medium">
-          {renderedSubtitle}
-        </p>
+        <FadeIn delay={0.2} direction="up" distance={20}>
+          <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed font-medium">
+            {renderedSubtitle}
+          </p>
+        </FadeIn>
       )}
     </div>
   );
