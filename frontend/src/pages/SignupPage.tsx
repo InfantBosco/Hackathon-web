@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthLayout } from '../components/auth/AuthLayout';
 import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
@@ -7,6 +8,7 @@ import { User, Mail, Lock, Eye, EyeOff, UserPlus, AlertCircle } from 'lucide-rea
 import { trackEvent } from '../lib/analytics';
 
 export const SignupPage: React.FC = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -48,7 +50,7 @@ export const SignupPage: React.FC = () => {
     try {
       await authService.signup({ name, email, password, confirmPassword });
       trackEvent('signup_success');
-      window.location.href = `/verify-email?sent=true&email=${encodeURIComponent(email)}`;
+      navigate(`/verify-email?sent=true&email=${encodeURIComponent(email)}`);
     } catch (err: unknown) {
       setIsLoading(false);
       trackEvent('signup_failed');

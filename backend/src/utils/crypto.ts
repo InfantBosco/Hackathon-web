@@ -7,8 +7,8 @@ import argon2 from 'argon2';
 export async function hashPassword(password: string): Promise<string> {
   return argon2.hash(password, {
     type: argon2.argon2id,
-    memoryCost: 2 ** 16, // 64 MB
-    timeCost: 3,
+    memoryCost: 2 ** 15, // 32 MB
+    timeCost: 2,         // 2 iterations
     parallelism: 1,
   });
 }

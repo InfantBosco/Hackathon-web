@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthLayout } from '../components/auth/AuthLayout';
 import { Input } from '../components/ui/Input';
 import { Button } from '../components/ui/Button';
@@ -7,17 +8,14 @@ import { Mail, Lock, Eye, EyeOff, LogIn, AlertCircle } from 'lucide-react';
 import { trackEvent } from '../lib/analytics';
 
 export const LoginPage: React.FC = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [touched, setTouched] = useState({ email: false, password: false });
 
-  const { login, isLoading, initializeAuth } = useAuthStore();
-
-  useEffect(() => {
-    initializeAuth();
-  }, [initializeAuth]);
+  const { login, isLoading } = useAuthStore();
 
   const isEmailInvalid = touched.email && (!email.trim() || (!email.includes('@') && email.trim().length < 3));
   const isPasswordInvalid = touched.password && !password;
@@ -41,7 +39,7 @@ export const LoginPage: React.FC = () => {
       // Upon successful login, direct user immediately to the Registration Wizard Page (/register)
       const urlParams = new URLSearchParams(window.location.search);
       const redirect = urlParams.get('redirect') || '/register';
-      window.location.href = redirect;
+      navigate(redirect);
     } catch (err: unknown) {
       trackEvent('login_failed');
       const msg = err instanceof Error ? err.message : 'Invalid credentials. Please check your email and password.';

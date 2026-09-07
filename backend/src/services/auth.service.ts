@@ -104,8 +104,10 @@ export class AuthService {
       return { createdUser: user, rawToken };
     });
 
-    // Send Verification Email outside of database transaction
-    await this.emailService.sendVerificationEmail(email, name, rawToken);
+    // Send Verification Email outside of database transaction (non-blocking for instant response)
+    this.emailService.sendVerificationEmail(email, name, rawToken).catch((err) => {
+      console.error('⚠️ Non-critical error: Failed to dispatch verification email in background:', err);
+    });
 
     return {
       id: createdUser.id,
@@ -198,7 +200,9 @@ export class AuthService {
       },
     });
 
-    await this.emailService.sendVerificationEmail(user.email, user.name, rawToken);
+    this.emailService.sendVerificationEmail(user.email, user.name, rawToken).catch((err) => {
+      console.error('⚠️ Non-critical error: Failed to dispatch verification email in background:', err);
+    });
 
     return { message: 'If an unverified account exists, a new verification email has been sent.' };
   }
@@ -285,7 +289,9 @@ export class AuthService {
       },
     });
 
-    await this.emailService.sendPasswordResetEmail(user.email, user.name, rawToken);
+    this.emailService.sendPasswordResetEmail(user.email, user.name, rawToken).catch((err) => {
+      console.error('⚠️ Non-critical error: Failed to dispatch reset email in background:', err);
+    });
 
     return { message: 'If an account exists for this email, password reset instructions have been sent.' };
   }
