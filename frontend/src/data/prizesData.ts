@@ -5,7 +5,7 @@ export interface PrizeTier {
   title: string;
   description: string;
   badge: string;
-  glow: 'cyan' | 'purple' | 'none';
+  glow: 'gold' | 'silver' | 'bronze';
 }
 
 export const prizesData = {
@@ -14,29 +14,29 @@ export const prizesData = {
     {
       id: '1st-place',
       rank: '01',
-      amount: 'TBD',
+      amount: '₹75,000',
       title: 'First Place Winner',
-      description: 'Grand Winner Trophy, Cash Prize, Incubation Opportunities & Winner Certificates.',
+      description: 'Grand Winner Trophy, ₹75K Cash Prize, Incubation Opportunities & Winner Certificates.',
       badge: 'CHAMPION',
-      glow: 'cyan',
+      glow: 'gold',
     },
     {
       id: '2nd-place',
       rank: '02',
-      amount: 'TBD',
+      amount: '₹50,000',
       title: 'Runner Up',
-      description: 'Second Place Trophy, Cash Prize, Sponsor Credits & Runner-Up Certificates.',
+      description: 'Second Place Trophy, ₹50K Cash Prize, Sponsor Credits & Runner-Up Certificates.',
       badge: 'RUNNER UP',
-      glow: 'purple',
+      glow: 'silver',
     },
     {
       id: '3rd-place',
       rank: '03',
-      amount: 'TBD',
+      amount: '₹25,000',
       title: 'Second Runner Up',
-      description: 'Third Place Trophy, Cash Prize & Excellence Certificates.',
-      badge: 'FINALIST',
-      glow: 'none',
+      description: 'Third Place Trophy, ₹25K Cash Prize & Excellence Certificates.',
+      badge: '2ND RUNNER UP',
+      glow: 'bronze',
     },
   ] as PrizeTier[],
   specialTracks: [

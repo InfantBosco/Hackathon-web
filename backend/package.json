@@ -8,6 +8,7 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit",
+    "prisma:db:push": "prisma db push --schema=../prisma/schema.prisma",
     "test": "vitest run"
   },
   "dependencies": {

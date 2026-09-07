@@ -39,6 +39,17 @@ export function errorHandler(error: FastifyError | Error, request: FastifyReques
     );
   }
 
+  // Handle Prisma database connection errors (P1001, P1002, etc.)
+  const errCode = (error as any).code;
+  if (errCode === 'P1001' || errCode === 'P1002' || error.name === 'PrismaClientInitializationError') {
+    return reply.status(503).send(
+      formatErrorResponse(
+        ErrorCode.DATABASE_ERROR,
+        'Cannot connect to the database server. Please ensure your database server is running and check DATABASE_URL in backend/.env'
+      )
+    );
+  }
+
   // Handle Fastify status code errors (e.g. 404, 429)
   const statusCode = (error as FastifyError).statusCode || 500;
 

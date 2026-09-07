@@ -7,7 +7,7 @@ export const AuthNavbar: React.FC = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    if (window.history.length > 1) {
+    if (window.history.state && typeof window.history.state.idx === 'number' && window.history.state.idx > 0) {
       navigate(-1);
     } else {
       navigate('/');

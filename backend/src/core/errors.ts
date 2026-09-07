@@ -10,6 +10,7 @@ export enum ErrorCode {
   PAYMENT_VERIFICATION_ERROR = 'PAYMENT_VERIFICATION_ERROR',
   REGISTRATION_CLOSED = 'REGISTRATION_CLOSED',
   RATE_LIMIT_ERROR = 'RATE_LIMIT_ERROR',
+  DATABASE_ERROR = 'DATABASE_ERROR',
   INTERNAL_SERVER_ERROR = 'INTERNAL_SERVER_ERROR',
 }
 
@@ -87,3 +88,10 @@ export class RateLimitError extends AppError {
     super(message, 429, ErrorCode.RATE_LIMIT_ERROR);
   }
 }
+
+export class DatabaseError extends AppError {
+  constructor(message: string = 'Database operation or connection failed', details?: unknown) {
+    super(message, 503, ErrorCode.DATABASE_ERROR, details);
+  }
+}
+
