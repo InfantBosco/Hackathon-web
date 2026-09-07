@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ParticipantInput } from '../../services/registrationService';
 import { Button } from '../ui/Button';
 import { Checkbox } from '../ui/Checkbox';
-import { Users, User, Edit3, ShieldAlert, CreditCard, ArrowRight, Loader2 } from 'lucide-react';
+import { Users, User, Edit3, AlertCircle, CreditCard, ArrowRight, Loader2 } from 'lucide-react';
 
 interface ReviewStepProps {
   teamName: string;
@@ -60,7 +60,7 @@ export const ReviewStep: React.FC<ReviewStepProps> = ({
 
       {error && (
         <div className="p-4 bg-red-950/40 border border-red-500/50 rounded-[var(--radius-md)] text-red-400 text-xs font-mono flex items-start gap-3">
-          <ShieldAlert className="w-5 h-5 shrink-0 mt-0.5" />
+          <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-red-400" />
           <div>
             <p className="font-bold uppercase tracking-wider mb-1">Registration Submission Failed</p>
             <p>{error}</p>

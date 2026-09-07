@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from '../ui/Input';
-import { Users, Info, ShieldCheck } from 'lucide-react';
+import { Users, Info } from 'lucide-react';
 
 interface TeamInfoStepProps {
   teamName: string;
@@ -51,7 +51,6 @@ export const TeamInfoStep: React.FC<TeamInfoStepProps> = ({
       </div>
 
       <div className="flex items-center gap-2.5 p-3.5 bg-[#121212]/95 border border-neutral-700/90 rounded-[var(--radius-sm)] text-xs text-neutral-200 font-medium">
-        <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
         <span>Your account email will be set as Team Captain by default.</span>
       </div>
     </div>

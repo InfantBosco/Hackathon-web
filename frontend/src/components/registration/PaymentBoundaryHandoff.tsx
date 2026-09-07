@@ -1,6 +1,6 @@
 import React from 'react';
 import { RegistrationSummary } from '../../services/registrationService';
-import { CheckCircle2, ShieldCheck, CreditCard, ArrowLeft, Calendar, MapPin, Sparkles } from 'lucide-react';
+import { CheckCircle2, CreditCard, ArrowLeft, Calendar, MapPin, Sparkles } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 
@@ -121,7 +121,6 @@ export const PaymentBoundaryHandoff: React.FC<PaymentBoundaryHandoffProps> = ({
       </div>
 
       <div className="flex items-center justify-center gap-2 text-[11px] font-mono text-[var(--color-text-muted)]">
-        <ShieldCheck className="w-4 h-4 text-emerald-400" />
         <span className="flex items-center gap-1">
           <span>Organized by</span>
           <span className="inline-flex items-center gap-1 font-semibold text-white">

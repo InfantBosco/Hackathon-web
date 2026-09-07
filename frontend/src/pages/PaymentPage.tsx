@@ -9,7 +9,6 @@ import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import {
   CreditCard,
-  ShieldCheck,
   Lock,
   ArrowLeft,
   AlertCircle,
@@ -253,7 +252,6 @@ export const PaymentPage: React.FC = () => {
           </div>
 
           <div className="flex items-center justify-center gap-2 text-[10px] font-mono text-[var(--color-text-muted)] pt-2">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
             <span>256-Bit Encrypted Payment Transaction</span>
           </div>
         </div>

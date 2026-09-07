@@ -16,7 +16,7 @@ export const PrizesSection: React.FC = () => {
       />
 
       {/* Trophy Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {prizesData.tiers.map((tier, idx) => {
           const isGold = tier.glow === 'gold';
           const isSilver = tier.glow === 'silver';
@@ -26,35 +26,35 @@ export const PrizesSection: React.FC = () => {
             ? 'hover:border-amber-400/80 hover:shadow-[0_0_35px_rgba(245,158,11,0.35)]'
             : isSilver
             ? 'hover:border-slate-300/80 hover:shadow-[0_0_35px_rgba(203,213,225,0.35)]'
-            : 'hover:border-amber-600/80 hover:shadow-[0_0_35px_rgba(217,119,6,0.35)]';
+            : 'hover:border-[#CD7F32]/80 hover:shadow-[0_0_35px_rgba(205,127,50,0.4)]';
 
           // Badge Styling
           const badgeClass = isGold
             ? 'bg-amber-500/15 text-amber-300 border-amber-500/40 shadow-[0_0_12px_rgba(245,158,11,0.25)]'
             : isSilver
             ? 'bg-slate-300/15 text-slate-200 border-slate-300/40 shadow-[0_0_12px_rgba(203,213,225,0.25)]'
-            : 'bg-amber-900/30 text-amber-500 border-amber-700/50 shadow-[0_0_12px_rgba(217,119,6,0.25)]';
+            : 'bg-[#CD7F32]/20 text-[#E5A869] border-[#CD7F32]/50 shadow-[0_0_12px_rgba(205,127,50,0.3)]';
 
           // Rank Circle Badge
           const rankCircleClass = isGold
             ? 'bg-amber-950/50 border-amber-500/40 text-amber-300'
             : isSilver
             ? 'bg-slate-900/70 border-slate-300/40 text-slate-200'
-            : 'bg-amber-950/70 border-amber-700/40 text-amber-500';
+            : 'bg-[#2A1B0E]/80 border-[#CD7F32]/50 text-[#E5A869]';
 
           // Trophy Icon Styling
           const trophyColorClass = isGold
             ? 'text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]'
             : isSilver
             ? 'text-slate-300 drop-shadow-[0_0_8px_rgba(203,213,225,0.5)] group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(203,213,225,0.8)]'
-            : 'text-amber-600 drop-shadow-[0_0_8px_rgba(217,119,6,0.5)] group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(217,119,6,0.8)]';
+            : 'text-[#CD7F32] drop-shadow-[0_0_8px_rgba(205,127,50,0.6)] group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(205,127,50,0.9)]';
 
           // Amount Text Styling
           const amountColorClass = isGold
             ? 'text-amber-300'
             : isSilver
             ? 'text-slate-100'
-            : 'text-amber-500';
+            : 'text-[#E5A869]';
 
           return (
             <FadeIn key={tier.id} delay={idx * 0.15} direction="up">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
-import { Check, Clock, ShieldCheck } from 'lucide-react';
+import { Check, Clock } from 'lucide-react';
 
 interface StatusTimelineProps {
   registrationStatus: 'DRAFT' | 'READY_FOR_PAYMENT' | 'PAYMENT_PENDING' | 'PAYMENT_VERIFIED' | 'CONFIRMED' | 'CANCELLED' | string;
@@ -35,7 +35,6 @@ export const StatusTimeline: React.FC<StatusTimelineProps> = ({ registrationStat
   return (
     <div className="w-full bg-[var(--color-surface)] border border-[var(--color-border)] rounded-[var(--radius-md)] p-6">
       <h4 className="text-xs font-mono uppercase tracking-wider text-[var(--color-text-secondary)] font-semibold mb-6 flex items-center gap-2">
-        <ShieldCheck className="w-4 h-4 text-[var(--color-accent-cyan)]" />
         Registration Progress Lifecycle
       </h4>
 

@@ -4,7 +4,7 @@ import { AuthNavbar } from '../navigation/AuthNavbar';
 import { GridBackground } from '../backgrounds/GridBackground';
 import { NeuralNoise } from '../backgrounds/NeuralNoise';
 import { siteConfig } from '../../data/siteConfig';
-import { Calendar, MapPin, Shield } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 
 interface AuthLayoutProps {
   children: React.ReactNode;
@@ -30,7 +30,6 @@ export const AuthLayout: React.FC<AuthLayoutProps> = ({ children, title, subtitl
 
             <div className="relative z-10 space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white font-mono text-xs uppercase tracking-wider">
-                <Shield className="w-3.5 h-3.5" />
                 <span>OFFICIAL ACCOUNT PORTAL</span>
               </div>
 

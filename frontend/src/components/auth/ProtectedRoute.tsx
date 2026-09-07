@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
 import { Spinner } from '../ui/Spinner';
 
@@ -26,8 +26,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
 
   if (!isAuthenticated) {
     const redirectUrl = encodeURIComponent(location.pathname + location.search);
-    window.location.href = `/login?redirect=${redirectUrl}`;
-    return null;
+    return <Navigate to={`/login?redirect=${redirectUrl}`} />;
   }
 
   return children;
