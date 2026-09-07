@@ -3,6 +3,7 @@ import { ConflictError, NotFoundError, ValidationError, InvalidStateError } from
 import { ValidationService } from './validation.service.js';
 import { TeamService } from './team.service.js';
 import { EmailService } from './email.service.js';
+import { GoogleSheetsService } from './googleSheets.service.js';
 
 export class RegistrationService {
   constructor(private prisma: PrismaClient, private teamService: TeamService, private emailService?: EmailService) {}
@@ -84,6 +85,28 @@ export class RegistrationService {
       } catch (err) {
         console.error('⚠️ Non-critical error: Failed to dispatch registration confirmation email:', err);
       }
+    }
+
+    // 6. Live Google Spreadsheet Sync (Direct from Website Submission)
+    try {
+      const captain = team.participants.find((p) => p.isCaptain) || team.participants[0];
+      const members = team.participants.filter((p) => !p.isCaptain);
+
+      GoogleSheetsService.syncRegistrationToSheet({
+        registrationId: regId,
+        teamName: team.teamName,
+        captainName: captain ? captain.name : 'N/A',
+        captainEmail: captain ? captain.email : 'N/A',
+        captainPhone: captain ? captain.phone : 'N/A',
+        college: captain ? captain.college : 'N/A',
+        department: captain ? captain.department : 'N/A',
+        member2Name: members[0] ? members[0].name : 'N/A',
+        member3Name: members[1] ? members[1].name : 'N/A',
+        member4Name: members[2] ? members[2].name : 'N/A',
+        status: registration.status,
+      }).catch((err) => console.error('⚠️ Google Sheets background sync error:', err));
+    } catch (err) {
+      console.error('⚠️ Non-critical error preparing Google Sheets sync payload:', err);
     }
 
     return registration;

@@ -13,10 +13,12 @@ import { ReviewStep } from '../components/registration/ReviewStep';
 import { PaymentBoundaryHandoff } from '../components/registration/PaymentBoundaryHandoff';
 import { Button } from '../components/ui/Button';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { KarunyaPaymentModal } from '../components/registration/KarunyaPaymentModal';
 
 export const RegistrationWizardPage: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();
+  const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
   const {
     currentStep,
     setStep,
@@ -140,7 +142,10 @@ export const RegistrationWizardPage: React.FC = () => {
 
   const handleSubmitRegistration = async () => {
     if (!user) return;
-    await submitFullRegistration(user.id);
+    const res = await submitFullRegistration(user.id);
+    if (res) {
+      setIsPaymentModalOpen(true);
+    }
   };
 
   return (
@@ -267,6 +272,13 @@ export const RegistrationWizardPage: React.FC = () => {
           )}
         </div>
       </main>
+
+      <KarunyaPaymentModal
+        isOpen={isPaymentModalOpen}
+        onClose={() => setIsPaymentModalOpen(false)}
+        registrationId={submittedRegistration?.registrationId}
+        teamName={submittedRegistration?.team?.name || teamName}
+      />
     </GridBackground>
   );
 };

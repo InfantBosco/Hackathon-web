@@ -80,33 +80,59 @@ export const PaymentBoundaryHandoff: React.FC<PaymentBoundaryHandoffProps> = ({
         </div>
       </div>
 
-      {/* Payment Gateway Handoff Card */}
-      <div className="bg-gradient-to-r from-[rgba(0,240,255,0.06)] via-[rgba(59,130,246,0.06)] to-[rgba(0,240,255,0.06)] border border-[var(--color-accent-cyan)]/40 rounded-[var(--radius-md)] p-6 text-left space-y-3">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-lg bg-[rgba(0,240,255,0.1)] flex items-center justify-center shrink-0 border border-[var(--color-accent-cyan)]/30">
-            <CreditCard className="w-5 h-5 text-[var(--color-accent-cyan)]" />
-          </div>
-          <div>
-            <h4 className="text-sm font-heading font-bold text-white flex items-center gap-2">
-              Payment Gateway Boundary Hand-Off
-              <Sparkles className="w-4 h-4 text-[var(--color-accent-cyan)]" />
+      {/* Karunya Eduserve Payment Portals Card */}
+      <div className="bg-[#0a0a0a]/95 border border-white/20 rounded-[var(--radius-lg)] p-6 text-left space-y-4 shadow-2xl">
+        <div className="flex items-center justify-between border-b border-white/10 pb-3">
+          <div className="flex items-center gap-2.5">
+            <CreditCard className="w-5 h-5 text-cyan-400" />
+            <h4 className="text-sm font-heading font-bold text-white uppercase tracking-wider">
+              Karunya Eduserve Official Payment Portals
             </h4>
-            <p className="text-xs text-[var(--color-text-secondary)]">
-              Phase 11 Registration Complete — Payment Gateway Pending Phase 12
-            </p>
           </div>
+          <Sparkles className="w-4 h-4 text-cyan-400" />
         </div>
 
-        <div className="p-4 bg-[var(--color-surface)]/80 border border-[var(--color-border)] rounded-[var(--radius-sm)] text-xs text-[var(--color-text-secondary)] space-y-2">
-          <div className="flex justify-between items-center text-white font-mono border-b border-[var(--color-border)] pb-2">
-            <span>Total Registration Fee</span>
-            <span className="text-[var(--color-accent-cyan)] font-bold text-sm">
-              ₹{summary.feeSummary.totalAmount} INR
-            </span>
-          </div>
-          <p className="text-[11px] leading-relaxed text-[var(--color-text-muted)]">
-            Your team submission is stored safely in our database. The Karunya payment gateway integration will open in <strong>Phase 12</strong>, where you can finalize payment and receive your official registration confirmation ticket.
-          </p>
+        <p className="text-xs text-[var(--color-text-secondary)]">
+          Select your category below to complete your team payment of <strong className="text-white font-bold">₹{summary.feeSummary.totalAmount} INR</strong> via Karunya's secure payment portal:
+        </p>
+
+        {/* 2 Themed Buttons */}
+        <div className="grid grid-cols-1 gap-3 pt-1">
+          {/* Button 1: Karunya Student */}
+          <a
+            href="https://eduserve.karunya.edu/online/PayAddOnFees.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full group p-4 rounded-[var(--radius-md)] border border-cyan-400/40 bg-gradient-to-r from-cyan-950/60 via-slate-900/90 to-cyan-950/60 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(0,240,255,0.35)] transition-all duration-300 text-left flex items-center justify-between cursor-pointer"
+          >
+            <div className="space-y-0.5">
+              <span className="text-xs font-heading font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center gap-2">
+                <CreditCard className="w-3.5 h-3.5 text-cyan-400" />
+                Click here to pay if you are a Karunya Student
+              </span>
+              <p className="text-[10px] font-mono text-slate-300 pl-5">
+                https://eduserve.karunya.edu/online/PayAddOnFees.aspx
+              </p>
+            </div>
+          </a>
+
+          {/* Button 2: External Student */}
+          <a
+            href="https://eduserve.karunya.edu/Online/ExternalEvents.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full group p-4 rounded-[var(--radius-md)] border border-purple-400/40 bg-gradient-to-r from-purple-950/60 via-slate-900/90 to-purple-950/60 hover:border-purple-400 hover:shadow-[0_0_20px_rgba(168,85,247,0.35)] transition-all duration-300 text-left flex items-center justify-between cursor-pointer"
+          >
+            <div className="space-y-0.5">
+              <span className="text-xs font-heading font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-2">
+                <CreditCard className="w-3.5 h-3.5 text-purple-400" />
+                Click here to pay if you are an External Student
+              </span>
+              <p className="text-[10px] font-mono text-slate-300 pl-5">
+                https://eduserve.karunya.edu/Online/ExternalEvents.aspx
+              </p>
+            </div>
+          </a>
         </div>
       </div>
 

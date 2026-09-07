@@ -20,14 +20,17 @@ import {
   Utensils,
 } from 'lucide-react';
 
+import { KarunyaPaymentModal } from '../components/registration/KarunyaPaymentModal';
+
 export const RegistrationStatusPage: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuthStore();
-  const { activeRegistration, fetchUserRegistration, refreshRegistrationSummary, isSubmitting } =
+  const { activeRegistration, fetchUserRegistration, refreshRegistrationSummary } =
     useRegistrationStore();
 
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     if (user?.id) {
@@ -254,11 +257,11 @@ export const RegistrationStatusPage: React.FC = () => {
                   Check Payment Status
                 </Button>
                 <Button
-                  onClick={() => navigate(`/payment/${activeRegistration.registrationId}`)}
-                  disabled={isSubmitting}
+                  onClick={() => setIsModalOpen(true)}
                   className="w-full sm:w-auto px-8 py-3 font-mono text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[var(--color-accent-cyan)] to-[var(--color-accent-blue)] text-black hover:opacity-90 flex items-center justify-center gap-2"
                 >
-                  Proceed to Payment <ArrowRight className="w-4 h-4" />
+                  <CreditCard className="w-4 h-4 text-black" />
+                  Pay via Karunya Eduserve <ArrowRight className="w-4 h-4" />
                 </Button>
               </>
             )}
@@ -275,6 +278,13 @@ export const RegistrationStatusPage: React.FC = () => {
           </div>
         </div>
       </main>
+
+      <KarunyaPaymentModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        registrationId={activeRegistration.registrationId}
+        teamName={activeRegistration.team.name}
+      />
     </GridBackground>
   );
 };

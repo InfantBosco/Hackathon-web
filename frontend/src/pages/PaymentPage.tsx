@@ -14,7 +14,6 @@ import {
   AlertCircle,
   Loader2,
   Sparkles,
-  CheckCircle2,
 } from 'lucide-react';
 
 export const PaymentPage: React.FC = () => {
@@ -24,15 +23,10 @@ export const PaymentPage: React.FC = () => {
   const {
     activeRegistration,
     refreshRegistrationSummary,
-    initiatePaymentForActiveRegistration,
-    verifyPaymentForActiveRegistration,
-    isSubmitting,
     error,
   } = useRegistrationStore();
 
   const [loading, setLoading] = useState(true);
-  const [processingPayment, setProcessingPayment] = useState(false);
-  const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   useEffect(() => {
     if (registrationId && user?.id) {
@@ -41,27 +35,6 @@ export const PaymentPage: React.FC = () => {
       setLoading(false);
     }
   }, [registrationId, user?.id, refreshRegistrationSummary]);
-
-  const handlePayNow = async () => {
-    if (!user?.id || !activeRegistration) return;
-
-    setProcessingPayment(true);
-    try {
-      // 1. Initiate payment on backend
-      const payment = await initiatePaymentForActiveRegistration(user.id);
-
-      // 2. Simulate Karunya Gateway transaction processing
-      const mockTxId = `TXN-HNX-${Date.now().toString().slice(-8)}`;
-      await verifyPaymentForActiveRegistration(payment.id, mockTxId);
-
-      setPaymentSuccess(true);
-      setTimeout(() => {
-        navigate('/registration/confirmed');
-      }, 1500);
-    } catch (err) {
-      setProcessingPayment(false);
-    }
-  };
 
   const handleCheckStatus = async () => {
     if (registrationId && user?.id) {
@@ -218,36 +191,54 @@ export const PaymentPage: React.FC = () => {
             </span>
           </div>
 
-          {/* Action Buttons */}
+          {/* 2 Themed Karunya Eduserve Buttons */}
           <div className="space-y-3 pt-2">
-            <Button
-              onClick={handlePayNow}
-              disabled={processingPayment || paymentSuccess || isSubmitting}
-              className="w-full py-4 font-mono text-sm font-bold uppercase tracking-wider bg-gradient-to-r from-[var(--color-accent-cyan)] via-blue-500 to-[var(--color-accent-blue)] text-black hover:opacity-95 shadow-[0_0_20px_rgba(0,240,255,0.3)] transition-all flex items-center justify-center gap-2"
+            <h4 className="text-xs font-mono font-bold text-white uppercase tracking-wider text-center">
+              Select Your Student Category Below:
+            </h4>
+
+            {/* Button 1: Karunya Student */}
+            <a
+              href="https://eduserve.karunya.edu/online/PayAddOnFees.aspx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full group p-4 rounded-[var(--radius-md)] border border-cyan-400/40 bg-gradient-to-r from-cyan-950/60 via-slate-900/90 to-cyan-950/60 hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(0,240,255,0.35)] transition-all duration-300 text-left flex items-center justify-between cursor-pointer"
             >
-              {processingPayment ? (
-                <>
-                  <Loader2 className="w-4 h-4 animate-spin text-black" />
-                  Processing Payment & Verifying...
-                </>
-              ) : paymentSuccess ? (
-                <>
-                  <CheckCircle2 className="w-4 h-4 text-black" />
-                  Payment Verified! Redirecting...
-                </>
-              ) : (
-                <>
-                  Pay ₹{totalAmount} INR Now →
-                </>
-              )}
-            </Button>
+              <div className="space-y-0.5">
+                <span className="text-xs font-heading font-bold text-white group-hover:text-cyan-300 transition-colors flex items-center gap-2">
+                  <CreditCard className="w-4 h-4 text-cyan-400" />
+                  Click here to pay if you are a Karunya Student
+                </span>
+                <p className="text-[10px] font-mono text-slate-300 pl-6">
+                  For internal KITS Karunya Students via Eduserve Add-On Fees
+                </p>
+              </div>
+            </a>
+
+            {/* Button 2: External Student */}
+            <a
+              href="https://eduserve.karunya.edu/Online/ExternalEvents.aspx"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full group p-4 rounded-[var(--radius-md)] border border-purple-400/40 bg-gradient-to-r from-purple-950/60 via-slate-900/90 to-purple-950/60 hover:border-purple-400 hover:shadow-[0_0_25px_rgba(168,85,247,0.35)] transition-all duration-300 text-left flex items-center justify-between cursor-pointer"
+            >
+              <div className="space-y-0.5">
+                <span className="text-xs font-heading font-bold text-white group-hover:text-purple-300 transition-colors flex items-center gap-2">
+                  <CreditCard className="w-4 h-4 text-purple-400" />
+                  Click here to pay if you are an External Student
+                </span>
+                <p className="text-[10px] font-mono text-slate-300 pl-6">
+                  For participants from other colleges/institutions via External Events
+                </p>
+              </div>
+            </a>
 
             <Button
               variant="outline"
               onClick={handleCheckStatus}
               className="w-full py-3 font-mono text-xs uppercase"
             >
-              Check Payment Status
+              Check Registration & Payment Status
             </Button>
           </div>
 
