@@ -1,6 +1,7 @@
 import Fastify from 'fastify';
 import { loggerOptions } from './core/logger.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
+import { helmetPlugin } from './plugins/helmet.js';
 import { corsPlugin } from './plugins/cors.js';
 import { rateLimitPlugin } from './plugins/rateLimit.js';
 import { swaggerPlugin } from './plugins/swagger.js';
@@ -26,7 +27,8 @@ export function buildApp() {
   app.setErrorHandler(errorHandler);
   app.setNotFoundHandler(notFoundHandler);
 
-  // Register plugins
+  // Register security & utility plugins
+  app.register(helmetPlugin);
   app.register(corsPlugin);
   app.register(rateLimitPlugin);
   app.register(swaggerPlugin);

@@ -8,7 +8,15 @@ export const corsPlugin = fp(async (fastify) => {
       // Allow requests with no origin (mobile apps, curl, server-to-server)
       if (!origin) return cb(null, true);
 
-      if (settings.NODE_ENV === 'development' || settings.CORS_ORIGINS.includes(origin) || settings.CORS_ORIGINS.includes('*')) {
+      if (settings.CORS_ORIGINS.includes(origin)) {
+        return cb(null, true);
+      }
+
+      if (settings.NODE_ENV === 'development') {
+        return cb(null, true);
+      }
+
+      if (settings.NODE_ENV !== 'production' && settings.CORS_ORIGINS.includes('*')) {
         return cb(null, true);
       }
 

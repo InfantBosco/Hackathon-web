@@ -13,8 +13,14 @@ export const prismaPlugin = fp(async (fastify) => {
   });
 
   try {
-    await prisma.$connect();
-    fastify.log.info('Prisma connected to database successfully');
+    if (process.env.NODE_ENV !== 'test') {
+      const connectPromise = prisma.$connect();
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Prisma connection timeout')), 3000)
+      );
+      await Promise.race([connectPromise, timeoutPromise]);
+      fastify.log.info('Prisma connected to database successfully');
+    }
   } catch (err) {
     fastify.log.warn({ err }, 'Prisma database connection deferred or unavailable in current environment');
   }
