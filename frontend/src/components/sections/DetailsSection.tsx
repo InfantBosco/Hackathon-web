@@ -2,9 +2,8 @@ import React from 'react';
 import { Section } from '../layout/Section';
 import { SectionHeader } from '../layout/SectionHeader';
 import { Card } from '../ui/Card';
-import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
-import { FileText, Download, Check } from 'lucide-react';
+import { FileText } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
 
 export const DetailsSection: React.FC = () => {
@@ -16,9 +15,9 @@ export const DetailsSection: React.FC = () => {
         subtitle="Key guidelines, registration criteria, and downloadable event specifications."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-4xl mx-auto w-full">
         {/* Core Rules Overview */}
-        <Card variant="default" className="md:col-span-2 space-y-6 border-red-500/20 shadow-[0_0_20px_rgba(255,30,66,0.15)]">
+        <Card variant="default" className="space-y-6 border-red-500/20 shadow-[0_0_20px_rgba(255,30,66,0.15)]">
           <div className="flex items-center justify-between border-b border-[var(--color-border)] pb-4">
             <h3 className="text-xl font-heading font-bold text-white flex items-center gap-2">
               <FileText className="w-5 h-5 text-white" />
@@ -52,32 +51,6 @@ export const DetailsSection: React.FC = () => {
               <p className="text-xs text-[var(--color-text-secondary)]">Specified per participant during registration.</p>
             </div>
           </div>
-        </Card>
-
-        {/* Downloadable PDF Area */}
-        <Card variant="hoverGlow" className="flex flex-col justify-between border-red-500/20 shadow-[0_0_20px_rgba(255,30,66,0.15)]">
-          <div>
-            <div className="w-12 h-12 rounded-[var(--radius-md)] bg-white/10 border border-white/20 flex items-center justify-center mb-4">
-              <FileText className="w-6 h-6 text-white" />
-            </div>
-            <h3 className="text-xl font-heading font-bold text-white mb-2">Detailed Rulebook PDF</h3>
-            <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed mb-4">
-              Download the complete HackNEX 2026 rulebook, scoring rubric, and submission guidelines.
-            </p>
-            <div className="p-3 rounded-md bg-[var(--color-surface-elevated)] text-xs font-mono text-[var(--color-text-muted)] flex items-center gap-2">
-              <Check className="w-4 h-4 text-emerald-400" />
-              <span>Version 1.0 (PDF)</span>
-            </div>
-          </div>
-
-          <Button
-            variant="secondary"
-            className="w-full mt-6"
-            leftIcon={<Download className="w-4 h-4" />}
-            onClick={() => alert('Official HackNEX 2026 Rulebook PDF will be available upon registration lock.')}
-          >
-            Download Document
-          </Button>
         </Card>
       </div>
     </Section>
