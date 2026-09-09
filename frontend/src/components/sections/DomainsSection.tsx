@@ -5,6 +5,8 @@ import { Badge } from '../ui/Badge';
 import { domainsData, DomainItem } from '../../data/domainsData';
 import { Utensils, Droplets, HeartPulse, Zap } from 'lucide-react';
 
+import { ContainerScrollBox } from '../ui/ContainerScrollBox';
+
 export const DomainsSection: React.FC = () => {
   const domainIcons: Record<string, React.ReactNode> = {
     food: <Utensils className="w-6 h-6 text-white" />,
@@ -60,46 +62,47 @@ export const DomainsSection: React.FC = () => {
           {domainsData.map((domain: DomainItem) => {
             const layout = cardLayouts[domain.id] || {};
             return (
-              <div
-                key={domain.id}
-                className="relative group min-h-[240px] sm:min-h-[260px] flex flex-col justify-between p-7 sm:p-9 cursor-pointer select-none"
-              >
-                {/* SVG Background Canvas */}
-                <svg
-                  className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
-                  viewBox="0 0 400 260"
-                  preserveAspectRatio="none"
+              <ContainerScrollBox key={domain.id}>
+                <div
+                  className="relative group min-h-[240px] sm:min-h-[260px] flex flex-col justify-between p-7 sm:p-9 cursor-pointer select-none w-full"
                 >
-                  <path
-                    d={cardPaths[domain.id]}
-                    fill="rgba(12, 12, 16, 0.88)"
-                    stroke="rgba(255, 255, 255, 0.18)"
-                    strokeWidth="2"
-                    vectorEffect="non-scaling-stroke"
-                    className="transition-all duration-300 group-hover:stroke-white group-hover:fill-zinc-950"
-                  />
-                </svg>
+                  {/* SVG Background Canvas */}
+                  <svg
+                    className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
+                    viewBox="0 0 400 260"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d={cardPaths[domain.id]}
+                      fill="rgba(12, 12, 16, 0.88)"
+                      stroke="rgba(255, 255, 255, 0.18)"
+                      strokeWidth="2"
+                      vectorEffect="non-scaling-stroke"
+                      className="transition-all duration-300 group-hover:stroke-white group-hover:fill-zinc-950"
+                    />
+                  </svg>
 
-                {/* Card Foreground Content Header */}
-                <div className="relative z-10 flex items-center justify-between mb-4">
-                  <div className={`w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform ${layout.iconClass || ''}`}>
-                    {domainIcons[domain.id]}
+                  {/* Card Foreground Content Header */}
+                  <div className="relative z-10 flex items-center justify-between mb-4">
+                    <div className={`w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform ${layout.iconClass || ''}`}>
+                      {domainIcons[domain.id]}
+                    </div>
+                    <div className={layout.badgeClass || ''}>
+                      <Badge variant="cyan">{domain.category}</Badge>
+                    </div>
                   </div>
-                  <div className={layout.badgeClass || ''}>
-                    <Badge variant="cyan">{domain.category}</Badge>
+
+                  {/* Card Foreground Content Description */}
+                  <div className={`relative z-10 ${layout.contentClass || ''}`}>
+                    <h3 className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-slate-200 transition-colors mb-2">
+                      {domain.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
+                      {domain.description}
+                    </p>
                   </div>
                 </div>
-
-                {/* Card Foreground Content Description */}
-                <div className={`relative z-10 ${layout.contentClass || ''}`}>
-                  <h3 className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-slate-200 transition-colors mb-2">
-                    {domain.title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                    {domain.description}
-                  </p>
-                </div>
-              </div>
+              </ContainerScrollBox>
             );
           })}
 

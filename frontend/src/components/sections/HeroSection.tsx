@@ -9,6 +9,7 @@ import { CountdownTimer } from './CountdownTimer';
 import { heroData } from '../../data/heroData';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
+import { ContainerScrollBox } from '../ui/ContainerScrollBox';
 
 const heroBadges = [
   {
@@ -100,29 +101,31 @@ export const HeroSection: React.FC = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="my-8"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-4xl mx-auto">
-            {heroBadges.map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.label}
-                  className="glass-panel rounded-2xl p-3.5 sm:p-4 border border-red-500/30 bg-zinc-950/80 backdrop-blur-md shadow-[0_0_20px_rgba(255,30,66,0.3)] flex items-center gap-3 transition-all duration-300 hover:border-red-500 hover:shadow-[0_0_30px_rgba(255,30,66,0.5)] hover:-translate-y-1 text-left select-none"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center shrink-0 text-red-400 shadow-[0_0_10px_rgba(255,30,66,0.25)]">
-                    <Icon className="w-5 h-5" />
+          <ContainerScrollBox className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full">
+              {heroBadges.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.label}
+                    className="glass-panel rounded-2xl p-3.5 sm:p-4 border border-red-500/30 bg-zinc-950/80 backdrop-blur-md shadow-[0_0_20px_rgba(255,30,66,0.3)] flex items-center gap-3 transition-all duration-300 hover:border-red-500 hover:shadow-[0_0_30px_rgba(255,30,66,0.5)] hover:-translate-y-1 text-left select-none"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center shrink-0 text-red-400 shadow-[0_0_10px_rgba(255,30,66,0.25)]">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
+                        {item.label}
+                      </span>
+                      <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">
+                        {item.value}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex flex-col min-w-0">
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
-                      {item.label}
-                    </span>
-                    <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">
-                      {item.value}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          </ContainerScrollBox>
         </motion.div>
 
         {/* Action CTAs */}

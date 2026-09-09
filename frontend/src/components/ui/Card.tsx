@@ -2,14 +2,17 @@ import React from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../lib/utils';
 
+import { ContainerScrollBox } from './ContainerScrollBox';
+
 export interface CardProps extends HTMLMotionProps<'div'> {
   children?: React.ReactNode;
   variant?: 'default' | 'hoverGlow' | 'interactive';
   className?: string;
+  disableScrollAnimation?: boolean;
 }
 
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
-  ({ children, variant = 'default', className, ...props }, ref) => {
+  ({ children, variant = 'default', className, disableScrollAnimation = false, ...props }, ref) => {
     const variantStyles = {
       default:
         'glass-panel rounded-[var(--radius-lg)] p-6 border border-[var(--color-border)]',
@@ -19,16 +22,26 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
         'glass-panel border border-[var(--color-border)] hover:border-[var(--color-accent-gold)] transition-all duration-300 hover:shadow-[0_0_30px_rgba(251,191,36,0.3)] cursor-pointer rounded-[var(--radius-lg)] p-6',
     };
 
-    return (
+    const cardElement = (
       <motion.div
         ref={ref}
         whileHover={variant === 'interactive' ? { y: -4 } : undefined}
         transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-        className={cn('will-change-transform', variantStyles[variant], className)}
+        className={cn('will-change-transform h-full', variantStyles[variant], className)}
         {...props}
       >
         {children}
       </motion.div>
+    );
+
+    if (disableScrollAnimation) {
+      return cardElement;
+    }
+
+    return (
+      <ContainerScrollBox className="h-full">
+        {cardElement}
+      </ContainerScrollBox>
     );
   }
 );
