@@ -6,7 +6,6 @@ import { Counter } from '../ui/Counter';
 import { aboutData } from '../../data/aboutData';
 import { CheckCircle2, Target, Award } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
-import { SplitTextReveal } from '../ui/SplitTextReveal';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -24,16 +23,14 @@ export const AboutSection: React.FC = () => {
             <div>
               <div className="flex items-center gap-3 mb-4 text-[var(--color-accent-cyan)]">
                 <Target className="w-6 h-6" />
-                <h3 className="text-xl font-heading font-bold text-white">
-                  <SplitTextReveal text="Event Agenda" mode="words" />
-                </h3>
+                <h3 className="text-xl font-heading font-bold text-white">Event Agenda</h3>
               </div>
-              <div className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                <SplitTextReveal text={aboutData.agenda} mode="words" delay={0.1} />
-              </div>
+              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                {aboutData.agenda}
+              </p>
             </div>
             <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] font-mono text-xs text-[var(--color-accent-cyan)]">
-              <SplitTextReveal text="OCTOBER 7 — 9, 2026 • COIMBATORE" mode="words" delay={0.2} />
+              OCTOBER 7 — 9, 2026 • COIMBATORE
             </div>
           </Card>
         </FadeIn>
@@ -43,23 +40,19 @@ export const AboutSection: React.FC = () => {
             <div>
               <div className="flex items-center gap-3 mb-4 text-[var(--color-accent-purple)]">
                 <Award className="w-6 h-6" />
-                <h3 className="text-xl font-heading font-bold text-white">
-                  <SplitTextReveal text="Why Participate?" mode="words" />
-                </h3>
+                <h3 className="text-xl font-heading font-bold text-white">Why Participate?</h3>
               </div>
               <ul className="space-y-3">
                 {aboutData.whyParticipate.map((point, index) => (
                   <li key={index} className="flex items-start gap-2.5 text-sm text-[var(--color-text-secondary)]">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>
-                      <SplitTextReveal text={point} mode="words" delay={index * 0.05} />
-                    </span>
+                    <span>{point}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] font-mono text-xs text-[var(--color-accent-purple)]">
-              <SplitTextReveal text="100% OFFLINE INNOVATION SPRINT" mode="words" delay={0.2} />
+              100% OFFLINE INNOVATION SPRINT
             </div>
           </Card>
         </FadeIn>

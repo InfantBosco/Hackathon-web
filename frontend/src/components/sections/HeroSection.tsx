@@ -10,7 +10,6 @@ import { heroData } from '../../data/heroData';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
-import { SplitTextReveal } from '../ui/SplitTextReveal';
 
 const heroBadges = [
   {
@@ -80,23 +79,19 @@ export const HeroSection: React.FC = () => {
           </Badge>
 
           <h1 className="text-5xl sm:text-7xl lg:text-9xl font-royal font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none">
-            <SplitTextReveal mode="container" delay={0.1}>
-              <span className="text-white">HACK</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] ml-0.5">
-                NEX
-              </span>
-            </SplitTextReveal>
+            <span className="text-white">HACK</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] ml-0.5">
+              NEX
+            </span>
           </h1>
 
           <div className="text-4xl sm:text-6xl lg:text-7xl font-royal font-extrabold tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none -mt-2 mb-2">
-            <SplitTextReveal mode="container" delay={0.25}>
-              '26
-            </SplitTextReveal>
+            '26
           </div>
 
-          <div className="text-base sm:text-xl font-heading text-slate-300 max-w-2xl font-medium tracking-wide">
-            <SplitTextReveal text={heroData.taglinePlaceholder} mode="words" delay={0.35} />
-          </div>
+          <p className="text-base sm:text-xl font-heading text-slate-300 max-w-2xl font-medium tracking-wide">
+            {heroData.taglinePlaceholder}
+          </p>
         </motion.div>
 
         {/* 4 Glassmorphism Feature Badges below tagline */}

@@ -3,7 +3,6 @@ import { cn } from '../../lib/utils';
 import { Badge } from '../ui/Badge';
 import { withNexusLogo } from '../branding/NexusText';
 import { FadeIn } from '../ui/FadeIn';
-import { SplitTextReveal } from '../ui/SplitTextReveal';
 
 interface SectionHeaderProps {
   badge?: string;
@@ -37,17 +36,17 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           </Badge>
         </FadeIn>
       )}
-      <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 drop-shadow-sm mb-4">
-        <SplitTextReveal text={title} mode="words" />
-      </h2>
+      <FadeIn delay={0.1} direction="up" distance={20}>
+        <h2 className="text-3xl md:text-5xl font-heading font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400 drop-shadow-sm mb-4">
+          {title}
+        </h2>
+      </FadeIn>
       {subtitle && (
-        <div className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed font-medium">
-          {typeof renderedSubtitle === 'string' ? (
-            <SplitTextReveal text={renderedSubtitle} mode="words" delay={0.15} />
-          ) : (
-            <SplitTextReveal mode="container" delay={0.15}>{renderedSubtitle}</SplitTextReveal>
-          )}
-        </div>
+        <FadeIn delay={0.2} direction="up" distance={20}>
+          <p className="text-base md:text-lg text-[var(--color-text-secondary)] leading-relaxed font-medium">
+            {renderedSubtitle}
+          </p>
+        </FadeIn>
       )}
     </div>
   );
