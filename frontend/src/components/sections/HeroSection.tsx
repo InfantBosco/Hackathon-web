@@ -10,6 +10,7 @@ import { heroData } from '../../data/heroData';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
+import { KineticSpringFloat } from '../ui/KineticSpringFloat';
 
 const heroBadges = [
   {
@@ -67,38 +68,55 @@ export const HeroSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto">
         {/* Header Tagline & Brand */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex flex-col items-center gap-4 mb-6"
-        >
-          <Badge variant="cyan" className="flex items-center gap-2 px-3 py-1">
-            <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block" />
-            <span>{heroData.badge}</span>
-          </Badge>
+        <div className="flex flex-col items-center gap-4 mb-6">
+          <motion.div
+            initial={{ opacity: 0, y: -16, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
+          >
+            <Badge variant="cyan" className="flex items-center gap-2 px-3 py-1">
+              <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block" />
+              <span>{heroData.badge}</span>
+            </Badge>
+          </motion.div>
 
-          <h1 className="text-5xl sm:text-7xl lg:text-9xl font-royal font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none">
+          <motion.h1
+            initial={{ opacity: 0, y: 28, scale: 0.94 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.2 }}
+            className="text-5xl sm:text-7xl lg:text-9xl font-royal font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none"
+          >
             <span className="text-white">HACK</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] ml-0.5">
               NEX
             </span>
-          </h1>
+          </motion.h1>
 
-          <div className="text-4xl sm:text-6xl lg:text-7xl font-royal font-extrabold tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none -mt-2 mb-2">
+          <motion.div
+            initial={{ opacity: 0, y: 22, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ type: 'spring', stiffness: 120, damping: 16, delay: 0.3 }}
+            className="text-4xl sm:text-6xl lg:text-7xl font-royal font-extrabold tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none -mt-2 mb-2"
+          >
             '26
-          </div>
+          </motion.div>
 
-          <p className="text-base sm:text-xl font-heading text-slate-300 max-w-2xl font-medium tracking-wide">
+          <KineticSpringFloat
+            as="p"
+            mode="words"
+            delay={0.4}
+            staggerDelay={0.03}
+            className="text-base sm:text-xl font-heading text-slate-300 max-w-2xl font-medium tracking-wide justify-center"
+          >
             {heroData.taglinePlaceholder}
-          </p>
-        </motion.div>
+          </KineticSpringFloat>
+        </div>
 
         {/* 4 Glassmorphism Feature Badges below tagline */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.45 }}
           className="my-8"
         >
           <ContainerScrollBox className="max-w-4xl mx-auto">
@@ -130,9 +148,9 @@ export const HeroSection: React.FC = () => {
 
         {/* Action CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          initial={{ opacity: 0, y: 22, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 18, delay: 0.55 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
         >
           <Button

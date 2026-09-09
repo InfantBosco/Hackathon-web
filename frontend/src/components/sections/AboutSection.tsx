@@ -6,6 +6,7 @@ import { Counter } from '../ui/Counter';
 import { aboutData } from '../../data/aboutData';
 import { CheckCircle2, Target, Award } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
+import { KineticSpringFloat } from '../ui/KineticSpringFloat';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -25,9 +26,14 @@ export const AboutSection: React.FC = () => {
                 <Target className="w-6 h-6" />
                 <h3 className="text-xl font-heading font-bold text-white">Event Agenda</h3>
               </div>
-              <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+              <KineticSpringFloat
+                as="p"
+                mode="words"
+                staggerDelay={0.02}
+                className="text-sm text-[var(--color-text-secondary)] leading-relaxed"
+              >
                 {aboutData.agenda}
-              </p>
+              </KineticSpringFloat>
             </div>
             <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] font-mono text-xs text-[var(--color-accent-cyan)]">
               OCTOBER 7 — 9, 2026 • COIMBATORE
@@ -46,7 +52,9 @@ export const AboutSection: React.FC = () => {
                 {aboutData.whyParticipate.map((point, index) => (
                   <li key={index} className="flex items-start gap-2.5 text-sm text-[var(--color-text-secondary)]">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                    <span>{point}</span>
+                    <KineticSpringFloat mode="words" delay={index * 0.05}>
+                      <span>{point}</span>
+                    </KineticSpringFloat>
                   </li>
                 ))}
               </ul>
