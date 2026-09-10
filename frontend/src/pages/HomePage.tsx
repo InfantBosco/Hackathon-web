@@ -3,7 +3,6 @@ import { Navbar } from '../components/navigation/Navbar';
 import { HeroSection } from '../components/sections/HeroSection';
 import { AboutSection } from '../components/sections/AboutSection';
 import { ChiefGuestSection } from '../components/sections/ChiefGuestSection';
-import { JudgingPanelSection } from '../components/sections/JudgingPanelSection';
 import { DomainsSection } from '../components/sections/DomainsSection';
 import { DetailsSection } from '../components/sections/DetailsSection';
 import { ScheduleSection } from '../components/sections/ScheduleSection';
@@ -24,7 +23,6 @@ export const HomePage: React.FC = () => {
         <HeroSection />
         <AboutSection />
         <ChiefGuestSection />
-        <JudgingPanelSection />
         <DomainsSection />
         <DetailsSection />
         <ScheduleSection />
