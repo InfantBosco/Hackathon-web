@@ -250,10 +250,10 @@ export const ComponentShowcase: React.FC = () => {
           <div>
             <h3 className="text-xl font-heading font-bold text-white mb-4">Event Timeline Component</h3>
             <Timeline
-              items={[
-                { id: '1', date: 'OCTOBER 7, 2026', time: '09:00 AM', title: 'Grand Opening & Keynote', description: 'HackNEX official inauguration at Karunya Auditorium.', status: 'completed' },
-                { id: '2', date: 'OCTOBER 7, 2026', time: '11:00 AM', title: 'Hacking Begins', description: '36-hour continuous coding sprint begins.', status: 'current' },
-                { id: '3', date: 'OCTOBER 9, 2026', time: '04:00 PM', title: 'Winner Announcement', description: 'Final judging demo and prize distribution ceremony.', status: 'upcoming' },
+              data={[
+                { title: 'OCT 7, 2026', content: <p className="text-[#e2e8f0] text-sm">Grand Opening & Keynote at Karunya Auditorium.</p> },
+                { title: 'OCT 8, 2026', content: <p className="text-[#e2e8f0] text-sm">Main 24-hour continuous coding sprint commences.</p> },
+                { title: 'OCT 9, 2026', content: <p className="text-[#e2e8f0] text-sm">Final judging demo and prize distribution ceremony.</p> },
               ]}
             />
           </div>
