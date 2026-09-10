@@ -45,7 +45,7 @@ export const PrizesSection: React.FC = () => {
               : 'border-zinc-600/35 shadow-md';
 
             // White Hover Glow Effect applied to all 5 boxes
-            const hoverEffectClass = 'hover:border-white/80 hover:shadow-[0_0_35px_rgba(255,255,255,0.4)] hover:-translate-y-2';
+            const hoverEffectClass = 'hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.7),0_0_60px_rgba(255,255,255,0.35)] hover:-translate-y-2 group-hover:border-white';
 
             // Rank Badge Circle (Gold -> Silver -> Bronze -> Platinum -> Titanium)
             const rankCircleClass = isGold
@@ -70,11 +70,17 @@ export const PrizesSection: React.FC = () => {
               : 'text-zinc-300';
 
             return (
-              <ContainerScrollBox key={tier.id} className="w-full h-full">
+              <ContainerScrollBox key={tier.id} className="w-full h-full relative group">
+                {/* Outer White Soft Glow Aura on Hover */}
+                <div className="absolute -inset-1 rounded-2xl bg-white/25 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+
                 <GlassCard
                   glowColor="none"
                   className={`flex flex-col justify-between relative group border bg-[#0b0c13]/90 backdrop-blur-xl transition-all duration-300 ease-out ${staticBorderClass} ${hoverEffectClass} ${cardHeightClass} min-h-[300px] overflow-hidden p-5 sm:p-6 text-left`}
                 >
+                  {/* Inner White Top Radial Ambient Glow on Hover */}
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.18)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
+
                   {/* Top Ambient Glow Effects */}
                   {isGold && (
                     <div className="absolute top-0 right-0 w-36 h-36 rounded-full bg-amber-500/15 blur-2xl pointer-events-none" />

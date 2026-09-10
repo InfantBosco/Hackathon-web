@@ -99,7 +99,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 28, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.2 }}
-            className="text-5xl sm:text-7xl lg:text-9xl font-royal font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none"
+            className="text-5xl sm:text-7xl lg:text-9xl font-classy font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none"
           >
             <span className="text-white">HACK</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] ml-0.5">

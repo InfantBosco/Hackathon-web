@@ -132,7 +132,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             
             {/* HACKNEX Title in Royal Serif Cinzel */}
             <div className="relative flex items-center justify-center">
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-royal font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none flex items-center justify-center">
+              <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-classy font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none flex items-center justify-center">
                 {WORDMARK_LETTERS.map((item, idx) => (
                   <motion.span
                     key={`royal-word-${idx}-${item.char}`}
