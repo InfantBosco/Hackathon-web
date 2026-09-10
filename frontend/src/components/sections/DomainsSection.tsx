@@ -30,21 +30,32 @@ export const DomainsSection: React.FC = () => {
     energy: 'M 68,0 L 372,0 A 28,28 0 0 1 400,28 L 400,232 A 28,28 0 0 1 372,260 L 28,260 A 28,28 0 0 1 0,232 L 0,68 A 68,68 0 0 0 68,0 Z',
   };
 
-  // Card specific layout adjustments to prevent center emblem overlaps
-  const cardLayouts: Record<string, { headerClass?: string; contentClass?: string; badgeClass?: string; iconClass?: string }> = {
+  // Card specific layout adjustments with Google 4-Color identity styling
+  const cardLayouts: Record<string, { headerClass?: string; contentClass?: string; badgeClass?: string; iconClass?: string; strokeColor?: string; strokeHover?: string; badgeVariant?: 'cyan' | 'purple' | 'warning' | 'success' }> = {
     food: {
       contentClass: 'pr-12 sm:pr-16 pb-2',
+      iconClass: 'bg-[#4285F4]/15 border-[#4285F4]/40 text-[#4285F4] shadow-[0_0_15px_rgba(66,133,244,0.3)]',
+      strokeColor: 'rgba(66, 133, 244, 0.4)',
+      badgeVariant: 'cyan',
     },
     water: {
       contentClass: 'pl-12 sm:pl-16 pb-2',
+      iconClass: 'bg-[#EA4335]/15 border-[#EA4335]/40 text-[#EA4335] shadow-[0_0_15px_rgba(234,67,53,0.3)]',
+      strokeColor: 'rgba(234, 67, 53, 0.4)',
+      badgeVariant: 'purple',
     },
     healthcare: {
       badgeClass: 'mr-12 sm:mr-16',
       contentClass: 'pr-4',
+      iconClass: 'bg-[#FBBC05]/15 border-[#FBBC05]/40 text-[#FBBC05] shadow-[0_0_15px_rgba(251,188,5,0.3)]',
+      strokeColor: 'rgba(251, 188, 5, 0.4)',
+      badgeVariant: 'warning',
     },
     energy: {
-      iconClass: 'ml-12 sm:ml-16',
+      iconClass: 'ml-12 sm:ml-16 bg-[#34A853]/15 border-[#34A853]/40 text-[#34A853] shadow-[0_0_15px_rgba(52,168,83,0.3)]',
       contentClass: 'pl-4',
+      strokeColor: 'rgba(52, 168, 83, 0.4)',
+      badgeVariant: 'success',
     },
   };
 
@@ -75,7 +86,7 @@ export const DomainsSection: React.FC = () => {
                     <path
                       d={cardPaths[domain.id]}
                       fill="rgba(12, 12, 16, 0.88)"
-                      stroke="rgba(255, 255, 255, 0.18)"
+                      stroke={layout.strokeColor || "rgba(255, 255, 255, 0.18)"}
                       strokeWidth="2"
                       vectorEffect="non-scaling-stroke"
                       className="transition-all duration-300 group-hover:stroke-white group-hover:fill-zinc-950"
@@ -84,11 +95,11 @@ export const DomainsSection: React.FC = () => {
 
                   {/* Card Foreground Content Header */}
                   <div className="relative z-10 flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white shadow-[0_0_15px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform ${layout.iconClass || ''}`}>
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform ${layout.iconClass || 'bg-white/10 border border-white/20 text-white'}`}>
                       {domainIcons[domain.id]}
                     </div>
                     <div className={layout.badgeClass || ''}>
-                      <Badge variant="cyan">{domain.category}</Badge>
+                      <Badge variant={layout.badgeVariant || 'cyan'}>{domain.category}</Badge>
                     </div>
                   </div>
 
