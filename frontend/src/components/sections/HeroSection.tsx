@@ -72,20 +72,27 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: -16, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
+            className="flex flex-col items-center gap-2 mb-2"
           >
-            <div className="flex items-center justify-center gap-4 sm:gap-5 px-5 py-2.5 rounded-full bg-[#12131c]/90 border border-white/20 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.12)]">
+            {/* Unboxed, Prominent Logos with Splitting Line */}
+            <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-7">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789058176/kxvtrjvqi7lhgq9tal4v.png"
                 alt="Karunya Logo"
-                className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)]"
               />
-              <div className="h-6 w-[1.5px] bg-gradient-to-b from-transparent via-white/40 to-transparent" />
+              <div className="h-7 sm:h-8 md:h-10 w-[1.5px] bg-gradient-to-b from-transparent via-white/50 to-transparent shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789058177/vvlgk5o93mehgspdp5cv.png"
                 alt="Nexus Logo"
-                className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)]"
               />
             </div>
+
+            {/* Subtitle text "PRESENTS" */}
+            <span className="text-xs sm:text-sm font-mono font-bold uppercase tracking-[0.35em] text-slate-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mt-1">
+              PRESENTS
+            </span>
           </motion.div>
 
           <motion.h1
