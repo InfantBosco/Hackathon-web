@@ -3,7 +3,7 @@ import { Section } from '../layout/Section';
 import { SectionHeader } from '../layout/SectionHeader';
 import { GlassCard } from '../ui/GlassCard';
 import { prizesData } from '../../data/prizesData';
-import { Trophy } from 'lucide-react';
+import { Trophy, Award } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
 
 export const PrizesSection: React.FC = () => {
@@ -12,93 +12,122 @@ export const PrizesSection: React.FC = () => {
       <SectionHeader
         badge="PRIZES & AWARDS"
         title={`Grand Prize Pool ${prizesData.totalPool}`}
-        subtitle="Compete for cash rewards, incubation opportunities, sponsor credits, and national recognition."
+        subtitle="Compete for cash rewards, incubation opportunities, and national recognition across 5 winning ranks."
       />
 
-      {/* Trophy Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        {prizesData.tiers.map((tier, idx) => {
-          const isGold = tier.glow === 'gold';
-          const isSilver = tier.glow === 'silver';
+      {/* 5-Place Podium Container */}
+      <div className="max-w-6xl mx-auto pt-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 lg:gap-5 items-end">
+          {prizesData.tiers.map((tier, idx) => {
+            const isGold = tier.glow === 'gold';
+            const isSilver = tier.glow === 'silver';
+            const isBronze = tier.glow === 'bronze';
 
-          // Hover Glow & Border Theme
-          const hoverBorderClass = isGold
-            ? 'hover:border-amber-400/80 hover:shadow-[0_0_35px_rgba(245,158,11,0.35)]'
-            : isSilver
-            ? 'hover:border-slate-300/80 hover:shadow-[0_0_35px_rgba(203,213,225,0.35)]'
-            : 'hover:border-[#CD7F32]/80 hover:shadow-[0_0_35px_rgba(205,127,50,0.4)]';
+            // Card Height & Stacking Order for Desktop Podium Baseline
+            const cardHeightClass = isGold
+              ? 'md:h-[430px]'
+              : isSilver
+              ? 'md:h-[390px]'
+              : isBronze
+              ? 'md:h-[370px]'
+              : 'md:h-[335px]';
 
-          // Badge Styling
-          const badgeClass = isGold
-            ? 'bg-amber-500/15 text-amber-300 border-amber-500/40 shadow-[0_0_12px_rgba(245,158,11,0.25)]'
-            : isSilver
-            ? 'bg-slate-300/15 text-slate-200 border-slate-300/40 shadow-[0_0_12px_rgba(203,213,225,0.25)]'
-            : 'bg-[#CD7F32]/20 text-[#E5A869] border-[#CD7F32]/50 shadow-[0_0_12px_rgba(205,127,50,0.3)]';
+            // Hover Glow & Border Styling
+            const borderGlowClass = isGold
+              ? 'border-amber-400/80 shadow-[0_0_35px_rgba(245,158,11,0.3)] hover:border-amber-300 hover:shadow-[0_0_45px_rgba(245,158,11,0.5)]'
+              : isSilver
+              ? 'border-slate-300/60 shadow-[0_0_20px_rgba(203,213,225,0.2)] hover:border-slate-200 hover:shadow-[0_0_35px_rgba(203,213,225,0.4)]'
+              : isBronze
+              ? 'border-amber-700/60 shadow-[0_0_20px_rgba(205,127,50,0.2)] hover:border-amber-500 hover:shadow-[0_0_35px_rgba(205,127,50,0.4)]'
+              : 'border-white/15 hover:border-white/60 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]';
 
-          // Rank Circle Badge
-          const rankCircleClass = isGold
-            ? 'bg-amber-950/50 border-amber-500/40 text-amber-300'
-            : isSilver
-            ? 'bg-slate-900/70 border-slate-300/40 text-slate-200'
-            : 'bg-[#2A1B0E]/80 border-[#CD7F32]/50 text-[#E5A869]';
+            // Rank Badge Circle
+            const rankCircleClass = isGold
+              ? 'bg-amber-950/60 border-amber-400 text-amber-300'
+              : isSilver
+              ? 'bg-slate-900/80 border-slate-300 text-slate-100'
+              : isBronze
+              ? 'bg-[#2A1B0E]/80 border-amber-600 text-[#E5A869]'
+              : 'bg-zinc-900/80 border-white/20 text-slate-300';
 
-          // Trophy Icon Styling
-          const trophyColorClass = isGold
-            ? 'text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]'
-            : isSilver
-            ? 'text-slate-300 drop-shadow-[0_0_8px_rgba(203,213,225,0.5)] group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(203,213,225,0.8)]'
-            : 'text-[#CD7F32] drop-shadow-[0_0_8px_rgba(205,127,50,0.6)] group-hover:scale-110 group-hover:drop-shadow-[0_0_15px_rgba(205,127,50,0.9)]';
+            // Badge Pill Tag
+            const badgeTagClass = isGold
+              ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
+              : isSilver
+              ? 'bg-slate-300/20 text-slate-200 border-slate-300/40'
+              : isBronze
+              ? 'bg-amber-700/20 text-amber-300 border-amber-600/40'
+              : 'bg-white/10 text-slate-300 border-white/20';
 
-          // Amount Text Styling
-          const amountColorClass = isGold
-            ? 'text-amber-300'
-            : isSilver
-            ? 'text-slate-100'
-            : 'text-[#E5A869]';
+            // Amount Text Color
+            const amountColorClass = isGold
+              ? 'text-amber-300'
+              : isSilver
+              ? 'text-slate-100'
+              : isBronze
+              ? 'text-[#E5A869]'
+              : 'text-white';
 
-          return (
-            <FadeIn key={tier.id} delay={idx * 0.15} direction="up">
-              <GlassCard
-                glowColor={isGold ? 'cyan' : isSilver ? 'purple' : 'none'}
-                className={`flex flex-col justify-between relative group border-white/10 bg-[#0a0a0a]/90 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-2 hover:scale-[1.02] ${hoverBorderClass} h-full overflow-hidden p-6 md:p-8`}
-              >
-                {/* Subtle Ambient Glow Behind Card */}
-                <div
-                  className={`absolute top-0 right-0 w-48 h-48 rounded-full blur-3xl pointer-events-none opacity-20 group-hover:opacity-40 transition-opacity ${
-                    isGold ? 'bg-amber-500' : isSilver ? 'bg-slate-300' : 'bg-amber-700'
-                  }`}
-                />
+            return (
+              <FadeIn key={tier.id} delay={idx * 0.1} direction="up" className="w-full">
+                <GlassCard
+                  glowColor="none"
+                  className={`flex flex-col justify-between relative group border bg-[#0b0c13]/90 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-2 ${borderGlowClass} ${cardHeightClass} min-h-[300px] overflow-hidden p-5 sm:p-6 text-left`}
+                >
+                  {/* Subtle Top Ambient Glow for 1st & 2nd Place */}
+                  {isGold && (
+                    <div className="absolute top-0 right-0 w-36 h-36 rounded-full bg-amber-500/15 blur-2xl pointer-events-none" />
+                  )}
+                  {isSilver && (
+                    <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-slate-300/15 blur-2xl pointer-events-none" />
+                  )}
 
-                {/* Subtle Sheen Effect on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
-
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className={`w-12 h-12 rounded-full border flex items-center justify-center font-heading font-black text-xl transition-colors ${rankCircleClass}`}>
-                      {tier.rank}
+                  <div>
+                    {/* Header: Rank Number & Badge */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`w-10 h-10 rounded-full border flex items-center justify-center font-heading font-black text-base shadow-sm ${rankCircleClass}`}>
+                        {tier.rank}
+                      </div>
+                      <div className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider border ${badgeTagClass}`}>
+                        {tier.badge}
+                      </div>
                     </div>
-                    <div className={`px-3 py-1 rounded-full text-xs font-mono font-bold tracking-wider border ${badgeClass}`}>
-                      {tier.badge}
+
+                    {/* Icon & Title */}
+                    <div className="flex items-center gap-2.5 mb-3">
+                      {isGold || isSilver || isBronze ? (
+                        <Trophy
+                          className={`w-6 h-6 shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+                            isGold
+                              ? 'text-amber-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.7)]'
+                              : isSilver
+                              ? 'text-slate-200 drop-shadow-[0_0_8px_rgba(203,213,225,0.6)]'
+                              : 'text-amber-600 drop-shadow-[0_0_8px_rgba(205,127,50,0.6)]'
+                          }`}
+                        />
+                      ) : (
+                        <Award className="w-5 h-5 shrink-0 text-slate-300 group-hover:scale-110 transition-transform" />
+                      )}
+                      <h3 className="text-base font-heading font-bold text-white leading-tight">
+                        {tier.title}
+                      </h3>
                     </div>
-                  </div>
 
-                  <div className="flex items-center gap-3 mb-4">
-                    <Trophy className={`w-8 h-8 transition-all duration-300 ${trophyColorClass}`} />
-                    <h3 className="text-xl font-heading font-bold text-white group-hover:text-white transition-colors">{tier.title}</h3>
-                  </div>
+                    {/* Cash Prize Amount */}
+                    <div className={`text-3xl font-heading font-black mb-3 tracking-tight ${amountColorClass}`}>
+                      {tier.amount}
+                    </div>
 
-                  <div className={`text-4xl font-heading font-black mb-4 tracking-tight group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.7)] transition-all ${amountColorClass}`}>
-                    {tier.amount}
+                    {/* Description */}
+                    <p className="text-xs text-slate-400 leading-relaxed group-hover:text-slate-200 transition-colors">
+                      {tier.description}
+                    </p>
                   </div>
-
-                  <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed group-hover:text-neutral-200 transition-colors">
-                    {tier.description}
-                  </p>
-                </div>
-              </GlassCard>
-            </FadeIn>
-          );
-        })}
+                </GlassCard>
+              </FadeIn>
+            );
+          })}
+        </div>
       </div>
     </Section>
   );

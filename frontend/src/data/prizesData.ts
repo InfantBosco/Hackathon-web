@@ -5,44 +5,62 @@ export interface PrizeTier {
   title: string;
   description: string;
   badge: string;
-  glow: 'gold' | 'silver' | 'bronze';
+  glow: 'gold' | 'silver' | 'bronze' | 'fourth' | 'fifth';
+  podiumOrder: number;
 }
 
 export const prizesData = {
-  totalPool: '₹1.5L+',
+  totalPool: '₹1.6L+',
   tiers: [
     {
-      id: '1st-place',
-      rank: '01',
-      amount: '₹75,000',
-      title: 'First Place Winner',
-      description: 'Grand Winner Trophy, ₹75K Cash Prize, Incubation Opportunities & Winner Certificates.',
-      badge: 'CHAMPION',
-      glow: 'gold',
+      id: '4th-place',
+      rank: '04',
+      amount: '₹5,000',
+      title: '4th Place',
+      description: '₹5K Cash Award & Finalist Excellence Certificate.',
+      badge: 'FINALIST',
+      glow: 'fourth' as const,
+      podiumOrder: 1,
     },
     {
       id: '2nd-place',
       rank: '02',
       amount: '₹50,000',
       title: 'Runner Up',
-      description: 'Second Place Trophy, ₹50K Cash Prize, Sponsor Credits & Runner-Up Certificates.',
+      description: 'Second Place Trophy, ₹50K Cash Prize & Certificates.',
       badge: 'RUNNER UP',
-      glow: 'silver',
+      glow: 'silver' as const,
+      podiumOrder: 2,
+    },
+    {
+      id: '1st-place',
+      rank: '01',
+      amount: '₹75,000',
+      title: 'First Place Winner',
+      description: 'Grand Winner Trophy, ₹75K Cash Prize & Incubation.',
+      badge: 'CHAMPION',
+      glow: 'gold' as const,
+      podiumOrder: 3,
     },
     {
       id: '3rd-place',
       rank: '03',
       amount: '₹25,000',
-      title: 'Second Runner Up',
-      description: 'Third Place Trophy, ₹25K Cash Prize & Excellence Certificates.',
+      title: '2nd Runner Up',
+      description: 'Third Place Trophy, ₹25K Cash Prize & Certificates.',
       badge: '2ND RUNNER UP',
-      glow: 'bronze',
+      glow: 'bronze' as const,
+      podiumOrder: 4,
     },
-  ] as PrizeTier[],
-  specialTracks: [
-    'Best All-Women Team',
-    'Best AI Innovation',
-    'Best Freshman Team',
-    'Best Open Source Contribution',
+    {
+      id: '5th-place',
+      rank: '05',
+      amount: '₹5,000',
+      title: '5th Place',
+      description: '₹5K Cash Award & Finalist Excellence Certificate.',
+      badge: 'FINALIST',
+      glow: 'fifth' as const,
+      podiumOrder: 5,
+    },
   ],
 };
