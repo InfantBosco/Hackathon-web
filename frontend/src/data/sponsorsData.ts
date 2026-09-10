@@ -16,6 +16,18 @@ export const sponsorsData: SponsorItem[] = [
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1788603159/esj3daiyfgzlrdja6aqy.jpg',
     websiteUrl: 'https://www.reflexlabs.ai/',
   },
-  { id: '2', name: 'Sponsor Placeholder 2', category: 'GOLD SPONSOR', placeholderText: 'GOLD SPONSOR TBD' },
-  { id: '3', name: 'Sponsor Placeholder 3', category: 'COMMUNITY PARTNER', placeholderText: 'COMMUNITY PARTNER TBD' },
+  {
+    id: '2',
+    name: 'Karimam Global Ventures',
+    category: 'GOLD SPONSOR',
+    placeholderText: 'GOLD SPONSOR',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/qdsr0h4nalbvgkicfgky.jpg',
+  },
+  {
+    id: '3',
+    name: 'Community Partner',
+    category: 'COMMUNITY PARTNER',
+    placeholderText: 'COMMUNITY PARTNER',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/zo5opxfx81wwaxjxibri.jpg',
+  },
 ];

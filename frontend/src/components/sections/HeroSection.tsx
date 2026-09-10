@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, MapPin, Calendar, Trophy, Clock } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { GridBackground } from '../backgrounds/GridBackground';
@@ -16,28 +16,28 @@ const heroBadges = [
   {
     label: 'DATE',
     value: 'Oct 7 - 9, 2026',
-    icon: Calendar,
+    badgeTag: 'OCT 7',
     colorClass: 'border-[#4285F4]/40 hover:border-[#4285F4] hover:shadow-[0_0_30px_rgba(66,133,244,0.45)]',
     iconClass: 'bg-[#4285F4]/15 border-[#4285F4]/40 text-[#4285F4] shadow-[0_0_12px_rgba(66,133,244,0.3)]',
   },
   {
     label: 'VENUE',
     value: 'KITS, Coimbatore',
-    icon: MapPin,
+    badgeTag: 'KITS',
     colorClass: 'border-[#EA4335]/40 hover:border-[#EA4335] hover:shadow-[0_0_30px_rgba(234,67,53,0.45)]',
     iconClass: 'bg-[#EA4335]/15 border-[#EA4335]/40 text-[#EA4335] shadow-[0_0_12px_rgba(234,67,53,0.3)]',
   },
   {
     label: 'REGISTRATION DEADLINE',
     value: 'Oct 1 11.59PM',
-    icon: Clock,
+    badgeTag: 'OCT 1',
     colorClass: 'border-[#FBBC05]/40 hover:border-[#FBBC05] hover:shadow-[0_0_30px_rgba(251,188,5,0.45)]',
     iconClass: 'bg-[#FBBC05]/15 border-[#FBBC05]/40 text-[#FBBC05] shadow-[0_0_12px_rgba(251,188,5,0.3)]',
   },
   {
     label: 'PRIZE POOL',
     value: 'Rs. 1.5 L',
-    icon: Trophy,
+    badgeTag: '₹1.5L',
     colorClass: 'border-[#34A853]/40 hover:border-[#34A853] hover:shadow-[0_0_30px_rgba(52,168,83,0.45)]',
     iconClass: 'bg-[#34A853]/15 border-[#34A853]/40 text-[#34A853] shadow-[0_0_12px_rgba(52,168,83,0.3)]',
   },
@@ -129,27 +129,24 @@ export const HeroSection: React.FC = () => {
         >
           <ContainerScrollBox className="max-w-4xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full">
-              {heroBadges.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.label}
-                    className={`glass-panel rounded-2xl p-3.5 sm:p-4 border bg-zinc-950/80 backdrop-blur-md flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 text-left select-none ${item.colorClass}`}
-                  >
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${item.iconClass}`}>
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <div className="flex flex-col min-w-0">
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
-                        {item.label}
-                      </span>
-                      <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">
-                        {item.value}
-                      </span>
-                    </div>
+              {heroBadges.map((item) => (
+                <div
+                  key={item.label}
+                  className={`glass-panel rounded-2xl p-3.5 sm:p-4 border bg-zinc-950/80 backdrop-blur-md flex items-center gap-3 transition-all duration-300 hover:-translate-y-1 text-left select-none ${item.colorClass}`}
+                >
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 font-mono font-black text-[11px] tracking-tight uppercase select-none ${item.iconClass}`}>
+                    {item.badgeTag}
                   </div>
-                );
-              })}
+                  <div className="flex flex-col min-w-0">
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400">
+                      {item.label}
+                    </span>
+                    <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">
+                      {item.value}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
           </ContainerScrollBox>
         </motion.div>

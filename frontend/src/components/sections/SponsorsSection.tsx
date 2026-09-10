@@ -15,21 +15,31 @@ export const SponsorsSection: React.FC = () => {
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        {sponsorsData.map((sponsor) =>
-          sponsor.logoUrl ? (
+        {sponsorsData.map((sponsor) => {
+          const cardContent = (
+            <div className="w-full flex items-center justify-center min-h-[220px] md:min-h-[240px] h-[220px] md:h-[240px] border border-white/20 bg-[#0e0e0e]/90 backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] cursor-pointer overflow-hidden relative">
+              <img
+                src={sponsor.logoUrl}
+                alt={sponsor.name}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+              />
+            </div>
+          );
+
+          return sponsor.logoUrl ? (
             <div key={sponsor.id} className="flex flex-col items-center group">
-              <a
-                href={sponsor.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full flex items-center justify-center min-h-[220px] md:min-h-[240px] h-[220px] md:h-[240px] border border-white/20 bg-[#0e0e0e]/90 backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] cursor-pointer overflow-hidden relative"
-              >
-                <img
-                  src={sponsor.logoUrl}
-                  alt={sponsor.name}
-                  className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
-                />
-              </a>
+              {sponsor.websiteUrl ? (
+                <a
+                  href={sponsor.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  {cardContent}
+                </a>
+              ) : (
+                <div className="w-full">{cardContent}</div>
+              )}
               <span className="text-sm md:text-base font-heading font-bold text-white tracking-wide mt-3 text-center transition-colors group-hover:text-slate-200">
                 {sponsor.name}
               </span>
@@ -48,8 +58,8 @@ export const SponsorsSection: React.FC = () => {
                 </span>
               </Card>
             </div>
-          )
-        )}
+          );
+        })}
       </div>
     </Section>
   );
