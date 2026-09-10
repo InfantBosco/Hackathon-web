@@ -5,7 +5,7 @@ export interface PrizeTier {
   title: string;
   description: string;
   badge: string;
-  glow: 'gold' | 'silver' | 'bronze' | 'fourth' | 'fifth';
+  glow: 'gold' | 'silver' | 'bronze' | 'platinum' | 'titanium';
   podiumOrder: number;
 }
 
@@ -18,8 +18,8 @@ export const prizesData = {
       amount: '₹5,000',
       title: '4th Place',
       description: '₹5K Cash Award & Finalist Excellence Certificate.',
-      badge: 'FINALIST',
-      glow: 'fourth' as const,
+      badge: 'PLATINUM',
+      glow: 'platinum' as const,
       podiumOrder: 1,
     },
     {
@@ -28,7 +28,7 @@ export const prizesData = {
       amount: '₹50,000',
       title: 'Runner Up',
       description: 'Second Place Trophy, ₹50K Cash Prize & Certificates.',
-      badge: 'RUNNER UP',
+      badge: 'SILVER',
       glow: 'silver' as const,
       podiumOrder: 2,
     },
@@ -38,7 +38,7 @@ export const prizesData = {
       amount: '₹75,000',
       title: 'First Place Winner',
       description: 'Grand Winner Trophy, ₹75K Cash Prize & Incubation.',
-      badge: 'CHAMPION',
+      badge: 'GOLD',
       glow: 'gold' as const,
       podiumOrder: 3,
     },
@@ -48,7 +48,7 @@ export const prizesData = {
       amount: '₹25,000',
       title: '2nd Runner Up',
       description: 'Third Place Trophy, ₹25K Cash Prize & Certificates.',
-      badge: '2ND RUNNER UP',
+      badge: 'BRONZE',
       glow: 'bronze' as const,
       podiumOrder: 4,
     },
@@ -58,8 +58,8 @@ export const prizesData = {
       amount: '₹5,000',
       title: '5th Place',
       description: '₹5K Cash Award & Finalist Excellence Certificate.',
-      badge: 'FINALIST',
-      glow: 'fifth' as const,
+      badge: 'TITANIUM',
+      glow: 'titanium' as const,
       podiumOrder: 5,
     },
   ],

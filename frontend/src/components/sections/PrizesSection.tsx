@@ -22,6 +22,7 @@ export const PrizesSection: React.FC = () => {
             const isGold = tier.glow === 'gold';
             const isSilver = tier.glow === 'silver';
             const isBronze = tier.glow === 'bronze';
+            const isPlatinum = tier.glow === 'platinum';
 
             // Card Height & Stacking Order for Desktop Podium Baseline
             const cardHeightClass = isGold
@@ -32,32 +33,30 @@ export const PrizesSection: React.FC = () => {
               ? 'md:h-[370px]'
               : 'md:h-[335px]';
 
-            // Hover Glow & Border Styling
-            const borderGlowClass = isGold
-              ? 'border-amber-400/80 shadow-[0_0_35px_rgba(245,158,11,0.3)] hover:border-amber-300 hover:shadow-[0_0_45px_rgba(245,158,11,0.5)]'
+            // Static Border & White Hover Glow Effect across all 5 boxes
+            const staticBorderClass = isGold
+              ? 'border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.2)]'
               : isSilver
-              ? 'border-slate-300/60 shadow-[0_0_20px_rgba(203,213,225,0.2)] hover:border-slate-200 hover:shadow-[0_0_35px_rgba(203,213,225,0.4)]'
+              ? 'border-slate-300/40 shadow-[0_0_15px_rgba(203,213,225,0.15)]'
               : isBronze
-              ? 'border-amber-700/60 shadow-[0_0_20px_rgba(205,127,50,0.2)] hover:border-amber-500 hover:shadow-[0_0_35px_rgba(205,127,50,0.4)]'
-              : 'border-white/15 hover:border-white/60 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)]';
+              ? 'border-amber-700/40 shadow-[0_0_15px_rgba(205,127,50,0.15)]'
+              : isPlatinum
+              ? 'border-slate-500/35 shadow-md'
+              : 'border-zinc-600/35 shadow-md';
 
-            // Rank Badge Circle
+            // White Hover Glow Effect applied to all 5 boxes
+            const hoverEffectClass = 'hover:border-white/80 hover:shadow-[0_0_35px_rgba(255,255,255,0.4)] hover:-translate-y-2';
+
+            // Rank Badge Circle (Gold -> Silver -> Bronze -> Platinum -> Titanium)
             const rankCircleClass = isGold
               ? 'bg-amber-950/60 border-amber-400 text-amber-300'
               : isSilver
               ? 'bg-slate-900/80 border-slate-300 text-slate-100'
               : isBronze
               ? 'bg-[#2A1B0E]/80 border-amber-600 text-[#E5A869]'
-              : 'bg-zinc-900/80 border-white/20 text-slate-300';
-
-            // Badge Pill Tag
-            const badgeTagClass = isGold
-              ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
-              : isSilver
-              ? 'bg-slate-300/20 text-slate-200 border-slate-300/40'
-              : isBronze
-              ? 'bg-amber-700/20 text-amber-300 border-amber-600/40'
-              : 'bg-white/10 text-slate-300 border-white/20';
+              : isPlatinum
+              ? 'bg-slate-900/90 border-slate-400 text-slate-300'
+              : 'bg-zinc-900/90 border-zinc-500 text-zinc-400';
 
             // Amount Text Color
             const amountColorClass = isGold
@@ -66,15 +65,17 @@ export const PrizesSection: React.FC = () => {
               ? 'text-slate-100'
               : isBronze
               ? 'text-[#E5A869]'
-              : 'text-white';
+              : isPlatinum
+              ? 'text-slate-200'
+              : 'text-zinc-300';
 
             return (
               <FadeIn key={tier.id} delay={idx * 0.1} direction="up" className="w-full">
                 <GlassCard
                   glowColor="none"
-                  className={`flex flex-col justify-between relative group border bg-[#0b0c13]/90 backdrop-blur-xl transition-all duration-300 ease-out hover:-translate-y-2 ${borderGlowClass} ${cardHeightClass} min-h-[300px] overflow-hidden p-5 sm:p-6 text-left`}
+                  className={`flex flex-col justify-between relative group border bg-[#0b0c13]/90 backdrop-blur-xl transition-all duration-300 ease-out ${staticBorderClass} ${hoverEffectClass} ${cardHeightClass} min-h-[300px] overflow-hidden p-5 sm:p-6 text-left`}
                 >
-                  {/* Subtle Top Ambient Glow for 1st & 2nd Place */}
+                  {/* Top Ambient Glow Effects */}
                   {isGold && (
                     <div className="absolute top-0 right-0 w-36 h-36 rounded-full bg-amber-500/15 blur-2xl pointer-events-none" />
                   )}
@@ -83,13 +84,10 @@ export const PrizesSection: React.FC = () => {
                   )}
 
                   <div>
-                    {/* Header: Rank Number & Badge */}
-                    <div className="flex items-center justify-between mb-4">
-                      <div className={`w-10 h-10 rounded-full border flex items-center justify-center font-heading font-black text-base shadow-sm ${rankCircleClass}`}>
+                    {/* Header: Centered Rank Circle */}
+                    <div className="flex items-center justify-center mb-5">
+                      <div className={`w-11 h-11 rounded-full border flex items-center justify-center font-heading font-black text-lg shadow-sm ${rankCircleClass}`}>
                         {tier.rank}
-                      </div>
-                      <div className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider border ${badgeTagClass}`}>
-                        {tier.badge}
                       </div>
                     </div>
 
@@ -101,12 +99,16 @@ export const PrizesSection: React.FC = () => {
                             isGold
                               ? 'text-amber-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.7)]'
                               : isSilver
-                              ? 'text-slate-200 drop-shadow-[0_0_8px_rgba(203,213,225,0.6)]'
+                              ? 'text-slate-200 drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]'
                               : 'text-amber-600 drop-shadow-[0_0_8px_rgba(205,127,50,0.6)]'
                           }`}
                         />
                       ) : (
-                        <Award className="w-5 h-5 shrink-0 text-slate-300 group-hover:scale-110 transition-transform" />
+                        <Award
+                          className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110 ${
+                            isPlatinum ? 'text-slate-300' : 'text-zinc-400'
+                          }`}
+                        />
                       )}
                       <h3 className="text-base font-heading font-bold text-white leading-tight">
                         {tier.title}
