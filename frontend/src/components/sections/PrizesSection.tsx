@@ -44,8 +44,38 @@ export const PrizesSection: React.FC = () => {
               ? 'border-slate-500/35 shadow-md'
               : 'border-zinc-600/35 shadow-md';
 
-            // White Hover Glow Effect applied to all 5 boxes
-            const hoverEffectClass = 'hover:border-white hover:shadow-[0_0_30px_rgba(255,255,255,0.7),0_0_60px_rgba(255,255,255,0.35)] hover:-translate-y-2 group-hover:border-white';
+            // Position-Specific Hover Glow Effect (Gold, Silver, Bronze, Platinum, Titanium)
+            const hoverEffectClass = isGold
+              ? 'hover:border-amber-400 group-hover:border-amber-400 hover:shadow-[0_0_35px_rgba(245,158,11,0.8),0_0_70px_rgba(245,158,11,0.4)] hover:-translate-y-2'
+              : isSilver
+              ? 'hover:border-slate-100 group-hover:border-slate-100 hover:shadow-[0_0_35px_rgba(248,250,252,0.85),0_0_70px_rgba(226,232,240,0.45)] hover:-translate-y-2'
+              : isBronze
+              ? 'hover:border-[#E5A869] group-hover:border-[#E5A869] hover:shadow-[0_0_35px_rgba(229,168,105,0.8),0_0_70px_rgba(205,127,50,0.4)] hover:-translate-y-2'
+              : isPlatinum
+              ? 'hover:border-slate-300 group-hover:border-slate-300 hover:shadow-[0_0_35px_rgba(203,213,225,0.75),0_0_70px_rgba(148,163,184,0.35)] hover:-translate-y-2'
+              : 'hover:border-zinc-400 group-hover:border-zinc-400 hover:shadow-[0_0_35px_rgba(161,161,170,0.75),0_0_70px_rgba(113,113,122,0.35)] hover:-translate-y-2';
+
+            // Outer Aura Hover Color per rank
+            const outerAuraColorClass = isGold
+              ? 'bg-amber-500/35'
+              : isSilver
+              ? 'bg-slate-200/35'
+              : isBronze
+              ? 'bg-[#E5A869]/35'
+              : isPlatinum
+              ? 'bg-slate-300/30'
+              : 'bg-zinc-400/30';
+
+            // Inner Top Radial Glow Hover Gradient per rank
+            const innerGlowGradient = isGold
+              ? 'bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.25)_0%,transparent_70%)]'
+              : isSilver
+              ? 'bg-[radial-gradient(ellipse_at_top,rgba(248,250,252,0.22)_0%,transparent_70%)]'
+              : isBronze
+              ? 'bg-[radial-gradient(ellipse_at_top,rgba(229,168,105,0.25)_0%,transparent_70%)]'
+              : isPlatinum
+              ? 'bg-[radial-gradient(ellipse_at_top,rgba(203,213,225,0.2)_0%,transparent_70%)]'
+              : 'bg-[radial-gradient(ellipse_at_top,rgba(161,161,170,0.2)_0%,transparent_70%)]';
 
             // Rank Badge Circle (Gold -> Silver -> Bronze -> Platinum -> Titanium)
             const rankCircleClass = isGold
@@ -71,15 +101,15 @@ export const PrizesSection: React.FC = () => {
 
             return (
               <ContainerScrollBox key={tier.id} className="w-full h-full relative group">
-                {/* Outer White Soft Glow Aura on Hover */}
-                <div className="absolute -inset-1 rounded-2xl bg-white/25 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                {/* Outer Soft Glow Aura on Hover */}
+                <div className={`absolute -inset-1 rounded-2xl ${outerAuraColorClass} blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
 
                 <GlassCard
                   glowColor="none"
                   className={`flex flex-col justify-between relative group border bg-[#0b0c13]/90 backdrop-blur-xl transition-all duration-300 ease-out ${staticBorderClass} ${hoverEffectClass} ${cardHeightClass} min-h-[300px] overflow-hidden p-5 sm:p-6 text-left`}
                 >
-                  {/* Inner White Top Radial Ambient Glow on Hover */}
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.18)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
+                  {/* Inner Top Radial Ambient Glow on Hover */}
+                  <div className={`absolute inset-0 ${innerGlowGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0`} />
 
                   {/* Top Ambient Glow Effects */}
                   {isGold && (
