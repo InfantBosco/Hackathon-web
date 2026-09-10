@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Calendar, MapPin, Clock, Trophy } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { GridBackground } from '../backgrounds/GridBackground';
@@ -16,22 +16,22 @@ const heroBadges = [
   {
     label: 'DATE',
     value: 'Oct 7 - 9, 2026',
-    colorClass: 'border-white/10 hover:border-amber-400/40',
+    icon: Calendar,
   },
   {
     label: 'VENUE',
     value: 'KITS, Coimbatore',
-    colorClass: 'border-white/10 hover:border-amber-400/40',
+    icon: MapPin,
   },
   {
-    label: 'REGISTRATION DEADLINE',
-    value: 'Oct 1 11.59PM',
-    colorClass: 'border-white/10 hover:border-amber-400/40',
+    label: 'REGISTER BY',
+    value: 'Oct 1 11:59 PM',
+    icon: Clock,
   },
   {
     label: 'PRIZE POOL',
-    value: 'Rs. 1.5 L',
-    colorClass: 'border-white/10 hover:border-amber-400/40',
+    value: 'Rs. 1.5 LAKH',
+    icon: Trophy,
   },
 ];
 
@@ -119,21 +119,29 @@ export const HeroSection: React.FC = () => {
           transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.45 }}
           className="my-8"
         >
-          <ContainerScrollBox className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-full">
-              {heroBadges.map((item) => (
-                <div
-                  key={item.label}
-                  className={`glass-panel rounded-2xl p-3.5 sm:p-4 border bg-zinc-950/80 backdrop-blur-md flex flex-col justify-center transition-all duration-300 hover:-translate-y-1 text-left select-none ${item.colorClass}`}
-                >
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mb-1">
-                    {item.label}
-                  </span>
-                  <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">
-                    {item.value}
-                  </span>
-                </div>
-              ))}
+          <ContainerScrollBox className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 w-full">
+              {heroBadges.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={item.label}
+                    className="rounded-[1.6rem] p-4 sm:p-4.5 border border-amber-500/25 bg-[#0d0c10]/90 backdrop-blur-md flex items-center gap-3.5 shadow-[0_4px_25px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:-translate-y-1 text-left select-none group"
+                  >
+                    <div className="shrink-0 text-white pl-0.5">
+                      <Icon className="w-5 sm:w-6 h-5 sm:h-6 stroke-[1.75]" />
+                    </div>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-[10px] sm:text-[11px] font-royal font-black uppercase tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-500 to-red-500 drop-shadow-[0_1px_3px_rgba(245,158,11,0.4)]">
+                        {item.label}
+                      </span>
+                      <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate mt-0.5">
+                        {item.value}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </ContainerScrollBox>
         </motion.div>
