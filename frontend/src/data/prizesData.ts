@@ -10,7 +10,7 @@ export interface PrizeTier {
 }
 
 export const prizesData = {
-  totalPool: '₹1.6L+',
+  totalPool: '₹1.5L+',
   tiers: [
     {
       id: '4th-place',

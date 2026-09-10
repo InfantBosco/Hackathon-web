@@ -4,7 +4,7 @@ import { SectionHeader } from '../layout/SectionHeader';
 import { GlassCard } from '../ui/GlassCard';
 import { prizesData } from '../../data/prizesData';
 import { Trophy, Award } from 'lucide-react';
-import { FadeIn } from '../ui/FadeIn';
+import { ContainerScrollBox } from '../ui/ContainerScrollBox';
 
 export const PrizesSection: React.FC = () => {
   return (
@@ -18,7 +18,7 @@ export const PrizesSection: React.FC = () => {
       {/* 5-Place Podium Container */}
       <div className="max-w-6xl mx-auto pt-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 lg:gap-5 items-end">
-          {prizesData.tiers.map((tier, idx) => {
+          {prizesData.tiers.map((tier) => {
             const isGold = tier.glow === 'gold';
             const isSilver = tier.glow === 'silver';
             const isBronze = tier.glow === 'bronze';
@@ -70,7 +70,7 @@ export const PrizesSection: React.FC = () => {
               : 'text-zinc-300';
 
             return (
-              <FadeIn key={tier.id} delay={idx * 0.1} direction="up" className="w-full">
+              <ContainerScrollBox key={tier.id} className="w-full h-full">
                 <GlassCard
                   glowColor="none"
                   className={`flex flex-col justify-between relative group border bg-[#0b0c13]/90 backdrop-blur-xl transition-all duration-300 ease-out ${staticBorderClass} ${hoverEffectClass} ${cardHeightClass} min-h-[300px] overflow-hidden p-5 sm:p-6 text-left`}
@@ -126,7 +126,7 @@ export const PrizesSection: React.FC = () => {
                     </p>
                   </div>
                 </GlassCard>
-              </FadeIn>
+              </ContainerScrollBox>
             );
           })}
         </div>
