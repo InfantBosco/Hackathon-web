@@ -8,7 +8,7 @@ import { FadeIn } from '../ui/FadeIn';
 export const FinalCTASection: React.FC = () => {
   const handleRegisterClick = () => {
     trackEvent('register_cta_click', { location: 'final_cta' });
-    window.location.href = siteConfig.registerRoute;
+    window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (

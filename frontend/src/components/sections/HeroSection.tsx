@@ -53,7 +53,7 @@ export const HeroSection: React.FC = () => {
 
   const handleRegisterClick = () => {
     trackEvent('register_cta_click', { location: 'hero' });
-    window.location.href = siteConfig.registerRoute;
+    window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
   };
 
   const handleExploreClick = () => {
