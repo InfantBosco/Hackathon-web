@@ -111,7 +111,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-14',
     category: 'VENUE',
     question: 'Where is the hackathon venue located?',
-    answer: 'The venue is Karunya Institute of Technology and Sciences, Karunya Nagar, Coimbatore, Tamil Nadu 641114.',
+    answer: 'The venue is Karunya Institute of Technology and Sciences, Karunya University, Coimbatore, Tamil Nadu 641114.',
   },
   {
     id: 'faq-15',

@@ -12,7 +12,7 @@ export const VenueSection: React.FC = () => {
       <SectionHeader
         badge="EVENT LOCATION"
         title="Hackathon Venue"
-        subtitle="Karunya Nagar, Coimbatore, Tamil Nadu 641114"
+        subtitle="Karunya University, Coimbatore, Tamil Nadu 641114"
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
