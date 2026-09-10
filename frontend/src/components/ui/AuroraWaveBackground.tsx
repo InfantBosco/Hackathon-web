@@ -56,12 +56,6 @@ export const AuroraWaveBackground: React.FC<AuroraWaveBackgroundProps> = ({
 
   return (
     <div className={`relative w-full min-h-screen bg-[#000000] text-white ${className}`}>
-      {/* 0. TOP GOOGLE 4-COLOR GRADIENT SCROLL PROGRESS BAR */}
-      <div
-        className="fixed top-0 left-0 h-[2.5px] bg-gradient-to-r from-[#4285F4] via-[#EA4335] via-[#FBBC05] to-[#34A853] shadow-[0_0_14px_rgba(66,133,244,0.7)] z-[100] transition-all duration-75 pointer-events-none"
-        style={{ width: `${scrollProgress * 100}%` }}
-      />
-
       {/* 1. VIBRANT GOOGLE 4-COLOR AURORA BACKGROUND WITH SCROLL PARALLAX */}
       {showAurora && (
         <div
