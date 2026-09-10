@@ -20,7 +20,7 @@ export const ChiefGuestSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="w-full h-[380px] sm:h-[420px] rounded-3xl bg-[#181920]/90 border border-white/10 shadow-xl transition-all duration-300 ease-out hover:scale-105 hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.35)] cursor-pointer"
+            className="w-full h-[380px] sm:h-[420px] rounded-3xl bg-[#181920]/90 border border-white/10 shadow-xl transition-all duration-300 ease-out hover:scale-105 hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] cursor-pointer"
           />
         </ContainerScrollBox>
       </div>

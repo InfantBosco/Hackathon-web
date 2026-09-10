@@ -154,7 +154,7 @@ export function AnimatedNavFramer({
         whileTap={!isExpanded ? { scale: 0.95 } : {}}
         onClick={handleContainerClick}
         className={cn(
-          "flex items-center overflow-hidden rounded-full border border-[rgba(255,30,66,0.35)] bg-[#0b0f19]/90 shadow-[0_0_30px_rgba(0,0,0,0.6)] backdrop-blur-lg h-12 px-3 transition-colors duration-200",
+          "flex items-center overflow-hidden rounded-full border border-white/30 bg-[#0b0f19]/90 shadow-[0_0_30px_rgba(0,0,0,0.6)] backdrop-blur-lg h-12 px-3 transition-colors duration-200",
           !isExpanded && "cursor-pointer justify-center px-0"
         )}
       >

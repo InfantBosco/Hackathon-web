@@ -17,7 +17,7 @@ export const DetailsSection: React.FC = () => {
 
       <div className="max-w-4xl mx-auto w-full">
         {/* Core Rules Overview */}
-        <Card variant="default" className="space-y-6 border-red-500/20 shadow-[0_0_20px_rgba(255,30,66,0.15)]">
+        <Card variant="default" className="space-y-6 border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)]">
           <div className="flex items-center justify-between border-b border-[var(--color-border)] pb-4">
             <h3 className="text-xl font-heading font-bold text-white flex items-center gap-2">
               <FileText className="w-5 h-5 text-white" />

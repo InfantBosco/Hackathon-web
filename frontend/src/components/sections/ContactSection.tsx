@@ -15,7 +15,7 @@ export const ContactSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* 1st Box: Faculty Coordinator */}
-        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-red-500/25 shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.4)]">
+        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
           <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-5 text-white shadow-[0_0_20px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform">
             <GraduationCap className="w-7 h-7" />
           </div>
@@ -41,7 +41,7 @@ export const ContactSection: React.FC = () => {
         </Card>
 
         {/* 2nd Box: Nexus - President */}
-        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-red-500/25 shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.4)]">
+        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
           <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-5 text-white shadow-[0_0_20px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform">
             <User className="w-7 h-7" />
           </div>
@@ -68,7 +68,7 @@ export const ContactSection: React.FC = () => {
         </Card>
 
         {/* 3rd Box: Nexus - Vice President */}
-        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-red-500/25 shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.4)]">
+        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
           <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-5 text-white shadow-[0_0_20px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform">
             <Award className="w-7 h-7" />
           </div>

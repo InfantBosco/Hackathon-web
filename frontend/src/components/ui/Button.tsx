@@ -11,7 +11,7 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         primary:
-          "bg-gradient-to-r from-white via-slate-100 to-slate-200 text-black font-royal font-black shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:shadow-[0_0_45px_rgba(255,30,66,0.75),0_0_25px_rgba(255,255,255,0.8)] hover:scale-[1.03] active:scale-95 uppercase tracking-[0.15em] border border-white/60 hover:border-red-500/80 transition-all duration-300",
+          "bg-gradient-to-r from-white via-slate-100 to-slate-200 text-black font-royal font-black shadow-[0_0_25px_rgba(255,255,255,0.4)] hover:shadow-[0_0_45px_rgba(255,255,255,0.75),0_0_25px_rgba(255,255,255,0.8)] hover:scale-[1.03] active:scale-95 uppercase tracking-[0.15em] border border-white/60 hover:border-white transition-all duration-300",
         secondary:
           "glass-panel text-white border border-white/20 hover:border-white hover:bg-white/10 hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:scale-[1.02] active:scale-95 uppercase tracking-wider transition-all duration-300",
         destructive:

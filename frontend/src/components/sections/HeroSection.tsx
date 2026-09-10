@@ -96,9 +96,9 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 22, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 120, damping: 16, delay: 0.3 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-royal font-extrabold tracking-[0.25em] pl-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none -mt-2 mb-2"
+            className="text-lg sm:text-2xl lg:text-3xl font-royal font-extrabold tracking-[0.1em] sm:tracking-[0.16em] text-transparent bg-clip-text bg-gradient-to-r from-amber-100 via-yellow-300 via-amber-400 to-yellow-500 drop-shadow-[0_0_35px_rgba(245,158,11,0.55)] uppercase select-none mt-2 mb-3 px-2"
           >
-            '26
+            24 Hour National Level Hackathon
           </motion.div>
 
           <KineticSpringFloat

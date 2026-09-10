@@ -17,7 +17,7 @@ export const VenueSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {/* Karunya University Overview & Photo Card */}
-        <Card variant="default" className="flex flex-col justify-between p-6 border-red-500/25 shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.4)] transition-all duration-300">
+        <Card variant="default" className="flex flex-col justify-between p-6 border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all duration-300">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <Building className="w-6 h-6 text-white" />
@@ -41,7 +41,7 @@ export const VenueSection: React.FC = () => {
         </Card>
 
         {/* Real Embedded Google Maps Location Card */}
-        <Card variant="hoverGlow" className="flex flex-col justify-between p-6 border-red-500/25 shadow-[0_0_20px_rgba(255,30,66,0.25)] hover:border-red-500/50 hover:shadow-[0_0_30px_rgba(255,30,66,0.4)] transition-all duration-300">
+        <Card variant="hoverGlow" className="flex flex-col justify-between p-6 border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] transition-all duration-300">
           <div>
             <div className="flex items-center gap-3 mb-4">
               <MapPin className="w-6 h-6 text-white" />

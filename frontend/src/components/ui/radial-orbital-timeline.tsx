@@ -86,8 +86,8 @@ export default function RadialOrbitalTimeline({
           style={{ perspective: "1000px" }}
         >
           {/* NEXUS LOGO IN THE CENTER CORE (Original logomain_svg.png) */}
-          <div className="absolute w-26 h-26 rounded-full bg-zinc-950/90 border border-white/30 shadow-[0_0_30px_rgba(255,30,66,0.35)] flex flex-col items-center justify-center z-10 group overflow-hidden p-2 transition-transform duration-300 hover:scale-110">
-            <div className="absolute w-28 h-28 rounded-full border border-red-500/30 animate-ping opacity-50 pointer-events-none" />
+          <div className="absolute w-26 h-26 rounded-full bg-zinc-950/90 border border-white/30 shadow-[0_0_30px_rgba(255,255,255,0.4)] flex flex-col items-center justify-center z-10 group overflow-hidden p-2 transition-transform duration-300 hover:scale-110">
+            <div className="absolute w-28 h-28 rounded-full border border-white/30 animate-ping opacity-50 pointer-events-none" />
             <img
               src="/logomain_svg.png"
               alt="NEXUS Club Logo"
