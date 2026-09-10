@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Calendar, MapPin, Clock, Trophy } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { Badge } from '../ui/Badge';
 import { GridBackground } from '../backgrounds/GridBackground';
 import { NeuralNoise } from '../backgrounds/NeuralNoise';
 import { CountdownTimer } from './CountdownTimer';
@@ -74,10 +73,19 @@ export const HeroSection: React.FC = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
           >
-            <Badge variant="cyan" className="flex items-center gap-2 px-3 py-1">
-              <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-4 w-auto shrink-0 inline-block" />
-              <span>{heroData.badge}</span>
-            </Badge>
+            <div className="flex items-center justify-center gap-4 sm:gap-5 px-5 py-2.5 rounded-full bg-[#12131c]/90 border border-white/20 backdrop-blur-md shadow-[0_0_25px_rgba(255,255,255,0.12)]">
+              <img
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789058176/kxvtrjvqi7lhgq9tal4v.png"
+                alt="Karunya Logo"
+                className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+              />
+              <div className="h-6 w-[1.5px] bg-gradient-to-b from-transparent via-white/40 to-transparent" />
+              <img
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789058177/vvlgk5o93mehgspdp5cv.png"
+                alt="Nexus Logo"
+                className="h-8 sm:h-9 w-auto object-contain drop-shadow-[0_0_10px_rgba(255,255,255,0.3)]"
+              />
+            </div>
           </motion.div>
 
           <motion.h1
