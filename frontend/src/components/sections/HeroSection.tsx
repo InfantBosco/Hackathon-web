@@ -83,7 +83,7 @@ export const HeroSection: React.FC = () => {
               />
               <div className="h-7 sm:h-8 md:h-10 w-[1.5px] bg-gradient-to-b from-transparent via-white/50 to-transparent shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
               <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789058177/vvlgk5o93mehgspdp5cv.png"
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789059762/bniypjdp0l5zfayyz712.png"
                 alt="Nexus Logo"
                 className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)]"
               />
