@@ -24,10 +24,10 @@ export const GridBackground: React.FC<GridBackgroundProps> = ({
       {/* Ambient Google 4-Color Glow Orbs */}
       {glow && (
         <>
-          <div className="absolute top-0 left-10 w-[500px] h-[500px] bg-[#4285F4] opacity-[0.14] blur-[140px] pointer-events-none rounded-full" />
-          <div className="absolute top-1/4 right-10 w-[450px] h-[450px] bg-[#EA4335] opacity-[0.12] blur-[140px] pointer-events-none rounded-full" />
-          <div className="absolute bottom-10 left-1/3 w-[450px] h-[450px] bg-[#FBBC05] opacity-[0.10] blur-[140px] pointer-events-none rounded-full" />
-          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#34A853] opacity-[0.12] blur-[140px] pointer-events-none rounded-full" />
+          <div className="absolute top-0 left-10 w-[500px] h-[500px] bg-[#4285F4] opacity-[0.16] blur-[120px] pointer-events-none rounded-full" />
+          <div className="absolute top-1/4 right-10 w-[450px] h-[450px] bg-[#EA4335] opacity-[0.15] blur-[120px] pointer-events-none rounded-full" />
+          <div className="absolute bottom-10 left-1/3 w-[450px] h-[450px] bg-[#FBBC05] opacity-[0.14] blur-[120px] pointer-events-none rounded-full" />
+          <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-[#34A853] opacity-[0.15] blur-[120px] pointer-events-none rounded-full" />
         </>
       )}
 

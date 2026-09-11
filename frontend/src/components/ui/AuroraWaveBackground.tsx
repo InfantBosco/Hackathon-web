@@ -59,25 +59,25 @@ export const AuroraWaveBackground: React.FC<AuroraWaveBackgroundProps> = ({
       {/* 1. VIBRANT GOOGLE 4-COLOR AURORA BACKGROUND WITH SCROLL PARALLAX */}
       {showAurora && (
         <div
-          className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-100 transition-transform duration-500 ease-out will-change-transform transform-gpu"
+          className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-85 transition-transform duration-500 ease-out will-change-transform transform-gpu"
           style={{
             transform: `translateY(${scrollProgress * 50}px)`,
           }}
         >
           {/* Aurora Blob 1 - Top Left Google Blue (#4285F4) */}
-          <div className="absolute -top-32 -left-32 w-[950px] h-[950px] rounded-full bg-[radial-gradient(circle_at_center,rgba(66,133,244,0.45)_0%,rgba(66,133,244,0.15)_40%,transparent_75%)] blur-[90px] animate-[aurora-slow_18s_ease-in-out_infinite_alternate]" />
+          <div className="absolute -top-32 -left-32 w-[900px] h-[900px] rounded-full bg-[radial-gradient(circle_at_center,rgba(66,133,244,0.35)_0%,rgba(66,133,244,0.12)_40%,transparent_75%)] blur-[80px] animate-[aurora-slow_18s_ease-in-out_infinite_alternate]" />
 
           {/* Aurora Blob 2 - Top Right Google Red (#EA4335) */}
-          <div className="absolute top-1/4 -right-32 w-[900px] h-[900px] rounded-full bg-[radial-gradient(circle_at_center,rgba(234,67,53,0.42)_0%,rgba(234,67,53,0.15)_45%,transparent_80%)] blur-[95px] animate-[aurora-reverse_24s_ease-in-out_infinite_alternate]" />
+          <div className="absolute top-1/4 -right-32 w-[850px] h-[850px] rounded-full bg-[radial-gradient(circle_at_center,rgba(234,67,53,0.32)_0%,rgba(234,67,53,0.12)_45%,transparent_80%)] blur-[85px] animate-[aurora-reverse_24s_ease-in-out_infinite_alternate]" />
 
           {/* Aurora Blob 3 - Bottom Left Google Yellow (#FBBC05) */}
-          <div className="absolute -bottom-32 left-1/4 w-[1000px] h-[1000px] rounded-full bg-[radial-gradient(circle_at_center,rgba(251,188,5,0.38)_0%,rgba(251,188,5,0.12)_50%,transparent_80%)] blur-[100px] animate-[aurora-pulse_15s_ease-in-out_infinite_alternate]" />
+          <div className="absolute -bottom-32 left-1/4 w-[950px] h-[950px] rounded-full bg-[radial-gradient(circle_at_center,rgba(251,188,5,0.28)_0%,rgba(251,188,5,0.10)_50%,transparent_80%)] blur-[90px] animate-[aurora-pulse_15s_ease-in-out_infinite_alternate]" />
 
           {/* Aurora Blob 4 - Bottom Right Google Green (#34A853) */}
-          <div className="absolute -bottom-40 -right-40 w-[850px] h-[850px] rounded-full bg-[radial-gradient(circle_at_center,rgba(52,168,83,0.40)_0%,rgba(52,168,83,0.14)_70%,transparent_80%)] blur-[95px] animate-[aurora-reverse_28s_ease-in-out_infinite_alternate]" />
+          <div className="absolute -bottom-40 -right-40 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(52,168,83,0.30)_0%,rgba(52,168,83,0.10)_70%,transparent_80%)] blur-[85px] animate-[aurora-reverse_28s_ease-in-out_infinite_alternate]" />
 
           {/* Aurora Blob 5 - Center Multi-Color Fusion Core */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(66,133,244,0.30)_0%,rgba(234,67,53,0.25)_30%,rgba(251,188,5,0.20)_55%,rgba(52,168,83,0.20)_70%,transparent_85%)] blur-[85px] animate-[aurora-pulse_11s_ease-in-out_infinite_alternate]" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] rounded-full bg-[radial-gradient(circle_at_center,rgba(66,133,244,0.22)_0%,rgba(234,67,53,0.18)_30%,rgba(251,188,5,0.15)_55%,rgba(52,168,83,0.15)_70%,transparent_85%)] blur-[80px] animate-[aurora-pulse_11s_ease-in-out_infinite_alternate]" />
 
           {/* Dynamic Subtle Scanline Overlay */}
           <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.12)_51%)] bg-[size:100%_4px] opacity-15" />
@@ -86,8 +86,8 @@ export const AuroraWaveBackground: React.FC<AuroraWaveBackgroundProps> = ({
 
       {/* 2. INTERACTIVE FULL-SITE WAVE BACKGROUND */}
       {showWaves && (
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-75">
-          <Waves strokeColor="rgba(255, 255, 255, 0.60)" pointerSize={0.5} />
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-60">
+          <Waves strokeColor="rgba(255, 255, 255, 0.45)" pointerSize={0.5} />
         </div>
       )}
 
