@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowDown, Calendar, MapPin, Clock, Trophy } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { GridBackground } from '../backgrounds/GridBackground';
@@ -35,7 +35,20 @@ const heroBadges = [
 ];
 
 export const HeroSection: React.FC = () => {
+  const sectionRef = React.useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end start'],
+  });
+
+  // Pure Parallax Scroll Motion (Zero Color Changes)
+  const headerY = useTransform(scrollYProgress, [0, 1], [0, 45]);
+  const titleY = useTransform(scrollYProgress, [0, 1], [0, 85]);
+  const titleScale = useTransform(scrollYProgress, [0, 1], [1, 0.93]);
+  const titleOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+  const badgesY = useTransform(scrollYProgress, [0, 1], [0, -35]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -65,10 +78,11 @@ export const HeroSection: React.FC = () => {
     <GridBackground id="home" className="min-h-screen pt-28 pb-16 flex flex-col justify-center relative">
       <NeuralNoise opacity={0.3} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto">
         {/* Header Tagline & Brand */}
         <div className="flex flex-col items-center gap-4 mb-6">
           <motion.div
+            style={{ y: headerY }}
             initial={{ opacity: 0, y: -16, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
@@ -96,15 +110,14 @@ export const HeroSection: React.FC = () => {
           </motion.div>
 
           <motion.h1
+            style={{ y: titleY, scale: titleScale, opacity: titleOpacity }}
             initial={{ opacity: 0, y: 28, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.2 }}
-            className="text-5xl sm:text-7xl lg:text-9xl font-classy font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-hacknex font-black tracking-tight uppercase select-none flex items-center justify-center text-center mx-auto w-full leading-none"
           >
-            <span className="text-white">HACK</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 via-zinc-400 to-zinc-500 drop-shadow-[0_0_25px_rgba(255,255,255,0.4)] ml-0.5">
-              NEX
-            </span>
+            <span className="text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.35)]">HACKNE</span>
+            <span className="text-google-x drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]">X</span>
           </motion.h1>
 
           <motion.div
@@ -129,6 +142,7 @@ export const HeroSection: React.FC = () => {
 
         {/* 4 Glassmorphism Feature Badges below tagline */}
         <motion.div
+          style={{ y: badgesY }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.45 }}

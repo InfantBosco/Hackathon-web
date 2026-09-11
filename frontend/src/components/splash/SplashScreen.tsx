@@ -132,7 +132,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
             
             {/* HACKNEX Title in Royal Serif Cinzel */}
             <div className="relative flex items-center justify-center">
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-9xl font-classy font-extrabold tracking-[0.15em] sm:tracking-[0.22em] uppercase select-none flex items-center justify-center">
+              <h1 className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-hacknex font-black tracking-tight uppercase select-none flex items-center justify-center text-center mx-auto w-full leading-none">
                 {WORDMARK_LETTERS.map((item, idx) => (
                   <motion.span
                     key={`royal-word-${idx}-${item.char}`}
@@ -158,7 +158,11 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onComplete }) => {
                     }}
                     className={`inline-block ${item.colorClass}`}
                   >
-                    {item.char}
+                    {item.char === 'X' ? (
+                      <span className="text-google-x drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]">X</span>
+                    ) : (
+                      item.char
+                    )}
                   </motion.span>
                 ))}
               </h1>
