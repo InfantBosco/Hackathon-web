@@ -216,7 +216,7 @@ export const NeuralNoise: React.FC<NeuralNoiseProps> = ({
       ref={canvasRef}
       className={className}
       style={{
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',

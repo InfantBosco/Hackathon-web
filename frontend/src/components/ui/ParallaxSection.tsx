@@ -11,7 +11,7 @@ export interface ParallaxSectionProps {
 
 /**
  * Section Container
- * Renders standard natural flow section layout without any scroll parallax or pinning.
+ * Renders standard natural flow section layout without any sticky card stacking.
  */
 export const ParallaxSection: React.FC<ParallaxSectionProps> = ({
   children,
@@ -24,6 +24,9 @@ export const ParallaxSection: React.FC<ParallaxSectionProps> = ({
     </div>
   );
 };
+
+
+
 
 
 
