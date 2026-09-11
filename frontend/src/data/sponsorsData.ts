@@ -9,20 +9,20 @@ export interface SponsorItem {
 
 export const sponsorsData: SponsorItem[] = [
   {
-    id: '1',
-    name: 'Reflex Labs',
-    category: 'TITLE SPONSOR',
-    placeholderText: 'TITLE SPONSOR',
-    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1788603159/esj3daiyfgzlrdja6aqy.jpg',
-    websiteUrl: 'https://www.reflexlabs.ai/',
-  },
-  {
     id: '2',
     name: 'Karimam Global Ventures',
     category: 'GOLD SPONSOR',
     placeholderText: 'GOLD SPONSOR',
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/qdsr0h4nalbvgkicfgky.jpg',
     websiteUrl: 'https://www.karimamglobal.com/',
+  },
+  {
+    id: '1',
+    name: 'Reflex Labs',
+    category: 'TITLE SPONSOR',
+    placeholderText: 'TITLE SPONSOR',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1788603159/esj3daiyfgzlrdja6aqy.jpg',
+    websiteUrl: 'https://www.reflexlabs.ai/',
   },
   {
     id: '3',
