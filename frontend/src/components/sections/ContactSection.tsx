@@ -2,7 +2,7 @@ import React from 'react';
 import { Section } from '../layout/Section';
 import { SectionHeader } from '../layout/SectionHeader';
 import { Card } from '../ui/Card';
-import { Phone, GraduationCap, User, Award } from 'lucide-react';
+import { Phone, Mail, GraduationCap, User, Award } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   return (
@@ -15,7 +15,7 @@ export const ContactSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {/* 1st Box: Faculty Coordinator */}
-        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
+        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[240px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
           <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-5 text-white shadow-[0_0_20px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform">
             <GraduationCap className="w-7 h-7" />
           </div>
@@ -29,19 +29,26 @@ export const ContactSection: React.FC = () => {
             </h3>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-white/10 w-full">
+          <div className="mt-6 pt-4 border-t border-white/10 w-full flex flex-col items-center gap-2">
             <a
-              href="tel:9789814239"
+              href="tel:9384200824"
               className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-white" />
-              <span>Contact no : 97898 14239</span>
+              <Phone className="w-3.5 h-3.5 text-white shrink-0" />
+              <span>Contact no : 93842 00824</span>
+            </a>
+            <a
+              href="mailto:ebensophia@karunya.edu.in"
+              className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-white shrink-0" />
+              <span>ebensophia@karunya.edu.in</span>
             </a>
           </div>
         </Card>
 
         {/* 2nd Box: Nexus - President */}
-        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
+        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[240px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
           <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-5 text-white shadow-[0_0_20px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform">
             <User className="w-7 h-7" />
           </div>
@@ -56,19 +63,26 @@ export const ContactSection: React.FC = () => {
             </h3>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-white/10 w-full">
+          <div className="mt-6 pt-4 border-t border-white/10 w-full flex flex-col items-center gap-2">
             <a
               href="tel:9442129572"
               className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-white" />
+              <Phone className="w-3.5 h-3.5 text-white shrink-0" />
               <span>Contact No : 94421 29572</span>
+            </a>
+            <a
+              href="mailto:jasonb@karunya.edu.in"
+              className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-white shrink-0" />
+              <span>jasonb@karunya.edu.in</span>
             </a>
           </div>
         </Card>
 
         {/* 3rd Box: Nexus - Vice President */}
-        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[220px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
+        <Card variant="hoverGlow" className="flex flex-col items-center justify-between p-8 text-center min-h-[240px] relative overflow-hidden group border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:border-white/60 hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
           <div className="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center mb-5 text-white shadow-[0_0_20px_rgba(255,255,255,0.15)] group-hover:scale-110 transition-transform">
             <Award className="w-7 h-7" />
           </div>
@@ -83,13 +97,20 @@ export const ContactSection: React.FC = () => {
             </h3>
           </div>
 
-          <div className="mt-6 pt-4 border-t border-white/10 w-full">
+          <div className="mt-6 pt-4 border-t border-white/10 w-full flex flex-col items-center gap-2">
             <a
-              href="tel:9384200824"
+              href="tel:7200574137"
               className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
             >
-              <Phone className="w-3.5 h-3.5 text-white" />
-              <span>Contact no : 9384200824</span>
+              <Phone className="w-3.5 h-3.5 text-white shrink-0" />
+              <span>Contact no : 72005 74137</span>
+            </a>
+            <a
+              href="mailto:sancias@karunya.edu.in"
+              className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-white shrink-0" />
+              <span>sancias@karunya.edu.in</span>
             </a>
           </div>
         </Card>
