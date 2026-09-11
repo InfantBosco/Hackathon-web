@@ -59,7 +59,7 @@ export const AuroraWaveBackground: React.FC<AuroraWaveBackgroundProps> = ({
       {/* 1. VIBRANT GOOGLE 4-COLOR AURORA BACKGROUND WITH SCROLL PARALLAX */}
       {showAurora && (
         <div
-          className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-90 transition-transform duration-500 ease-out"
+          className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-90 transition-transform duration-500 ease-out will-change-transform transform-gpu"
           style={{
             transform: `translateY(${scrollProgress * 50}px)`,
           }}

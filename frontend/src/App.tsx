@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <AuroraWaveBackground>
+      <AuroraWaveBackground enableSmoothScroll={false}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />

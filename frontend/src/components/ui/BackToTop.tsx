@@ -32,7 +32,7 @@ export const BackToTop: React.FC = () => {
           exit={{ opacity: 0, scale: 0.8 }}
           onClick={scrollToTop}
           className={cn(
-            'fixed bottom-6 right-6 z-40 p-3 rounded-full bg-[var(--color-surface-glass)] text-white border border-[var(--color-border)] shadow-xl hover:border-[var(--color-accent-cyan)] hover:text-[var(--color-accent-cyan)] transition-colors focus:outline-none'
+            'fixed bottom-6 right-6 z-[999] p-3 rounded-full bg-[var(--color-surface-glass)] text-white border border-[var(--color-border)] shadow-xl hover:border-[var(--color-accent-cyan)] hover:text-[var(--color-accent-cyan)] transition-colors focus:outline-none'
           )}
           aria-label="Back to top"
         >

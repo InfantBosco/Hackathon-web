@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowDown, Calendar, MapPin, Clock, Trophy } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { GridBackground } from '../backgrounds/GridBackground';
@@ -38,18 +38,6 @@ export const HeroSection: React.FC = () => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  });
-
-  // Pure Parallax Scroll Motion (Zero Color Changes)
-  const headerY = useTransform(scrollYProgress, [0, 1], [0, 45]);
-  const titleY = useTransform(scrollYProgress, [0, 1], [0, 85]);
-  const titleScale = useTransform(scrollYProgress, [0, 1], [1, 0.93]);
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const badgesY = useTransform(scrollYProgress, [0, 1], [0, -35]);
-
   React.useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 30) {
@@ -82,7 +70,6 @@ export const HeroSection: React.FC = () => {
         {/* Header Tagline & Brand */}
         <div className="flex flex-col items-center gap-4 mb-6">
           <motion.div
-            style={{ y: headerY }}
             initial={{ opacity: 0, y: -16, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
@@ -110,7 +97,6 @@ export const HeroSection: React.FC = () => {
           </motion.div>
 
           <motion.h1
-            style={{ y: titleY, scale: titleScale, opacity: titleOpacity }}
             initial={{ opacity: 0, y: 28, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.2 }}
@@ -142,7 +128,6 @@ export const HeroSection: React.FC = () => {
 
         {/* 4 Glassmorphism Feature Badges below tagline */}
         <motion.div
-          style={{ y: badgesY }}
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.45 }}

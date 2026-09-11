@@ -79,7 +79,7 @@ export default function RandomLetterSwapNav({
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 w-full z-[999] transition-all duration-300",
         isScrolled
           ? "bg-black/90 border-b border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.85)] backdrop-blur-md py-3.5"
           : "bg-black/60 border-b border-white/5 py-4 backdrop-blur-sm",
