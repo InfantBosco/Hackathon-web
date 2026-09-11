@@ -12,9 +12,11 @@ export const siteConfig = {
   totalTeamFee: 2400,
   registrationDeadline: 'October 1, 2026, 11:59 PM',
   prizePool: '₹1.5L+',
-  // PASTE YOUR GOOGLE FORM LINK BELOW
-  googleFormUrl: 'https://forms.google.com/your-form-url-here',
-  registerRoute: 'https://forms.google.com/your-form-url-here',
+  // REGISTRATION FORM LINKS
+  karunyaStudentUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSenYu2k0YnHuemmfX5kPMmIBfz7IqKtbn52CF29hFlQDlgpzw/viewform?usp=publish-editor',
+  externalParticipantUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
+  googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
+  registerRoute: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
   googleMapsUrl: 'https://maps.google.com/?q=Karunya+Institute+of+Technology+and+Sciences+Coimbatore',
   socials: {
     linkedin: 'https://www.linkedin.com/company/nexus-gc/',

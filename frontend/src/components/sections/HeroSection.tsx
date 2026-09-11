@@ -34,7 +34,11 @@ const heroBadges = [
   },
 ];
 
-export const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  onRegisterClick?: () => void;
+}
+
+export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -54,7 +58,11 @@ export const HeroSection: React.FC = () => {
 
   const handleRegisterClick = () => {
     trackEvent('register_cta_click', { location: 'hero' });
-    window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
+    if (onRegisterClick) {
+      onRegisterClick();
+    } else {
+      window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const handleExploreClick = () => {

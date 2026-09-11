@@ -5,10 +5,18 @@ import { trackEvent } from '../../lib/analytics';
 import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
 
-export const FinalCTASection: React.FC = () => {
+interface FinalCTASectionProps {
+  onRegisterClick?: () => void;
+}
+
+export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onRegisterClick }) => {
   const handleRegisterClick = () => {
     trackEvent('register_cta_click', { location: 'final_cta' });
-    window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
+    if (onRegisterClick) {
+      onRegisterClick();
+    } else {
+      window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (

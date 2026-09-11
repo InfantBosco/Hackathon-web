@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 import { Navbar } from '../components/navigation/Navbar';
 import { HeroSection } from '../components/sections/HeroSection';
@@ -16,8 +16,11 @@ import { FinalCTASection } from '../components/sections/FinalCTASection';
 import { Footer } from '../components/navigation/Footer';
 import { BackToTop } from '../components/ui/BackToTop';
 import { ParallaxSection } from '../components/ui/ParallaxSection';
+import { RegistrationModal } from '../components/modals/RegistrationModal';
 
 export const HomePage: React.FC = () => {
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.0,
@@ -38,8 +41,11 @@ export const HomePage: React.FC = () => {
     };
   }, []);
 
+  const openRegisterModal = () => setIsRegisterModalOpen(true);
+  const closeRegisterModal = () => setIsRegisterModalOpen(false);
+
   const sections = [
-    { id: 'home', component: <HeroSection /> },
+    { id: 'home', component: <HeroSection onRegisterClick={openRegisterModal} /> },
     { id: 'about', component: <AboutSection /> },
     { id: 'chief-guest', component: <ChiefGuestSection /> },
     { id: 'domains', component: <DomainsSection /> },
@@ -50,7 +56,7 @@ export const HomePage: React.FC = () => {
     { id: 'venue', component: <VenueSection /> },
     { id: 'contact', component: <ContactSection /> },
     { id: 'faq', component: <FAQSection /> },
-    { id: 'cta', component: <FinalCTASection /> },
+    { id: 'cta', component: <FinalCTASection onRegisterClick={openRegisterModal} /> },
   ];
 
   return (
@@ -67,6 +73,7 @@ export const HomePage: React.FC = () => {
         <Footer />
       </div>
       <BackToTop />
+      <RegistrationModal isOpen={isRegisterModalOpen} onClose={closeRegisterModal} />
     </div>
   );
 };
