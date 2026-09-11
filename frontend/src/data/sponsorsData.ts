@@ -22,12 +22,14 @@ export const sponsorsData: SponsorItem[] = [
     category: 'GOLD SPONSOR',
     placeholderText: 'GOLD SPONSOR',
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/qdsr0h4nalbvgkicfgky.jpg',
+    websiteUrl: 'https://www.karimamglobal.com/',
   },
   {
     id: '3',
-    name: 'Community Partner',
+    name: 'Payanam Foundation',
     category: 'COMMUNITY PARTNER',
     placeholderText: 'COMMUNITY PARTNER',
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/zo5opxfx81wwaxjxibri.jpg',
+    websiteUrl: 'https://www.payanamfoundation.org/',
   },
 ];
