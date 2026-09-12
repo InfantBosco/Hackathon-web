@@ -8,8 +8,8 @@ export const siteConfig = {
   mode: 'Offline',
   expectedParticipants: '1,500+',
   teamSize: 4,
-  registrationFee: 600, // ₹600 per person (₹2,400 per team of 4)
-  totalTeamFee: 2400,
+  registrationFee: 500, // ₹500 per person (₹2,000 per team of 4)
+  totalTeamFee: 2000,
   registrationDeadline: 'October 6, 2026, 6:00 PM',
   prizePool: '₹1.5L+',
   // REGISTRATION FORM LINKS

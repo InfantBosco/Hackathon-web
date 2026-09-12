@@ -36,7 +36,7 @@ export const DetailsSection: React.FC = () => {
             <div className="p-4 rounded-[var(--radius-md)] bg-[var(--color-surface-elevated)] border border-[var(--color-border-subtle)]">
               <span className="text-xs font-mono text-slate-300 block mb-1">REGISTRATION FEE</span>
               <p className="font-semibold text-white mb-1">₹{siteConfig.registrationFee} / Person</p>
-              <p className="text-xs text-[var(--color-text-secondary)]">₹600 × 4 members = ₹2,400 per team.</p>
+              <p className="text-xs text-[var(--color-text-secondary)]">₹500 × 4 members = ₹2,000 per team.</p>
             </div>
 
             <div className="p-4 rounded-[var(--radius-md)] bg-[var(--color-surface-elevated)] border border-[var(--color-border-subtle)]">

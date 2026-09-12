@@ -63,7 +63,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-7',
     category: 'PAYMENT',
     question: 'What is the registration fee for HackNEX?',
-    answer: 'The registration fee is ₹600 per person (₹2,400 per team of 4 participants).',
+    answer: 'The registration fee is ₹500 per person (₹2,000 per team of 4 participants).',
   },
   {
     id: 'faq-8',

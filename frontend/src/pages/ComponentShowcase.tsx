@@ -147,7 +147,7 @@ export const ComponentShowcase: React.FC = () => {
           <Badge variant="success">Payment Verified</Badge>
           <Badge variant="warning">Action Pending</Badge>
           <Badge variant="error">Registration Failed</Badge>
-          <Badge variant="outline">₹600 Fee / Team</Badge>
+          <Badge variant="outline">₹500 Fee / Person</Badge>
         </div>
       </Section>
 
@@ -264,7 +264,7 @@ export const ComponentShowcase: React.FC = () => {
               items={[
                 { id: 'faq-1', title: 'What is the team size requirement for HackNEX?', content: 'Every team must consist of exactly 4 participants (1 Team Captain + 3 Team Members).' },
                 { id: 'faq-2', title: 'Can members be from different colleges?', content: 'Yes! Cross-college and cross-department teams are fully supported.' },
-                { id: 'faq-3', title: 'What is the registration fee?', content: 'The registration fee is ₹600 per team of 4.' },
+                { id: 'faq-3', title: 'What is the registration fee?', content: 'The registration fee is ₹500 per person (₹2,000 per team of 4).' },
               ]}
             />
           </div>

@@ -10,7 +10,7 @@ Official platform codebase for **HackNEX 2026**, organized by the **NEXUS Club**
 - **Event Mode**: Offline (Karunya Campus, Coimbatore)
 - **Expected Scale**: 1,500+ Participants (~375+ Teams)
 - **Team Size**: Exactly 4 Participants (Captain + 3 Members)
-- **Registration Fee**: ₹600 per team
+- **Registration Fee**: ₹500 per person (₹2,000 per team)
 
 ---
 
