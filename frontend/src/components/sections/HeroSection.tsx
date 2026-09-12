@@ -87,7 +87,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             {/* Unboxed, Prominent Logos with Splitting Line */}
             <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-7">
               <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789066202/uvpmacxmjcejtzhgsmf9.png"
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789196109/e0ujlxpd75ckmqlooy8w.png"
                 alt="Karunya Logo"
                 className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)]"
               />
