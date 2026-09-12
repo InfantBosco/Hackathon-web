@@ -146,14 +146,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             variant="primary"
             size="lg"
             onClick={handleRegisterClick}
-            className="w-full sm:w-auto min-w-[230px] !h-auto !py-3 flex-col gap-0.5"
+            className="w-full sm:w-auto min-w-[230px] font-royal font-black tracking-[0.15em] uppercase text-black text-sm sm:text-base"
           >
-            <span className="font-royal font-black text-sm sm:text-base tracking-[0.15em] uppercase text-black leading-tight">
-              REGISTER NOW
-            </span>
-            <span className="font-royal font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase text-amber-600 leading-tight">
-              COMING SOON!!
-            </span>
+            REGISTER NOW
           </Button>
 
           <Button
