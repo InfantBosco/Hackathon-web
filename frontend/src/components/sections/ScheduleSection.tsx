@@ -13,9 +13,19 @@ export const ScheduleSection: React.FC = () => {
           <div className="p-6 sm:p-7 rounded-2xl bg-[#11121a]/95 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:border-white/60 hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] hover:scale-[1.025] hover:-translate-y-1.5 transition-all duration-300 text-left font-sans space-y-6 transform-gpu">
             <div className="space-y-4">
               {/* 7:30 AM - 8:30 AM */}
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">07:30 AM — 08:30 AM</div>
                 <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">External Participant Arrival, Registration & Kit Distribution</h5>
+                <ul className="space-y-1 text-xs text-slate-400 font-sans leading-relaxed pl-0.5">
+                  <li className="flex items-start gap-2">
+                    <span className="text-slate-500 font-bold">•</span>
+                    <span>Participant arrival</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-slate-500 font-bold">•</span>
+                    <span>Registration: Confirm Attendance, Confirm Whatsapp group Addition, Confirm Kit collection</span>
+                  </li>
+                </ul>
               </div>
 
               {/* 8:30 AM - 8:45 AM */}
@@ -94,12 +104,14 @@ export const ScheduleSection: React.FC = () => {
               <div className="pt-3.5 border-t border-white/10 space-y-1">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-widest uppercase">10:45 PM — 04:00 AM (5h 15m)</div>
                 <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 5</h5>
+                <p className="text-slate-400 text-xs font-sans leading-relaxed">Last-minute debugging, code freezes, and pitch deck preparation.</p>
               </div>
 
               {/* 4:00 AM - 6:30 AM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">04:00 AM — 06:30 AM</div>
                 <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 6</h5>
+                <p className="text-slate-400 text-xs font-sans leading-relaxed">Quiet coding hours; nap zone open for tired participants.</p>
               </div>
 
               {/* 6:30 AM - 8:00 AM */}

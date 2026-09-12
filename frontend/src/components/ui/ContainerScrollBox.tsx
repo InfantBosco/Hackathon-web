@@ -35,26 +35,26 @@ export const ContainerScrollBox: React.FC<ContainerScrollBoxProps> = ({
     offset: ['start end', 'center center'],
   });
 
-  // Dynamic responsive values for mobile & desktop to prevent overflow/clipping
+  // Dynamic responsive values for mobile & desktop to keep layout tight & elegant
   const rotateX = useTransform(
     scrollYProgress,
     [0, 1],
-    isMobile ? [8, 0] : [16, 0]
+    isMobile ? [3, 0] : [5, 0]
   );
   const scale = useTransform(
     scrollYProgress,
     [0, 1],
-    isMobile ? [0.94, 1] : [0.88, 1]
+    isMobile ? [0.98, 1] : [0.96, 1]
   );
   const opacity = useTransform(
     scrollYProgress,
     [0, 0.4, 1],
-    [0.5, 0.85, 1]
+    [0.7, 0.9, 1]
   );
   const translateY = useTransform(
     scrollYProgress,
     [0, 1],
-    isMobile ? [20, 0] : [40, 0]
+    isMobile ? [4, 0] : [8, 0]
   );
 
   if (disableAnimation) {

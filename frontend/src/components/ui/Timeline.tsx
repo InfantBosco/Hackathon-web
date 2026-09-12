@@ -48,14 +48,14 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           return (
             <div
               key={index}
-              className="relative pt-8 md:pt-16 pb-8 md:pb-12"
+              className="relative pt-4 md:pt-6 pb-8 md:pb-12"
             >
               {/* Desktop Alternating Grid Layout (md:grid md:grid-cols-2) */}
               <div className="hidden md:grid md:grid-cols-2 md:gap-16 items-start">
                 {/* LEFT COLUMN */}
                 <div className={isRight ? "order-1" : "order-1 text-right"}>
                   {!isRight && (
-                    <div className="space-y-4 pr-6">
+                    <div className="space-y-1.5 pr-6">
                       <h3 className="text-3xl lg:text-4xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 tracking-wide">
                         {item.title}
                       </h3>
@@ -67,7 +67,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 {/* RIGHT COLUMN */}
                 <div className={isRight ? "order-2 text-left pl-6" : "order-2"}>
                   {isRight && (
-                    <div className="space-y-4">
+                    <div className="space-y-1.5">
                       <h3 className="text-3xl lg:text-4xl font-heading font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 tracking-wide">
                         {item.title}
                       </h3>
@@ -78,7 +78,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </div>
 
               {/* CENTER TIMELINE NODE PIN (Desktop) */}
-              <div className="hidden md:flex absolute left-1/2 top-8 md:top-16 -translate-x-1/2 z-40 items-center justify-center">
+              <div className="hidden md:flex absolute left-1/2 top-4 md:top-6 -translate-x-1/2 z-40 items-center justify-center">
                 <div className="h-10 w-10 rounded-full bg-[#0b0c10] border border-white/40 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.4)]">
                   <div className="h-3.5 w-3.5 rounded-full bg-white border border-slate-200 shadow-[0_0_12px_rgba(255,255,255,0.9)]" />
                 </div>
@@ -92,7 +92,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   </div>
                 </div>
 
-                <div className="w-full space-y-3 pl-2">
+                <div className="w-full space-y-1.5 pl-2">
                   <h3 className="text-xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500">
                     {item.title}
                   </h3>
