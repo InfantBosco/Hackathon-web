@@ -1,7 +1,7 @@
 export const heroData = {
   badge: 'NEXUS CLUB PRESENTS',
   title: 'HACKNEX 2026',
-  taglinePlaceholder: 'Innovate. Build. Excel.',
+  taglinePlaceholder: 'Imagine . Create . Innovate',
   dates: 'OCT 07 — 09, 2026',
   location: 'KARUNYA INSTITUTE OF TECHNOLOGY, COIMBATORE',
   primaryCtaText: 'REGISTER NOW',
