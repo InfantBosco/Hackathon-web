@@ -131,7 +131,7 @@ export const ScheduleSection: React.FC = () => {
       <SectionHeader
         badge="TIMELINE"
         title="EVENT SCHEDULE"
-        subtitle="October 7–9, 2026 • Karunya Institute of Technology and Sciences, Coimbatore"
+        subtitle="24 Hour National Level Hackathon Schedule"
         className="mb-6 md:mb-8"
       />
 
