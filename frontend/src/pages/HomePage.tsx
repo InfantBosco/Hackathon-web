@@ -21,10 +21,12 @@ export const HomePage: React.FC = () => {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
 
   useEffect(() => {
+    // Mobile touch devices perform best with native 120Hz/60Hz momentum scrolling
+    if (window.innerWidth < 768) return;
+
     const lenis = new Lenis({
       duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 1.5,
     });
 
     let rafId: number;
