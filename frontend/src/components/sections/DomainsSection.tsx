@@ -22,7 +22,7 @@ export const DomainsSection: React.FC = () => {
   };
 
   // Card specific layout adjustments with Google 4-Color identity styling
-  const cardLayouts: Record<string, { headerClass?: string; contentClass?: string; badgeClass?: string; strokeColor?: string; badgeVariant?: 'cyan' | 'purple' | 'warning' | 'success' }> = {
+  const cardLayouts: Record<string, { headerClass?: string; contentClass?: string; badgeClass?: string; numberClass?: string; strokeColor?: string; badgeVariant?: 'cyan' | 'purple' | 'warning' | 'success' }> = {
     genai: {
       contentClass: 'pr-12 sm:pr-16 pb-2',
       strokeColor: 'rgba(66, 133, 244, 0.4)',
@@ -40,6 +40,7 @@ export const DomainsSection: React.FC = () => {
       badgeVariant: 'warning',
     },
     smartinfra: {
+      numberClass: 'ml-12 sm:ml-16',
       contentClass: 'pl-4',
       strokeColor: 'rgba(52, 168, 83, 0.4)',
       badgeVariant: 'success',
@@ -83,7 +84,7 @@ export const DomainsSection: React.FC = () => {
                   {/* Card Foreground Content Header */}
                   <div className="relative z-10 flex items-center justify-between mb-4">
                     {/* Clean Number without glowing blur background */}
-                    <span className="font-royal font-black text-2xl sm:text-3xl text-slate-100 tracking-wider">
+                    <span className={`font-royal font-black text-2xl sm:text-3xl text-slate-100 tracking-wider ${layout.numberClass || ''}`}>
                       {domain.number}
                     </span>
                     <div className={layout.badgeClass || ''}>
