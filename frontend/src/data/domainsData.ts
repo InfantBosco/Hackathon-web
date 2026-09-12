@@ -1,5 +1,6 @@
 export interface DomainItem {
-  id: 'food' | 'water' | 'healthcare' | 'energy';
+  id: 'genai' | 'agentic' | 'cv' | 'smartinfra';
+  number: string;
   title: string;
   category: string;
   description: string;
@@ -7,27 +8,31 @@ export interface DomainItem {
 
 export const domainsData: DomainItem[] = [
   {
-    id: 'food',
-    title: 'Food & Agriculture Tech',
+    id: 'genai',
+    number: '01',
+    title: 'Gen AI',
     category: 'DOMAIN 01',
-    description: 'Innovate precision farming, sustainable food distribution, supply chain tracking, and smart agricultural automation.',
+    description: 'Innovate next-gen LLM applications, multimodal models, neural code synthesis, intelligent RAG pipelines, and creative generative media.',
   },
   {
-    id: 'water',
-    title: 'Water & Environmental Conservation',
+    id: 'agentic',
+    number: '02',
+    title: 'Agentic AI',
     category: 'DOMAIN 02',
-    description: 'Build smart water management systems, purification telemetry, flood monitoring, and aquatic ecosystem preservation.',
+    description: 'Develop autonomous AI agents, multi-agent orchestrations, self-executing workflows, task automation, and intelligent reasoning systems.',
   },
   {
-    id: 'healthcare',
-    title: 'Healthcare & Bio-Tech',
+    id: 'cv',
+    number: '03',
+    title: 'CV (Computer Vision)',
     category: 'DOMAIN 03',
-    description: 'Develop AI medical diagnostics, patient care telemetry, wearable health monitors, and emergency medical response systems.',
+    description: 'Engineer real-time visual recognition, spatial AI analytics, object detection & tracking, automated inspection, and video understanding.',
   },
   {
-    id: 'energy',
-    title: 'Clean Energy & Smart Power',
+    id: 'smartinfra',
+    number: '04',
+    title: 'Smart Infra',
     category: 'DOMAIN 04',
-    description: 'Create renewable energy optimization, smart grid intelligence, battery management systems, and carbon reduction tech.',
+    description: 'Build intelligent urban systems, smart energy grids, IoT telemetry, automated traffic management, and resilient connected infrastructure.',
   },
 ];

@@ -3,56 +3,43 @@ import { Section } from '../layout/Section';
 import { SectionHeader } from '../layout/SectionHeader';
 import { Badge } from '../ui/Badge';
 import { domainsData, DomainItem } from '../../data/domainsData';
-import { Utensils, Droplets, HeartPulse, Zap } from 'lucide-react';
-
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
 
 export const DomainsSection: React.FC = () => {
-  const domainIcons: Record<string, React.ReactNode> = {
-    food: <Utensils className="w-6 h-6 text-white" />,
-    water: <Droplets className="w-6 h-6 text-white" />,
-    healthcare: <HeartPulse className="w-6 h-6 text-white" />,
-    energy: <Zap className="w-6 h-6 text-white" />,
-  };
-
   // SVG Paths for the 4 Inward Concave Corner Cutouts matching the exact pinwheel design
   const cardPaths: Record<string, string> = {
-    // Top-Left Card (Food): Cutout at Bottom-Right
-    food: 'M 28,0 L 372,0 A 28,28 0 0 1 400,28 L 400,192 A 68,68 0 0 0 332,260 L 28,260 A 28,28 0 0 1 0,232 L 0,28 A 28,28 0 0 1 28,0 Z',
+    // Top-Left Card (Gen AI): Cutout at Bottom-Right
+    genai: 'M 28,0 L 372,0 A 28,28 0 0 1 400,28 L 400,192 A 68,68 0 0 0 332,260 L 28,260 A 28,28 0 0 1 0,232 L 0,28 A 28,28 0 0 1 28,0 Z',
     
-    // Top-Right Card (Water): Cutout at Bottom-Left
-    water: 'M 28,0 L 372,0 A 28,28 0 0 1 400,28 L 400,232 A 28,28 0 0 1 372,260 L 68,260 A 68,68 0 0 0 0,192 L 0,28 A 28,28 0 0 1 28,0 Z',
+    // Top-Right Card (Agentic AI): Cutout at Bottom-Left
+    agentic: 'M 28,0 L 372,0 A 28,28 0 0 1 400,28 L 400,232 A 28,28 0 0 1 372,260 L 68,260 A 68,68 0 0 0 0,192 L 0,28 A 28,28 0 0 1 28,0 Z',
     
-    // Bottom-Left Card (Healthcare): Cutout at Top-Right
-    healthcare: 'M 28,0 L 332,0 A 68,68 0 0 0 400,68 L 400,232 A 28,28 0 0 1 372,260 L 28,260 A 28,28 0 0 1 0,232 L 0,28 A 28,28 0 0 1 28,0 Z',
+    // Bottom-Left Card (CV): Cutout at Top-Right
+    cv: 'M 28,0 L 332,0 A 68,68 0 0 0 400,68 L 400,232 A 28,28 0 0 1 372,260 L 28,260 A 28,28 0 0 1 0,232 L 0,28 A 28,28 0 0 1 28,0 Z',
     
-    // Bottom-Right Card (Energy): Cutout at Top-Left
-    energy: 'M 68,0 L 372,0 A 28,28 0 0 1 400,28 L 400,232 A 28,28 0 0 1 372,260 L 28,260 A 28,28 0 0 1 0,232 L 0,68 A 68,68 0 0 0 68,0 Z',
+    // Bottom-Right Card (Smart Infra): Cutout at Top-Left
+    smartinfra: 'M 68,0 L 372,0 A 28,28 0 0 1 400,28 L 400,232 A 28,28 0 0 1 372,260 L 28,260 A 28,28 0 0 1 0,232 L 0,68 A 68,68 0 0 0 68,0 Z',
   };
 
   // Card specific layout adjustments with Google 4-Color identity styling
-  const cardLayouts: Record<string, { headerClass?: string; contentClass?: string; badgeClass?: string; iconClass?: string; strokeColor?: string; strokeHover?: string; badgeVariant?: 'cyan' | 'purple' | 'warning' | 'success' }> = {
-    food: {
+  const cardLayouts: Record<string, { headerClass?: string; contentClass?: string; badgeClass?: string; strokeColor?: string; badgeVariant?: 'cyan' | 'purple' | 'warning' | 'success' }> = {
+    genai: {
       contentClass: 'pr-12 sm:pr-16 pb-2',
-      iconClass: 'bg-[#4285F4]/15 border-[#4285F4]/40 text-[#4285F4] shadow-[0_0_15px_rgba(66,133,244,0.3)]',
       strokeColor: 'rgba(66, 133, 244, 0.4)',
       badgeVariant: 'cyan',
     },
-    water: {
+    agentic: {
       contentClass: 'pl-12 sm:pl-16 pb-2',
-      iconClass: 'bg-[#EA4335]/15 border-[#EA4335]/40 text-[#EA4335] shadow-[0_0_15px_rgba(234,67,53,0.3)]',
       strokeColor: 'rgba(234, 67, 53, 0.4)',
       badgeVariant: 'purple',
     },
-    healthcare: {
+    cv: {
       badgeClass: 'mr-12 sm:mr-16',
       contentClass: 'pr-4',
-      iconClass: 'bg-[#FBBC05]/15 border-[#FBBC05]/40 text-[#FBBC05] shadow-[0_0_15px_rgba(251,188,5,0.3)]',
       strokeColor: 'rgba(251, 188, 5, 0.4)',
       badgeVariant: 'warning',
     },
-    energy: {
-      iconClass: 'ml-12 sm:ml-16 bg-[#34A853]/15 border-[#34A853]/40 text-[#34A853] shadow-[0_0_15px_rgba(52,168,83,0.3)]',
+    smartinfra: {
       contentClass: 'pl-4',
       strokeColor: 'rgba(52, 168, 83, 0.4)',
       badgeVariant: 'success',
@@ -95,9 +82,10 @@ export const DomainsSection: React.FC = () => {
 
                   {/* Card Foreground Content Header */}
                   <div className="relative z-10 flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform ${layout.iconClass || 'bg-white/10 border border-white/20 text-white'}`}>
-                      {domainIcons[domain.id]}
-                    </div>
+                    {/* Clean Number without glowing blur background */}
+                    <span className="font-royal font-black text-2xl sm:text-3xl text-slate-100 tracking-wider">
+                      {domain.number}
+                    </span>
                     <div className={layout.badgeClass || ''}>
                       <Badge variant={layout.badgeVariant || 'cyan'}>{domain.category}</Badge>
                     </div>
@@ -105,7 +93,7 @@ export const DomainsSection: React.FC = () => {
 
                   {/* Card Foreground Content Description */}
                   <div className={`relative z-10 ${layout.contentClass || ''}`}>
-                    <h3 className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-slate-200 transition-colors mb-2">
+                    <h3 className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
                       {domain.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
