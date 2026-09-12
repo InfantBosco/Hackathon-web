@@ -135,12 +135,44 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
           </KineticSpringFloat>
         </div>
 
-        {/* 4 Glassmorphism Feature Badges below tagline */}
+        {/* Action CTAs - Placed right below tagline for instant mobile & desktop conversion */}
+        <motion.div
+          initial={{ opacity: 0, y: 22, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ type: 'spring', stiffness: 120, damping: 18, delay: 0.45 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 my-6"
+        >
+          <Button
+            variant="primary"
+            size="lg"
+            onClick={handleRegisterClick}
+            className="w-full sm:w-auto min-w-[230px] !h-auto !py-3 flex-col gap-0.5"
+          >
+            <span className="font-royal font-black text-sm sm:text-base tracking-[0.15em] uppercase text-black leading-tight">
+              REGISTER NOW
+            </span>
+            <span className="font-royal font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase text-amber-600 leading-tight">
+              COMING SOON!!
+            </span>
+          </Button>
+
+          <Button
+            variant="secondary"
+            size="lg"
+            onClick={handleExploreClick}
+            rightIcon={<ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />}
+            className="w-full sm:w-auto !h-auto !py-4"
+          >
+            {heroData.secondaryCtaText}
+          </Button>
+        </motion.div>
+
+        {/* 4 Glassmorphism Feature Badges below CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.45 }}
-          className="my-8"
+          transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.55 }}
+          className="my-6 sm:my-8"
         >
           <ContainerScrollBox className="max-w-5xl mx-auto">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 w-full">
@@ -172,38 +204,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
               })}
             </div>
           </ContainerScrollBox>
-        </motion.div>
-
-        {/* Action CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 22, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ type: 'spring', stiffness: 120, damping: 18, delay: 0.55 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8"
-        >
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={handleRegisterClick}
-            className="w-full sm:w-auto min-w-[230px] !h-auto !py-3 flex-col gap-0.5"
-          >
-            <span className="font-royal font-black text-sm sm:text-base tracking-[0.15em] uppercase text-black leading-tight">
-              REGISTER NOW
-            </span>
-            <span className="font-royal font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase text-amber-600 leading-tight">
-              COMING SOON!!
-            </span>
-          </Button>
-
-          <Button
-            variant="secondary"
-            size="lg"
-            onClick={handleExploreClick}
-            rightIcon={<ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />}
-            className="w-full sm:w-auto !h-auto !py-4"
-          >
-            {heroData.secondaryCtaText}
-          </Button>
         </motion.div>
 
         {/* Live Event Countdown Timer - Fades in on Scroll */}
