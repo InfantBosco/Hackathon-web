@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, GraduationCap, Users, ExternalLink } from 'lucide-react';
+import { X, ExternalLink } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
 
@@ -29,7 +29,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-[500] bg-black/80 backdrop-blur-md transform-gpu"
+                className="fixed inset-0 z-[500] bg-black/85 backdrop-blur-md transform-gpu"
               />
             </Dialog.Overlay>
 
@@ -41,16 +41,16 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.94, y: 15 }}
                   transition={{ type: 'spring', stiffness: 160, damping: 20 }}
-                  className="relative w-full max-w-lg rounded-[2rem] sm:rounded-[2.5rem] bg-[#0c0914]/95 border border-amber-500/35 p-6 sm:p-8 shadow-[0_0_80px_rgba(245,158,11,0.3)] backdrop-blur-2xl text-white outline-none overflow-hidden my-auto transform-gpu font-sans"
+                  className="relative w-full max-w-lg rounded-[2rem] sm:rounded-[2.5rem] bg-[#0c0914]/95 border border-white/20 p-6 sm:p-8 shadow-[0_0_60px_rgba(255,255,255,0.15)] backdrop-blur-2xl text-white outline-none overflow-hidden my-auto transform-gpu font-sans"
                 >
-                  {/* Glowing Background Radial Accents inside Modal */}
-                  <div className="absolute -top-24 -left-24 w-60 h-60 bg-amber-500/20 blur-[80px] rounded-full pointer-events-none" />
-                  <div className="absolute -bottom-24 -right-24 w-60 h-60 bg-cyan-500/20 blur-[80px] rounded-full pointer-events-none" />
+                  {/* White Glow Ambient Accents inside Modal */}
+                  <div className="absolute -top-24 -left-24 w-60 h-60 bg-white/10 blur-[80px] rounded-full pointer-events-none" />
+                  <div className="absolute -bottom-24 -right-24 w-60 h-60 bg-slate-300/10 blur-[80px] rounded-full pointer-events-none" />
 
                   {/* Header & Close Button */}
                   <div className="flex items-start justify-between gap-4 pb-5 border-b border-white/10 relative z-10">
                     <div>
-                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-yellow-300">
+                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-slate-300">
                         REGISTRATION PORTAL
                       </span>
                       <Dialog.Title className="text-xl sm:text-2xl font-heading font-black text-white uppercase tracking-tight mt-1">
@@ -77,26 +77,23 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                     {/* Option 1: Karunya Student */}
                     <div
                       onClick={() => handleOptionClick('karunya_student', siteConfig.karunyaStudentUrl)}
-                      className="group relative p-5 rounded-2xl bg-[#130f21]/90 border border-amber-500/30 hover:border-amber-400 shadow-md hover:shadow-[0_0_30px_rgba(245,158,11,0.25)] transition-all duration-300 cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:-translate-y-0.5 active:scale-[0.99] touch-manipulation"
+                      className="group relative p-5 rounded-2xl bg-[#130f21]/90 border border-white/15 hover:border-white/60 shadow-md hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all duration-300 cursor-pointer flex flex-row items-center justify-between gap-4 hover:-translate-y-0.5 active:scale-[0.99] touch-manipulation"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="p-3 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400 group-hover:scale-110 transition-transform shrink-0">
-                          <GraduationCap className="w-6 h-6" />
-                        </div>
+                        <span className="text-xl sm:text-2xl font-mono font-bold text-slate-400 group-hover:text-white shrink-0 transition-colors select-none">
+                          /
+                        </span>
                         <div>
-                          <h4 className="text-sm sm:text-base font-heading font-bold text-white group-hover:text-amber-300 transition-colors">
+                          <h4 className="text-sm sm:text-base font-heading font-bold text-white group-hover:text-slate-100 transition-colors">
                             Karunya Student
                           </h4>
-                          <p className="text-xs text-slate-300 mt-0.5 font-sans">
-                            If you are a Karunya University Student{' '}
-                            <span className="text-amber-400 font-bold underline group-hover:text-amber-300">
-                              Click Here
-                            </span>
+                          <p className="text-xs text-slate-400 group-hover:text-slate-300 mt-0.5 font-sans">
+                            If you are a Karunya University Student
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0 self-end sm:self-center">
+                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0">
                         <span>OPEN FORM</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </div>
@@ -105,26 +102,23 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                     {/* Option 2: External Participant */}
                     <div
                       onClick={() => handleOptionClick('external_participant', siteConfig.externalParticipantUrl)}
-                      className="group relative p-5 rounded-2xl bg-[#130f21]/90 border border-cyan-500/30 hover:border-cyan-400 shadow-md hover:shadow-[0_0_30px_rgba(6,182,212,0.25)] transition-all duration-300 cursor-pointer flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:-translate-y-0.5 active:scale-[0.99] touch-manipulation"
+                      className="group relative p-5 rounded-2xl bg-[#130f21]/90 border border-white/15 hover:border-white/60 shadow-md hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all duration-300 cursor-pointer flex flex-row items-center justify-between gap-4 hover:-translate-y-0.5 active:scale-[0.99] touch-manipulation"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="p-3 rounded-xl bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 group-hover:scale-110 transition-transform shrink-0">
-                          <Users className="w-6 h-6" />
-                        </div>
+                        <span className="text-xl sm:text-2xl font-mono font-bold text-slate-400 group-hover:text-white shrink-0 transition-colors select-none">
+                          /
+                        </span>
                         <div>
-                          <h4 className="text-sm sm:text-base font-heading font-bold text-white group-hover:text-cyan-300 transition-colors">
+                          <h4 className="text-sm sm:text-base font-heading font-bold text-white group-hover:text-slate-100 transition-colors">
                             External Participant
                           </h4>
-                          <p className="text-xs text-slate-300 mt-0.5 font-sans">
-                            If you are an external participant{' '}
-                            <span className="text-cyan-400 font-bold underline group-hover:text-cyan-300">
-                              Click Here
-                            </span>
+                          <p className="text-xs text-slate-400 group-hover:text-slate-300 mt-0.5 font-sans">
+                            If you are an external participant
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-cyan-400 group-hover:text-cyan-300 group-hover:translate-x-1 transition-all shrink-0 self-end sm:self-center">
+                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0">
                         <span>OPEN FORM</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </div>
@@ -132,9 +126,8 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                   </div>
 
                   {/* Footer note */}
-                  <div className="pt-4 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-slate-400 relative z-10">
+                  <div className="pt-4 border-t border-white/10 text-[11px] font-mono text-slate-400 relative z-10">
                     <span>HACKNEX '26 • COIMBATORE</span>
-                    <span className="text-amber-400 font-semibold">OCTOBER 8–9</span>
                   </div>
                 </motion.div>
               </Dialog.Content>
