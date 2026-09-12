@@ -50,15 +50,12 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                   {/* Header & Close Button */}
                   <div className="flex items-start justify-between gap-4 pb-5 border-b border-white/10 relative z-10">
                     <div>
-                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-400">
+                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-white">
                         REGISTRATION PORTAL
                       </span>
-                      <Dialog.Title className="text-xl sm:text-2xl font-heading font-black text-amber-400 uppercase tracking-tight mt-1">
+                      <Dialog.Title className="text-xl sm:text-2xl font-heading font-black text-white uppercase tracking-tight mt-1">
                         Select Category
                       </Dialog.Title>
-                      <Dialog.Description className="text-xs sm:text-sm text-slate-300 mt-1 font-sans">
-                        Please choose your participant category to continue.
-                      </Dialog.Description>
                     </div>
 
                     <Dialog.Close asChild>
