@@ -50,10 +50,10 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                   {/* Header & Close Button */}
                   <div className="flex items-start justify-between gap-4 pb-5 border-b border-white/10 relative z-10">
                     <div>
-                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-slate-300">
+                      <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-400">
                         REGISTRATION PORTAL
                       </span>
-                      <Dialog.Title className="text-xl sm:text-2xl font-heading font-black text-white uppercase tracking-tight mt-1">
+                      <Dialog.Title className="text-xl sm:text-2xl font-heading font-black text-amber-400 uppercase tracking-tight mt-1">
                         Select Category
                       </Dialog.Title>
                       <Dialog.Description className="text-xs sm:text-sm text-slate-300 mt-1 font-sans">
@@ -80,20 +80,20 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                       className="group relative p-5 rounded-2xl bg-[#130f21]/90 border border-white/15 hover:border-white/60 shadow-md hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all duration-300 cursor-pointer flex flex-row items-center justify-between gap-4 hover:-translate-y-0.5 active:scale-[0.99] touch-manipulation"
                     >
                       <div className="flex items-center gap-4">
-                        <span className="text-xl sm:text-2xl font-mono font-bold text-slate-400 group-hover:text-white shrink-0 transition-colors select-none">
+                        <span className="text-xl sm:text-2xl font-mono font-bold text-amber-400/80 group-hover:text-amber-300 shrink-0 transition-colors select-none">
                           /
                         </span>
                         <div>
-                          <h4 className="text-sm sm:text-base font-heading font-bold text-white group-hover:text-slate-100 transition-colors">
+                          <h4 className="text-sm sm:text-base font-heading font-bold text-amber-400 group-hover:text-amber-300 transition-colors">
                             Karunya Student
                           </h4>
-                          <p className="text-xs text-slate-400 group-hover:text-slate-300 mt-0.5 font-sans">
+                          <p className="text-xs text-slate-300 group-hover:text-slate-200 mt-0.5 font-sans">
                             If you are a Karunya University Student
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0">
+                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0">
                         <span>OPEN FORM</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </div>
@@ -105,20 +105,20 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                       className="group relative p-5 rounded-2xl bg-[#130f21]/90 border border-white/15 hover:border-white/60 shadow-md hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-all duration-300 cursor-pointer flex flex-row items-center justify-between gap-4 hover:-translate-y-0.5 active:scale-[0.99] touch-manipulation"
                     >
                       <div className="flex items-center gap-4">
-                        <span className="text-xl sm:text-2xl font-mono font-bold text-slate-400 group-hover:text-white shrink-0 transition-colors select-none">
+                        <span className="text-xl sm:text-2xl font-mono font-bold text-amber-400/80 group-hover:text-amber-300 shrink-0 transition-colors select-none">
                           /
                         </span>
                         <div>
-                          <h4 className="text-sm sm:text-base font-heading font-bold text-white group-hover:text-slate-100 transition-colors">
+                          <h4 className="text-sm sm:text-base font-heading font-bold text-amber-400 group-hover:text-amber-300 transition-colors">
                             External Participant
                           </h4>
-                          <p className="text-xs text-slate-400 group-hover:text-slate-300 mt-0.5 font-sans">
+                          <p className="text-xs text-slate-300 group-hover:text-slate-200 mt-0.5 font-sans">
                             If you are an external participant
                           </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-slate-300 group-hover:text-white group-hover:translate-x-1 transition-all shrink-0">
+                      <div className="flex items-center gap-1.5 text-xs font-mono font-bold text-amber-400 group-hover:text-amber-300 group-hover:translate-x-1 transition-all shrink-0">
                         <span>OPEN FORM</span>
                         <ExternalLink className="w-3.5 h-3.5" />
                       </div>
