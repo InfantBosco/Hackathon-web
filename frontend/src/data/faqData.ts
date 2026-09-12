@@ -29,7 +29,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-2',
     category: 'REGISTRATION',
     question: 'What is the deadline for registration?',
-    answer: 'Registration deadline is October 1, 2026 at 11:59 PM. Round updates will be communicated through registered email and official social channels.',
+    answer: 'Registration deadline is October 6, 2026 at 6:00 PM. Round updates will be communicated through registered email and official social channels.',
   },
   {
     id: 'faq-3',

@@ -24,7 +24,8 @@ const heroBadges = [
   },
   {
     label: 'REGISTER BY',
-    value: 'Oct 1 11:59 PM',
+    value: 'Oct 6',
+    subValue: '6:00 PM',
     icon: Clock,
   },
   {
@@ -160,6 +161,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
                       <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate mt-0.5">
                         {item.value}
                       </span>
+                      {item.subValue && (
+                        <span className="text-xs sm:text-sm font-heading font-bold text-white tracking-wide truncate">
+                          {item.subValue}
+                        </span>
+                      )}
                     </div>
                   </div>
                 );

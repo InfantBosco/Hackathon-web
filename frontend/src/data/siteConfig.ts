@@ -10,7 +10,7 @@ export const siteConfig = {
   teamSize: 4,
   registrationFee: 600, // ₹600 per person (₹2,400 per team of 4)
   totalTeamFee: 2400,
-  registrationDeadline: 'October 1, 2026, 11:59 PM',
+  registrationDeadline: 'October 6, 2026, 6:00 PM',
   prizePool: '₹1.5L+',
   // REGISTRATION FORM LINKS
   karunyaStudentUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSenYu2k0YnHuemmfX5kPMmIBfz7IqKtbn52CF29hFlQDlgpzw/viewform?usp=publish-editor',
