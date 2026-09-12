@@ -83,7 +83,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-10',
     category: 'EVENT',
     question: 'What are the official dates for HackNEX 2026?',
-    answer: 'HackNEX 2026 takes place offline from October 7 to October 9, 2026.',
+    answer: 'HackNEX 2026 takes place offline from October 8 to October 9, 2026.',
   },
   {
     id: 'faq-11',

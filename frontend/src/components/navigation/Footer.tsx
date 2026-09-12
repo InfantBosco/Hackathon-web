@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="text-xs leading-relaxed max-w-sm text-[var(--color-text-muted)]">
-              HackNEX 2026 is a 3-day national offline hackathon organized by{' '}
+              HackNEX 2026 is a 24 Hour National Level Hackathon organized by{' '}
               <span className="inline-flex items-center gap-1 font-semibold text-white">
                 <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
                 NEXUS
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               Club at Karunya Institute of Technology and Sciences, Coimbatore.
             </p>
             <div className="text-xs font-mono text-slate-300 tracking-wider">
-              OCTOBER 7–9, 2026 • COIMBATORE
+              OCTOBER 8–9, 2026 • COIMBATORE
             </div>
           </div>
 

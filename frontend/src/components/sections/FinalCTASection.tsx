@@ -38,7 +38,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onRegisterClic
           <p className="text-lg text-[var(--color-text-secondary)] mb-8 max-w-xl mx-auto leading-relaxed">
             <span>Assemble your team of 4 and register for <strong className="font-royal font-bold text-white">HackNEX '26</strong>.</span>
             <br />
-            <span className="inline-block mt-1">October 7–9, 2026 at Karunya University.</span>
+            <span className="inline-block mt-1">October 8–9, 2026 at Karunya University.</span>
           </p>
         </FadeIn>
 
@@ -47,9 +47,14 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onRegisterClic
             variant="primary"
             size="lg"
             onClick={handleRegisterClick}
-            className="min-w-[240px]"
+            className="min-w-[240px] !h-auto !py-3 flex-col gap-0.5"
           >
-            REGISTER NOW
+            <span className="font-royal font-black text-sm sm:text-base tracking-[0.15em] uppercase text-black leading-tight">
+              REGISTER NOW
+            </span>
+            <span className="font-royal font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase text-amber-600 leading-tight">
+              COMING SOON!!
+            </span>
           </Button>
         </FadeIn>
       </div>

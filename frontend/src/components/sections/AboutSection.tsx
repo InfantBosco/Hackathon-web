@@ -36,7 +36,7 @@ export const AboutSection: React.FC = () => {
               </KineticSpringFloat>
             </div>
             <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] font-mono text-xs text-[var(--color-accent-cyan)]">
-              OCTOBER 7 — 9, 2026 • COIMBATORE
+              OCTOBER 8 — 9, 2026 • COIMBATORE
             </div>
           </Card>
         </FadeIn>

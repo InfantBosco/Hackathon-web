@@ -30,7 +30,7 @@ const heroBadges = [
   },
   {
     label: 'PRIZE POOL',
-    value: 'Rs. 1.5 LAKH',
+    value: 'Rs. 1.5Lakhs+',
     icon: Trophy,
   },
 ];
@@ -179,15 +179,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
           initial={{ opacity: 0, y: 22, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ type: 'spring', stiffness: 120, damping: 18, delay: 0.55 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8"
         >
           <Button
             variant="primary"
             size="lg"
             onClick={handleRegisterClick}
-            className="w-full sm:w-auto min-w-[220px]"
+            className="w-full sm:w-auto min-w-[230px] !h-auto !py-3 flex-col gap-0.5"
           >
-            {heroData.primaryCtaText}
+            <span className="font-royal font-black text-sm sm:text-base tracking-[0.15em] uppercase text-black leading-tight">
+              REGISTER NOW
+            </span>
+            <span className="font-royal font-bold text-[11px] sm:text-xs tracking-[0.2em] uppercase text-amber-600 leading-tight">
+              COMING SOON!!
+            </span>
           </Button>
 
           <Button
@@ -195,7 +200,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             size="lg"
             onClick={handleExploreClick}
             rightIcon={<ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />}
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto !h-auto !py-4"
           >
             {heroData.secondaryCtaText}
           </Button>
