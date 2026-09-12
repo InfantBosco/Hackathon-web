@@ -3,7 +3,7 @@ export const siteConfig = {
   organizer: 'NEXUS Club',
   institution: 'Karunya Institute of Technology and Sciences',
   location: 'Coimbatore, Tamil Nadu, India',
-  dates: 'October 7–9, 2026',
+  dates: 'October 8–9, 2026',
   eventStartDate: '2026-10-07T09:00:00+05:30',
   mode: 'Offline',
   expectedParticipants: '1,500+',

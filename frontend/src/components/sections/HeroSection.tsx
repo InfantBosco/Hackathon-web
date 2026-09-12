@@ -14,7 +14,7 @@ import { KineticSpringFloat } from '../ui/KineticSpringFloat';
 const heroBadges = [
   {
     label: 'DATE',
-    value: 'Oct 7 - 9, 2026',
+    value: 'Oct 8 - 9, 2026',
     icon: Calendar,
   },
   {
