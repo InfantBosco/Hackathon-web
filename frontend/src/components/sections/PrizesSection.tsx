@@ -99,8 +99,20 @@ export const PrizesSection: React.FC = () => {
               ? 'text-slate-200'
               : 'text-zinc-300';
 
+            // Desktop Podium Column Placement (4th | 2nd | 1st | 3rd | 5th)
+            const orderClass =
+              tier.podiumOrder === 1
+                ? 'md:order-1'
+                : tier.podiumOrder === 2
+                ? 'md:order-2'
+                : tier.podiumOrder === 3
+                ? 'md:order-3'
+                : tier.podiumOrder === 4
+                ? 'md:order-4'
+                : 'md:order-5';
+
             return (
-              <ContainerScrollBox key={tier.id} className="w-full h-full relative group">
+              <ContainerScrollBox key={tier.id} className={`w-full h-full relative group ${orderClass}`}>
                 {/* Outer Soft Glow Aura on Hover */}
                 <div className={`absolute -inset-1 rounded-2xl ${outerAuraColorClass} blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
 
