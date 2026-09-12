@@ -3,7 +3,6 @@ import Lenis from 'lenis';
 import { Navbar } from '../components/navigation/Navbar';
 import { HeroSection } from '../components/sections/HeroSection';
 import { AboutSection } from '../components/sections/AboutSection';
-import { ChiefGuestSection } from '../components/sections/ChiefGuestSection';
 import { DomainsSection } from '../components/sections/DomainsSection';
 import { DetailsSection } from '../components/sections/DetailsSection';
 import { ScheduleSection } from '../components/sections/ScheduleSection';
@@ -47,7 +46,6 @@ export const HomePage: React.FC = () => {
   const sections = [
     { id: 'home', component: <HeroSection onRegisterClick={openRegisterModal} /> },
     { id: 'about', component: <AboutSection /> },
-    { id: 'chief-guest', component: <ChiefGuestSection /> },
     { id: 'domains', component: <DomainsSection /> },
     { id: 'details', component: <DetailsSection /> },
     { id: 'schedule', component: <ScheduleSection /> },
