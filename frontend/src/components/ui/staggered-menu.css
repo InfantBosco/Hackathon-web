@@ -17,17 +17,22 @@
 }
 
 .staggered-menu-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25em 1.5em;
-  background: transparent;
-  pointer-events: none;
-  z-index: 20;
+  padding: 0.75rem 1.25rem;
+  background: rgba(5, 7, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+  pointer-events: auto;
+  z-index: 50;
 }
 
 .staggered-menu-header > * {

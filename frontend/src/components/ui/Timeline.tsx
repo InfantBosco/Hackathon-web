@@ -85,7 +85,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </div>
 
               {/* Mobile Stacked Layout (Left line, Content on right) */}
-              <div className="md:hidden relative flex justify-start pl-8 sm:pl-10">
+              <div className="md:hidden relative flex justify-start pl-14 sm:pl-16">
                 {/* Mobile Pin Node centered on left vertical line */}
                 <div className="absolute left-6 -translate-x-1/2 top-1.5 z-40">
                   <div className="h-8 w-8 rounded-full bg-[#0b0c10] border border-white/40 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)]">
