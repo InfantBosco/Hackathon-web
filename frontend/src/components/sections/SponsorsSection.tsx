@@ -16,15 +16,12 @@ export const SponsorsSection: React.FC = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
         {sponsorsData.map((sponsor) => {
-          const isContain = sponsor.logoUrl?.endsWith('.svg') || sponsor.id === '4';
           const cardContent = (
-            <div className="w-full flex items-center justify-center min-h-[200px] md:min-h-[220px] h-[200px] md:h-[220px] border border-white/20 bg-[#0e0e0e]/90 backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] cursor-pointer overflow-hidden relative">
+            <div className="w-full flex items-center justify-center min-h-[200px] md:min-h-[220px] h-[200px] md:h-[220px] border border-white/20 bg-white backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] cursor-pointer overflow-hidden relative">
               <img
                 src={sponsor.logoUrl}
                 alt={sponsor.name}
-                className={`w-full h-full transition-transform duration-300 ease-out group-hover:scale-105 ${
-                  isContain ? 'object-contain p-5 bg-[#0a0a0f]' : 'object-cover'
-                }`}
+                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
               />
             </div>
           );
