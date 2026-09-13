@@ -1,5 +1,5 @@
 export interface DomainItem {
-  id: 'genai' | 'agentic' | 'cv' | 'smartinfra';
+  id: 'genai' | 'agentic' | 'cv' | 'localllms';
   number: string;
   title: string;
   category: string;
@@ -24,15 +24,15 @@ export const domainsData: DomainItem[] = [
   {
     id: 'cv',
     number: '03',
-    title: 'CV (Computer Vision)',
+    title: 'Computer Vision',
     category: 'DOMAIN 03',
     description: 'Engineer real-time visual recognition, spatial AI analytics, object detection & tracking, automated inspection, and video understanding.',
   },
   {
-    id: 'smartinfra',
+    id: 'localllms',
     number: '04',
-    title: 'Smart Infra',
+    title: 'Local LLMs',
     category: 'DOMAIN 04',
-    description: 'Build intelligent urban systems, smart energy grids, IoT telemetry, automated traffic management, and resilient connected infrastructure.',
+    description: 'Build intelligent applications using locally hosted Large Language Models, focusing on privacy, offline inference, efficient resource utilization, and AI-powered functionality without relying entirely on cloud-based APIs.',
   },
 ];
