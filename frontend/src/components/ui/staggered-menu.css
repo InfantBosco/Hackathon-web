@@ -197,7 +197,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--sm-accent, #8b5cf6);
+  color: var(--sm-accent, #f59e0b);
 }
 
 .sm-socials-list {
@@ -223,8 +223,9 @@
   transition: color 0.3s ease, opacity 0.3s ease;
 }
 
-.sm-socials-list .sm-socials-link:hover {
-  color: var(--sm-accent, #8b5cf6);
+.sm-socials-list .sm-socials-link:hover,
+.sm-socials-list .sm-socials-link:active {
+  color: var(--sm-accent, #f59e0b);
 }
 
 .sm-panel-list {
@@ -258,8 +259,10 @@
 }
 
 .sm-panel-item:hover,
-.sm-panel-item:hover .sm-panel-itemLabel {
-  background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+.sm-panel-item:active,
+.sm-panel-item:hover .sm-panel-itemLabel,
+.sm-panel-item:active .sm-panel-itemLabel {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -279,7 +282,7 @@
   right: 2.8em;
   font-size: 16px;
   font-weight: 500;
-  color: var(--sm-accent, #8b5cf6);
+  color: var(--sm-accent, #f59e0b);
   letter-spacing: 0;
   pointer-events: none;
   user-select: none;

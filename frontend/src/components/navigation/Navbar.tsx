@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
           items={staggeredItems}
           socialItems={socialItems}
           displaySocials={true}
-          displayItemNumbering={true}
+          displayItemNumbering={false}
           colors={['#05070f', '#0d111e', '#161c2e']}
           accentColor="#f59e0b"
           logoUrl="/logomain_svg.png"
