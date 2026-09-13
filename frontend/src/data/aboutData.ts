@@ -9,7 +9,7 @@ export const aboutData = {
     'Collaborate in a 24-hour continuous offline sprint',
     'Mentorship from top industry veterans & alumni',
     'Compete for ₹1.5L+ total cash prizes & awards',
-    'Food options for all participants & 2 Meals & Snacks will be given',
+    'Food options for all participants & 3 Meals & Snacks will be given',
   ],
   stats: [
     { id: '1', end: 1500, suffix: '+', label: 'Participants' },
