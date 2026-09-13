@@ -5,7 +5,7 @@ import { GlassCard } from '../ui/GlassCard';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
 import { Button } from '../ui/Button';
 import { siteConfig } from '../../data/siteConfig';
-import { Sparkles, FileText, Lock, Clock, Download, Cpu, Shield, Cloud, Database, Bot, Layers } from 'lucide-react';
+import { FileText, Lock, Clock, Download, Cpu, Shield, Cloud, Database, Bot, Layers } from 'lucide-react';
 
 export const DomainsSection: React.FC = () => {
   const [showNotice, setShowNotice] = useState(false);
@@ -47,24 +47,19 @@ export const DomainsSection: React.FC = () => {
             <div className="absolute -top-24 -right-24 w-80 h-80 bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-yellow-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-            {/* Background NEXUS Emblem Watermark */}
-            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
-              <img src="/logomain_svg.png" alt="NEXUS" className="w-28 h-28 object-contain" />
-            </div>
-
             {/* Card Header */}
-            <div className="relative z-10 flex items-center gap-2.5 mb-4">
-              <div className="p-2 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-400">
+            <div className="relative z-10 mb-4">
+              <span
+                className="text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-amber-400 block"
+                style={{ fontFamily: '"Times New Roman", Times, serif' }}
+              >
                 HACKATHON OVERARCHING THEME
               </span>
             </div>
 
             {/* Main Theme Statement */}
             <div className="relative z-10 my-4">
-              <h3 className="text-xl sm:text-2xl md:text-3xl font-royal font-black text-white leading-relaxed tracking-wide">
+              <h3 className="text-base sm:text-lg md:text-xl font-sans font-semibold text-slate-100 leading-relaxed tracking-normal">
                 "Develop innovative software solutions leveraging AI, local LLMs, agentic systems, data, cloud, cybersecurity, and emerging technologies to solve complex technical challenges."
               </h3>
             </div>
