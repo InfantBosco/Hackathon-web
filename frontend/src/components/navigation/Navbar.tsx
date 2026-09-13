@@ -7,7 +7,8 @@ import { siteConfig } from '../../data/siteConfig';
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
-  { name: 'PS & Theme', href: '#domains' },
+  { name: 'Theme', href: '#theme' },
+  { name: 'Problem Statements', href: '#problem-statements' },
   { name: 'Schedule', href: '#schedule' },
   { name: 'Prizes', href: '#prizes' },
   { name: 'Sponsors', href: '#sponsors' },

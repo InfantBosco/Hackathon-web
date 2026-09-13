@@ -45,7 +45,8 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2 text-xs">
               <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About HackNEX</a></li>
-              <li><a href="#domains" className="hover:text-white transition-colors">Domain Tracks</a></li>
+              <li><a href="#theme" className="hover:text-white transition-colors">Hackathon Theme</a></li>
+              <li><a href="#problem-statements" className="hover:text-white transition-colors">Problem Statements</a></li>
               <li><a href="#schedule" className="hover:text-white transition-colors">Event Schedule</a></li>
               <li><a href="#prizes" className="hover:text-white transition-colors">Prizes & Awards</a></li>
               <li><a href="#faq" className="hover:text-white transition-colors">Frequently Asked Questions</a></li>
