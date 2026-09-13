@@ -122,7 +122,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
                 className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
               <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789327252/qbdb0iurqhigf8c95rrr.png"
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789328079/to6ppmxjpf3a1tvkxqo0.png"
                 alt="SUSE Logo"
                 className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
