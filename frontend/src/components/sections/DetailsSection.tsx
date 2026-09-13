@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from '../layout/Section';
 import { SectionHeader } from '../layout/SectionHeader';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
-import { FileText } from 'lucide-react';
+import { FileText, X } from 'lucide-react';
 import { siteConfig } from '../../data/siteConfig';
 
 export const DetailsSection: React.FC = () => {
+  const [showNotice, setShowNotice] = useState(false);
+
   return (
     <Section id="details" variant="secondary">
       <SectionHeader
@@ -101,19 +103,51 @@ export const DetailsSection: React.FC = () => {
           </div>
 
           <div className="pt-2">
-            <a
-              href={siteConfig.rulesPdfUrl || '#'}
-              download="HackNEX_2026_Rules_and_Regulations.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={() => setShowNotice(true)}
               className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white text-black font-semibold text-sm hover:bg-zinc-200 transition-all duration-200 shadow-md cursor-pointer"
             >
               <FileText className="w-4 h-4 text-black" />
               <span>Download Rules & Regulations (PDF)</span>
-            </a>
+            </button>
           </div>
         </Card>
       </div>
+
+      {/* Modal Popup Notice */}
+      {showNotice && (
+        <div className="fixed inset-0 z-[1000] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="relative w-full max-w-md p-6 bg-zinc-900 border border-zinc-700 rounded-2xl shadow-2xl text-center space-y-5">
+            <button
+              type="button"
+              onClick={() => setShowNotice(false)}
+              className="absolute top-4 right-4 text-zinc-400 hover:text-white transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="w-14 h-14 mx-auto rounded-2xl bg-zinc-800 border border-zinc-700 flex items-center justify-center text-white shadow-inner">
+              <FileText className="w-7 h-7" />
+            </div>
+
+            <div>
+              <h4 className="text-lg font-heading font-bold text-white mb-2">Rules & Regulations PDF</h4>
+              <p className="text-sm text-zinc-300 leading-relaxed font-medium">
+                Rules & Regulations PDF will be uploaded here prior to the event!
+              </p>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setShowNotice(false)}
+              className="w-full py-3 px-4 rounded-xl bg-white text-black font-bold text-sm hover:bg-zinc-200 transition-all duration-200 shadow-md cursor-pointer"
+            >
+              Got it
+            </button>
+          </div>
+        </div>
+      )}
     </Section>
   );
 };
