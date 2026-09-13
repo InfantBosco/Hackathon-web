@@ -107,9 +107,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             {/* 4 Powered By Logos placed directly with mix-blend-screen for seamless blending */}
             <div className="flex items-center justify-center gap-5 sm:gap-8 md:gap-10 my-1.5 max-w-4xl mx-auto flex-wrap">
               <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322294/jnoenmf8n3lot5nffppl.png"
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789326896/c3mge67lo7wkiaabcb60.png"
                 alt="IBM Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain mix-blend-screen transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
