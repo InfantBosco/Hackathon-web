@@ -49,7 +49,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-5',
     category: 'TEAMS',
     question: 'Are cross-college and cross-department teams allowed?',
-    answer: 'Yes! HackNEX encourages interdisciplinary collaboration. Team members can be from different colleges, departments, or academic years.',
+    answer: 'Cross-college participation is not allowed and inter-departmental participation is allowed for participants',
   },
   {
     id: 'faq-6',
@@ -75,7 +75,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-9',
     category: 'PAYMENT',
     question: 'Is the registration fee refundable?',
-    answer: 'Registration fee policies and terms will be governed according to the official event guidelines.',
+    answer: 'No. Registration fee is non-refundable.',
   },
 
   // Event
@@ -97,13 +97,13 @@ export const faqData: FAQItem[] = [
     id: 'faq-12',
     category: 'ELIGIBILITY',
     question: 'Who is eligible to participate in HackNEX?',
-    answer: 'Undergraduate, postgraduate, and diploma students from recognized academic institutions are eligible to participate.',
+    answer: 'Only Undergraduate students are eligible to participate.',
   },
   {
     id: 'faq-13',
     category: 'ELIGIBILITY',
-    question: 'Are food preferences recorded for participants?',
-    answer: 'Yes. Food preferences (Vegetarian / Non-Vegetarian) are recorded individually for each of the 4 team members during registration.',
+    question: 'Are food preferences considered?',
+    answer: 'Yes. Food preferences (Vegetarian / Non-Vegetarian) are recorded individually for each of the 4 team members during registration and food will be provided respectively.',
   },
 
   // Venue
@@ -117,7 +117,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-15',
     category: 'VENUE',
     question: 'Will accommodation be provided for outstation teams?',
-    answer: 'Detailed accommodation guidelines and campus lodging arrangements will be announced prior to the event.',
+    answer: 'Accomdation arrangements must be made independently by the participants',
   },
 
   // Communication
@@ -125,7 +125,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-16',
     category: 'COMMUNICATION',
     question: 'How will participants receive hackathon updates?',
-    answer: 'All official notifications, check-in instructions, and schedule announcements will be delivered to the leader\'s registered email address.',
+    answer: "All official notifications, check-in instructions, and schedule announcements will be sent in the official Whatsapp group and the Team Leader's registered email address",
   },
 
   // Technical
@@ -133,12 +133,12 @@ export const faqData: FAQItem[] = [
     id: 'faq-17',
     category: 'TECHNICAL',
     question: 'What domain tracks are available at HackNEX?',
-    answer: 'Tracks include AI & ML, Cybersecurity, FinTech, HealthTech, Web3, and Sustainability & Open Innovation.',
+    answer: 'Problem Statements include Agentic AI , Generative AI , LLMs , AI & ML , Cybersecurity and much more!!',
   },
   {
     id: 'faq-18',
     category: 'TECHNICAL',
     question: 'What hardware/software must teams bring?',
-    answer: 'Teams must bring their own laptops, chargers, extension cords, and hardware development kits required for their project.',
+    answer: 'Teams must bring their own laptops, chargers, extension cords, required peripherals,  for their project development. Wi-Fi and power facilities will be provided at the venue',
   },
 ];
