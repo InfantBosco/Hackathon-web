@@ -41,18 +41,19 @@ export const orbitalTimelineData: TimelineItem[] = [
     id: 3,
     title: "Oct 9 : Day 3",
     date: "Oct 9, 2026",
-    content: "Overnight refreshments, final evaluation & closing ceremony.",
+    content: "Grand Finale & Closing Ceremony.",
     category: "Day 3",
     icon: () => null,
     relatedIds: [],
     status: "pending",
     energy: 100,
     scheduleItems: [
-      "12am Refreshments",
-      "4am Refreshments",
-      "7am Breakfast",
-      "10am Judgements",
-      "12pm Prize Distribution + Closing Ceremony"
+      "8:30 AM - Final Submission & Jury Screening",
+      "9:30 AM - Top 15 Finalists Announced",
+      "9:40 AM - Final Pitch & Presentation",
+      "11:15 AM - Chief Guest Session",
+      "12:15 PM - Awards & Prize Distribution",
+      "12:37 PM - Event Conclusion and Photos"
     ]
   }
 ];
@@ -79,13 +80,14 @@ export const scheduleData = [
   },
   {
     date: 'OCTOBER 9, 2026',
-    dayLabel: 'DAY 3 — FINALS & CEREMONY',
+    dayLabel: 'DAY 3 — GRAND FINALE & CLOSING',
     events: [
-      { time: '12:00 AM', title: 'Refreshments', description: '12am Refreshments.', status: 'upcoming' as const },
-      { time: '04:00 AM', title: 'Refreshments', description: '4am Refreshments.', status: 'upcoming' as const },
-      { time: '07:00 AM', title: 'Breakfast', description: '7am Breakfast.', status: 'upcoming' as const },
-      { time: '10:00 AM', title: 'Judgements', description: '10am Judgements.', status: 'upcoming' as const },
-      { time: '12:00 PM', title: 'Prize Distribution + Closing Ceremony', description: '12pm Prize Distribution + Closing Ceremony.', status: 'upcoming' as const },
+      { time: '08:30 AM - 09:30 AM', title: 'Final Submission & Jury Screening', description: 'Final Submission & Jury Screening.', status: 'upcoming' as const },
+      { time: '09:30 AM - 09:40 AM', title: 'Top 15 Finalists Announced', description: 'Top 15 Finalists Announced.', status: 'upcoming' as const },
+      { time: '09:40 AM - 10:55 AM', title: 'Final Pitch & Presentation', description: 'Final Pitch & Presentation.', status: 'upcoming' as const },
+      { time: '11:15 AM - 12:15 PM', title: 'Chief Guest Session', description: 'Chief Guest Session.', status: 'upcoming' as const },
+      { time: '12:15 PM - 12:35 PM', title: 'Awards & Prize Distribution', description: 'Awards & Prize Distribution.', status: 'upcoming' as const },
+      { time: '12:37 PM - 01:00 PM', title: 'Event Conclusion and Photos', description: 'Event Conclusion and Photos.', status: 'upcoming' as const },
     ],
   },
 ];
