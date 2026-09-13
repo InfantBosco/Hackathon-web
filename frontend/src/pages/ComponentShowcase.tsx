@@ -93,7 +93,7 @@ export const ComponentShowcase: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-mono text-[var(--color-text-muted)] font-mono">Code / Technical (JetBrains Mono)</span>
-                <p className="font-mono text-xs text-[var(--color-accent-purple)]">const TEAM_SIZE = 4; // 1 Captain + 3 Members</p>
+                <p className="font-mono text-xs text-[var(--color-accent-purple)]">const TEAM_SIZE = 4; // 1 Leader + 3 Members</p>
               </div>
             </div>
           </Card>
@@ -199,12 +199,12 @@ export const ComponentShowcase: React.FC = () => {
         <SectionHeader
           badge="FORMS"
           title="Accessible Form Primitives"
-          subtitle="Prepared for upcoming captain and participant registration flows."
+          subtitle="Prepared for upcoming leader and participant registration flows."
         />
 
         <div className="max-w-2xl mx-auto space-y-6">
           <Input label="Team Name" placeholder="Enter your unique team name" leftIcon={<Code className="w-4 h-4" />} />
-          <Input label="Captain Email" placeholder="captain@karunya.edu" error="Must be a valid email address" />
+          <Input label="Leader Email" placeholder="leader@karunya.edu" error="Must be a valid email address" />
           <Textarea label="Project Pitch / Abstract" placeholder="Briefly describe your project idea..." />
           <Select
             label="Year of Study"
@@ -217,7 +217,7 @@ export const ComponentShowcase: React.FC = () => {
           />
           <RadioGroup
             name="foodPreference"
-            label="Captain Food Preference"
+            label="Leader Food Preference"
             selectedValue={radioSelected}
             onChange={setRadioSelected}
             options={[
@@ -262,7 +262,7 @@ export const ComponentShowcase: React.FC = () => {
             <h3 className="text-xl font-heading font-bold text-white mb-4">Accordion FAQ Component</h3>
             <Accordion
               items={[
-                { id: 'faq-1', title: 'What is the team size requirement for HackNEX?', content: 'Every team must consist of exactly 4 participants (1 Team Captain + 3 Team Members).' },
+                { id: 'faq-1', title: 'What is the team size requirement for HackNEX?', content: 'Every team must consist of exactly 4 participants (1 Team Leader + 3 Team Members).' },
                 { id: 'faq-2', title: 'Can members be from different colleges?', content: 'Yes! Cross-college and cross-department teams are fully supported.' },
                 { id: 'faq-3', title: 'What is the registration fee?', content: 'The registration fee is ₹500 per person (₹2,000 per team of 4).' },
               ]}

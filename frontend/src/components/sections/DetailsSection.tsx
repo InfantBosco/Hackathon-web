@@ -30,7 +30,7 @@ export const DetailsSection: React.FC = () => {
             <div className="p-4 rounded-[var(--radius-md)] bg-[var(--color-surface-elevated)] border border-[var(--color-border-subtle)]">
               <span className="text-xs font-mono text-slate-300 block mb-1">TEAM STRUCTURE</span>
               <p className="font-semibold text-white mb-1">Exactly {siteConfig.teamSize} Members</p>
-              <p className="text-xs text-[var(--color-text-secondary)]">1 Team Captain + 3 Members mandatory.</p>
+              <p className="text-xs text-[var(--color-text-secondary)]">1 Team Leader + 3 Members mandatory.</p>
             </div>
 
             <div className="p-4 rounded-[var(--radius-md)] bg-[var(--color-surface-elevated)] border border-[var(--color-border-subtle)]">

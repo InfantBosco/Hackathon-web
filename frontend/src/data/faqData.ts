@@ -23,7 +23,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-1',
     category: 'REGISTRATION',
     question: 'How do I register my team for HackNEX 2026?',
-    answer: 'Registration is performed by the Team Captain. Click "REGISTER NOW", create/login to your account, verify your email, create a team, and fill in details for all 4 team members.',
+    answer: 'Registration is performed by the Team Leader. Click "REGISTER NOW", create/login to your account, verify your email, create a team, and fill in details for all 4 team members.',
   },
   {
     id: 'faq-2',
@@ -35,7 +35,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-3',
     category: 'REGISTRATION',
     question: 'Can I edit team details after submitting registration?',
-    answer: 'Team captain details can be managed via the captain portal prior to registration status lock.',
+    answer: 'Team leader details can be managed via the leader portal prior to registration status lock.',
   },
 
   // Teams
@@ -43,7 +43,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-4',
     category: 'TEAMS',
     question: 'What is the mandatory team size for HackNEX?',
-    answer: 'Every team MUST consist of exactly 4 members (1 Team Captain + 3 Team Members). Teams with fewer or more members cannot complete registration.',
+    answer: 'Every team MUST consist of exactly 4 members (1 Team Leader + 3 Team Members). Teams with fewer or more members cannot complete registration.',
   },
   {
     id: 'faq-5',
@@ -125,7 +125,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-16',
     category: 'COMMUNICATION',
     question: 'How will participants receive hackathon updates?',
-    answer: 'All official notifications, check-in instructions, and schedule announcements will be delivered to the captain\'s registered email address.',
+    answer: 'All official notifications, check-in instructions, and schedule announcements will be delivered to the leader\'s registered email address.',
   },
 
   // Technical
