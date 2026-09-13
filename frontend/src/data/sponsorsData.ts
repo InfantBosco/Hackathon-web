@@ -9,14 +9,6 @@ export interface SponsorItem {
 
 export const sponsorsData: SponsorItem[] = [
   {
-    id: '2',
-    name: 'Karimam Global Ventures',
-    category: 'GOLD SPONSOR',
-    placeholderText: 'GOLD SPONSOR',
-    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/qdsr0h4nalbvgkicfgky.jpg',
-    websiteUrl: 'https://www.karimamglobal.com/',
-  },
-  {
     id: '1',
     name: 'Reflex Labs',
     category: 'TITLE SPONSOR',
@@ -25,11 +17,27 @@ export const sponsorsData: SponsorItem[] = [
     websiteUrl: 'https://www.reflexlabs.ai/',
   },
   {
+    id: '2',
+    name: 'Karimam Global Ventures',
+    category: 'GOLD SPONSOR',
+    placeholderText: 'GOLD SPONSOR',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/qdsr0h4nalbvgkicfgky.jpg',
+    websiteUrl: 'https://www.karimamglobal.com/',
+  },
+  {
     id: '3',
     name: 'Payanam Foundation',
     category: 'COMMUNITY PARTNER',
     placeholderText: 'COMMUNITY PARTNER',
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/zo5opxfx81wwaxjxibri.jpg',
     websiteUrl: 'https://www.payanamfoundation.org/',
+  },
+  {
+    id: '4',
+    name: 'Abstryn Tech',
+    category: 'COMMUNITY PARTNER',
+    placeholderText: 'COMMUNITY PARTNER',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789321139/mn9qgyhsaqemuwyhqosp.svg',
+    websiteUrl: 'https://www.abstryn.tech/',
   },
 ];

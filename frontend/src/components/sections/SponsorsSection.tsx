@@ -14,14 +14,17 @@ export const SponsorsSection: React.FC = () => {
         subtitle="Empowering student innovators with infrastructure, mentorship, and cloud credits."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
         {sponsorsData.map((sponsor) => {
+          const isSvg = sponsor.logoUrl?.endsWith('.svg');
           const cardContent = (
-            <div className="w-full flex items-center justify-center min-h-[220px] md:min-h-[240px] h-[220px] md:h-[240px] border border-white/20 bg-[#0e0e0e]/90 backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] cursor-pointer overflow-hidden relative">
+            <div className="w-full flex items-center justify-center min-h-[200px] md:min-h-[220px] h-[200px] md:h-[220px] border border-white/20 bg-[#0e0e0e]/90 backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_30px_rgba(255,255,255,0.25)] cursor-pointer overflow-hidden relative">
               <img
                 src={sponsor.logoUrl}
                 alt={sponsor.name}
-                className="w-full h-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
+                className={`w-full h-full transition-transform duration-300 ease-out group-hover:scale-105 ${
+                  isSvg ? 'object-contain p-6 bg-slate-950/90' : 'object-cover'
+                }`}
               />
             </div>
           );
@@ -48,12 +51,12 @@ export const SponsorsSection: React.FC = () => {
             <div key={sponsor.id} className="flex flex-col items-center">
               <Card
                 variant="hoverGlow"
-                className="w-full flex flex-col items-center justify-center p-10 md:p-14 text-center min-h-[220px] md:min-h-[240px] h-[220px] md:h-[240px] border border-white/20 bg-[#0e0e0e]/90 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-white hover:scale-[1.03]"
+                className="w-full flex flex-col items-center justify-center p-8 text-center min-h-[200px] md:min-h-[220px] h-[200px] md:h-[220px] border border-white/20 bg-[#0e0e0e]/90 backdrop-blur-md shadow-2xl transition-all duration-300 hover:border-white hover:scale-[1.03]"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center mb-4 shadow-inner">
-                  <Building2 className="w-9 h-9 text-white" />
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/15 flex items-center justify-center mb-3 shadow-inner">
+                  <Building2 className="w-8 h-8 text-white" />
                 </div>
-                <span className="text-sm font-mono font-bold tracking-wider text-white uppercase">
+                <span className="text-xs font-mono font-bold tracking-wider text-white uppercase">
                   {sponsor.placeholderText}
                 </span>
               </Card>
