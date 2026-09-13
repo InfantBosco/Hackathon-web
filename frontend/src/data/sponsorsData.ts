@@ -37,7 +37,7 @@ export const sponsorsData: SponsorItem[] = [
     name: 'Abstryn Tech',
     category: 'COMMUNITY PARTNER',
     placeholderText: 'COMMUNITY PARTNER',
-    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789321139/mn9qgyhsaqemuwyhqosp.svg',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789321764/dqfjcvdtxx83hvwt4asi.png',
     websiteUrl: 'https://www.abstryn.tech/',
   },
 ];
