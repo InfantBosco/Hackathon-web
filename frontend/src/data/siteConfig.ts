@@ -19,6 +19,7 @@ export const siteConfig = {
   registerRoute: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
   googleMapsUrl: 'https://maps.google.com/?q=Karunya+Institute+of+Technology+and+Sciences+Coimbatore',
   problemStatementsPdfUrl: '',
+  rulesPdfUrl: '/HackNEX_2026_Rules_and_Regulations.pdf',
   socials: {
     linkedin: 'https://www.linkedin.com/company/nexus-gc/',
     instagram: 'https://www.instagram.com/nexus_kits/',
