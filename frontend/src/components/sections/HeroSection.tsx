@@ -72,17 +72,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
   };
 
   return (
-    <GridBackground id="home" className="min-h-screen pt-20 sm:pt-24 pb-12 flex flex-col justify-center relative">
+    <GridBackground id="home" className="min-h-screen pt-28 sm:pt-32 pb-16 flex flex-col justify-center relative">
       <NeuralNoise opacity={0.3} />
 
-      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto -mt-4 sm:-mt-6 md:-mt-8">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto mt-2 sm:mt-4">
         {/* Header Tagline & Brand */}
-        <div className="flex flex-col items-center gap-3 mb-4">
+        <div className="flex flex-col items-center gap-1.5 mb-3">
           <motion.div
             initial={{ opacity: 0, y: -16, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
-            className="flex flex-col items-center gap-2 mb-1"
+            className="flex flex-col items-center gap-1 mb-0"
           >
             {/* Increased Karunya & Nexus Header Logos */}
             <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 my-1 mx-auto">
@@ -143,7 +143,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             initial={{ opacity: 0, y: 28, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.2 }}
-            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-hacknex font-black tracking-tight uppercase select-none flex items-center justify-center text-center mx-auto w-full leading-none"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-hacknex font-black tracking-tight uppercase select-none flex items-center justify-center text-center mx-auto w-full leading-none -mt-1 sm:-mt-2"
           >
             <span className="text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.35)]">HACKNE</span>
             <span className="text-google-x drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]">X</span>
