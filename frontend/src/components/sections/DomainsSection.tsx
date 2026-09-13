@@ -91,19 +91,19 @@ export const DomainsSection: React.FC = () => {
         <ContainerScrollBox className="w-full">
           <GlassCard
             glowColor="none"
-            className="relative group border border-white/20 hover:border-white/40 bg-[#0b0c13]/90 backdrop-blur-xl shadow-[0_0_40px_rgba(255,255,255,0.08)] p-7 sm:p-10 rounded-3xl overflow-hidden transition-all duration-300"
+            className="relative group border border-white/35 hover:border-white/65 bg-[#0b0c13]/98 backdrop-blur-2xl shadow-[0_0_50px_rgba(255,255,255,0.18)] p-7 sm:p-10 rounded-3xl overflow-hidden transition-all duration-300"
           >
             {/* Ambient Background Accents */}
-            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500/10 blur-[90px] rounded-full pointer-events-none" />
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500/15 blur-[80px] rounded-full pointer-events-none" />
 
             {/* Card Header & Status Badge */}
-            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5 pb-5 border-b border-white/10">
+            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5 pb-5 border-b border-white/20">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-slate-200">
+                <div className="p-2.5 rounded-xl bg-white/15 border border-white/25 text-white shadow-sm">
                   <FileText className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-slate-400">
+                  <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-slate-300">
                     CHALLENGE TRACKS
                   </span>
                   <h3 className="text-xl sm:text-2xl font-heading font-black text-white uppercase tracking-tight mt-0.5">
@@ -113,7 +113,7 @@ export const DomainsSection: React.FC = () => {
               </div>
 
               {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold uppercase tracking-wider">
+              <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
                 <Clock className="w-3.5 h-3.5 animate-pulse" />
                 <span>To be Released</span>
               </div>
@@ -121,7 +121,7 @@ export const DomainsSection: React.FC = () => {
 
             {/* Description Body */}
             <div className="relative z-10 my-4 max-w-3xl">
-              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+              <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-sans font-medium">
                 Official problem statements and track guidelines will be released prior to the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here.
               </p>
             </div>
