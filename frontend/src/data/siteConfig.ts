@@ -13,7 +13,7 @@ export const siteConfig = {
   registrationDeadline: 'October 6, 2026, 6:00 PM',
   prizePool: '₹1.5L+',
   // REGISTRATION FORM LINKS
-  karunyaStudentUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSenYu2k0YnHuemmfX5kPMmIBfz7IqKtbn52CF29hFlQDlgpzw/viewform?usp=publish-editor',
+  karunyaStudentUrl: 'https://docs.google.com/forms/d/19HQd7qLLCMikdOkJcYr90OwefbOxX6zTPQGQDvQKZ2g/',
   externalParticipantUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
   googleFormUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
   registerRoute: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
