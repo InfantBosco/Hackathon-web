@@ -15,41 +15,22 @@ export const ScheduleSection: React.FC = () => {
               {/* 7:30 AM - 8:30 AM */}
               <div className="space-y-1.5">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">07:30 AM — 08:30 AM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">External Participant Arrival, Registration & Kit Distribution</h5>
-                <ul className="space-y-1 text-xs text-slate-400 font-sans leading-relaxed pl-0.5">
-                  <li className="flex items-start gap-2">
-                    <span className="text-slate-500 font-bold">•</span>
-                    <span>Participant arrival</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-slate-500 font-bold">•</span>
-                    <span>Registration: Confirm Attendance, Confirm Whatsapp group Addition, Confirm Kit collection</span>
-                  </li>
-                </ul>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Participant Arrival & Registration</h5>
+                <p className="text-slate-300 text-xs font-sans leading-relaxed flex items-center gap-1.5">
+                  <span className="text-amber-400 font-bold">•</span> Exclusive HackNex Kit distribution!
+                </p>
               </div>
 
-              {/* 8:30 AM - 8:45 AM */}
+              {/* 8:30 AM - 9:30 AM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">08:30 AM — 08:45 AM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Participants Assemble at Emmanuel Auditorium</h5>
-              </div>
-
-              {/* 9:00 AM - 9:30 AM */}
-              <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">09:00 AM — 09:30 AM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Round 2 Opening Ceremony</h5>
-              </div>
-
-              {/* 9:30 AM */}
-              <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-widest uppercase">09:30 AM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Hackathon Begins — Round 2 (24-Hr Clock Starts)</h5>
+                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">08:30 AM — 09:30 AM</div>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Opening Ceremony & Hackathon Briefing</h5>
               </div>
 
               {/* 9:30 AM - 12:00 PM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">09:30 AM — 12:00 PM (2h 30m)</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 1</h5>
+                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">09:30 AM — 12:00 PM</div>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase #1</h5>
               </div>
 
               {/* 12:00 PM - 1:00 PM */}
@@ -60,26 +41,26 @@ export const ScheduleSection: React.FC = () => {
 
               {/* 1:00 PM - 4:00 PM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">01:00 PM — 04:00 PM (3 Hours)</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 2</h5>
+                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">01:00 PM — 04:00 PM</div>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase #2</h5>
               </div>
 
               {/* 4:00 PM - 4:15 PM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">04:00 PM — 04:15 PM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Afternoon Tea Break</h5>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Break</h5>
               </div>
 
               {/* 4:15 PM - 5:15 PM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-widest uppercase">04:15 PM — 05:15 PM (1 Hour)</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Jury Round — Idea Pitch + Progress Check #1</h5>
+                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">04:15 PM — 05:15 PM</div>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Jury Review & Progress Check</h5>
               </div>
 
               {/* 5:15 PM - 7:30 PM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">05:15 PM — 07:30 PM (2h 15m)</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 3</h5>
+                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">05:15 PM — 07:30 PM</div>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase #3</h5>
               </div>
 
               {/* 7:30 PM - 8:30 PM */}
@@ -90,40 +71,38 @@ export const ScheduleSection: React.FC = () => {
 
               {/* 8:30 PM - 10:30 PM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">08:30 PM — 10:30 PM (2 Hours)</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 4</h5>
+                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">08:30 PM — 10:30 PM</div>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase #4</h5>
               </div>
 
               {/* 10:30 PM - 10:45 PM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">10:30 PM — 10:45 PM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Ice Breaker Session</h5>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Break</h5>
               </div>
 
               {/* 10:45 PM - 4:00 AM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
-                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-widest uppercase">10:45 PM — 04:00 AM (5h 15m)</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 5</h5>
-                <p className="text-slate-400 text-xs font-sans leading-relaxed">Last-minute debugging, code freezes, and pitch deck preparation.</p>
+                <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">10:45 PM — 04:00 AM</div>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Overnight Build</h5>
               </div>
 
               {/* 4:00 AM - 6:30 AM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">04:00 AM — 06:30 AM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build Phase 6</h5>
-                <p className="text-slate-400 text-xs font-sans leading-relaxed">Quiet coding hours; nap zone open for tired participants.</p>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Build & Development</h5>
               </div>
 
               {/* 6:30 AM - 8:00 AM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">06:30 AM — 08:00 AM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Breakfast Open</h5>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Breakfast Break</h5>
               </div>
 
               {/* 8:00 AM - 8:30 AM */}
               <div className="pt-3.5 border-t border-white/10 space-y-1">
                 <div className="font-royal font-bold text-amber-400 text-xs sm:text-sm tracking-wider uppercase">08:00 AM — 08:30 AM</div>
-                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Final Sprint — Last-Minute Debugging + Pitch Deck Prep</h5>
+                <h5 className="font-heading font-semibold text-slate-100 text-sm sm:text-base">Final Sprint & Submission Preparation</h5>
               </div>
             </div>
           </div>
