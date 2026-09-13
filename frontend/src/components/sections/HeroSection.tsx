@@ -72,64 +72,64 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
   };
 
   return (
-    <GridBackground id="home" className="min-h-screen pt-28 pb-16 flex flex-col justify-center relative">
+    <GridBackground id="home" className="min-h-screen pt-20 sm:pt-24 pb-12 flex flex-col justify-center relative">
       <NeuralNoise opacity={0.3} />
 
-      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto">
+      <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto -mt-4 sm:-mt-6 md:-mt-8">
         {/* Header Tagline & Brand */}
-        <div className="flex flex-col items-center gap-4 mb-6">
+        <div className="flex flex-col items-center gap-3 mb-4">
           <motion.div
             initial={{ opacity: 0, y: -16, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
-            className="flex flex-col items-center gap-2 mb-2"
+            className="flex flex-col items-center gap-2 mb-1"
           >
-            {/* Reduced Karunya & Nexus Header Logos */}
-            <div className="flex items-center justify-center gap-5 sm:gap-7 md:gap-8 my-1.5 mx-auto">
+            {/* Increased Karunya & Nexus Header Logos */}
+            <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 my-1 mx-auto">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789196109/e0ujlxpd75ckmqlooy8w.png"
                 alt="Karunya Logo"
-                className="h-9 sm:h-12 md:h-14 lg:h-15 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
+                className="h-13 sm:h-17 md:h-20 lg:h-22 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
               />
-              <div className="h-7 sm:h-9 md:h-11 w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_8px_rgba(255,255,255,0.5)] shrink-0" />
+              <div className="h-9 sm:h-12 md:h-15 w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.6)] shrink-0" />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789059762/bniypjdp0l5zfayyz712.png"
                 alt="Nexus Logo"
-                className="h-9 sm:h-12 md:h-14 lg:h-15 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
+                className="h-13 sm:h-17 md:h-20 lg:h-22 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
               />
             </div>
 
             {/* POWERED BY Label */}
-            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.35em] text-slate-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mt-1.5">
+            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.35em] text-slate-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mt-1">
               POWERED BY
             </span>
 
-            {/* 4 Powered By Logos placed directly without white box, with increased size */}
-            <div className="flex items-center justify-center gap-4 sm:gap-7 md:gap-9 my-2 max-w-4xl mx-auto flex-wrap">
+            {/* 4 Powered By Logos placed directly with mix-blend-screen for seamless blending */}
+            <div className="flex items-center justify-center gap-5 sm:gap-8 md:gap-10 my-1.5 max-w-4xl mx-auto flex-wrap">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322294/jnoenmf8n3lot5nffppl.png"
                 alt="IBM Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain mix-blend-screen transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
                 alt="Google Cloud Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322297/jpamfscxpk63df0tsxgb.png"
                 alt="Microsoft Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322294/oawhlpbwdefslmbeyefj.webp"
                 alt="SUSE Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain mix-blend-screen transition-transform duration-300 hover:scale-105"
               />
             </div>
 
             {/* D I V I S I O N  O F  C S E */}
-            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-heading font-black tracking-[0.3em] sm:tracking-[0.45em] text-slate-100 uppercase drop-shadow-[0_0_14px_rgba(255,255,255,0.4)] mt-2.5">
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-heading font-black tracking-[0.3em] sm:tracking-[0.45em] text-slate-100 uppercase drop-shadow-[0_0_14px_rgba(255,255,255,0.4)] mt-2">
               D I V I S I O N &nbsp; O F &nbsp; C S E
             </span>
 
