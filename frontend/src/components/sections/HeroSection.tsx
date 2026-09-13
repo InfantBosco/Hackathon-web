@@ -84,53 +84,53 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
             className="flex flex-col items-center gap-2 mb-2"
           >
-            {/* Karunya & Nexus Header Logos */}
-            <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 my-2 mx-auto">
+            {/* Reduced Karunya & Nexus Header Logos */}
+            <div className="flex items-center justify-center gap-5 sm:gap-7 md:gap-8 my-1.5 mx-auto">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789196109/e0ujlxpd75ckmqlooy8w.png"
                 alt="Karunya Logo"
-                className="h-12 sm:h-16 md:h-18 lg:h-20 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
+                className="h-9 sm:h-12 md:h-14 lg:h-15 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
               />
-              <div className="h-10 sm:h-12 md:h-16 w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.6)] shrink-0" />
+              <div className="h-7 sm:h-9 md:h-11 w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_8px_rgba(255,255,255,0.5)] shrink-0" />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789059762/bniypjdp0l5zfayyz712.png"
                 alt="Nexus Logo"
-                className="h-12 sm:h-16 md:h-18 lg:h-20 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
+                className="h-9 sm:h-12 md:h-14 lg:h-15 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
               />
             </div>
 
             {/* POWERED BY Label */}
-            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.35em] text-slate-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mt-2">
+            <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.35em] text-slate-300 drop-shadow-[0_0_10px_rgba(255,255,255,0.3)] mt-1.5">
               POWERED BY
             </span>
 
-            {/* 4 Powered By Logos in 1 horizontal line */}
-            <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 px-4 sm:px-8 py-2 sm:py-3 rounded-2xl sm:rounded-full bg-white/95 backdrop-blur-md border border-white/40 shadow-[0_0_25px_rgba(255,255,255,0.25)] my-1 max-w-4xl mx-auto">
+            {/* 4 Powered By Logos placed directly without white box, with increased size */}
+            <div className="flex items-center justify-center gap-4 sm:gap-7 md:gap-9 my-2 max-w-4xl mx-auto flex-wrap">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322294/jnoenmf8n3lot5nffppl.png"
                 alt="IBM Logo"
-                className="h-5 sm:h-7 md:h-8 lg:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
                 alt="Google Cloud Logo"
-                className="h-5 sm:h-7 md:h-8 lg:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322297/jpamfscxpk63df0tsxgb.png"
                 alt="Microsoft Logo"
-                className="h-5 sm:h-7 md:h-8 lg:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322294/oawhlpbwdefslmbeyefj.webp"
                 alt="SUSE Logo"
-                className="h-5 sm:h-7 md:h-8 lg:h-9 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain drop-shadow-[0_0_16px_rgba(255,255,255,0.35)] transition-transform duration-300 hover:scale-105"
               />
             </div>
 
-            {/* DIVISION OF CSE */}
-            <span className="text-xs sm:text-sm md:text-base font-heading font-black tracking-[0.35em] sm:tracking-[0.45em] text-slate-100 uppercase drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] mt-2">
-              DIVISION OF CSE
+            {/* D I V I S I O N  O F  C S E */}
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-heading font-black tracking-[0.3em] sm:tracking-[0.45em] text-slate-100 uppercase drop-shadow-[0_0_14px_rgba(255,255,255,0.4)] mt-2.5">
+              D I V I S I O N &nbsp; O F &nbsp; C S E
             </span>
 
             {/* PRESENTS */}
