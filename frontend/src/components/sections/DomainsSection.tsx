@@ -1,126 +1,164 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Section } from '../layout/Section';
 import { SectionHeader } from '../layout/SectionHeader';
-import { Badge } from '../ui/Badge';
-import { domainsData, DomainItem } from '../../data/domainsData';
+import { GlassCard } from '../ui/GlassCard';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
+import { Button } from '../ui/Button';
+import { siteConfig } from '../../data/siteConfig';
+import { Sparkles, FileText, Lock, Clock, Download, Cpu, Shield, Cloud, Database, Bot, Layers } from 'lucide-react';
 
 export const DomainsSection: React.FC = () => {
-  // SVG Paths for the 4 Inward Concave Corner Cutouts matching the exact pinwheel design
-  const cardPaths: Record<string, string> = {
-    // Top-Left Card (Gen AI): Cutout at Bottom-Right
-    genai: 'M 28,0 L 372,0 A 28,28 0 0 1 400,28 L 400,192 A 68,68 0 0 0 332,260 L 28,260 A 28,28 0 0 1 0,232 L 0,28 A 28,28 0 0 1 28,0 Z',
-    
-    // Top-Right Card (Agentic AI): Cutout at Bottom-Left
-    agentic: 'M 28,0 L 372,0 A 28,28 0 0 1 400,28 L 400,232 A 28,28 0 0 1 372,260 L 68,260 A 68,68 0 0 0 0,192 L 0,28 A 28,28 0 0 1 28,0 Z',
-    
-    // Bottom-Left Card (CV): Cutout at Top-Right
-    cv: 'M 28,0 L 332,0 A 68,68 0 0 0 400,68 L 400,232 A 28,28 0 0 1 372,260 L 28,260 A 28,28 0 0 1 0,232 L 0,28 A 28,28 0 0 1 28,0 Z',
-    
-    // Bottom-Right Card (Smart Infra): Cutout at Top-Left
-    smartinfra: 'M 68,0 L 372,0 A 28,28 0 0 1 400,28 L 400,232 A 28,28 0 0 1 372,260 L 28,260 A 28,28 0 0 1 0,232 L 0,68 A 68,68 0 0 0 68,0 Z',
+  const [showNotice, setShowNotice] = useState(false);
+
+  const handlePdfDownload = () => {
+    if (siteConfig.problemStatementsPdfUrl) {
+      window.open(siteConfig.problemStatementsPdfUrl, '_blank', 'noopener,noreferrer');
+    } else {
+      setShowNotice(true);
+      setTimeout(() => setShowNotice(false), 3500);
+    }
   };
 
-  // Card specific layout adjustments with Google 4-Color identity styling
-  const cardLayouts: Record<string, { headerClass?: string; contentClass?: string; badgeClass?: string; numberClass?: string; strokeColor?: string; badgeVariant?: 'cyan' | 'purple' | 'warning' | 'success' }> = {
-    genai: {
-      contentClass: 'pr-12 sm:pr-16 pb-2',
-      strokeColor: 'rgba(66, 133, 244, 0.4)',
-      badgeVariant: 'cyan',
-    },
-    agentic: {
-      contentClass: 'pl-12 sm:pl-16 pb-2',
-      strokeColor: 'rgba(234, 67, 53, 0.4)',
-      badgeVariant: 'purple',
-    },
-    cv: {
-      badgeClass: 'mr-12 sm:mr-16',
-      contentClass: 'pr-4',
-      strokeColor: 'rgba(251, 188, 5, 0.4)',
-      badgeVariant: 'warning',
-    },
-    smartinfra: {
-      numberClass: 'ml-12 sm:ml-16',
-      contentClass: 'pl-4',
-      strokeColor: 'rgba(52, 168, 83, 0.4)',
-      badgeVariant: 'success',
-    },
-  };
+  const themeBadges = [
+    { name: 'AI & Local LLMs', icon: Cpu },
+    { name: 'Agentic Systems', icon: Bot },
+    { name: 'Data & Analytics', icon: Database },
+    { name: 'Cloud Infrastructure', icon: Cloud },
+    { name: 'Cybersecurity', icon: Shield },
+    { name: 'Emerging Tech', icon: Layers },
+  ];
 
   return (
     <Section id="domains" variant="primary">
       <SectionHeader
-        badge="PROBLEM DOMAINS"
-        title="Explore Core Focus Areas"
-        subtitle="Build impactful technical solutions across 4 vital innovation domains."
+        badge="PS & THEME"
+        title="Hackathon Theme & Problem Statements"
+        subtitle="Explore our overarching innovation theme and prepare for upcoming problem statement releases."
       />
 
-      <div className="relative max-w-4xl mx-auto my-6">
-        {/* 2x2 Grid Layout with clearance for center emblem */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7 relative">
-          {domainsData.map((domain: DomainItem) => {
-            const layout = cardLayouts[domain.id] || {};
-            return (
-              <ContainerScrollBox key={domain.id}>
-                <div
-                  className="relative group min-h-[240px] sm:min-h-[260px] flex flex-col justify-between p-7 sm:p-9 cursor-pointer select-none w-full"
-                >
-                  {/* SVG Background Canvas */}
-                  <svg
-                    className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
-                    viewBox="0 0 400 260"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d={cardPaths[domain.id]}
-                      fill="rgba(12, 12, 16, 0.88)"
-                      stroke={layout.strokeColor || "rgba(255, 255, 255, 0.18)"}
-                      strokeWidth="2"
-                      vectorEffect="non-scaling-stroke"
-                      className="transition-all duration-300 group-hover:stroke-white group-hover:fill-zinc-950"
-                    />
-                  </svg>
+      <div className="max-w-5xl mx-auto space-y-8 my-4">
+        {/* CARD 1: OVERARCHING HACKATHON THEME */}
+        <ContainerScrollBox className="w-full">
+          <GlassCard
+            glowColor="none"
+            className="relative group border border-amber-500/35 hover:border-amber-400/70 bg-[#0b0c13]/90 backdrop-blur-xl shadow-[0_0_50px_rgba(245,158,11,0.12)] p-7 sm:p-10 rounded-3xl overflow-hidden transition-all duration-300"
+          >
+            {/* Ambient Background Radial Glow & Accents */}
+            <div className="absolute -top-24 -right-24 w-80 h-80 bg-amber-500/10 blur-[100px] rounded-full pointer-events-none" />
+            <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-yellow-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-                  {/* Card Foreground Content Header */}
-                  <div className="relative z-10 flex items-center justify-between mb-4">
-                    {/* Clean Number without glowing blur background */}
-                    <span className={`font-royal font-black text-2xl sm:text-3xl text-slate-100 tracking-wider ${layout.numberClass || ''}`}>
-                      {domain.number}
-                    </span>
-                    <div className={layout.badgeClass || ''}>
-                      <Badge variant={layout.badgeVariant || 'cyan'}>{domain.category}</Badge>
+            {/* Background NEXUS Emblem Watermark */}
+            <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity pointer-events-none">
+              <img src="/logomain_svg.png" alt="NEXUS" className="w-28 h-28 object-contain" />
+            </div>
+
+            {/* Card Header */}
+            <div className="relative z-10 flex items-center gap-2.5 mb-4">
+              <div className="p-2 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-400">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <span className="text-xs font-mono font-bold uppercase tracking-[0.25em] text-amber-400">
+                HACKATHON OVERARCHING THEME
+              </span>
+            </div>
+
+            {/* Main Theme Statement */}
+            <div className="relative z-10 my-4">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-royal font-black text-white leading-relaxed tracking-wide">
+                "Develop innovative software solutions leveraging AI, local LLMs, agentic systems, data, cloud, cybersecurity, and emerging technologies to solve complex technical challenges."
+              </h3>
+            </div>
+
+            {/* Tech Focus Badges Grid */}
+            <div className="relative z-10 pt-6 border-t border-white/10 mt-6">
+              <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-400 block mb-3.5">
+                CORE TECHNICAL FOCUS AREAS
+              </span>
+              <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                {themeBadges.map((badge, idx) => {
+                  const IconComp = badge.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="flex items-center gap-2 py-2 px-3.5 rounded-xl bg-[#131524]/90 border border-white/10 group-hover:border-amber-500/30 text-xs font-heading font-semibold text-slate-200 shadow-sm transition-all hover:scale-[1.03]"
+                    >
+                      <IconComp className="w-4 h-4 text-amber-400" />
+                      <span>{badge.name}</span>
                     </div>
-                  </div>
+                  );
+                })}
+              </div>
+            </div>
+          </GlassCard>
+        </ContainerScrollBox>
 
-                  {/* Card Foreground Content Description */}
-                  <div className={`relative z-10 ${layout.contentClass || ''}`}>
-                    <h3 className="text-lg sm:text-xl font-heading font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
-                      {domain.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-medium">
-                      {domain.description}
-                    </p>
-                  </div>
+        {/* CARD 2: PROBLEM STATEMENTS (TO BE RELEASED) */}
+        <ContainerScrollBox className="w-full">
+          <GlassCard
+            glowColor="none"
+            className="relative group border border-white/20 hover:border-white/40 bg-[#0b0c13]/90 backdrop-blur-xl shadow-[0_0_40px_rgba(255,255,255,0.08)] p-7 sm:p-10 rounded-3xl overflow-hidden transition-all duration-300"
+          >
+            {/* Ambient Background Accents */}
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-cyan-500/10 blur-[90px] rounded-full pointer-events-none" />
+
+            {/* Card Header & Status Badge */}
+            <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-5 pb-5 border-b border-white/10">
+              <div className="flex items-center gap-3">
+                <div className="p-2.5 rounded-xl bg-white/10 border border-white/15 text-slate-200">
+                  <FileText className="w-6 h-6" />
                 </div>
-              </ContainerScrollBox>
-            );
-          })}
+                <div>
+                  <span className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-[0.25em] text-slate-400">
+                    CHALLENGE TRACKS
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-heading font-black text-white uppercase tracking-tight mt-0.5">
+                    Problem Statements
+                  </h3>
+                </div>
+              </div>
 
-          {/* Center HackNEX Emblem Pinned at the Concave Cutout Center */}
-          <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-28 h-28 lg:w-32 lg:h-32 rounded-full bg-zinc-950 border-2 border-white/30 shadow-[0_0_30px_rgba(0,0,0,0.9)] flex-col items-center justify-center text-center p-3 select-none backdrop-blur-md transition-transform duration-300 hover:scale-110">
-            <img
-              src="/logomain_svg.png"
-              alt="NEXUS Logo"
-              className="w-8 h-8 object-contain mb-1"
-            />
-            <span className="font-heading font-black tracking-tight text-xs lg:text-sm uppercase text-white">
-              HACK<span className="text-slate-300">NEX</span>
-            </span>
-            <span className="text-[8px] font-mono font-bold tracking-widest text-slate-400 uppercase mt-0.5">
-              DOMAINS
-            </span>
-          </div>
-        </div>
+              {/* Status Badge */}
+              <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold uppercase tracking-wider">
+                <Clock className="w-3.5 h-3.5 animate-pulse" />
+                <span>To be Released</span>
+              </div>
+            </div>
+
+            {/* Description Body */}
+            <div className="relative z-10 my-4 max-w-3xl">
+              <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-sans">
+                Official problem statements and track guidelines will be released prior to the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here.
+              </p>
+            </div>
+
+            {/* Action Area & PDF Download Button */}
+            <div className="relative z-10 pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <Button
+                variant="secondary"
+                size="lg"
+                onClick={handlePdfDownload}
+                leftIcon={
+                  siteConfig.problemStatementsPdfUrl ? (
+                    <Download className="w-4 h-4 text-amber-400" />
+                  ) : (
+                    <Lock className="w-4 h-4 text-slate-400" />
+                  )
+                }
+                className="w-full sm:w-auto font-royal font-bold tracking-wider uppercase text-xs sm:text-sm !py-3.5 px-6"
+              >
+                {siteConfig.problemStatementsPdfUrl ? 'Download Problem Statements (PDF)' : 'Problem Statements: To be Released'}
+              </Button>
+
+              {/* Notice Banner if PDF not yet uploaded */}
+              {showNotice && (
+                <div className="animate-fadeIn py-2.5 px-4 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-mono font-medium flex items-center gap-2">
+                  <Clock className="w-4 h-4 shrink-0" />
+                  <span>Problem Statements PDF will be uploaded here prior to the event!</span>
+                </div>
+              )}
+            </div>
+          </GlassCard>
+        </ContainerScrollBox>
       </div>
     </Section>
   );

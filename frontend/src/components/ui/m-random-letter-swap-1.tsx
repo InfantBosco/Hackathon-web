@@ -12,7 +12,7 @@ export interface NavItem {
 const defaultLinks: NavItem[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Domains", href: "#domains" },
+  { name: "PS & Theme", href: "#domains" },
   { name: "Schedule", href: "#schedule" },
   { name: "Prizes", href: "#prizes" },
   { name: "Sponsors", href: "#sponsors" },
