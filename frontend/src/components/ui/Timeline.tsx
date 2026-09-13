@@ -85,15 +85,16 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               </div>
 
               {/* Mobile Stacked Layout (Left line, Content on right) */}
-              <div className="md:hidden flex justify-start gap-5 pl-2">
-                <div className="sticky top-28 self-start z-40 -ml-[5px]">
-                  <div className="h-9 w-9 rounded-full bg-[#0b0c10] border border-white/40 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)]">
-                    <div className="h-3 w-3 rounded-full bg-white border border-slate-200 shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
+              <div className="md:hidden relative flex justify-start pl-8 sm:pl-10">
+                {/* Mobile Pin Node centered on left vertical line */}
+                <div className="absolute left-6 -translate-x-1/2 top-1.5 z-40">
+                  <div className="h-8 w-8 rounded-full bg-[#0b0c10] border border-white/40 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+                    <div className="h-2.5 w-2.5 rounded-full bg-white border border-slate-200 shadow-[0_0_10px_rgba(255,255,255,0.9)]" />
                   </div>
                 </div>
 
-                <div className="w-full space-y-1.5 pl-2">
-                  <h3 className="text-xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500">
+                <div className="w-full space-y-2 min-w-0">
+                  <h3 className="text-lg sm:text-xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500">
                     {item.title}
                   </h3>
                   {item.content}

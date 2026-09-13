@@ -64,7 +64,7 @@ export const ThemeSection: React.FC = () => {
               <ContainerScrollBox key={domain.id}>
                 {/* Mobile View: Normal Rounded Rectangular Card */}
                 <div
-                  className="md:hidden relative group min-h-[220px] flex flex-col justify-between p-6 rounded-3xl bg-[#0c0c10]/95 backdrop-blur-xl border-2 transition-all duration-300 w-full"
+                  className="md:hidden relative group min-h-[200px] flex flex-col justify-between p-5 sm:p-6 rounded-3xl bg-[#0c0c10]/95 backdrop-blur-xl border-2 transition-all duration-300 w-full"
                   style={{ borderColor: layout.strokeColor || 'rgba(255, 255, 255, 0.2)' }}
                 >
                   <div className="flex items-center justify-between mb-4">

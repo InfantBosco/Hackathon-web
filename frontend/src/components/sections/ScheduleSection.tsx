@@ -10,7 +10,7 @@ export const ScheduleSection: React.FC = () => {
       title: "Oct 8",
       content: (
         <ContainerScrollBox>
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#11121a]/95 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:border-white/60 hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] hover:scale-[1.025] hover:-translate-y-1.5 transition-all duration-300 text-left font-sans space-y-6 transform-gpu">
+          <div className="p-4 sm:p-7 rounded-2xl bg-[#11121a]/95 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:border-white/60 hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] hover:scale-[1.025] hover:-translate-y-1.5 transition-all duration-300 text-left font-sans space-y-6 transform-gpu">
             <div className="space-y-4">
               {/* 7:30 AM - 8:30 AM */}
               <div className="space-y-1.5">
@@ -113,7 +113,7 @@ export const ScheduleSection: React.FC = () => {
       title: "Oct 9",
       content: (
         <ContainerScrollBox>
-          <div className="p-6 sm:p-7 rounded-2xl bg-[#11121a]/95 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:border-white/60 hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] hover:scale-[1.025] hover:-translate-y-1.5 transition-all duration-300 text-left font-sans space-y-6 transform-gpu">
+          <div className="p-4 sm:p-7 rounded-2xl bg-[#11121a]/95 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.08)] hover:border-white/60 hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] hover:scale-[1.025] hover:-translate-y-1.5 transition-all duration-300 text-left font-sans space-y-6 transform-gpu">
             <div className="space-y-5">
               {/* 08:30 AM - 09:30 AM */}
               <div className="space-y-1.5">
