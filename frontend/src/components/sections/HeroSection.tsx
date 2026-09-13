@@ -85,17 +85,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             className="flex flex-col items-center gap-2 mb-2"
           >
             {/* Unboxed, Prominent Logos with Splitting Line */}
-            <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-7">
+            <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 my-2 mx-auto">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789196109/e0ujlxpd75ckmqlooy8w.png"
                 alt="Karunya Logo"
-                className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)]"
+                className="h-14 sm:h-16 md:h-20 lg:h-22 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
               />
-              <div className="h-7 sm:h-8 md:h-10 w-[1.5px] bg-gradient-to-b from-transparent via-white/50 to-transparent shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+              <div className="h-10 sm:h-12 md:h-16 w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.6)] shrink-0" />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789059762/bniypjdp0l5zfayyz712.png"
                 alt="Nexus Logo"
-                className="h-10 sm:h-12 md:h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.35)]"
+                className="h-14 sm:h-16 md:h-20 lg:h-22 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
               />
             </div>
 
