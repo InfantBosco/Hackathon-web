@@ -38,11 +38,11 @@ export const ContactSection: React.FC = () => {
               <span>Contact no : 93842 00824</span>
             </a>
             <a
-              href="mailto:ebensophia@karunya.edu.in"
+              href="mailto:ebensophia@karunya.edu"
               className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
             >
               <Mail className="w-3.5 h-3.5 text-white shrink-0" />
-              <span>ebensophia@karunya.edu.in</span>
+              <span>ebensophia@karunya.edu</span>
             </a>
           </div>
         </Card>
