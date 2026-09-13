@@ -31,13 +31,6 @@ export const ContactSection: React.FC = () => {
 
           <div className="mt-6 pt-4 border-t border-white/10 w-full flex flex-col items-center gap-2">
             <a
-              href="tel:9384200824"
-              className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
-            >
-              <Phone className="w-3.5 h-3.5 text-white shrink-0" />
-              <span>Contact no : 93842 00824</span>
-            </a>
-            <a
               href="mailto:ebensophia@karunya.edu"
               className="inline-flex items-center justify-center gap-2 text-xs font-mono font-medium text-slate-300 hover:text-white transition-colors"
             >
