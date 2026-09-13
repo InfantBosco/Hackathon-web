@@ -64,7 +64,7 @@ export const ContainerScrollBox: React.FC<ContainerScrollBoxProps> = ({
   return (
     <div
       ref={containerRef}
-      className="w-full [perspective:1000px] flex items-center justify-center"
+      className={`w-full [perspective:1000px] flex items-end justify-center ${className}`}
     >
       <motion.div
         style={{
@@ -74,7 +74,7 @@ export const ContainerScrollBox: React.FC<ContainerScrollBoxProps> = ({
           translateY,
           transformStyle: 'preserve-3d',
         }}
-        className={`w-full will-change-transform ${className}`}
+        className="w-full will-change-transform"
       >
         {children}
       </motion.div>
