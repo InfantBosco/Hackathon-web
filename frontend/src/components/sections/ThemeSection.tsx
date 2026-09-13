@@ -62,8 +62,30 @@ export const ThemeSection: React.FC = () => {
             const layout = cardLayouts[domain.id] || {};
             return (
               <ContainerScrollBox key={domain.id}>
+                {/* Mobile View: Normal Rounded Rectangular Card */}
                 <div
-                  className="relative group min-h-[250px] sm:min-h-[270px] flex flex-col justify-between p-7 sm:p-9 cursor-pointer select-none w-full"
+                  className="md:hidden relative group min-h-[220px] flex flex-col justify-between p-6 rounded-3xl bg-[#0c0c10]/95 backdrop-blur-xl border-2 transition-all duration-300 w-full"
+                  style={{ borderColor: layout.strokeColor || 'rgba(255, 255, 255, 0.2)' }}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-royal font-black text-2xl text-slate-100 tracking-wider">
+                      {domain.number}
+                    </span>
+                    <Badge variant={layout.badgeVariant || 'cyan'}>{domain.category}</Badge>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-heading font-bold text-white group-hover:text-amber-300 transition-colors mb-2">
+                      {domain.title}
+                    </h3>
+                    <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                      {domain.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Desktop View: Custom SVG Concave Cutout Pinwheel Card */}
+                <div
+                  className="hidden md:flex relative group min-h-[250px] sm:min-h-[270px] flex-col justify-between p-7 sm:p-9 cursor-pointer select-none w-full"
                 >
                   {/* SVG Background Canvas */}
                   <svg
