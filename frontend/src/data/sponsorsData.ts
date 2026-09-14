@@ -6,6 +6,7 @@ export interface SponsorItem {
   logoUrl?: string;
   websiteUrl?: string;
   imageFit?: 'cover' | 'contain';
+  filterClass?: string;
 }
 
 export const sponsorsData: SponsorItem[] = [
@@ -25,6 +26,7 @@ export const sponsorsData: SponsorItem[] = [
     placeholderText: 'GOLD SPONSOR',
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/qdsr0h4nalbvgkicfgky.jpg',
     websiteUrl: 'https://www.karimamglobal.com/',
+    filterClass: 'contrast-[1.15] brightness-[1.06] mix-blend-multiply',
   },
   {
     id: '3',
@@ -33,6 +35,7 @@ export const sponsorsData: SponsorItem[] = [
     placeholderText: 'COMMUNITY PARTNER',
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789013093/zo5opxfx81wwaxjxibri.jpg',
     websiteUrl: 'https://www.payanamfoundation.org/',
+    filterClass: 'contrast-[1.2] brightness-[1.08] mix-blend-multiply',
   },
   {
     id: '4',

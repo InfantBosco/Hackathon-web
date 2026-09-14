@@ -30,7 +30,7 @@ export const SponsorsSection: React.FC = () => {
                   isCover
                     ? 'object-cover scale-110 group-hover:scale-115'
                     : 'object-contain group-hover:scale-105'
-                } transition-transform duration-300 ease-out`}
+                } ${sponsor.filterClass || ''} transition-transform duration-300 ease-out`}
               />
             </div>
           );
