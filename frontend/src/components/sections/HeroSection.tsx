@@ -11,7 +11,14 @@ import { trackEvent } from '../../lib/analytics';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
 import { KineticSpringFloat } from '../ui/KineticSpringFloat';
 
-const heroBadges = [
+interface HeroBadgeItem {
+  label: string;
+  value: string;
+  subValue?: string;
+  icon: React.ComponentType<{ className?: string }>;
+}
+
+const heroBadges: HeroBadgeItem[] = [
   {
     label: 'DATE',
     value: 'Oct 8 - 9, 2026',
@@ -24,8 +31,7 @@ const heroBadges = [
   },
   {
     label: 'REGISTER BY',
-    value: 'Oct 6',
-    subValue: '6:00 PM',
+    value: 'Oct 6 | 6:00 PM',
     icon: Clock,
   },
   {
@@ -105,26 +111,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             </span>
 
             {/* Powered By Logos with Luminous White Glow */}
-            <div className="flex items-center justify-center gap-5 sm:gap-8 md:gap-10 my-1.5 max-w-4xl mx-auto flex-wrap">
+            <div className="flex items-center justify-center gap-6 sm:gap-9 md:gap-11 mt-0.5 mb-0 max-w-5xl mx-auto flex-wrap">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
                 alt="Google Cloud Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
+                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322297/jpamfscxpk63df0tsxgb.png"
                 alt="Microsoft Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
+                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789328079/to6ppmxjpf3a1tvkxqo0.png"
                 alt="SUSE Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
+                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
               />
             </div>
 
             {/* D I V I S I O N  O F  C S E */}
-            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-heading font-black tracking-[0.3em] sm:tracking-[0.45em] text-slate-100 uppercase drop-shadow-[0_0_14px_rgba(255,255,255,0.4)] mt-2">
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-heading font-black tracking-[0.3em] sm:tracking-[0.45em] text-slate-100 uppercase drop-shadow-[0_0_14px_rgba(255,255,255,0.4)] mt-0">
               D I V I S I O N &nbsp; O F &nbsp; C S E
             </span>
 
