@@ -17,7 +17,7 @@ export const prizesData = {
       rank: '01',
       amount: '₹75,000',
       title: 'First Place Winner',
-      description: '₹75K Cash Prize & Internship at Reflexlabs.ai , Winner Certificates',
+      description: '₹75K Cash Prize & Internship Opportunities, Winner Certificates',
       badge: 'GOLD',
       glow: 'gold' as const,
       podiumOrder: 3,

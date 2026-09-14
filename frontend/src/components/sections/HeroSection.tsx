@@ -104,27 +104,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
               POWERED BY
             </span>
 
-            {/* 4 Powered By Logos placed directly with mix-blend-screen for seamless blending */}
+            {/* Powered By Logos with Luminous White Glow */}
             <div className="flex items-center justify-center gap-5 sm:gap-8 md:gap-10 my-1.5 max-w-4xl mx-auto flex-wrap">
-              <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789326896/c3mge67lo7wkiaabcb60.png"
-                alt="IBM Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
-              />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
                 alt="Google Cloud Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322297/jpamfscxpk63df0tsxgb.png"
                 alt="Microsoft Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789328079/to6ppmxjpf3a1tvkxqo0.png"
                 alt="SUSE Logo"
-                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-7 sm:h-9 md:h-11 lg:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
               />
             </div>
 
