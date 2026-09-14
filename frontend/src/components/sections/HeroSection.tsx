@@ -110,23 +110,32 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
               POWERED BY
             </span>
 
-            {/* Powered By Logos with Luminous White Glow */}
+            {/* Powered By Logos with Soft White Glow */}
             <div className="flex items-center justify-center gap-6 sm:gap-9 md:gap-11 mt-0.5 mb-0 max-w-5xl mx-auto flex-wrap">
-              <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
-                alt="Google Cloud Logo"
-                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
-              />
-              <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322297/jpamfscxpk63df0tsxgb.png"
-                alt="Microsoft Logo"
-                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
-              />
-              <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789328079/to6ppmxjpf3a1tvkxqo0.png"
-                alt="SUSE Logo"
-                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 filter drop-shadow-[0_0_16px_rgba(255,255,255,1)] drop-shadow-[0_0_30px_rgba(255,255,255,0.7)]"
-              />
+              <div className="relative flex items-center justify-center">
+                <div className="absolute -inset-3 bg-white/25 blur-xl rounded-full pointer-events-none" />
+                <img
+                  src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
+                  alt="Google Cloud Logo"
+                  className="relative h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]"
+                />
+              </div>
+              <div className="relative flex items-center justify-center">
+                <div className="absolute -inset-3 bg-white/25 blur-xl rounded-full pointer-events-none" />
+                <img
+                  src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322297/jpamfscxpk63df0tsxgb.png"
+                  alt="Microsoft Logo"
+                  className="relative h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]"
+                />
+              </div>
+              <div className="relative flex items-center justify-center">
+                <div className="absolute -inset-3 bg-white/25 blur-xl rounded-full pointer-events-none" />
+                <img
+                  src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789328079/to6ppmxjpf3a1tvkxqo0.png"
+                  alt="SUSE Logo"
+                  className="relative h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]"
+                />
+              </div>
             </div>
 
             {/* D I V I S I O N  O F  C S E */}
