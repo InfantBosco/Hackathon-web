@@ -21,7 +21,7 @@ export const SponsorsSection: React.FC = () => {
             <div
               className={`w-full flex items-center justify-center min-h-[240px] md:min-h-[260px] h-[240px] md:h-[260px] border border-white/20 ${
                 isCover ? 'bg-black p-0' : 'bg-white p-4 sm:p-5 md:p-6'
-              } backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] cursor-pointer overflow-hidden relative`}
+              } backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] cursor-pointer overflow-hidden relative isolate`}
             >
               <img
                 src={sponsor.logoUrl}
