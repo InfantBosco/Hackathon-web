@@ -5,6 +5,7 @@ export interface SponsorItem {
   placeholderText: string;
   logoUrl?: string;
   websiteUrl?: string;
+  imageFit?: 'cover' | 'contain';
 }
 
 export const sponsorsData: SponsorItem[] = [
@@ -15,6 +16,7 @@ export const sponsorsData: SponsorItem[] = [
     placeholderText: 'TITLE SPONSOR',
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1788603159/esj3daiyfgzlrdja6aqy.jpg',
     websiteUrl: 'https://www.reflexlabs.ai/',
+    imageFit: 'cover',
   },
   {
     id: '2',

@@ -16,12 +16,21 @@ export const SponsorsSection: React.FC = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 max-w-6xl mx-auto">
         {sponsorsData.map((sponsor) => {
+          const isCover = sponsor.imageFit === 'cover';
           const cardContent = (
-            <div className="w-full flex items-center justify-center min-h-[240px] md:min-h-[260px] h-[240px] md:h-[260px] border border-white/20 bg-white backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] cursor-pointer overflow-hidden relative p-4 sm:p-5 md:p-6">
+            <div
+              className={`w-full flex items-center justify-center min-h-[240px] md:min-h-[260px] h-[240px] md:h-[260px] border border-white/20 ${
+                isCover ? 'bg-black p-0' : 'bg-white p-4 sm:p-5 md:p-6'
+              } backdrop-blur-md rounded-[var(--radius-lg)] shadow-2xl transition-all duration-300 group-hover:border-white group-hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] cursor-pointer overflow-hidden relative`}
+            >
               <img
                 src={sponsor.logoUrl}
                 alt={sponsor.name}
-                className="w-full h-full object-contain transition-transform duration-300 ease-out group-hover:scale-105"
+                className={`w-full h-full ${
+                  isCover
+                    ? 'object-cover scale-110 group-hover:scale-115'
+                    : 'object-contain group-hover:scale-105'
+                } transition-transform duration-300 ease-out`}
               />
             </div>
           );
