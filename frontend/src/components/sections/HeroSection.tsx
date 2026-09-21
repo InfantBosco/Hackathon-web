@@ -111,7 +111,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             </span>
 
             {/* Powered By Logos */}
-            <div className="flex items-center justify-center gap-6 sm:gap-9 md:gap-11 mt-0.5 mb-0 max-w-5xl mx-auto flex-wrap">
+            <div className="flex items-center justify-center gap-5 sm:gap-8 md:gap-10 mt-1 mb-0.5 max-w-5xl mx-auto flex-wrap px-4">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789364592/qxktwxtl9dv0aqbsdq2s.png"
                 alt="Cisco Logo"
@@ -120,21 +120,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
                 alt="Google Cloud Logo"
-                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322297/jpamfscxpk63df0tsxgb.png"
                 alt="Microsoft Logo"
-                className="h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105"
+                className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
               <div className="relative flex items-center justify-center">
                 <div className="absolute -inset-3 bg-white/25 blur-xl rounded-full pointer-events-none" />
                 <img
                   src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789328079/to6ppmxjpf3a1tvkxqo0.png"
                   alt="SUSE Logo"
-                  className="relative h-9 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-transform duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]"
+                  className="relative h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]"
                 />
               </div>
+              <img
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789969369/c3mx65tjlur6qs0clleq.png"
+                alt="Partner Logo"
+                className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
             </div>
 
             {/* D I V I S I O N  O F  C S E */}
