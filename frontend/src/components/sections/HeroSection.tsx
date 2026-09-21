@@ -113,11 +113,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             {/* Powered By Logos */}
             <div className="flex items-center justify-center gap-5 sm:gap-8 md:gap-10 mt-1 mb-0.5 max-w-5xl mx-auto flex-wrap px-4">
               <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789364592/qxktwxtl9dv0aqbsdq2s.png"
-                alt="Cisco Logo"
-                className="h-6 sm:h-8 md:h-10 lg:h-11 w-auto object-contain transition-transform duration-300 hover:scale-105"
-              />
-              <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789322299/aq0m3mdpvpg3xvpd0nmb.png"
                 alt="Google Cloud Logo"
                 className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
@@ -127,18 +122,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
                 alt="Microsoft Logo"
                 className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
-              <div className="relative flex items-center justify-center">
-                <div className="absolute -inset-3 bg-white/25 blur-xl rounded-full pointer-events-none" />
-                <img
-                  src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789328079/to6ppmxjpf3a1tvkxqo0.png"
-                  alt="SUSE Logo"
-                  className="relative h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105 drop-shadow-[0_0_20px_rgba(255,255,255,0.45)]"
-                />
-              </div>
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789971756/xqa7idnojcuzkarda6fu.png"
                 alt="EC-Council Logo"
                 className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
+              <img
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789980899/jrkcr0bqksz0iftv8yrb.png"
+                alt="SUSE Logo"
+                className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
+              />
+              <img
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789364592/qxktwxtl9dv0aqbsdq2s.png"
+                alt="Cisco Logo"
+                className="h-6 sm:h-8 md:h-10 lg:h-11 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
             </div>
 
