@@ -136,8 +136,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
                 />
               </div>
               <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789969369/c3mx65tjlur6qs0clleq.png"
-                alt="Partner Logo"
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789971756/xqa7idnojcuzkarda6fu.png"
+                alt="EC-Council Logo"
                 className="h-8 sm:h-11 md:h-13 lg:h-15 w-auto object-contain transition-transform duration-300 hover:scale-105"
               />
             </div>
