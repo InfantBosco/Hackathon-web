@@ -78,7 +78,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
   };
 
   return (
-    <GridBackground id="home" className="min-h-screen pt-28 sm:pt-10 pb-16 flex flex-col justify-center relative">
+    <GridBackground id="home" className="min-h-screen pt-28 sm:pt-15 pb-16 flex flex-col justify-center relative">
       <NeuralNoise opacity={0.3} />
 
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto mt-2 sm:mt-4">
