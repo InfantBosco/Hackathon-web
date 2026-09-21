@@ -90,18 +90,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             transition={{ type: 'spring', stiffness: 140, damping: 16, delay: 0.1 }}
             className="flex flex-col items-center gap-1 mb-0"
           >
-            {/* Increased Karunya & Nexus Header Logos */}
-            <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-10 my-1 mx-auto">
-              <img
-                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789196109/e0ujlxpd75ckmqlooy8w.png"
-                alt="Karunya Logo"
-                className="h-13 sm:h-17 md:h-20 lg:h-22 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
-              />
-              <div className="h-9 sm:h-12 md:h-15 w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.6)] shrink-0" />
+            {/* Header Logos: Nexus (Left) | Karunya (Center) | Cira (Right) */}
+            <div className="flex items-center justify-center gap-3 sm:gap-6 md:gap-8 my-1 mx-auto max-w-full px-2">
               <img
                 src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789059762/bniypjdp0l5zfayyz712.png"
                 alt="Nexus Logo"
-                className="h-13 sm:h-17 md:h-20 lg:h-22 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
+                className="h-8 sm:h-13 md:h-17 lg:h-20 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
+              />
+              <div className="h-6 sm:h-10 md:h-14 w-[1.5px] sm:w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.6)] shrink-0" />
+              <img
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789196109/e0ujlxpd75ckmqlooy8w.png"
+                alt="Karunya Logo"
+                className="h-8 sm:h-13 md:h-17 lg:h-20 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
+              />
+              <div className="h-6 sm:h-10 md:h-14 w-[1.5px] sm:w-[2px] bg-gradient-to-b from-transparent via-white/60 to-transparent shadow-[0_0_10px_rgba(255,255,255,0.6)] shrink-0" />
+              <img
+                src="https://res.cloudinary.com/demc5rxwn/image/upload/v1789984129/vwbxosj2fa7j1ikqvo17.png"
+                alt="Cira Logo"
+                className="h-14 sm:h-22 md:h-28 lg:h-36 w-auto object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] transition-transform duration-300 hover:scale-105"
               />
             </div>
 
