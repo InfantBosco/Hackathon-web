@@ -23,7 +23,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-1',
     category: 'REGISTRATION',
     question: 'How do I register my team for HackNEX 2026?',
-    answer: 'Registration is performed by the Team Leader. Click "REGISTER NOW", create/login to your account, verify your email, create a team, and fill in details for all 4 team members.',
+    answer: 'Registration is performed by the Team Leader. Click "REGISTER NOW", create/login to your account, verify your email, create a team, and fill in details for all 3 to 4 team members.',
   },
   {
     id: 'faq-2',
@@ -43,7 +43,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-4',
     category: 'TEAMS',
     question: 'What is the mandatory team size for HackNEX?',
-    answer: 'Every team MUST consist of exactly 4 members (1 Team Leader + 3 Team Members). Teams with fewer or more members cannot complete registration.',
+    answer: 'Every team MUST consist of 3 to 4 members (1 Team Leader + 2 or 3 Team Members). Teams with fewer than 3 or more than 4 members cannot complete registration.',
   },
   {
     id: 'faq-5',
@@ -63,7 +63,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-7',
     category: 'PAYMENT',
     question: 'What is the registration fee for HackNEX?',
-    answer: 'The registration fee is ₹500 per person (₹2,000 per team of 4 participants).',
+    answer: 'The registration fee is ₹500 per person (₹1,500 to ₹2,000 per team of 3 to 4 participants).',
   },
   {
     id: 'faq-8',
@@ -103,7 +103,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-13',
     category: 'ELIGIBILITY',
     question: 'Are food preferences considered?',
-    answer: 'Yes. Food preferences (Vegetarian / Non-Vegetarian) are recorded individually for each of the 4 team members during registration and food will be provided respectively.',
+    answer: 'Yes. Food preferences (Vegetarian / Non-Vegetarian) are recorded individually for each team member during registration and food will be provided respectively.',
   },
 
   // Venue

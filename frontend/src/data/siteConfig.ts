@@ -7,8 +7,8 @@ export const siteConfig = {
   eventStartDate: '2026-10-07T09:00:00+05:30',
   mode: 'Offline',
   expectedParticipants: '1,500+',
-  teamSize: 4,
-  registrationFee: 500, // ₹500 per person (₹2,000 per team of 4)
+  teamSize: '3–4',
+  registrationFee: 500, // ₹500 per person (₹1,500 – ₹2,000 per team)
   totalTeamFee: 2000,
   registrationDeadline: 'October 6, 2026, 6:00 PM',
   prizePool: '₹1.5L+',
