@@ -1,184 +1,57 @@
 import React from 'react';
 import { Section } from '../layout/Section';
-import { SectionHeader } from '../layout/SectionHeader';
 import { GlassCard } from '../ui/GlassCard';
 import { prizesData } from '../../data/prizesData';
-import { Trophy, Award } from 'lucide-react';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
+import { Badge } from '../ui/Badge';
+import { KineticSpringFloat } from '../ui/KineticSpringFloat';
 
 export const PrizesSection: React.FC = () => {
   return (
     <Section id="prizes" variant="secondary">
-      <SectionHeader
-        badge="PRIZES & AWARDS"
-        title={`Grand Prize Pool ${prizesData.totalPool}`}
-        subtitle="Compete for cash rewards, incubation opportunities, and national recognition across 5 winning ranks."
-      />
+      {/* Top Badge Pill */}
+      <div className="flex justify-center mb-4 sm:mb-6">
+        <KineticSpringFloat delay={0.05} mode="words">
+          <Badge variant="cyan" className="px-3.5 sm:px-4 py-1 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-[0.2em]">
+            PRIZES
+          </Badge>
+        </KineticSpringFloat>
+      </div>
 
-      {/* 5-Place Podium Container */}
-      <div className="max-w-6xl mx-auto pt-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 lg:gap-5 items-end">
-          {prizesData.tiers.map((tier) => {
-            const isGold = tier.glow === 'gold';
-            const isSilver = tier.glow === 'silver';
-            const isBronze = tier.glow === 'bronze';
-            const isPlatinum = tier.glow === 'platinum';
+      <div className="max-w-5xl mx-auto pt-2 px-4 sm:px-6">
+        <ContainerScrollBox className="w-full">
+          <div className="relative group">
+            {/* Outer Soft White Glow Aura */}
+            <div className="absolute -inset-1.5 rounded-3xl bg-white/25 blur-xl pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
 
-            // Card Height & Stacking Order for Desktop Podium Baseline
-            const cardHeightClass = isGold
-              ? 'md:h-[430px]'
-              : isSilver
-              ? 'md:h-[390px]'
-              : isBronze
-              ? 'md:h-[370px]'
-              : 'md:h-[335px]';
+            {/* Single Rectangular Box with White Glow */}
+            <GlassCard
+              glowColor="none"
+              className="relative z-10 border-2 border-white/60 bg-[#0a0c16]/95 backdrop-blur-2xl shadow-[0_0_35px_rgba(255,255,255,0.35),0_0_70px_rgba(255,255,255,0.15)] rounded-3xl p-6 sm:p-14 overflow-hidden transition-all duration-300 text-center"
+            >
+              {/* Ambient Radial Glow Accents */}
+              <div className="absolute -top-24 -right-24 w-80 h-80 rounded-full bg-white/10 blur-[90px] pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-amber-500/10 blur-[90px] pointer-events-none" />
 
-            // Static Border & White Hover Glow Effect across all 5 boxes
-            const staticBorderClass = isGold
-              ? 'border-amber-500/50 shadow-[0_0_20px_rgba(245,158,11,0.2)]'
-              : isSilver
-              ? 'border-slate-300/40 shadow-[0_0_15px_rgba(203,213,225,0.15)]'
-              : isBronze
-              ? 'border-amber-700/40 shadow-[0_0_15px_rgba(205,127,50,0.15)]'
-              : isPlatinum
-              ? 'border-slate-500/35 shadow-md'
-              : 'border-zinc-600/35 shadow-md';
+              {/* Title & Subtitle Content inside box */}
+              <div className="relative z-10 flex flex-col items-center justify-center py-3 sm:py-6">
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-heading font-black text-white tracking-tight mb-3 sm:mb-4">
+                  Grand Prize Pool <span className="text-amber-400">{prizesData.totalPool}</span>
+                </h2>
 
-            // Position-Specific Hover Glow Effect (Gold, Silver, Bronze, Platinum, Titanium)
-            const hoverEffectClass = isGold
-              ? 'hover:border-amber-400 group-hover:border-amber-400 hover:shadow-[0_0_35px_rgba(245,158,11,0.8),0_0_70px_rgba(245,158,11,0.4)] hover:-translate-y-2'
-              : isSilver
-              ? 'hover:border-slate-100 group-hover:border-slate-100 hover:shadow-[0_0_35px_rgba(248,250,252,0.85),0_0_70px_rgba(226,232,240,0.45)] hover:-translate-y-2'
-              : isBronze
-              ? 'hover:border-[#E5A869] group-hover:border-[#E5A869] hover:shadow-[0_0_35px_rgba(229,168,105,0.8),0_0_70px_rgba(205,127,50,0.4)] hover:-translate-y-2'
-              : isPlatinum
-              ? 'hover:border-slate-300 group-hover:border-slate-300 hover:shadow-[0_0_35px_rgba(203,213,225,0.75),0_0_70px_rgba(148,163,184,0.35)] hover:-translate-y-2'
-              : 'hover:border-zinc-400 group-hover:border-zinc-400 hover:shadow-[0_0_35px_rgba(161,161,170,0.75),0_0_70px_rgba(113,113,122,0.35)] hover:-translate-y-2';
-
-            // Outer Aura Hover Color per rank
-            const outerAuraColorClass = isGold
-              ? 'bg-amber-500/35'
-              : isSilver
-              ? 'bg-slate-200/35'
-              : isBronze
-              ? 'bg-[#E5A869]/35'
-              : isPlatinum
-              ? 'bg-slate-300/30'
-              : 'bg-zinc-400/30';
-
-            // Inner Top Radial Glow Hover Gradient per rank
-            const innerGlowGradient = isGold
-              ? 'bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.25)_0%,transparent_70%)]'
-              : isSilver
-              ? 'bg-[radial-gradient(ellipse_at_top,rgba(248,250,252,0.22)_0%,transparent_70%)]'
-              : isBronze
-              ? 'bg-[radial-gradient(ellipse_at_top,rgba(229,168,105,0.25)_0%,transparent_70%)]'
-              : isPlatinum
-              ? 'bg-[radial-gradient(ellipse_at_top,rgba(203,213,225,0.2)_0%,transparent_70%)]'
-              : 'bg-[radial-gradient(ellipse_at_top,rgba(161,161,170,0.2)_0%,transparent_70%)]';
-
-            // Rank Badge Circle (Gold -> Silver -> Bronze -> Platinum -> Titanium)
-            const rankCircleClass = isGold
-              ? 'bg-amber-950/60 border-amber-400 text-amber-300'
-              : isSilver
-              ? 'bg-slate-900/80 border-slate-300 text-slate-100'
-              : isBronze
-              ? 'bg-[#2A1B0E]/80 border-amber-600 text-[#E5A869]'
-              : isPlatinum
-              ? 'bg-slate-900/90 border-slate-400 text-slate-300'
-              : 'bg-zinc-900/90 border-zinc-500 text-zinc-400';
-
-            // Amount Text Color
-            const amountColorClass = isGold
-              ? 'text-amber-300'
-              : isSilver
-              ? 'text-slate-100'
-              : isBronze
-              ? 'text-[#E5A869]'
-              : isPlatinum
-              ? 'text-slate-200'
-              : 'text-zinc-300';
-
-            // Desktop Podium Column Placement (4th | 2nd | 1st | 3rd | 5th)
-            const orderClass =
-              tier.podiumOrder === 1
-                ? 'md:order-1'
-                : tier.podiumOrder === 2
-                ? 'md:order-2'
-                : tier.podiumOrder === 3
-                ? 'md:order-3'
-                : tier.podiumOrder === 4
-                ? 'md:order-4'
-                : 'md:order-5';
-
-            return (
-              <ContainerScrollBox key={tier.id} className={`w-full h-full relative group ${orderClass}`}>
-                {/* Outer Soft Glow Aura on Hover */}
-                <div className={`absolute -inset-1 rounded-2xl ${outerAuraColorClass} blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
-
-                <GlassCard
-                  glowColor="none"
-                  className={`flex flex-col justify-between relative group border bg-[#0b0c13]/90 backdrop-blur-xl transition-all duration-300 ease-out ${staticBorderClass} ${hoverEffectClass} ${cardHeightClass} min-h-[300px] overflow-hidden p-5 sm:p-6 text-left`}
-                >
-                  {/* Inner Top Radial Ambient Glow on Hover */}
-                  <div className={`absolute inset-0 ${innerGlowGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0`} />
-
-                  {/* Top Ambient Glow Effects */}
-                  {isGold && (
-                    <div className="absolute top-0 right-0 w-36 h-36 rounded-full bg-amber-500/15 blur-2xl pointer-events-none" />
-                  )}
-                  {isSilver && (
-                    <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-slate-300/15 blur-2xl pointer-events-none" />
-                  )}
-
-                  <div>
-                    {/* Header: Centered Rank Circle */}
-                    <div className="flex items-center justify-center mb-5">
-                      <div className={`w-11 h-11 rounded-full border flex items-center justify-center font-heading font-black text-lg shadow-sm ${rankCircleClass}`}>
-                        {tier.rank}
-                      </div>
-                    </div>
-
-                    {/* Icon & Title */}
-                    <div className="flex items-center gap-2.5 mb-3">
-                      {isGold || isSilver || isBronze ? (
-                        <Trophy
-                          className={`w-6 h-6 shrink-0 transition-transform duration-300 group-hover:scale-110 ${
-                            isGold
-                              ? 'text-amber-400 drop-shadow-[0_0_10px_rgba(245,158,11,0.7)]'
-                              : isSilver
-                              ? 'text-slate-200 drop-shadow-[0_0_8px_rgba(226,232,240,0.6)]'
-                              : 'text-amber-600 drop-shadow-[0_0_8px_rgba(205,127,50,0.6)]'
-                          }`}
-                        />
-                      ) : (
-                        <Award
-                          className={`w-5 h-5 shrink-0 transition-transform duration-300 group-hover:scale-110 ${
-                            isPlatinum ? 'text-slate-300' : 'text-zinc-400'
-                          }`}
-                        />
-                      )}
-                      <h3 className="text-base font-heading font-bold text-white leading-tight">
-                        {tier.title}
-                      </h3>
-                    </div>
-
-                    {/* Cash Prize Amount */}
-                    <div className={`text-3xl font-heading font-black mb-3 tracking-tight ${amountColorClass}`}>
-                      {tier.amount}
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-xs text-slate-400 leading-relaxed group-hover:text-slate-200 transition-colors">
-                      {tier.description}
-                    </p>
-                  </div>
-                </GlassCard>
-              </ContainerScrollBox>
-            );
-          })}
-        </div>
+                <p className="text-xs sm:text-base md:text-lg text-slate-200 font-sans font-medium max-w-2xl leading-relaxed">
+                  Compete for cash rewards, incubation opportunities, and national recognition.
+                </p>
+              </div>
+            </GlassCard>
+          </div>
+        </ContainerScrollBox>
       </div>
     </Section>
   );
 };
+
+
+
+
+
