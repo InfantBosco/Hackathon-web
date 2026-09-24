@@ -97,7 +97,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-12',
     category: 'ELIGIBILITY',
     question: 'Who is eligible to participate in HackNEX?',
-    answer: 'Only Undergraduate students are eligible to participate.',
+    answer: 'High School Students , UG & PG Students  are eligible to participate.  ',
   },
   {
     id: 'faq-13',
