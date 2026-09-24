@@ -7,6 +7,7 @@ import { aboutData } from '../../data/aboutData';
 import { CheckCircle2, Target, Award } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
 import { KineticSpringFloat } from '../ui/KineticSpringFloat';
+import { ChiefGuestSlider } from '../ui/ChiefGuestSlider';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -80,6 +81,15 @@ export const AboutSection: React.FC = () => {
           ))}
         </div>
       </FadeIn>
+
+      {/* CHIEF GUEST SLIDER SECTION - 3 Interactive Slides with Navigation Controls */}
+      <FadeIn delay={0.4} direction="up" className="mt-16 flex justify-center">
+        <ChiefGuestSlider />
+      </FadeIn>
     </Section>
   );
 };
+
+
+
+
