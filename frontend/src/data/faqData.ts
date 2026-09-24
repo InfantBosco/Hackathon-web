@@ -35,7 +35,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-3',
     category: 'REGISTRATION',
     question: 'Can I edit team details after submitting registration?',
-    answer: 'Team leader details can be managed via the leader portal prior to registration status lock.',
+    answer: 'Team Leader shall contact the orgnisers to do the changes',
   },
 
   // Teams

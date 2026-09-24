@@ -36,7 +36,7 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onRegisterClic
 
         <FadeIn delay={0.2} direction="up">
           <p className="text-lg text-[var(--color-text-secondary)] mb-8 max-w-xl mx-auto leading-relaxed">
-            <span>Assemble your team of 4 and register for <strong className="font-royal font-bold text-white">HackNEX '26</strong>.</span>
+            <span>Assemble your team of 3 to 4 and register for <strong className="font-royal font-bold text-white">HackNEX '26</strong>.</span>
             <br />
             <span className="inline-block mt-1">October 8–9, 2026 at Karunya University.</span>
           </p>
