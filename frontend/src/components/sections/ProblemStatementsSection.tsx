@@ -24,7 +24,7 @@ export const ProblemStatementsSection: React.FC = () => {
       <SectionHeader
         badge="PROBLEM STATEMENTS"
         title="Challenge Tracks & Problem Statements"
-        subtitle="Official problem statement guidelines and track details will be released prior to the event."
+        subtitle="Official problem statement guidelines and track details will be released on the day of the hackathon."
       />
 
       <div className="max-w-5xl mx-auto my-4">
@@ -63,7 +63,7 @@ export const ProblemStatementsSection: React.FC = () => {
             {/* Description Body */}
             <div className="relative z-10 my-4 max-w-3xl">
               <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-sans font-medium">
-                Official problem statements and track guidelines will be released prior to the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here.
+                Official problem statements and track guidelines will be released on the day of the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here.
               </p>
             </div>
 
@@ -89,7 +89,7 @@ export const ProblemStatementsSection: React.FC = () => {
               {showNotice && (
                 <div className="animate-fadeIn py-2.5 px-4 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold flex items-center gap-2 shadow-md">
                   <Clock className="w-4 h-4 shrink-0 text-amber-400" />
-                  <span>Problem Statements PDF will be uploaded here prior to the event!</span>
+                  <span>Problem Statements PDF will be uploaded here on the day of the hackathon!</span>
                 </div>
               )}
             </div>

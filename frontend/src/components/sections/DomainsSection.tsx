@@ -33,7 +33,7 @@ export const DomainsSection: React.FC = () => {
       <SectionHeader
         badge="PS & THEME"
         title="Hackathon Theme & Problem Statements"
-        subtitle="Explore our overarching innovation theme and prepare for upcoming problem statement releases."
+        subtitle="Explore our overarching innovation theme and prepare for problem statements release on the day of the event."
       />
 
       <div className="max-w-5xl mx-auto space-y-8 my-4">
@@ -122,7 +122,7 @@ export const DomainsSection: React.FC = () => {
             {/* Description Body */}
             <div className="relative z-10 my-4 max-w-3xl">
               <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-sans font-medium">
-                Official problem statements and track guidelines will be released prior to the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here.
+                Official problem statements and track guidelines will be released on the day of the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here.
               </p>
             </div>
 
@@ -148,7 +148,7 @@ export const DomainsSection: React.FC = () => {
               {showNotice && (
                 <div className="animate-fadeIn py-2.5 px-4 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-mono font-medium flex items-center gap-2">
                   <Clock className="w-4 h-4 shrink-0" />
-                  <span>Problem Statements PDF will be uploaded here prior to the event!</span>
+                  <span>Problem Statements PDF will be uploaded here on the day of the hackathon!</span>
                 </div>
               )}
             </div>
