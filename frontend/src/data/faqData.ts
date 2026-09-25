@@ -139,6 +139,6 @@ export const faqData: FAQItem[] = [
     id: 'faq-18',
     category: 'TECHNICAL',
     question: 'What hardware/software must teams bring?',
-    answer: 'Teams must bring their own laptops, chargers, extension cords, required peripherals,  for their project development. Wi-Fi and power facilities will be provided at the venue',
+    answer: 'Teams must bring their own laptops, chargers, extension cords and required peripherals for their project development. Wi-Fi and power facilities will be provided at the venue.',
   },
 ];
