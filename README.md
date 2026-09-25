@@ -1,16 +1,16 @@
 # HackNEX 2026 — Master Hackathon Website Repository
 
-Official platform codebase for **HackNEX 2026**, organized by the **NEXUS Club** of **Karunya Institute of Technology and Sciences (KITS), Coimbatore**.
+Official platform codebase for **HackNEX 2026**, presented by the **NEXUS** of **Karunya Institute of Technology and Sciences (KITS), Coimbatore**.
 
 ---
 
 ## 1. Event Overview
 - **Event Name**: HackNEX 2026
 - **Event Dates**: October 7–9, 2026
-- **Event Mode**: Offline (Karunya Campus, Coimbatore)
-- **Expected Scale**: 1,500+ Participants (~375+ Teams)
-- **Team Size**: Exactly 4 Participants (Captain + 3 Members)
-- **Registration Fee**: ₹500 per person (₹2,000 per team)
+- **Event Mode**: Offline (Karunya Institute of Technology and Sciences, Coimbatore)
+- **Expected Scale**: 1,500+ Participants 
+- **Team Size**: 3-4 members
+- **Registration Fee**: ₹500 per person
 
 ---
 
