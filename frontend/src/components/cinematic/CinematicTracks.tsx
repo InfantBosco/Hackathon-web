@@ -170,7 +170,7 @@ export const CinematicTracks: React.FC = () => {
 
                       {/* Mobile Step Badge */}
                       <span className="md:hidden ml-auto text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/30">
-                        {domain.number} / 06
+                        {domain.number} / 0{domainsData.length}
                       </span>
                     </div>
 

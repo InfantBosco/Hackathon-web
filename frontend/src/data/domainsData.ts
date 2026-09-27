@@ -31,8 +31,8 @@ export const domainsData: DomainItem[] = [
   {
     id: 'localllms',
     number: '04',
-    title: 'EDGE AI',
+    title: 'Local LLM',
     category: 'DOMAIN 04',
-    description: 'Build intelligent systems that bring AI closer to where data is generated. Explore on-device inference, edge computing, lightweight AI models, computer vision, and real-time decision-making to create solutions that are fast, efficient, privacy-aware, and capable of operating with limited connectivity.',
+    description: 'Build private, efficient, and offline-capable AI systems using open-source models running locally. Innovate with on-device inference, lightweight quantized models, privacy-preserving pipelines, and specialized local AI solutions.',
   },
 ];
