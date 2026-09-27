@@ -265,11 +265,11 @@ export const TwistingTitleTimer: React.FC = () => {
       title="Click to toggle Title / Countdown Timer"
     >
       {/* FACE 1: HACKNEX 2026 TITLE */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center transform-gpu pointer-events-auto">
+      <div className="absolute inset-0 flex flex-col items-center justify-center transform-gpu pointer-events-auto px-2">
         <h1
-          className="font-hacknex font-black uppercase leading-[0.9] text-center flex items-center justify-center flex-wrap"
+          className="font-hacknex font-black uppercase leading-[0.9] text-center flex items-center justify-center flex-nowrap whitespace-nowrap select-none max-w-full"
           style={{
-            fontSize: 'clamp(2.75rem, 8.5vw, 6.5rem)',
+            fontSize: 'clamp(1.75rem, 7.5vw, 6.5rem)',
             transformStyle: 'preserve-3d',
           }}
         >

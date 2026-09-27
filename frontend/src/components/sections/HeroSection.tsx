@@ -253,7 +253,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
             initial={{ opacity: 0, y: 28, scale: 0.94 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.2 }}
-            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-hacknex font-black tracking-tight uppercase select-none flex items-center justify-center text-center mx-auto w-full leading-none -mt-1 sm:-mt-2"
+            className="text-3xl sm:text-6xl lg:text-7xl xl:text-8xl font-hacknex font-black tracking-tight uppercase select-none flex items-center justify-center text-center mx-auto w-full leading-none -mt-1 sm:-mt-2 flex-nowrap whitespace-nowrap"
           >
             <span className="text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.35)]">HACKNE</span>
             <span className="text-google-x drop-shadow-[0_0_20px_rgba(255,255,255,0.25)]">X</span>

@@ -109,8 +109,8 @@ export const HomePage: React.FC = () => {
       {/* Fixed background scene system */}
       <BackgroundScenes />
 
-      {/* Navigation */}
-      <CinematicNav onRegisterClick={openRegisterModal} />
+      {/* Navigation — Only appears when home page occurs */}
+      {!isLoading && <CinematicNav onRegisterClick={openRegisterModal} />}
 
       {/* Main content — renders above the fixed background */}
       <main className="relative z-10 w-full">
