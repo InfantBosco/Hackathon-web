@@ -1,82 +1,148 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Lenis from 'lenis';
-import { Navbar } from '../components/navigation/Navbar';
-import { HeroSection } from '../components/sections/HeroSection';
-import { AboutSection } from '../components/sections/AboutSection';
-import { ThemeSection } from '../components/sections/ThemeSection';
-import { ProblemStatementsSection } from '../components/sections/ProblemStatementsSection';
-import { DetailsSection } from '../components/sections/DetailsSection';
-import { ScheduleSection } from '../components/sections/ScheduleSection';
-import { PrizesSection } from '../components/sections/PrizesSection';
-import { SponsorsSection } from '../components/sections/SponsorsSection';
-import { VenueSection } from '../components/sections/VenueSection';
-import { ContactSection } from '../components/sections/ContactSection';
-import { FAQSection } from '../components/sections/FAQSection';
-import { FinalCTASection } from '../components/sections/FinalCTASection';
-import { Footer } from '../components/navigation/Footer';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Cinematic components
+import { BackgroundScenes } from '../components/cinematic/BackgroundScenes';
+import { CinematicNav } from '../components/cinematic/CinematicNav';
+import { CinematicHero } from '../components/cinematic/CinematicHero';
+import { CinematicAbout } from '../components/cinematic/CinematicAbout';
+import { CinematicStory } from '../components/cinematic/CinematicStory';
+import { CinematicStats } from '../components/cinematic/CinematicStats';
+import { CinematicTracks } from '../components/cinematic/CinematicTracks';
+import { CinematicChallenge } from '../components/cinematic/CinematicChallenge';
+import { CinematicTimeline } from '../components/cinematic/CinematicTimeline';
+import { CinematicPrizes } from '../components/cinematic/CinematicPrizes';
+import { CinematicSponsors } from '../components/cinematic/CinematicSponsors';
+import { CinematicVenue } from '../components/cinematic/CinematicVenue';
+import { CinematicContact } from '../components/cinematic/CinematicContact';
+import { CinematicFAQ } from '../components/cinematic/CinematicFAQ';
+import { CinematicCTA } from '../components/cinematic/CinematicCTA';
+import { CinematicFooter } from '../components/cinematic/CinematicFooter';
+
+// Preserved functionality
 import { BackToTop } from '../components/ui/BackToTop';
-import { ParallaxSection } from '../components/ui/ParallaxSection';
 import { RegistrationModal } from '../components/modals/RegistrationModal';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const HomePage: React.FC = () => {
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const lenisRef = useRef<Lenis | null>(null);
 
+  // Lenis + GSAP ScrollTrigger: Heavily dampened scroll speed so fast scrolls still move slowly,
+  // allowing words and elements to reveal slowly and gracefully with scroll animations.
   useEffect(() => {
-    // Mobile touch devices perform best with native 120Hz/60Hz momentum scrolling
-    if (window.innerWidth < 768) return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
     const lenis = new Lenis({
-      duration: 1.0,
+      duration: isTouch ? 1.2 : 2.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      wheelMultiplier: 0.45, // Dampened on laptop/desktop so fast wheel scrolls glide slowly
+      touchMultiplier: 1.25, // Responsive touch momentum on phones
+      infinite: false,
+      virtualScroll: (data) => {
+        // Apply controlled dampening on desktop mouse wheels; keep phone touch swipes fluid
+        if (!isTouch) {
+          if ((window as any).__tracksActive) {
+            const sign = Math.sign(data.deltaY);
+            const dampened = Math.abs(data.deltaY) * 0.35;
+            data.deltaY = sign * Math.min(dampened, 60);
+          } else if ((window as any).__scheduleActive) {
+            const sign = Math.sign(data.deltaY);
+            const dampened = Math.abs(data.deltaY) * 0.65;
+            data.deltaY = sign * Math.min(dampened, 120);
+          } else if ((window as any).__ctaActive) {
+            const sign = Math.sign(data.deltaY);
+            const dampened = Math.abs(data.deltaY) * 0.6;
+            data.deltaY = sign * Math.min(dampened, 110);
+          }
+        }
+        return true;
+      },
     });
+    lenisRef.current = lenis;
+    (window as any).__lenis = lenis;
 
-    let rafId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      rafId = requestAnimationFrame(raf);
-    }
-    rafId = requestAnimationFrame(raf);
+    // Connect Lenis to GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    const updateRaf = (time: number) => {
+      lenis.raf(time * 1000);
+    };
+    gsap.ticker.add(updateRaf);
+    gsap.ticker.lagSmoothing(0);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      gsap.ticker.remove(updateRaf);
       lenis.destroy();
+      lenisRef.current = null;
+      delete (window as any).__lenis;
+      delete (window as any).__tracksActive;
+      delete (window as any).__scheduleActive;
+      delete (window as any).__ctaActive;
     };
   }, []);
 
   const openRegisterModal = () => setIsRegisterModalOpen(true);
   const closeRegisterModal = () => setIsRegisterModalOpen(false);
 
-  const sections = [
-    { id: 'home', component: <HeroSection onRegisterClick={openRegisterModal} /> },
-    { id: 'about', component: <AboutSection /> },
-    { id: 'theme', component: <ThemeSection /> },
-    { id: 'problem-statements', component: <ProblemStatementsSection /> },
-    { id: 'details', component: <DetailsSection /> },
-    { id: 'schedule', component: <ScheduleSection /> },
-    { id: 'prizes', component: <PrizesSection /> },
-    { id: 'sponsors', component: <SponsorsSection /> },
-    { id: 'venue', component: <VenueSection /> },
-    { id: 'contact', component: <ContactSection /> },
-    { id: 'faq', component: <FAQSection /> },
-    { id: 'cta', component: <FinalCTASection onRegisterClick={openRegisterModal} /> },
-  ];
-
   return (
-    <div className="w-full relative bg-transparent text-white">
-      <Navbar />
-      <main className="relative w-full">
-        {sections.map((sec) => (
-          <ParallaxSection key={sec.id}>
-            {sec.component}
-          </ParallaxSection>
-        ))}
+    <div className="w-full relative bg-[#030712] text-white">
+      {/* Fixed background scene system */}
+      <BackgroundScenes />
+
+      {/* Navigation */}
+      <CinematicNav onRegisterClick={openRegisterModal} />
+
+      {/* Main content — renders above the fixed background */}
+      <main className="relative z-10 w-full">
+        {/* ACT I — THE HERO (Scene 1: Video BG) */}
+        <CinematicHero onRegisterClick={openRegisterModal} />
+
+        {/* TRANSITION — About */}
+        <CinematicAbout />
+
+        {/* STORY BEAT — Large text reveal */}
+        <CinematicStory />
+
+        {/* STATS — Animated counters */}
+        <CinematicStats />
+
+        {/* ACT II — THE CHALLENGE (Scene 2: Ambient Dark) */}
+        <CinematicTracks />
+
+        {/* Challenge details */}
+        <CinematicChallenge />
+
+        {/* Timeline pinned experience */}
+        <CinematicTimeline />
+
+        {/* Prizes */}
+        <CinematicPrizes />
+
+        {/* Sponsors */}
+        <CinematicSponsors />
+
+        {/* ACT III — THE VENUE (Scene 3: Venue BG) */}
+        <CinematicVenue />
+
+        {/* Contact */}
+        <CinematicContact />
+
+        {/* FAQ */}
+        <CinematicFAQ />
+
+        {/* Final CTA */}
+        <CinematicCTA onRegisterClick={openRegisterModal} />
       </main>
-      <div className="relative z-[300] bg-black">
-        <Footer />
-      </div>
+
+      {/* Footer */}
+      <CinematicFooter />
+
+      {/* Utility */}
       <BackToTop />
       <RegistrationModal isOpen={isRegisterModalOpen} onClose={closeRegisterModal} />
     </div>
   );
 };
-

@@ -19,9 +19,9 @@ export const Section: React.FC<SectionProps> = ({
 }) => {
   const variantStyles = {
     primary: 'bg-transparent',
-    secondary: 'bg-[rgba(18,5,9,0.35)] border-y border-[var(--color-border-subtle)]',
+    secondary: 'bg-[rgba(6,12,28,0.55)] border-y border-[var(--color-border-subtle)]',
     glass: 'bg-[var(--color-surface-glass)] backdrop-blur-xl border-y border-[var(--color-border-subtle)]',
-    gradient: 'bg-gradient-to-b from-transparent via-[rgba(18,5,9,0.4)] to-transparent',
+    gradient: 'bg-gradient-to-b from-transparent via-[rgba(6,18,36,0.45)] to-transparent',
   };
 
   return (

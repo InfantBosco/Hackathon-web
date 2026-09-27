@@ -4,38 +4,40 @@
 
 @layer base {
   :root {
-    /* Color System - Deep Midnight Black & Pure White Palette */
-    --color-bg-primary: #000000;
-    --color-bg-secondary: #0a0a0a;
-    --color-surface: rgba(18, 18, 18, 0.94);
-    --color-surface-elevated: rgba(10, 10, 10, 0.96);
-    --color-surface-glass: rgba(5, 5, 5, 0.97);
+    /* Color System - Deep Cyber Neural Video Palette */
+    --color-bg-primary: #030712;
+    --color-bg-secondary: #060b19;
+    --color-surface: rgba(8, 15, 32, 0.85);
+    --color-surface-elevated: rgba(11, 20, 44, 0.92);
+    --color-surface-glass: rgba(7, 13, 28, 0.88);
 
-    --color-border: rgba(255, 255, 255, 0.22);
-    --color-border-subtle: rgba(255, 255, 255, 0.12);
-    --color-border-glow: rgba(255, 255, 255, 0.4);
+    --color-border: rgba(56, 189, 248, 0.24);
+    --color-border-subtle: rgba(56, 189, 248, 0.12);
+    --color-border-glow: rgba(0, 240, 255, 0.55);
 
     --color-text-primary: #ffffff;
-    --color-text-secondary: #e5e7eb;
-    --color-text-muted: #d1d5db;
+    --color-text-secondary: #cbd5e1;
+    --color-text-muted: #94a3b8;
 
-    /* Accents - Monochrome White & Platinum Scales */
-    --color-accent-cyan: #ffffff;   /* Pure Crisp White */
-    --color-accent-purple: #e5e7eb; /* Platinum Silver */
-    --color-accent-pink: #d1d5db;   /* Slate Grey */
-    --color-accent-blue: #9ca3af;   /* Charcoal Grey */
-    --color-accent-gold: #f9fafb;   /* Bright Highlight */
+    /* Accents - Neural Video Particle Spectrum */
+    --color-accent-cyan: #00f0ff;    /* Luminescent Neural Cyan */
+    --color-accent-purple: #818cf8;  /* Cosmic Violet Synapse */
+    --color-accent-pink: #f43f5e;    /* Cyber Crimson */
+    --color-accent-blue: #38bdf8;    /* Electric Azure */
+    --color-accent-gold: #fbbf24;    /* Synaptic Gold / Amber */
+    --color-accent-green: #10b981;   /* Quantum Emerald */
 
     /* Status Colors */
     --color-success: #10b981;
     --color-warning: #f59e0b;
     --color-error: #ef4444;
-    --color-info: #3b82f6;
+    --color-info: #00f0ff;
 
-    /* Glows & Shadows */
-    --shadow-glow-cyan: 0 0 35px rgba(255, 255, 255, 0.3);
-    --shadow-glow-purple: 0 0 35px rgba(200, 200, 200, 0.25);
-    --shadow-glass: 0 12px 40px 0 rgba(0, 0, 0, 0.85);
+    /* Glows & Shadows matching Video */
+    --shadow-glow-cyan: 0 0 35px rgba(0, 240, 255, 0.38);
+    --shadow-glow-purple: 0 0 35px rgba(129, 140, 248, 0.35);
+    --shadow-glow-gold: 0 0 35px rgba(251, 191, 36, 0.35);
+    --shadow-glass: 0 12px 40px 0 rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(56, 189, 248, 0.15);
 
     /* Radius Scale */
     --radius-xs: 4px;

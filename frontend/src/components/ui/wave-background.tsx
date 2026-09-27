@@ -108,10 +108,10 @@ export function Waves({
     });
     pathsRef.current = [];
 
-    // Dynamic density: larger gap on mobile for high FPS and light GPU workload
+    // Dynamic density: optimized gap for smooth 60fps performance without main-thread bottleneck
     const isMobile = width < 768;
-    const xGap = isMobile ? 16 : 9;
-    const yGap = isMobile ? 16 : 9;
+    const xGap = isMobile ? 26 : 20;
+    const yGap = isMobile ? 26 : 20;
 
     const oWidth = width + 200;
     const oHeight = height + 30;
@@ -289,8 +289,12 @@ export function Waves({
       containerRef.current.style.setProperty('--y', `${mouse.sy}px`);
     }
 
-    movePoints(time);
-    drawLines();
+    // Skip heavy DOM updates and simplex noise calculations when Hero video covers the viewport
+    const isHeroActive = typeof window !== 'undefined' && window.scrollY < (window.innerHeight * 0.7);
+    if (!isHeroActive) {
+      movePoints(time);
+      drawLines();
+    }
 
     rafRef.current = requestAnimationFrame(tick);
   };

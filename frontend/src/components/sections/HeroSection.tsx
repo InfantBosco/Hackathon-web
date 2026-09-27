@@ -2,8 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, Calendar, MapPin, Clock, Trophy } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { GridBackground } from '../backgrounds/GridBackground';
-import { NeuralNoise } from '../backgrounds/NeuralNoise';
 import { CountdownTimer } from './CountdownTimer';
 import { heroData } from '../../data/heroData';
 import { siteConfig } from '../../data/siteConfig';
@@ -47,7 +45,77 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
+  const videoRef = React.useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = React.useState<string>('/hero-bg.mp4');
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  // Preload entire video into RAM memory blob for zero-latency, lag-free continuous looping
+  React.useEffect(() => {
+    let isCancelled = false;
+    let blobUrl = '';
+
+    fetch('/hero-bg.mp4')
+      .then((res) => res.blob())
+      .then((blob) => {
+        if (!isCancelled) {
+          blobUrl = URL.createObjectURL(blob);
+          setVideoSrc(blobUrl);
+        }
+      })
+      .catch(() => {});
+
+    return () => {
+      isCancelled = true;
+      if (blobUrl) URL.revokeObjectURL(blobUrl);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+
+    // Instant autoplay
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        const startPlayback = () => {
+          video.play().catch(() => {});
+          window.removeEventListener('click', startPlayback);
+          window.removeEventListener('touchstart', startPlayback);
+          window.removeEventListener('scroll', startPlayback);
+          window.removeEventListener('keydown', startPlayback);
+        };
+        window.addEventListener('click', startPlayback, { once: true });
+        window.addEventListener('touchstart', startPlayback, { once: true });
+        window.addEventListener('scroll', startPlayback, { once: true });
+        window.addEventListener('keydown', startPlayback, { once: true });
+      });
+    }
+
+    // Seamless loop: reset right before end to eliminate any browser seek hitch
+    const handleTimeUpdate = () => {
+      if (video.duration && video.currentTime >= video.duration - 0.08) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      }
+    };
+
+    const handleEnded = () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    video.addEventListener('ended', handleEnded);
+
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+      video.removeEventListener('ended', handleEnded);
+    };
+  }, [videoSrc]);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -78,8 +146,33 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
   };
 
   return (
-    <GridBackground id="home" className="min-h-screen pt-28 sm:pt-6 pb-16 flex flex-col justify-center relative">
-      <NeuralNoise opacity={0.3} />
+    <section id="home" className="min-h-screen pt-28 sm:pt-15 pb-16 flex flex-col justify-center relative overflow-hidden bg-black">
+      {/* Background Video (Zero-lag continuous seamless loop, muted, hardware accelerated) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          disablePictureInPicture
+          disableRemotePlayback
+          style={{
+            transform: 'translate3d(0, 0, 0)',
+            willChange: 'transform, filter',
+            backfaceVisibility: 'hidden',
+            filter: 'blur(5px)',
+          }}
+          className="w-full h-full object-cover object-center transform-gpu scale-105"
+        />
+
+        {/* Ambient Contrast & Section Transition Overlays */}
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/60 to-transparent" />
+      </div>
 
       <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 my-auto mt-2 sm:mt-4">
         {/* Header Tagline & Brand */}
@@ -227,7 +320,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
                 return (
                   <div
                     key={item.label}
-                    className="rounded-[1.6rem] p-4 sm:p-4.5 border border-amber-500/25 bg-[#0d0c10]/90 backdrop-blur-md flex items-center gap-3.5 shadow-[0_4px_25px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:-translate-y-1 text-left select-none group"
+                    className="rounded-[1.6rem] p-4 sm:p-4.5 border border-amber-500/25 bg-[#0d0c10]/95 backdrop-blur-sm flex items-center gap-3.5 shadow-[0_4px_25px_rgba(0,0,0,0.6)] transition-all duration-300 hover:border-amber-500/50 hover:shadow-[0_0_25px_rgba(245,158,11,0.25)] hover:-translate-y-1 text-left select-none group"
                   >
                     <div className="shrink-0 text-white pl-0.5">
                       <Icon className="w-5 sm:w-6 h-5 sm:h-6 stroke-[1.75]" />
@@ -266,6 +359,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
           <CountdownTimer />
         </motion.div>
       </div>
-    </GridBackground>
+    </section>
   );
 };

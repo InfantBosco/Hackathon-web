@@ -56,7 +56,7 @@ export const CountdownTimer: React.FC = () => {
       ].map((item) => (
         <div
           key={item.label}
-          className={`glass-panel p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center hover:scale-105 sm:hover:scale-110 transition-all duration-300 select-none bg-zinc-950/85 backdrop-blur-md cursor-pointer ${item.colorClass}`}
+          className={`glass-panel p-3 sm:p-4 rounded-2xl flex flex-col items-center justify-center text-center hover:scale-105 sm:hover:scale-110 transition-all duration-300 select-none bg-zinc-950/90 backdrop-blur-sm cursor-pointer ${item.colorClass}`}
         >
           <span className="text-2xl sm:text-4xl font-heading font-black tracking-tight text-white font-mono drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]">
             {item.value}

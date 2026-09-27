@@ -5,5 +5,5 @@ export const venueData = {
   city: 'Coimbatore, India',
   googleMapsUrl: 'https://maps.app.goo.gl/wcDdRanCpApQom5a6',
   transportationNote: '',
-  imageUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1788584386/ollbzw4qx2b83pwacfaa.jpg',
+  imageUrl: '/scenes/karunya_original.jpg',
 };

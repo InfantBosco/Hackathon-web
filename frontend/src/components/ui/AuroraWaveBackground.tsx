@@ -55,8 +55,8 @@ export const AuroraWaveBackground: React.FC<AuroraWaveBackgroundProps> = ({
   }, [enableSmoothScroll]);
 
   return (
-    <div className={`relative w-full min-h-screen bg-[#000000] text-white ${className}`}>
-      {/* 1. VIBRANT GOOGLE 4-COLOR AURORA BACKGROUND WITH SCROLL PARALLAX */}
+    <div className={`relative w-full min-h-screen bg-[#030712] text-white ${className}`}>
+      {/* 1. NEURAL CYBER AURORA AMBIENT GLOW (MATCHING HERO VIDEO PALETTE) */}
       {showAurora && (
         <div
           className="fixed inset-0 z-0 overflow-hidden pointer-events-none select-none opacity-85 transition-transform duration-500 ease-out will-change-transform transform-gpu"
@@ -64,30 +64,30 @@ export const AuroraWaveBackground: React.FC<AuroraWaveBackgroundProps> = ({
             transform: `translateY(${scrollProgress * 50}px)`,
           }}
         >
-          {/* Aurora Blob 1 - Top Left Google Blue (#4285F4) */}
-          <div className="absolute -top-32 -left-32 w-[900px] h-[900px] rounded-full bg-[radial-gradient(circle_at_center,rgba(66,133,244,0.35)_0%,rgba(66,133,244,0.12)_40%,transparent_75%)] blur-[80px] animate-[aurora-slow_18s_ease-in-out_infinite_alternate]" />
+          {/* Aurora Blob 1 - Top Left Luminescent Neural Cyan (#00f0ff / #06b6d4) */}
+          <div className="absolute -top-32 -left-32 w-[900px] h-[900px] rounded-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.32)_0%,rgba(56,189,248,0.12)_45%,transparent_75%)] blur-[80px] animate-[aurora-slow_18s_ease-in-out_infinite_alternate]" />
 
-          {/* Aurora Blob 2 - Top Right Google Red (#EA4335) */}
-          <div className="absolute top-1/4 -right-32 w-[850px] h-[850px] rounded-full bg-[radial-gradient(circle_at_center,rgba(234,67,53,0.32)_0%,rgba(234,67,53,0.12)_45%,transparent_80%)] blur-[85px] animate-[aurora-reverse_24s_ease-in-out_infinite_alternate]" />
+          {/* Aurora Blob 2 - Top Right Synaptic Gold & Amber (#f59e0b / #fbbf24) */}
+          <div className="absolute top-1/4 -right-32 w-[850px] h-[850px] rounded-full bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.26)_0%,rgba(251,191,36,0.10)_45%,transparent_80%)] blur-[85px] animate-[aurora-reverse_24s_ease-in-out_infinite_alternate]" />
 
-          {/* Aurora Blob 3 - Bottom Left Google Yellow (#FBBC05) */}
-          <div className="absolute -bottom-32 left-1/4 w-[950px] h-[950px] rounded-full bg-[radial-gradient(circle_at_center,rgba(251,188,5,0.28)_0%,rgba(251,188,5,0.10)_50%,transparent_80%)] blur-[90px] animate-[aurora-pulse_15s_ease-in-out_infinite_alternate]" />
+          {/* Aurora Blob 3 - Bottom Left Quantum Emerald (#10b981 / #34d399) */}
+          <div className="absolute -bottom-32 left-1/4 w-[950px] h-[950px] rounded-full bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.24)_0%,rgba(52,211,153,0.08)_50%,transparent_80%)] blur-[90px] animate-[aurora-pulse_15s_ease-in-out_infinite_alternate]" />
 
-          {/* Aurora Blob 4 - Bottom Right Google Green (#34A853) */}
-          <div className="absolute -bottom-40 -right-40 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(52,168,83,0.30)_0%,rgba(52,168,83,0.10)_70%,transparent_80%)] blur-[85px] animate-[aurora-reverse_28s_ease-in-out_infinite_alternate]" />
+          {/* Aurora Blob 4 - Bottom Right Electric Azure (#38bdf8 / #6366f1) */}
+          <div className="absolute -bottom-40 -right-40 w-[800px] h-[800px] rounded-full bg-[radial-gradient(circle_at_center,rgba(56,189,248,0.28)_0%,rgba(99,102,241,0.10)_70%,transparent_80%)] blur-[85px] animate-[aurora-reverse_28s_ease-in-out_infinite_alternate]" />
 
-          {/* Aurora Blob 5 - Center Multi-Color Fusion Core */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] rounded-full bg-[radial-gradient(circle_at_center,rgba(66,133,244,0.22)_0%,rgba(234,67,53,0.18)_30%,rgba(251,188,5,0.15)_55%,rgba(52,168,83,0.15)_70%,transparent_85%)] blur-[80px] animate-[aurora-pulse_11s_ease-in-out_infinite_alternate]" />
+          {/* Aurora Blob 5 - Center Neural Fusion Core */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[750px] rounded-full bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.22)_0%,rgba(245,158,11,0.15)_35%,rgba(16,185,129,0.12)_60%,transparent_85%)] blur-[80px] animate-[aurora-pulse_11s_ease-in-out_infinite_alternate]" />
 
           {/* Dynamic Subtle Scanline Overlay */}
-          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.12)_51%)] bg-[size:100%_4px] opacity-15" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_50%,rgba(0,0,0,0.15)_51%)] bg-[size:100%_4px] opacity-15" />
         </div>
       )}
 
-      {/* 2. INTERACTIVE FULL-SITE WAVE BACKGROUND */}
+      {/* 2. INTERACTIVE FULL-SITE LUMINESCENT NEURAL WAVE BACKGROUND */}
       {showWaves && (
-        <div className="fixed inset-0 z-0 pointer-events-none opacity-60">
-          <Waves strokeColor="rgba(255, 255, 255, 0.45)" pointerSize={0.5} />
+        <div className="fixed inset-0 z-0 pointer-events-none opacity-50">
+          <Waves strokeColor="rgba(56, 189, 248, 0.35)" pointerSize={0.5} />
         </div>
       )}
 

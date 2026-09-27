@@ -4,7 +4,6 @@ import { HomePage } from './pages/HomePage';
 import { ComponentShowcase } from './pages/ComponentShowcase';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
 import { initSentry } from './lib/sentry';
-import { AuroraWaveBackground } from './components/ui/AuroraWaveBackground';
 
 export default function App() {
   useEffect(() => {
@@ -13,15 +12,13 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <AuroraWaveBackground enableSmoothScroll={false}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/showcase" element={<ComponentShowcase />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </BrowserRouter>
-      </AuroraWaveBackground>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/showcase" element={<ComponentShowcase />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </BrowserRouter>
     </ErrorBoundary>
   );
 }

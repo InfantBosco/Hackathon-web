@@ -4,14 +4,14 @@ import { Linkedin, ExternalLink } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black/90 border-t border-white/10 pt-16 pb-12 text-sm text-[var(--color-text-secondary)]">
+    <footer className="bg-[#030712]/95 border-t border-cyan-500/20 shadow-[0_-10px_35px_rgba(3,7,18,0.95)] pt-16 pb-12 text-sm text-[var(--color-text-secondary)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Brand Col without symbol near HACKNEX and using original logomain_svg.png */}
           <div className="md:col-span-2 space-y-4">
             <div className="flex items-center gap-3 font-heading font-black tracking-wider select-none text-xl">
               <span className="text-white">
-                HACK<span className="text-slate-300">NEX</span>
+                HACK<span className="text-cyan-400 drop-shadow-[0_0_12px_rgba(0,240,255,0.4)]">NEX</span>
               </span>
               <span className="text-zinc-600 font-normal text-sm hidden sm:inline">|</span>
               <div className="flex items-center gap-2 text-xs tracking-widest text-slate-300 uppercase">

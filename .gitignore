@@ -52,3 +52,9 @@ coverage/
 .nyc_output/
 playwright-report/
 test-results/
+
+# Temporary / Scratch generation artifacts
+scratch_*
+test_*
+crop_test.jpg
+apply_karunya_scenes.py
