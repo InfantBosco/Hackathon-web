@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Cinematic components
+import { HacknexLoader } from '../components/cinematic/HacknexLoader';
 import { BackgroundScenes } from '../components/cinematic/BackgroundScenes';
 import { CinematicNav } from '../components/cinematic/CinematicNav';
 import { CinematicHero } from '../components/cinematic/CinematicHero';
@@ -28,23 +29,29 @@ import { RegistrationModal } from '../components/modals/RegistrationModal';
 gsap.registerPlugin(ScrollTrigger);
 
 export const HomePage: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const lenisRef = useRef<Lenis | null>(null);
 
-  // Lenis + GSAP ScrollTrigger: Heavily dampened scroll speed so fast scrolls still move slowly,
-  // allowing words and elements to reveal slowly and gracefully with scroll animations.
+  // Lenis + GSAP ScrollTrigger: Controlled dampening on both desktop & mobile touch
+  // Even if user swipes fast on phone, it glides steadily and slowly so animations look stunning
   useEffect(() => {
     const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
     const lenis = new Lenis({
-      duration: isTouch ? 1.2 : 2.2,
+      duration: isTouch ? 1.8 : 2.2, // Smooth, slow glide on phones
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      wheelMultiplier: 0.45, // Dampened on laptop/desktop so fast wheel scrolls glide slowly
-      touchMultiplier: 1.25, // Responsive touch momentum on phones
+      wheelMultiplier: 0.45, // Controlled mousewheel on desktop
+      touchMultiplier: 0.5, // Reduced touch sensitivity by 50% so swipes don't rush through the page
       infinite: false,
       virtualScroll: (data) => {
-        // Apply controlled dampening on desktop mouse wheels; keep phone touch swipes fluid
-        if (!isTouch) {
+        if (isTouch) {
+          // Touch dampening: even if user swipes fast or pushes hard, move steadily and slowly
+          const maxTouchDelta = 70;
+          const sign = Math.sign(data.deltaY);
+          data.deltaY = sign * Math.min(Math.abs(data.deltaY) * 0.4, maxTouchDelta);
+        } else {
+          // Desktop section dampening
           if ((window as any).__tracksActive) {
             const sign = Math.sign(data.deltaY);
             const dampened = Math.abs(data.deltaY) * 0.35;
@@ -87,8 +94,18 @@ export const HomePage: React.FC = () => {
   const openRegisterModal = () => setIsRegisterModalOpen(true);
   const closeRegisterModal = () => setIsRegisterModalOpen(false);
 
+  const handleLoaderComplete = () => {
+    setIsLoading(false);
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 120);
+  };
+
   return (
     <div className="w-full relative bg-[#030712] text-white">
+      {/* Razorpay Buildathon style initial verification & loading screen */}
+      {isLoading && <HacknexLoader onComplete={handleLoaderComplete} />}
+
       {/* Fixed background scene system */}
       <BackgroundScenes />
 

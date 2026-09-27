@@ -101,42 +101,17 @@ export const CinematicTimeline: React.FC = () => {
         return;
       }
 
-      if (!isDesktop) {
-        // Mobile / Phone: Smooth scrubbed sequential spawn as user scrolls down
-        gsap.set('.stage-box-0', { opacity: 0, y: 24, scale: 0.96 });
-        gsap.set('.stage-box-1', { opacity: 0, y: 24, scale: 0.96 });
-        gsap.set('.stage-box-2', { opacity: 0, y: 24, scale: 0.96 });
-        gsap.set('.schedule-lower-content', { opacity: 0, y: 30 });
-
-        const mobileTl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-            end: 'top 20%',
-            scrub: 1.0,
-          },
-        });
-
-        mobileTl
-          .to('.stage-box-0', { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power2.out' })
-          .to('.stage-box-1', { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power2.out' }, '+=0.05')
-          .to('.stage-box-2', { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: 'power2.out' }, '+=0.05')
-          .to('.schedule-lower-content', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '+=0.1');
-
-        return;
-      }
-
-      // Initial state: hide boxes before scroll sequence triggers
-      gsap.set('.stage-box-0', { opacity: 0, y: 28, scale: 0.96 });
-      gsap.set('.stage-box-1', { opacity: 0, y: 28, scale: 0.96 });
-      gsap.set('.stage-box-2', { opacity: 0, y: 28, scale: 0.96 });
-      gsap.set('.schedule-lower-content', { opacity: 0, y: 35, filter: 'blur(6px)' });
+      // Initial state: hide boxes before scroll sequence triggers on BOTH mobile & desktop
+      gsap.set('.stage-box-0', { opacity: 0, y: 24, scale: 0.96 });
+      gsap.set('.stage-box-1', { opacity: 0, y: 24, scale: 0.96 });
+      gsap.set('.stage-box-2', { opacity: 0, y: 24, scale: 0.96 });
+      gsap.set('.schedule-lower-content', { opacity: 0, y: 28, filter: isDesktop ? 'blur(6px)' : 'none' });
 
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: 'top top',
-          end: '+=1200',
+          end: isDesktop ? '+=1200' : '+=950',
           pin: true,
           scrub: 0.9,
           anticipatePin: 1,

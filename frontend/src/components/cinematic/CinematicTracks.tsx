@@ -11,7 +11,6 @@ export const CinematicTracks: React.FC = () => {
   const [revealedWordCount, setRevealedWordCount] = useState(1);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // Proper innovative title in pristine English
   const titleWords = ['Core', 'Domains', 'Shaping', 'Next-Gen', 'Innovation'];
 
   useLayoutEffect(() => {
@@ -20,47 +19,15 @@ export const CinematicTracks: React.FC = () => {
     const isMobile = window.innerWidth < 768;
 
     const ctx = gsap.context(() => {
-      if (isMobile || prefersReduced) {
-        // Mobile: Word-by-word scrubbed title reveal as user reaches tracks
-        gsap.fromTo(
-          '.track-word-mobile',
-          { opacity: 0.15, y: 15, filter: 'blur(4px)' },
-          {
-            opacity: 1,
-            y: 0,
-            filter: 'blur(0px)',
-            stagger: 0.15,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: '.tracks-mobile-header',
-              start: 'top 85%',
-              end: 'top 50%',
-              scrub: 1.0,
-            },
-          }
-        );
-
-        // Mobile: Smooth scrubbed entrance for each domain card
-        gsap.utils.toArray<HTMLElement>('.track-card-mobile').forEach((card) => {
-          gsap.fromTo(
-            card,
-            { opacity: 0.1, y: 35, scale: 0.97 },
-            {
-              opacity: 1,
-              y: 0,
-              scale: 1,
-              ease: 'power2.out',
-              scrollTrigger: { trigger: card, start: 'top 88%', end: 'top 65%', scrub: 1.0 },
-            }
-          );
-        });
+      if (prefersReduced) {
+        setIsTitlePhase(false);
+        setActiveIndex(0);
         return;
       }
 
-      // Desktop: Pinned scroll experience
       const totalTracks = domainsData.length;
-      // Streamlined runway (480vh) so title spawns right away and domain arrives smoothly without dead space
-      const sectionHeight = 480;
+      // Generous runway on mobile so each swipe smoothly advances one domain at a time
+      const sectionHeight = isMobile ? 380 : 480;
 
       const tracker = { progress: 0 };
 
@@ -87,7 +54,6 @@ export const CinematicTracks: React.FC = () => {
         },
       });
 
-      // Smooth scrub tween (scrub: 1.6) ensures responsive, prompt word spawns and seamless domain flow
       gsap.to(tracker, {
         progress: 1,
         ease: 'none',
@@ -95,12 +61,11 @@ export const CinematicTracks: React.FC = () => {
           trigger: sectionRef.current,
           start: 'top top',
           end: `+=${sectionHeight}vh`,
-          scrub: 1.6,
+          scrub: 1.2,
         },
         onUpdate: () => {
           const p = tracker.progress;
-          // Prompt title threshold (0.12): words spawn immediately and domains enter quickly
-          const titleThreshold = 0.12;
+          const titleThreshold = isMobile ? 0.14 : 0.12;
 
           if (p < titleThreshold) {
             setIsTitlePhase(true);
@@ -111,7 +76,6 @@ export const CinematicTracks: React.FC = () => {
             );
             setRevealedWordCount(count);
           } else {
-            // Rapid, smooth handoff to domains
             setIsTitlePhase(false);
             const domainP = (p - titleThreshold) / (1 - titleThreshold);
             const nextIndex = Math.min(
@@ -131,83 +95,34 @@ export const CinematicTracks: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="tracks" className="relative overflow-hidden z-10 py-6 md:py-0">
-      {/* Mobile: stacked view with word-by-word title reveal & clear watermark numbers */}
-      <div className="md:hidden py-16 px-4 sm:px-6 tracks-mobile-header">
-        <span className="block text-xs font-mono uppercase tracking-[0.3em] text-amber-400 font-semibold mb-3">
-          INNOVATION TRACKS
-        </span>
-        <h2
-          className="font-heading font-black tracking-tight text-white mb-10 leading-tight flex flex-wrap gap-x-2.5 gap-y-1"
-          style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)' }}
-        >
-          {titleWords.map((word, idx) => (
-            <span
-              key={idx}
-              className={`track-word-mobile inline-block ${
-                idx === 3 ? 'text-amber-400 font-black' : 'text-white'
-              }`}
-            >
-              {word}
-            </span>
-          ))}
-        </h2>
-        <div className="space-y-8">
-          {domainsData.map((domain) => (
-            <div
-              key={domain.id}
-              className="track-card-mobile pl-5 border-l-2 border-amber-400/50 py-3 relative"
-            >
-              <div className="flex justify-between items-start">
-                <div>
-                  <span className="text-xs font-mono text-amber-400 tracking-widest block mb-1.5 font-semibold">
-                    {domain.category}
-                  </span>
-                  <h3
-                    className="font-heading font-black text-white mt-1 mb-2"
-                    style={{ fontSize: 'clamp(1.5rem, 4vw, 2.2rem)' }}
-                  >
-                    {domain.title}
-                  </h3>
-                </div>
-                <span className="font-heading font-black text-white/25 text-6xl select-none leading-none drop-shadow-[0_2px_15px_rgba(0,0,0,0.6)]">
-                  {domain.number}
-                </span>
-              </div>
-              <p className="text-sm text-slate-300 leading-relaxed font-normal mt-2">{domain.description}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+    <section ref={sectionRef} id="tracks" className="relative overflow-hidden z-10 py-0">
+      <div className="flex min-h-screen items-center justify-center px-4 sm:px-6 lg:px-16">
+        <div className="w-full max-w-5xl mx-auto py-8 relative min-h-[380px] sm:min-h-[420px] flex items-center justify-center">
 
-      {/* Desktop: pinned experience — Title occurs one by one, then domains with more visible transparent numbers */}
-      <div className="hidden md:flex min-h-screen items-center px-6 lg:px-16">
-        <div className="w-full max-w-5xl mx-auto py-8 relative min-h-[420px] flex items-center justify-center">
-
-          {/* PHASE 1: Title Reveal Sequence (words spawn immediately one by one with scroll) */}
+          {/* PHASE 1: Title Reveal Sequence */}
           <div
-            className={`absolute inset-0 flex flex-col justify-center items-center text-center transition-all duration-500 ease-out ${
+            className={`absolute inset-0 flex flex-col justify-center items-center text-center transition-all duration-500 ease-out transform-gpu will-change-[transform,opacity] ${
               isTitlePhase
                 ? 'opacity-100 translate-y-0 pointer-events-auto'
                 : 'opacity-0 -translate-y-10 pointer-events-none'
             }`}
           >
-            <span className="text-xs sm:text-sm font-mono text-amber-400 font-bold uppercase tracking-[0.3em] mb-4 block">
+            <span className="text-xs sm:text-sm font-mono text-amber-400 font-bold uppercase tracking-[0.3em] mb-3 sm:mb-4 block">
               // CORE INNOVATION TRACKS
             </span>
             <h2
               className="font-heading font-black tracking-tight leading-[1.1] max-w-4xl"
-              style={{ fontSize: 'clamp(2.6rem, 5.5vw, 5rem)' }}
+              style={{ fontSize: 'clamp(2.2rem, 5.5vw, 5rem)' }}
             >
               {titleWords.map((word, idx) => (
                 <span
                   key={idx}
-                  className={`inline-block mr-3 sm:mr-4 transition-all duration-400 ${
+                  className={`inline-block mr-2 sm:mr-4 transition-all duration-300 ${
                     revealedWordCount > idx
                       ? idx === 3
-                        ? 'text-amber-400 opacity-100 translate-y-0 blur-0 drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]'
-                        : 'text-white opacity-100 translate-y-0 blur-0'
-                      : 'text-white/20 opacity-20 translate-y-2 blur-[4px]'
+                        ? 'text-amber-400 opacity-100 translate-y-0 drop-shadow-[0_0_25px_rgba(245,158,11,0.5)]'
+                        : 'text-white opacity-100 translate-y-0'
+                      : 'text-white/20 opacity-20 translate-y-2'
                   }`}
                 >
                   {word}
@@ -215,7 +130,7 @@ export const CinematicTracks: React.FC = () => {
               ))}
             </h2>
             <p
-              className={`text-xs sm:text-sm font-mono uppercase tracking-widest text-slate-400 mt-8 transition-all duration-500 ${
+              className={`text-xs sm:text-sm font-mono uppercase tracking-widest text-slate-400 mt-6 sm:mt-8 transition-all duration-500 ${
                 revealedWordCount >= titleWords.length
                   ? 'opacity-80 translate-y-0'
                   : 'opacity-0 translate-y-3'
@@ -225,49 +140,70 @@ export const CinematicTracks: React.FC = () => {
             </p>
           </div>
 
-          {/* PHASE 2: Domains Sequence (with prominently visible transparent watermark numbers) */}
+          {/* PHASE 2: Domains Sequence (Only ONE domain occurs initially; next ones spawn smoothly on scroll) */}
           <div
-            className={`w-full transition-all duration-600 ease-out ${
+            className={`w-full transition-all duration-500 ease-out transform-gpu will-change-[transform,opacity] ${
               !isTitlePhase
                 ? 'opacity-100 translate-y-0 pointer-events-auto'
                 : 'opacity-0 translate-y-10 pointer-events-none'
             }`}
           >
-            <div className="relative min-h-[380px] flex flex-col justify-center">
+            <div className="relative min-h-[340px] sm:min-h-[380px] flex flex-col justify-center">
               {domainsData.map((domain, i) => (
                 <div
                   key={domain.id}
-                  className={`absolute inset-0 grid grid-cols-12 gap-8 items-center transition-all duration-600 ease-out ${
+                  className={`absolute inset-0 grid grid-cols-12 gap-4 sm:gap-8 items-center transition-all duration-500 ease-out transform-gpu will-change-[transform,opacity] ${
                     !isTitlePhase && i === activeIndex
-                      ? 'opacity-100 translate-y-0 pointer-events-auto'
+                      ? 'opacity-100 translate-y-0 pointer-events-auto scale-100'
                       : !isTitlePhase && i < activeIndex
-                      ? 'opacity-0 -translate-y-8 pointer-events-none'
-                      : 'opacity-0 translate-y-8 pointer-events-none'
+                      ? 'opacity-0 -translate-y-8 pointer-events-none scale-95'
+                      : 'opacity-0 translate-y-8 pointer-events-none scale-95'
                   }`}
                 >
-                  {/* Left: Domain Text */}
+                  {/* Domain Content */}
                   <div className="col-span-12 md:col-span-8 flex flex-col justify-center">
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="text-xs sm:text-sm font-mono text-amber-400 font-bold uppercase tracking-[0.3em]">
+                    <div className="flex items-center gap-2.5 sm:gap-3 mb-3 sm:mb-4">
+                      <span className="text-xs sm:text-sm font-mono text-amber-400 font-bold uppercase tracking-[0.25em]">
                         {domain.category}
                       </span>
-                      <span className="w-12 h-[1px] bg-amber-400/40" />
+                      <span className="w-8 sm:w-12 h-[1px] bg-amber-400/40" />
+
+                      {/* Mobile Step Badge */}
+                      <span className="md:hidden ml-auto text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-amber-400/15 text-amber-300 border border-amber-400/30">
+                        {domain.number} / 06
+                      </span>
                     </div>
+
                     <h3
-                      className="font-heading font-black text-white tracking-tight leading-[1.05] mb-6"
-                      style={{ fontSize: 'clamp(2.8rem, 6vw, 5.2rem)' }}
+                      className="font-heading font-black text-white tracking-tight leading-[1.08] mb-3 sm:mb-6"
+                      style={{ fontSize: 'clamp(2rem, 5.5vw, 5.2rem)' }}
                     >
                       {domain.title}
                     </h3>
-                    <p className="text-base sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-normal">
+
+                    <p className="text-sm sm:text-lg md:text-xl text-slate-300 leading-relaxed max-w-2xl font-normal">
                       {domain.description}
                     </p>
+
+                    {/* Mobile Progress Dots */}
+                    <div className="md:hidden flex items-center gap-1.5 mt-6">
+                      {domainsData.map((_, dotIdx) => (
+                        <div
+                          key={dotIdx}
+                          className={`h-1.5 rounded-full transition-all duration-300 ${
+                            dotIdx === activeIndex
+                              ? 'w-6 bg-amber-400 shadow-[0_0_8px_rgba(245,158,11,0.6)]'
+                              : 'w-1.5 bg-white/20'
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
 
-                  {/* Right: Transparent Number Watermark (Prominently visible: text-white/25) */}
+                  {/* Desktop Watermark Number */}
                   <div className="hidden md:flex col-span-4 items-center justify-end select-none pointer-events-none">
                     <span
-                      className="font-heading font-black text-white/25 leading-none transition-all duration-600 select-none drop-shadow-[0_4px_35px_rgba(0,0,0,0.8)]"
+                      className="font-heading font-black text-white/25 leading-none transition-all duration-500 select-none drop-shadow-[0_4px_35px_rgba(0,0,0,0.8)]"
                       style={{ fontSize: 'clamp(8rem, 16vw, 14rem)' }}
                     >
                       {domain.number}
