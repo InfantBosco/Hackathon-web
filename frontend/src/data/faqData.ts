@@ -25,12 +25,7 @@ export const faqData: FAQItem[] = [
     question: 'How do I register my team for HackNEX 2026?',
     answer: 'Registration is performed by the Team Leader. Click "REGISTER NOW", create/login to your account, verify your email, create a team, and fill in details for all 3 to 4 team members.',
   },
-  {
-    id: 'faq-2',
-    category: 'REGISTRATION',
-    question: 'What is the deadline for registration?',
-    answer: 'Registration deadline is October 3, 2026 at 4:00 PM. Round updates will be communicated through registered email and official social channels.',
-  },
+
   {
     id: 'faq-3',
     category: 'REGISTRATION',

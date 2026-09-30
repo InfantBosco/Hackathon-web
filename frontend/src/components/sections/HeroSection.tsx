@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown, Calendar, MapPin, Clock, Trophy } from 'lucide-react';
+import { ArrowDown, Calendar, MapPin, Trophy } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { GridBackground } from '../backgrounds/GridBackground';
 import { NeuralNoise } from '../backgrounds/NeuralNoise';
@@ -28,11 +28,6 @@ const heroBadges: HeroBadgeItem[] = [
     label: 'VENUE',
     value: 'KITS, Coimbatore',
     icon: MapPin,
-  },
-  {
-    label: 'REGISTER BY',
-    value: 'Oct 3 | 4:00 PM',
-    icon: Clock,
   },
   {
     label: 'PRIZE POOL',
@@ -220,8 +215,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
           transition={{ type: 'spring', stiffness: 110, damping: 18, delay: 0.55 }}
           className="my-6 sm:my-8"
         >
-          <ContainerScrollBox className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4 w-full">
+          <ContainerScrollBox className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-5 w-full">
               {heroBadges.map((item) => {
                 const Icon = item.icon;
                 return (
