@@ -29,7 +29,7 @@ export const faqData: FAQItem[] = [
     id: 'faq-2',
     category: 'REGISTRATION',
     question: 'What is the deadline for registration?',
-    answer: 'Registration deadline is October 6, 2026 at 6:00 PM. Round updates will be communicated through registered email and official social channels.',
+    answer: 'Registration deadline is October 3, 2026 at 4:00 PM. Round updates will be communicated through registered email and official social channels.',
   },
   {
     id: 'faq-3',
@@ -43,13 +43,13 @@ export const faqData: FAQItem[] = [
     id: 'faq-4',
     category: 'TEAMS',
     question: 'What is the mandatory team size for HackNEX?',
-    answer: 'Every team MUST consist of 3 to 4 members (1 Team Leader + 2 or 3 Team Members). Teams with fewer than 3 or more than 4 members cannot complete registration.',
+    answer: 'Every team MUST consist of 3 to 4 members . ',
   },
   {
     id: 'faq-5',
     category: 'TEAMS',
     question: 'Are cross-college and cross-department teams allowed?',
-    answer: 'Cross-college participation is not allowed and inter-departmental participation is allowed for participants',
+    answer: 'Inter-college teams are allowed for external participants only. Inter-department teams are allowed as well.',
   },
   {
     id: 'faq-6',
@@ -102,8 +102,8 @@ export const faqData: FAQItem[] = [
   {
     id: 'faq-13',
     category: 'ELIGIBILITY',
-    question: 'Are food preferences considered?',
-    answer: 'Yes. Food preferences (Vegetarian / Non-Vegetarian) are recorded individually for each team member during registration and food will be provided respectively.',
+    question: 'Will meals be provided?',
+    answer: 'Yes meals will be provided during the event.',
   },
 
   // Venue

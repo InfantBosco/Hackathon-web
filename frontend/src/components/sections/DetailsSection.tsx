@@ -35,7 +35,6 @@ export const DetailsSection: React.FC = () => {
               <div className="p-4 rounded-xl bg-zinc-900/90 border border-zinc-800">
                 <span className="text-xs font-mono text-zinc-400 block mb-1">TEAM STRUCTURE</span>
                 <p className="font-semibold text-white mb-1">3–4 Members</p>
-                <p className="text-xs text-zinc-400">1 Team Leader + 2 or 3 Members.</p>
               </div>
 
               <div className="p-4 rounded-xl bg-zinc-900/90 border border-zinc-800">
@@ -53,9 +52,9 @@ export const DetailsSection: React.FC = () => {
               </div>
 
               <div className="p-4 rounded-xl bg-zinc-900/90 border border-zinc-800">
-                <span className="text-xs font-mono text-zinc-400 block mb-1">FOOD PREFERENCES</span>
-                <p className="font-semibold text-white mb-1">Veg / Non-Veg Recorded</p>
-                <p className="text-xs text-zinc-400">Specified per participant during registration.</p>
+                <span className="text-xs font-mono text-zinc-400 block mb-1">FOOD</span>
+                <p className="font-semibold text-white mb-1">Veg / Non-Veg Food</p>
+                <p className="text-xs text-zinc-400"></p>
               </div>
             </div>
           </div>
