@@ -40,7 +40,7 @@ export const DetailsSection: React.FC = () => {
               <div className="p-4 rounded-xl bg-zinc-900/90 border border-zinc-800">
                 <span className="text-xs font-mono text-zinc-400 block mb-1">REGISTRATION FEE</span>
                 <p className="font-semibold text-white mb-1">₹{siteConfig.registrationFee} / Person</p>
-                <p className="text-xs text-zinc-400">₹500 × 3 to 4 members = ₹1,500 – ₹2,000 per team.</p>
+                <p className="text-xs text-zinc-400"></p>
               </div>
 
               <div className="p-4 rounded-xl bg-zinc-900/90 border border-zinc-800">

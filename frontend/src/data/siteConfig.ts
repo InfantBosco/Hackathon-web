@@ -4,13 +4,13 @@ export const siteConfig = {
   institution: 'Karunya Institute of Technology and Sciences',
   location: 'Coimbatore, Tamil Nadu, India',
   dates: 'October 8–9, 2026',
-  eventStartDate: '2026-10-07T09:00:00+05:30',
+  eventStartDate: '2026-10-08T09:30:00+05:30',
   mode: 'Offline',
   expectedParticipants: '1,500+',
   teamSize: '3–4',
   registrationFee: 500, // ₹500 per person (₹1,500 – ₹2,000 per team)
   totalTeamFee: 2000,
-  registrationDeadline: 'October 6, 2026, 6:00 PM',
+  registrationDeadline: 'October 3, 2026, 4:00 PM',
   prizePool: '₹1.5L+',
   // REGISTRATION FORM LINKS
   karunyaStudentUrl: 'https://docs.google.com/forms/d/19HQd7qLLCMikdOkJcYr90OwefbOxX6zTPQGQDvQKZ2g/',

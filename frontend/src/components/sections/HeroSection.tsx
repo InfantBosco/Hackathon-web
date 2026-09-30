@@ -31,7 +31,7 @@ const heroBadges: HeroBadgeItem[] = [
   },
   {
     label: 'REGISTER BY',
-    value: 'Oct 6 | 6:00 PM',
+    value: 'Oct 3 | 4:00 PM',
     icon: Clock,
   },
   {
