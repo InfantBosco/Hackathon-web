@@ -163,10 +163,7 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                               Registration Closed
                             </h3>
                             <p className="text-sm sm:text-base text-slate-200 font-sans leading-relaxed max-w-sm mx-auto font-medium">
-                              Registration is closed for External Participants.
-                            </p>
-                            <p className="text-xs text-slate-400 font-sans">
-                              Thank you for your interest in HackNEX 2026!
+                              Registration is closed for External Participants. (Slots are Full)
                             </p>
                           </div>
 
@@ -183,11 +180,6 @@ export const RegistrationModal: React.FC<RegistrationModalProps> = ({ isOpen, on
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
-
-                  {/* Footer note */}
-                  <div className="pt-4 border-t border-white/10 text-[11px] font-mono text-slate-400 relative z-10">
-                    <span>HACKNEX '26 • COIMBATORE</span>
                   </div>
                 </motion.div>
               </Dialog.Content>
