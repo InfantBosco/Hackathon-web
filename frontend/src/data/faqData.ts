@@ -40,6 +40,8 @@ export const faqData: FAQItem[] = [
     question: 'What is the mandatory team size for HackNEX?',
     answer: 'Every team MUST consist of 3 to 4 members . ',
   },
+
+
   {
     id: 'faq-5',
     category: 'TEAMS',
@@ -135,5 +137,12 @@ export const faqData: FAQItem[] = [
     category: 'TECHNICAL',
     question: 'What hardware/software must teams bring?',
     answer: 'Teams must bring their own laptops, chargers, extension cords and required peripherals for their project development. Wi-Fi and power facilities will be provided at the venue.',
+  },
+
+  {
+    id: 'faq-19',
+    category: 'TEAMS',
+    question: 'WhaT registration is recorded?',
+    answer: 'Registration is done through Gform and registration is recorded based on First Come First Serve basis',
   },
 ];
