@@ -45,4 +45,20 @@ export const sponsorsData: SponsorItem[] = [
     logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1789321764/dqfjcvdtxx83hvwt4asi.png',
     websiteUrl: 'https://www.abstryn.tech/',
   },
+  {
+    id: '5',
+    name: 'NABKISAN',
+    category: 'COMMUNITY PARTNER',
+    placeholderText: 'COMMUNITY PARTNER',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1791218288/y3fsllrwszitxdwneye4.png',
+    websiteUrl: 'https://www.nabkisan.org/',
+  },
+  {
+    id: '6',
+    name: 'Asirtech',
+    category: 'COMMUNITY PARTNER',
+    placeholderText: 'COMMUNITY PARTNER',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1791218507/rxyavubzzfnkw4tvten5.png',
+    websiteUrl: 'https://asirtech.com/',
+  },
 ];
