@@ -12,6 +12,7 @@ import { SponsorsSection } from '../components/sections/SponsorsSection';
 import { VenueSection } from '../components/sections/VenueSection';
 import { ContactSection } from '../components/sections/ContactSection';
 import { FAQSection } from '../components/sections/FAQSection';
+import { FinalCTASection } from '../components/sections/FinalCTASection';
 import { Footer } from '../components/navigation/Footer';
 import { BackToTop } from '../components/ui/BackToTop';
 import { ParallaxSection } from '../components/ui/ParallaxSection';
@@ -57,6 +58,7 @@ export const HomePage: React.FC = () => {
     { id: 'venue', component: <VenueSection /> },
     { id: 'contact', component: <ContactSection /> },
     { id: 'faq', component: <FAQSection /> },
+    { id: 'cta', component: <FinalCTASection onRegisterClick={openRegisterModal} /> },
   ];
 
   return (
