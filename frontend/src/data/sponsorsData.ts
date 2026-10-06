@@ -55,10 +55,10 @@ export const sponsorsData: SponsorItem[] = [
   },
   {
     id: '6',
-    name: 'Asirtech',
+    name: 'ASIR Tech',
     category: 'COMMUNITY PARTNER',
     placeholderText: 'COMMUNITY PARTNER',
-    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1791218507/rxyavubzzfnkw4tvten5.png',
+    logoUrl: 'https://res.cloudinary.com/demc5rxwn/image/upload/v1791219153/auk6xqmlee5eyted8zlf.png',
     websiteUrl: 'https://asirtech.com/',
   },
 ];

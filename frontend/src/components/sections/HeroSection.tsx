@@ -6,8 +6,6 @@ import { GridBackground } from '../backgrounds/GridBackground';
 import { NeuralNoise } from '../backgrounds/NeuralNoise';
 import { CountdownTimer } from './CountdownTimer';
 import { heroData } from '../../data/heroData';
-import { siteConfig } from '../../data/siteConfig';
-import { trackEvent } from '../../lib/analytics';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
 import { KineticSpringFloat } from '../ui/KineticSpringFloat';
 
@@ -40,7 +38,7 @@ interface HeroSectionProps {
   onRegisterClick?: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => {
+export const HeroSection: React.FC<HeroSectionProps> = () => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -57,15 +55,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleRegisterClick = () => {
-    trackEvent('register_cta_click', { location: 'hero' });
-    if (onRegisterClick) {
-      onRegisterClick();
-    } else {
-      window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
-    }
-  };
 
   const handleExploreClick = () => {
     const el = document.getElementById('about');
@@ -181,28 +170,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRegisterClick }) => 
           </KineticSpringFloat>
         </div>
 
-        {/* Action CTAs - Placed right below tagline for instant mobile & desktop conversion */}
+        {/* Action CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 22, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ type: 'spring', stiffness: 120, damping: 18, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 my-6"
+          className="flex items-center justify-center my-6"
         >
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={handleRegisterClick}
-            className="w-full sm:w-auto min-w-[230px] font-royal font-black tracking-[0.15em] uppercase text-black text-sm sm:text-base"
-          >
-            REGISTER NOW
-          </Button>
-
           <Button
             variant="secondary"
             size="lg"
             onClick={handleExploreClick}
             rightIcon={<ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />}
-            className="w-full sm:w-auto !h-auto !py-4"
+            className="w-full sm:w-auto min-w-[220px] !h-auto !py-4"
           >
             {heroData.secondaryCtaText}
           </Button>

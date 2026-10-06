@@ -1,23 +1,12 @@
 import React from 'react';
 import { GridBackground } from '../backgrounds/GridBackground';
-import { siteConfig } from '../../data/siteConfig';
-import { trackEvent } from '../../lib/analytics';
-import { Button } from '../ui/Button';
 import { FadeIn } from '../ui/FadeIn';
 
 interface FinalCTASectionProps {
   onRegisterClick?: () => void;
 }
 
-export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onRegisterClick }) => {
-  const handleRegisterClick = () => {
-    trackEvent('register_cta_click', { location: 'final_cta' });
-    if (onRegisterClick) {
-      onRegisterClick();
-    } else {
-      window.open(siteConfig.googleFormUrl, '_blank', 'noopener,noreferrer');
-    }
-  };
+export const FinalCTASection: React.FC<FinalCTASectionProps> = () => {
 
   return (
     <GridBackground className="py-24 border-t border-[var(--color-border-subtle)] text-center relative overflow-hidden">
@@ -35,22 +24,11 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({ onRegisterClic
         </FadeIn>
 
         <FadeIn delay={0.2} direction="up">
-          <p className="text-lg text-[var(--color-text-secondary)] mb-8 max-w-xl mx-auto leading-relaxed">
-            <span>Assemble your team of 3 to 4 and register for <strong className="font-royal font-bold text-white">HackNEX '26</strong>.</span>
+          <p className="text-lg text-[var(--color-text-secondary)] max-w-xl mx-auto leading-relaxed">
+            <span>Assemble your team of 3 to 4 for <strong className="font-royal font-bold text-white">HackNEX '26</strong>.</span>
             <br />
             <span className="inline-block mt-1">October 8–9, 2026 at Karunya University.</span>
           </p>
-        </FadeIn>
-
-        <FadeIn delay={0.3} direction="up">
-          <Button
-            variant="primary"
-            size="lg"
-            onClick={handleRegisterClick}
-            className="min-w-[240px] font-royal font-black tracking-[0.15em] uppercase text-black text-sm sm:text-base"
-          >
-            REGISTER NOW
-          </Button>
         </FadeIn>
       </div>
     </GridBackground>
