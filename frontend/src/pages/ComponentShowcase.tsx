@@ -124,7 +124,7 @@ export const ComponentShowcase: React.FC = () => {
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
           <Button variant="primary">
-            Explore Hackathon
+            Primary Action
           </Button>
           <Button variant="secondary" leftIcon={<Terminal className="w-4 h-4" />}>
             Explore Domains

@@ -7,7 +7,6 @@ interface FinalCTASectionProps {
 }
 
 export const FinalCTASection: React.FC<FinalCTASectionProps> = () => {
-
   return (
     <GridBackground className="py-24 border-t border-[var(--color-border-subtle)] text-center relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 relative z-10">

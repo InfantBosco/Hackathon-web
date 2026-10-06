@@ -56,6 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
   const handleExploreClick = () => {
     const el = document.getElementById('about');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -178,11 +179,11 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
           className="flex items-center justify-center my-6"
         >
           <Button
-            variant="secondary"
+            variant="primary"
             size="lg"
             onClick={handleExploreClick}
             rightIcon={<ArrowDown className="w-4 h-4 transition-transform duration-300 group-hover:translate-y-1" />}
-            className="w-full sm:w-auto min-w-[220px] !h-auto !py-4"
+            className="w-full sm:w-auto min-w-[230px] font-royal font-black tracking-[0.15em] uppercase text-black text-sm sm:text-base !h-auto !py-4"
           >
             {heroData.secondaryCtaText}
           </Button>
