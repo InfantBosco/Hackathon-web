@@ -113,36 +113,59 @@ export const DomainsSection: React.FC = () => {
               </div>
 
               {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-                <Clock className="w-3.5 h-3.5 animate-pulse" />
-                <span>To be Released</span>
-              </div>
+              {siteConfig.problemStatementsPdfUrl ? (
+                <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Available Now</span>
+                </div>
+              ) : (
+                <div className="inline-flex items-center gap-2 py-1.5 px-3.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+                  <Clock className="w-3.5 h-3.5 animate-pulse" />
+                  <span>To be Released</span>
+                </div>
+              )}
             </div>
 
             {/* Description Body */}
             <div className="relative z-10 my-4 max-w-3xl">
               <p className="text-sm sm:text-base text-slate-100 leading-relaxed font-sans font-medium">
-                Official problem statements and track guidelines will be released on the day of the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here.
+                {siteConfig.problemStatementsPdfUrl
+                  ? "Official problem statements and track guidelines are now released! Participants can view and download the complete Problem Statements PDF right here."
+                  : "Official problem statements and track guidelines will be released on the day of the hackathon. Participants will be able to view and download the complete Problem Statements PDF right here."}
               </p>
             </div>
 
             {/* Action Area & PDF Download Button */}
             <div className="relative z-10 pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <Button
-                variant="secondary"
-                size="lg"
-                onClick={handlePdfDownload}
-                leftIcon={
-                  siteConfig.problemStatementsPdfUrl ? (
-                    <Download className="w-4 h-4 text-amber-400" />
-                  ) : (
-                    <Lock className="w-4 h-4 text-slate-400" />
-                  )
-                }
-                className="w-full sm:w-auto font-royal font-bold tracking-wider uppercase text-xs sm:text-sm !py-3.5 px-6"
-              >
-                {siteConfig.problemStatementsPdfUrl ? 'Download Problem Statements (PDF)' : 'Problem Statements: To be Released'}
-              </Button>
+              {siteConfig.problemStatementsPdfUrl ? (
+                <Button
+                  asChild
+                  variant="primary"
+                  size="lg"
+                  className="w-full sm:w-auto font-royal font-bold tracking-wider uppercase text-xs sm:text-sm !py-3.5 px-6 shadow-md"
+                >
+                  <a
+                    href={siteConfig.problemStatementsPdfUrl}
+                    download="HackNEX_2026_Problem_Statements.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2"
+                  >
+                    <Download className="w-4 h-4 text-black" />
+                    <span>Download Problem Statements (PDF)</span>
+                  </a>
+                </Button>
+              ) : (
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  onClick={handlePdfDownload}
+                  leftIcon={<Lock className="w-4 h-4 text-slate-400" />}
+                  className="w-full sm:w-auto font-royal font-bold tracking-wider uppercase text-xs sm:text-sm !py-3.5 px-6"
+                >
+                  Problem Statements: To be Released
+                </Button>
+              )}
 
               {/* Notice Banner if PDF not yet uploaded */}
               {showNotice && (
