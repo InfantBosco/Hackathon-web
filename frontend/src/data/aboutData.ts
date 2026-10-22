@@ -1,3 +1,11 @@
+export interface StatItem {
+  id: string;
+  end: number;
+  prefix?: string;
+  suffix?: string;
+  label: string;
+}
+
 export const aboutData = {
   badge: 'ABOUT HACKNEX',
   title: 'India\'s Premier Student Innovation Hackathon',
@@ -13,7 +21,6 @@ export const aboutData = {
   stats: [
     { id: '1', end: 1500, suffix: '+', label: 'Participants' },
     { id: '2', end: 375, suffix: '+', label: 'Teams' },
-    { id: '3', prefix: '₹', end: 500, label: 'Registration / Person' },
-    { id: '4', end: 2, label: 'Days Sprint' },
-  ],
+    { id: '3', end: 2, label: 'Days Sprint' },
+  ] as StatItem[],
 };

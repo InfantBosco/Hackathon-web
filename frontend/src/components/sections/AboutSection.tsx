@@ -47,7 +47,7 @@ export const AboutSection: React.FC = () => {
 
       {/* 4 Animated Statistics Counters */}
       <FadeIn delay={0.3} direction="up">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 glass-panel rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 p-8 glass-panel rounded-[var(--radius-xl)] border border-[var(--color-border-subtle)]">
           {aboutData.stats.map((stat) => (
             <Counter
               key={stat.id}
