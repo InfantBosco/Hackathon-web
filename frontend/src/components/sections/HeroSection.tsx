@@ -28,7 +28,7 @@ const heroBadges: HeroBadgeItem[] = [
   },
   {
     label: 'PRIZE POOL',
-    value: 'Rs. 1.5Lakhs+',
+    value: 'Rs. 3.5Lakhs+',
     icon: Trophy,
   },
 ];

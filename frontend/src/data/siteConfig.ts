@@ -11,7 +11,7 @@ export const siteConfig = {
   registrationFee: 500, // ₹500 per person (₹1,500 – ₹2,000 per team)
   totalTeamFee: 2000,
   registrationDeadline: 'October 3, 2026, 4:00 PM',
-  prizePool: '₹1.5L+',
+  prizePool: '₹3.5L+',
   // REGISTRATION FORM LINKS
   karunyaStudentUrl: 'https://docs.google.com/forms/d/19HQd7qLLCMikdOkJcYr90OwefbOxX6zTPQGQDvQKZ2g/',
   externalParticipantUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScfCyisgBLOQKOOBaXdTEA5zkrPRz2i1-SXYSscXhPypF7Utw/viewform?usp=publish-editor',
@@ -22,7 +22,10 @@ export const siteConfig = {
   rulesPdfUrl: '/HackNEX_2026_Rules_and_Regulations.pdf',
   socials: {
     linkedin: 'https://www.linkedin.com/company/nexus-gc/',
-    instagram: 'https://www.instagram.com/nexus_kits/',
+    linkedinCSE: 'https://www.linkedin.com/company/karunya-cse/home/',
+    linkedinCIRA: 'https://www.linkedin.com/company/ciracse/home/',
+    instagram: 'https://www.instagram.com/nexuswithgoogle?obrf=MWE0cWNycXdnNndrMg==',
+    instagramCIRA: 'https://www.instagram.com/cira_cse?xtok=MWo5OW4za2Zrb3Znbw==',
     university: 'https://www.karunya.edu/',
   },
 };

@@ -9,6 +9,11 @@ export interface GalleryItem {
   orientation: "landscape" | "portrait";
 }
 
+export function getOptimizedImageUrl(url: string, width: number = 600): string {
+  if (!url) return '';
+  return url.replace(/w_\d+/, `w_${width}`);
+}
+
 export const galleryItems: GalleryItem[] = [
   {
     "id": "muztwlxdqff3vwjznsns",

@@ -4,11 +4,11 @@ export const aboutData = {
   description:
     'HackNEX 2026 is a 24 Hour National Level Hackathon organized by the NEXUS Club at Division of CSE , Karunya Institute of Technology and Sciences. Designed to foster high-impact technical innovation, HackNEX brought together 1,500+ passionate developers, designers, and problem solvers across India.',
   agenda:
-    'Bring your team of 3 to 4 to solve real-world industry challenges across 4 frontier domain tracks, backed by mentorship, networking, and a ₹1.5L+ prize pool.',
+    'Bring your team of 3 to 4 to solve real-world industry challenges across 4 frontier domain tracks, backed by mentorship, networking, and a ₹3.5L+ prize pool.',
   whyParticipate: [
     'Collaborated in a 24-hour continuous offline sprint',
     'Mentorship from top industry veterans & alumni',
-    'Competed for ₹1.5L+ total cash prizes & awards',
+    'Competed for ₹3.5L+ total cash prizes & awards',
   ],
   stats: [
     { id: '1', end: 1500, suffix: '+', label: 'Participants' },

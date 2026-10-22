@@ -1,6 +1,6 @@
 import React from 'react';
 import { siteConfig } from '../../data/siteConfig';
-import { Linkedin, ExternalLink } from 'lucide-react';
+import { Linkedin, ExternalLink, Instagram, Globe } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -46,7 +46,6 @@ export const Footer: React.FC = () => {
               <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
               <li><a href="#about" className="hover:text-white transition-colors">About HackNEX</a></li>
               <li><a href="#theme" className="hover:text-white transition-colors">Hackathon Theme</a></li>
-              <li><a href="#schedule" className="hover:text-white transition-colors">Event Schedule</a></li>
               <li><a href="#gallery" className="hover:text-white transition-colors">Event Highlights & Gallery</a></li>
               <li><a href="#prizes" className="hover:text-white transition-colors">Prizes & Awards</a></li>
             </ul>
@@ -58,28 +57,79 @@ export const Footer: React.FC = () => {
               Connect With Us
             </h4>
             <div className="flex flex-col gap-3 text-xs">
+              {/* NEXUS LinkedIn */}
               <a
                 href={siteConfig.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-white transition-colors"
               >
-                <Linkedin className="w-4 h-4 text-white" />
+                <Linkedin className="w-4 h-4 text-white shrink-0" />
                 <span className="inline-flex items-center gap-1">
                   <img src="/logomain_svg.png" alt="NEXUS Logo" className="h-3.5 w-auto shrink-0 inline-block align-middle" />
                   NEXUS LinkedIn
                 </span>
-                <ExternalLink className="w-3 h-3 opacity-50" />
+                <ExternalLink className="w-3 h-3 opacity-50 shrink-0" />
               </a>
 
+              {/* CSE Karunya LinkedIn */}
+              <a
+                href={siteConfig.socials.linkedinCSE}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4 text-white shrink-0" />
+                <span>CSE Karunya LinkedIn</span>
+                <ExternalLink className="w-3 h-3 opacity-50 shrink-0" />
+              </a>
+
+              {/* CIRA LinkedIn */}
+              <a
+                href={siteConfig.socials.linkedinCIRA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4 text-white shrink-0" />
+                <span>CIRA LinkedIn</span>
+                <ExternalLink className="w-3 h-3 opacity-50 shrink-0" />
+              </a>
+
+              {/* Karunya KITS Website */}
               <a
                 href={siteConfig.socials.university}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-white transition-colors"
               >
+                <Globe className="w-4 h-4 text-white shrink-0" />
                 <span>Karunya KITS Official</span>
-                <ExternalLink className="w-3 h-3 opacity-50" />
+                <ExternalLink className="w-3 h-3 opacity-50 shrink-0" />
+              </a>
+
+              {/* NEXUS Instagram */}
+              <a
+                href={siteConfig.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-white transition-colors"
+              >
+                <Instagram className="w-4 h-4 text-white shrink-0" />
+                <span>NEXUS Instagram</span>
+                <ExternalLink className="w-3 h-3 opacity-50 shrink-0" />
+              </a>
+
+              {/* CIRA Instagram */}
+              <a
+                href={siteConfig.socials.instagramCIRA}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-white transition-colors"
+              >
+                <Instagram className="w-4 h-4 text-white shrink-0" />
+                <span>CIRA Instagram</span>
+                <ExternalLink className="w-3 h-3 opacity-50 shrink-0" />
               </a>
             </div>
           </div>

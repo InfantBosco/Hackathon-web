@@ -4,7 +4,6 @@ import { Navbar } from '../components/navigation/Navbar';
 import { HeroSection } from '../components/sections/HeroSection';
 import { AboutSection } from '../components/sections/AboutSection';
 import { ThemeSection } from '../components/sections/ThemeSection';
-import { ScheduleSection } from '../components/sections/ScheduleSection';
 import { GallerySection } from '../components/sections/GallerySection';
 import { PrizesSection } from '../components/sections/PrizesSection';
 import { SponsorsSection } from '../components/sections/SponsorsSection';
@@ -41,7 +40,6 @@ export const HomePage: React.FC = () => {
     { id: 'home', component: <HeroSection /> },
     { id: 'about', component: <AboutSection /> },
     { id: 'theme', component: <ThemeSection /> },
-    { id: 'schedule', component: <ScheduleSection /> },
     { id: 'gallery', component: <GallerySection /> },
     { id: 'prizes', component: <PrizesSection /> },
     { id: 'sponsors', component: <SponsorsSection /> },

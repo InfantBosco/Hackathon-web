@@ -1,70 +1,64 @@
 import React from 'react';
 import { Section } from '../layout/Section';
-import { Trophy, Award } from 'lucide-react';
+import { Trophy } from 'lucide-react';
 import { prizesData } from '../../data/prizesData';
 import { cn } from '../../lib/utils';
 
 export const PrizesSection: React.FC = () => {
   const prizeCards = [
     {
-      id: '4th-place',
-      rank: '04',
-      title: '4th Place',
-      amount: '₹5,000',
-      icon: Award,
-      iconColor: 'text-white/80 group-hover:text-slate-200',
-      amountColor: 'text-white',
-      badgeBorder: 'border-white/20 text-white/90 bg-white/5 group-hover:border-slate-300 group-hover:shadow-[0_0_15px_rgba(203,213,225,0.35)]',
-      cardClass: 'border-white/10 hover:border-slate-300 hover:shadow-[0_0_30px_rgba(203,213,225,0.45),0_0_60px_rgba(148,163,184,0.2)] min-h-[250px] lg:min-h-[290px] order-4 lg:order-1',
-      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(203,213,225,0.12)_0%,transparent_70%)]',
-    },
-    {
       id: '2nd-place',
       rank: '02',
-      title: 'Runner Up',
-      amount: '₹50,000',
+      title: 'Second Prize',
+      amount: '₹95,000',
       icon: Trophy,
       iconColor: 'text-white group-hover:text-slate-100',
       amountColor: 'text-white',
-      badgeBorder: 'border-white/30 text-white bg-white/5 group-hover:border-slate-200 group-hover:shadow-[0_0_15px_rgba(248,250,252,0.4)]',
-      cardClass: 'border-white/15 hover:border-slate-100 hover:shadow-[0_0_35px_rgba(248,250,252,0.5),0_0_70px_rgba(226,232,240,0.25)] min-h-[290px] lg:min-h-[345px] order-2 lg:order-2',
-      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(248,250,252,0.15)_0%,transparent_70%)]',
+      bulletColor: 'bg-slate-300',
+      badgeBorder: 'border-white/40 text-white bg-white/10 group-hover:border-slate-200 group-hover:shadow-[0_0_15px_rgba(248,250,252,0.4)]',
+      cardClass: 'border-white/15 hover:border-slate-100 hover:shadow-[0_0_35px_rgba(248,250,252,0.5),0_0_70px_rgba(226,232,240,0.25)] min-h-[380px] lg:min-h-[430px] order-2 lg:order-1',
+      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(248,250,252,0.18)_0%,transparent_70%)]',
+      perks: [
+        'Cash prize: ₹50,000',
+        'Three EC-Council vouchers worth ₹15,000 each: ₹45,000',
+        'Total prize value: ₹95,000',
+      ],
     },
     {
       id: '1st-place',
       rank: '01',
-      title: 'First Place Winner',
-      amount: '₹75,000',
+      title: 'First Prize',
+      amount: '₹1,50,000',
       icon: Trophy,
       iconColor: 'text-amber-400 group-hover:text-amber-300',
       amountColor: 'text-amber-400 group-hover:text-amber-300',
-      badgeBorder: 'border-amber-400/80 text-amber-400 bg-amber-400/10 shadow-[0_0_15px_rgba(251,191,36,0.2)] group-hover:border-amber-400 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.45)]',
-      cardClass: 'border-amber-500/40 hover:border-amber-400 hover:shadow-[0_0_40px_rgba(245,158,11,0.55),0_0_80px_rgba(245,158,11,0.25)] min-h-[340px] lg:min-h-[395px] order-1 lg:order-3 shadow-[0_0_25px_rgba(245,158,11,0.1)]',
-      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.18)_0%,transparent_70%)]',
+      bulletColor: 'bg-amber-400',
+      badgeBorder: 'border-amber-400/80 text-amber-300 bg-amber-400/15 shadow-[0_0_15px_rgba(251,191,36,0.3)] group-hover:border-amber-400 group-hover:shadow-[0_0_20px_rgba(245,158,11,0.45)]',
+      cardClass: 'border-amber-500/40 hover:border-amber-400 hover:shadow-[0_0_45px_rgba(245,158,11,0.55),0_0_85px_rgba(245,158,11,0.25)] min-h-[420px] lg:min-h-[480px] order-1 lg:order-2 shadow-[0_0_30px_rgba(245,158,11,0.15)] relative lg:-translate-y-3',
+      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(245,158,11,0.22)_0%,transparent_70%)]',
+      perks: [
+        'Cash prize: ₹75,000',
+        'Three EC-Council vouchers worth ₹25,000 each: ₹75,000',
+        'Total prize value: ₹1,50,000',
+      ],
     },
     {
       id: '3rd-place',
       rank: '03',
-      title: '2nd Runner Up',
-      amount: '₹25,000',
+      title: 'Third Prize',
+      amount: '₹70,000',
       icon: Trophy,
       iconColor: 'text-amber-500 group-hover:text-amber-400',
-      amountColor: 'text-amber-500 group-hover:text-amber-400',
-      badgeBorder: 'border-amber-600/50 text-amber-400 bg-amber-600/10 group-hover:border-[#E5A869] group-hover:shadow-[0_0_15px_rgba(229,168,105,0.4)]',
-      cardClass: 'border-amber-700/30 hover:border-[#E5A869] hover:shadow-[0_0_35px_rgba(229,168,105,0.5),0_0_70px_rgba(205,127,50,0.25)] min-h-[280px] lg:min-h-[330px] order-3 lg:order-4',
-      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(229,168,105,0.15)_0%,transparent_70%)]',
-    },
-    {
-      id: '5th-place',
-      rank: '05',
-      title: '5th Place',
-      amount: '₹5,000',
-      icon: Award,
-      iconColor: 'text-white/80 group-hover:text-zinc-300',
-      amountColor: 'text-white',
-      badgeBorder: 'border-white/20 text-white/90 bg-white/5 group-hover:border-zinc-400 group-hover:shadow-[0_0_15px_rgba(161,161,170,0.35)]',
-      cardClass: 'border-white/10 hover:border-zinc-400 hover:shadow-[0_0_30px_rgba(161,161,170,0.45),0_0_60px_rgba(113,113,122,0.2)] min-h-[250px] lg:min-h-[290px] order-5 lg:order-5',
-      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(161,161,170,0.12)_0%,transparent_70%)]',
+      amountColor: 'text-[#E5A869] group-hover:text-amber-400',
+      bulletColor: 'bg-[#E5A869]',
+      badgeBorder: 'border-amber-600/60 text-amber-400 bg-amber-600/15 group-hover:border-[#E5A869] group-hover:shadow-[0_0_15px_rgba(229,168,105,0.4)]',
+      cardClass: 'border-amber-700/30 hover:border-[#E5A869] hover:shadow-[0_0_35px_rgba(229,168,105,0.5),0_0_70px_rgba(205,127,50,0.25)] min-h-[370px] lg:min-h-[410px] order-3 lg:order-3',
+      innerGlow: 'bg-[radial-gradient(ellipse_at_top,rgba(229,168,105,0.18)_0%,transparent_70%)]',
+      perks: [
+        'Cash prize: ₹25,000, sponsored by ASIR TECH',
+        'Three EC-Council vouchers worth ₹15,000 each: ₹45,000',
+        'Total prize value: ₹70,000',
+      ],
     },
   ];
 
@@ -82,15 +76,15 @@ export const PrizesSection: React.FC = () => {
         </h2>
       </div>
 
-      {/* 5-Column Stepped Podium Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-4.5 xl:gap-5 items-end max-w-7xl mx-auto px-4 sm:px-6">
+      {/* 3-Column Stepped Podium Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end max-w-5xl mx-auto px-4 sm:px-6">
         {prizeCards.map((tier) => {
           const Icon = tier.icon;
           return (
             <div
               key={tier.id}
               className={cn(
-                'group relative rounded-2xl sm:rounded-3xl p-5 sm:p-6 bg-[#0c0d14]/85 backdrop-blur-md border flex flex-col transition-all duration-300 hover:-translate-y-2 overflow-hidden',
+                'group relative rounded-2xl sm:rounded-3xl p-6 sm:p-7 bg-[#0c0d14]/85 backdrop-blur-md border flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 overflow-hidden',
                 tier.cardClass
               )}
             >
@@ -102,30 +96,49 @@ export const PrizesSection: React.FC = () => {
                 )}
               />
 
-              {/* Top: Rank Circle */}
-              <div className="relative z-10 flex justify-center w-full mb-6 sm:mb-7">
-                <div
-                  className={cn(
-                    'w-11 h-11 sm:w-12 sm:h-12 rounded-full border flex items-center justify-center font-heading font-bold text-sm tracking-wider select-none transition-all duration-300',
-                    tier.badgeBorder
-                  )}
-                >
-                  {tier.rank}
+              <div>
+                {/* Top: Rank Circle */}
+                <div className="relative z-10 flex justify-center w-full mb-6">
+                  <div
+                    className={cn(
+                      'w-12 h-12 sm:w-14 sm:h-14 rounded-full border flex items-center justify-center font-heading font-bold text-base tracking-wider select-none transition-all duration-300',
+                      tier.badgeBorder
+                    )}
+                  >
+                    {tier.rank}
+                  </div>
+                </div>
+
+                {/* Title & Big Amount */}
+                <div className="relative z-10 text-left w-full">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Icon className={cn('w-4 h-4 shrink-0 transition-colors duration-300', tier.iconColor)} />
+                    <span className="font-heading font-bold text-white text-base sm:text-lg">
+                      {tier.title}
+                    </span>
+                  </div>
+
+                  <div className={cn('text-3xl sm:text-4xl font-heading font-black tracking-tight transition-colors duration-300', tier.amountColor)}>
+                    {tier.amount}
+                  </div>
                 </div>
               </div>
 
-              {/* Directly below numbers: Title, Amount */}
-              <div className="relative z-10 text-left w-full">
-                <div className="flex items-center gap-2 mb-2">
-                  <Icon className={cn('w-4 h-4 shrink-0 transition-colors duration-300', tier.iconColor)} />
-                  <span className="font-heading font-bold text-white text-sm sm:text-base">
-                    {tier.title}
-                  </span>
-                </div>
-
-                <div className={cn('text-2xl sm:text-3xl xl:text-4xl font-heading font-black tracking-tight transition-colors duration-300', tier.amountColor)}>
-                  {tier.amount}
-                </div>
+              {/* Detailed Perks Breakdown */}
+              <div className="relative z-10 w-full mt-6 pt-5 border-t border-white/10">
+                <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                  {tier.perks.map((perk, idx) => {
+                    const isTotal = idx === tier.perks.length - 1;
+                    return (
+                      <li key={idx} className="flex items-start gap-2.5 leading-relaxed">
+                        <span className={cn('mt-1.5 w-1.5 h-1.5 rounded-full shrink-0', tier.bulletColor)} />
+                        <span className={isTotal ? 'font-semibold text-white' : 'text-slate-300'}>
+                          {perk}
+                        </span>
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
           );
@@ -134,3 +147,5 @@ export const PrizesSection: React.FC = () => {
     </Section>
   );
 };
+
+export default PrizesSection;
