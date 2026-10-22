@@ -47,6 +47,7 @@ export const Footer: React.FC = () => {
               <li><a href="#about" className="hover:text-white transition-colors">About HackNEX</a></li>
               <li><a href="#theme" className="hover:text-white transition-colors">Hackathon Theme</a></li>
               <li><a href="#schedule" className="hover:text-white transition-colors">Event Schedule</a></li>
+              <li><a href="#gallery" className="hover:text-white transition-colors">Event Highlights & Gallery</a></li>
               <li><a href="#prizes" className="hover:text-white transition-colors">Prizes & Awards</a></li>
             </ul>
           </div>

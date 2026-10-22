@@ -33,6 +33,6 @@ export const domainsData: DomainItem[] = [
     number: '04',
     title: 'EDGE AI',
     category: 'DOMAIN 04',
-    description: 'Build intelligent systems that bring AI closer to where data is generated. Explore on-device inference, edge computing, lightweight AI models, computer vision, and real-time decision-making to create solutions that are fast, efficient, privacy-aware, and capable of operating with limited connectivity.',
+    description: 'Built intelligent systems that bring AI closer to where data is generated. Explore on-device inference, edge computing, lightweight AI models, computer vision, and real-time decision-making to create solutions that are fast, efficient, privacy-aware, and capable of operating with limited connectivity.',
   },
 ];

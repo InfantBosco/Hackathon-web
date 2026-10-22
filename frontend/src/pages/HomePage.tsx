@@ -5,6 +5,7 @@ import { HeroSection } from '../components/sections/HeroSection';
 import { AboutSection } from '../components/sections/AboutSection';
 import { ThemeSection } from '../components/sections/ThemeSection';
 import { ScheduleSection } from '../components/sections/ScheduleSection';
+import { GallerySection } from '../components/sections/GallerySection';
 import { PrizesSection } from '../components/sections/PrizesSection';
 import { SponsorsSection } from '../components/sections/SponsorsSection';
 import { VenueSection } from '../components/sections/VenueSection';
@@ -41,6 +42,7 @@ export const HomePage: React.FC = () => {
     { id: 'about', component: <AboutSection /> },
     { id: 'theme', component: <ThemeSection /> },
     { id: 'schedule', component: <ScheduleSection /> },
+    { id: 'gallery', component: <GallerySection /> },
     { id: 'prizes', component: <PrizesSection /> },
     { id: 'sponsors', component: <SponsorsSection /> },
     { id: 'venue', component: <VenueSection /> },

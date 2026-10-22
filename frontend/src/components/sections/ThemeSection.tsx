@@ -52,7 +52,7 @@ export const ThemeSection: React.FC = () => {
       <SectionHeader
         badge="HACKATHON THEME"
         title="Innovation Focus Tracks"
-        subtitle="Build impactful technical solutions across 4 core innovation tracks."
+        subtitle="Built impactful technical solutions across 4 core innovation tracks."
       />
 
       <div className="relative max-w-4xl mx-auto my-6">

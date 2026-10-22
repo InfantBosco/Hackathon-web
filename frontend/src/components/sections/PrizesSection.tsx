@@ -77,14 +77,9 @@ export const PrizesSection: React.FC = () => {
         </div>
 
         {/* Section Heading */}
-        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black text-white tracking-tight mt-4 mb-3">
+        <h2 className="text-3xl sm:text-5xl lg:text-6xl font-heading font-black text-white tracking-tight mt-4 mb-12 sm:mb-16">
           Grand Prize Pool {prizesData.totalPool}
         </h2>
-
-        {/* Subtitle */}
-        <p className="text-sm sm:text-base text-zinc-300 font-sans max-w-2xl mx-auto leading-relaxed mb-12 sm:mb-16">
-          Compete for cash rewards, incubation opportunities, and national recognition across 5 winning ranks.
-        </p>
       </div>
 
       {/* 5-Column Stepped Podium Grid */}
