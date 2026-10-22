@@ -4,7 +4,7 @@ import { SectionHeader } from '../layout/SectionHeader';
 import { Card } from '../ui/Card';
 import { Counter } from '../ui/Counter';
 import { aboutData } from '../../data/aboutData';
-import { CheckCircle2, Target, Award } from 'lucide-react';
+import { CheckCircle2, Award } from 'lucide-react';
 import { FadeIn } from '../ui/FadeIn';
 import { KineticSpringFloat } from '../ui/KineticSpringFloat';
 import { ChiefGuestSlider } from '../ui/ChiefGuestSlider';
@@ -18,31 +18,9 @@ export const AboutSection: React.FC = () => {
         subtitle={aboutData.description}
       />
 
-      {/* Agenda & Why Participate Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+      {/* Centered Why Participate Card */}
+      <div className="max-w-2xl mx-auto mb-16">
         <FadeIn delay={0.1} direction="up">
-          <Card variant="hoverGlow" className="flex flex-col justify-between h-full">
-            <div>
-              <div className="flex items-center gap-3 mb-4 text-[var(--color-accent-cyan)]">
-                <Target className="w-6 h-6" />
-                <h3 className="text-xl font-heading font-bold text-white">Event Agenda</h3>
-              </div>
-              <KineticSpringFloat
-                as="p"
-                mode="words"
-                staggerDelay={0.02}
-                className="text-sm text-[var(--color-text-secondary)] leading-relaxed"
-              >
-                {aboutData.agenda}
-              </KineticSpringFloat>
-            </div>
-            <div className="mt-6 pt-4 border-t border-[var(--color-border-subtle)] font-mono text-xs text-[var(--color-accent-cyan)]">
-              OCTOBER 8 — 9, 2026 • COIMBATORE
-            </div>
-          </Card>
-        </FadeIn>
-
-        <FadeIn delay={0.2} direction="up">
           <Card variant="hoverGlow" className="flex flex-col justify-between h-full">
             <div>
               <div className="flex items-center gap-3 mb-4 text-[var(--color-accent-purple)]">

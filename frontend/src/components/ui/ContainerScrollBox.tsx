@@ -61,10 +61,12 @@ export const ContainerScrollBox: React.FC<ContainerScrollBoxProps> = ({
     return <div className={className}>{children}</div>;
   }
 
+  const isFullHeight = className.includes('h-full');
+
   return (
     <div
       ref={containerRef}
-      className={`w-full [perspective:1000px] flex items-end justify-center ${className}`}
+      className={`w-full [perspective:1000px] flex ${isFullHeight ? 'items-stretch' : 'items-end'} justify-center ${className}`}
     >
       <motion.div
         style={{
@@ -74,7 +76,7 @@ export const ContainerScrollBox: React.FC<ContainerScrollBoxProps> = ({
           translateY,
           transformStyle: 'preserve-3d',
         }}
-        className="w-full will-change-transform"
+        className={`w-full will-change-transform ${isFullHeight ? 'h-full flex flex-col' : ''}`}
       >
         {children}
       </motion.div>

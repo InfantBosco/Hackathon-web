@@ -4,7 +4,6 @@ import { ArrowDown, Calendar, MapPin, Trophy } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { GridBackground } from '../backgrounds/GridBackground';
 import { NeuralNoise } from '../backgrounds/NeuralNoise';
-import { CountdownTimer } from './CountdownTimer';
 import { heroData } from '../../data/heroData';
 import { ContainerScrollBox } from '../ui/ContainerScrollBox';
 import { KineticSpringFloat } from '../ui/KineticSpringFloat';
@@ -40,22 +39,6 @@ interface HeroSectionProps {
 
 export const HeroSection: React.FC<HeroSectionProps> = () => {
   const sectionRef = React.useRef<HTMLDivElement>(null);
-  const [isScrolled, setIsScrolled] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
 
   const handleExploreClick = () => {
     const el = document.getElementById('about');
@@ -226,20 +209,6 @@ export const HeroSection: React.FC<HeroSectionProps> = () => {
               })}
             </div>
           </ContainerScrollBox>
-        </motion.div>
-
-        {/* Live Event Countdown Timer - Fades in on Scroll */}
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{
-            opacity: isScrolled ? 1 : 0,
-            y: isScrolled ? 0 : 20,
-            scale: isScrolled ? 1 : 0.95,
-          }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className={`mb-4 ${isScrolled ? 'pointer-events-auto' : 'pointer-events-none'}`}
-        >
-          <CountdownTimer />
         </motion.div>
       </div>
     </GridBackground>

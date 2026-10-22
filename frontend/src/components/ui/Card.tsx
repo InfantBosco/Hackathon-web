@@ -27,7 +27,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
         ref={ref}
         whileHover={variant === 'interactive' ? { y: -4 } : undefined}
         transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-        className={cn('will-change-transform h-full', variantStyles[variant], className)}
+        className={cn('will-change-transform h-full flex flex-col', variantStyles[variant], className)}
         {...props}
       >
         {children}

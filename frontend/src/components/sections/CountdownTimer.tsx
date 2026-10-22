@@ -37,11 +37,7 @@ export const CountdownTimer: React.FC = () => {
   }, []);
 
   if (isCompleted) {
-    return (
-      <div className="glass-panel px-6 py-4 rounded-[var(--radius-lg)] text-center text-lg font-heading font-bold text-white border border-white/40 shadow-[0_0_25px_rgba(255,255,255,0.4)]">
-        HACKNEX 2026 IS LIVE!
-      </div>
-    );
+    return null;
   }
 
   const formatNumber = (num: number) => num.toString().padStart(2, '0');
