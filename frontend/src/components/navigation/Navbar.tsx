@@ -8,13 +8,10 @@ const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Theme', href: '#theme' },
-  { name: 'Problem Statements', href: '#problem-statements' },
-  { name: 'Rules', href: '#details' },
   { name: 'Schedule', href: '#schedule' },
   { name: 'Prizes', href: '#prizes' },
   { name: 'Sponsors', href: '#sponsors' },
   { name: 'Contact', href: '#contact' },
-  { name: 'FAQ', href: '#faq' },
 ];
 
 const staggeredItems = navLinks.map((link) => ({

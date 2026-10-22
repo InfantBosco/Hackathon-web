@@ -13,11 +13,11 @@ export interface NavItem {
 const defaultNavItems: NavItem[] = [
   { name: "Home", href: "#home" },
   { name: "About", href: "#about" },
-  { name: "Domains", href: "#domains" },
+  { name: "Theme", href: "#theme" },
   { name: "Schedule", href: "#schedule" },
   { name: "Prizes", href: "#prizes" },
   { name: "Sponsors", href: "#sponsors" },
-  { name: "FAQ", href: "#faq" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const EXPAND_SCROLL_THRESHOLD = 80;

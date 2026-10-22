@@ -4,14 +4,11 @@ import { Navbar } from '../components/navigation/Navbar';
 import { HeroSection } from '../components/sections/HeroSection';
 import { AboutSection } from '../components/sections/AboutSection';
 import { ThemeSection } from '../components/sections/ThemeSection';
-import { ProblemStatementsSection } from '../components/sections/ProblemStatementsSection';
-import { DetailsSection } from '../components/sections/DetailsSection';
 import { ScheduleSection } from '../components/sections/ScheduleSection';
 import { PrizesSection } from '../components/sections/PrizesSection';
 import { SponsorsSection } from '../components/sections/SponsorsSection';
 import { VenueSection } from '../components/sections/VenueSection';
 import { ContactSection } from '../components/sections/ContactSection';
-import { FAQSection } from '../components/sections/FAQSection';
 import { Footer } from '../components/navigation/Footer';
 import { BackToTop } from '../components/ui/BackToTop';
 import { ParallaxSection } from '../components/ui/ParallaxSection';
@@ -43,14 +40,11 @@ export const HomePage: React.FC = () => {
     { id: 'home', component: <HeroSection /> },
     { id: 'about', component: <AboutSection /> },
     { id: 'theme', component: <ThemeSection /> },
-    { id: 'problem-statements', component: <ProblemStatementsSection /> },
-    { id: 'details', component: <DetailsSection /> },
     { id: 'schedule', component: <ScheduleSection /> },
     { id: 'prizes', component: <PrizesSection /> },
     { id: 'sponsors', component: <SponsorsSection /> },
     { id: 'venue', component: <VenueSection /> },
     { id: 'contact', component: <ContactSection /> },
-    { id: 'faq', component: <FAQSection /> },
   ];
 
   return (
